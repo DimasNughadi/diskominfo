@@ -124,7 +124,7 @@ class Auth extends CI_Controller
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-dager" role="alert">Akun Belum Terdaftar! </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar!</div>');
             redirect('auth');
         }
     }
