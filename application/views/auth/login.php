@@ -40,14 +40,15 @@
                         </div>
                         <div class="login-form">
                             <h4>Administrator Login</h4>
-                            <form>
+                            <?= $this->session->flashdata('message'); ?>
+                            <form method="post" action="<?= base_url('auth'); ?>">
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="email" class="form-control" placeholder="Username">
+                                    <input type="text" name="username"  value="<?= set_value('email'); ?>" class="form-control" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" value="<?= set_value('nama'); ?>"  class="form-control" placeholder="Password">
                                 </div>
                                 <div class="checkbox">
                                     <label>
