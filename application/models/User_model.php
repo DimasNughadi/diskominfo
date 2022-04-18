@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class User_model extends CI_Model
 {
     public $table = 'user';
-    public $id = 'user.id';
+    public $id = 'user.id_user';
     public function __construct()
     {
         parent::__construct();
@@ -28,7 +28,7 @@ class User_model extends CI_Model
     public function getById($id)
     {
         $this->db->from($this->table);
-        $this->db->where('id', $id);
+        $this->db->where('id_user', $id);
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -73,7 +73,7 @@ class User_model extends CI_Model
         // update status value in database 
         $data = array('status' => $sval);
 
-        $this->db->where('id', $id);
+        $this->db->where('id_user', $id);
 
         return $this->db->update('user', $data);
     }

@@ -23,9 +23,9 @@ class Auth extends CI_Controller
             'required' => 'Password Wajib di isi'
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view("layout/auth_header.php");
+            // $this->load->view("layout/auth_header.php");
             $this->load->view("auth/login");
-            $this->load->view("layout/auth_footer.php");
+            // $this->load->view("layout/auth_footer.php");
         } else {
             $this->cek_login();
         }
@@ -104,7 +104,7 @@ class Auth extends CI_Controller
                     'username' => $user['username'],
                     'role' => $user['role'],
                     'status' => $user['status'],
-                    'id' => $user['id'],
+                    'id_user' => $user['id_user'],
                 ];
                 if ($user['status'] == "Active") {
                     $this->session->set_userdata($data);
