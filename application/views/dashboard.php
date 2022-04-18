@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Focus Admin: Creative Admin Dashboard</title>
+	<title>Manajemen Aset: Dashboard</title>
 	<!-- ================= Favicon ================== -->
 	<!-- Standard -->
 	<link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
@@ -316,10 +316,10 @@
 						<div class="col-lg-3">
 							<div class="card">
 								<div class="stat-widget-one">
-									<div class="stat-icon dib"><i class="ti-layout-grid2 color-pink border-pink"></i>
+									<div class="stat-icon dib"><i class="ti-pulse color-danger border-danger"></i>
 									</div>
 									<div class="stat-content dib">
-										<div class="stat-text">Active Projects</div>
+										<div class="stat-text">Aset Kritis</div>
 										<div class="stat-digit">...</div>
 									</div>
 								</div>
@@ -328,7 +328,7 @@
 						<div class="col-lg-3">
 							<div class="card">
 								<div class="stat-widget-one">
-									<div class="stat-icon dib"><i class="ti-file color-danger border-danger"></i></div>
+									<div class="stat-icon dib"><i class="ti-file color-dark border-dark"></i></div>
 									<div class="stat-content dib">
 										<div class="stat-text">Data Laporan</div>
 										<div class="stat-digit">...</div>
