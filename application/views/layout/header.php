@@ -37,18 +37,18 @@
 		<div class="nano">
 			<div class="nano-content">
 				<ul>
-					<div class="logo"><a href="index.html">
+					<div class="logo"><a href="Dashboard">
 							<!-- <img src="<?=base_url('assets/')?>images/logo.png" alt="" /> --><span>DISKOMINFO</span></a>
 					</div>
 					<li class="label">Main</li>
-					<li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard</a>
+					<li><a href="Dashboard"><i class="ti-home"></i> Dashboard</a>
 					</li>
 
 					<li class="label">Apps</li>
-					<li><a class="sidebar-sub-toggle"><i class="ti-package"></i> Assets </a></li>
-					<li><a href="app-profile.html"><i class="ti-user"></i> Account</a></li>
-					<li><a href="../documentation/index.html"><i class="ti-file"></i> Report</a></li>
-					<li><a><i class="ti-close"></i> Logout</a></li>
+					<li><a href="Aset"><i class="ti-package"></i> Assets </a></li>
+					<li><a href="Akun"><i class="ti-user"></i> Account</a></li>
+					<li><a href="Report"><i class="ti-file"></i> Report</a></li>
+					<li><a href="Logout "><i class="ti-close"></i> Logout</a></li>
 				</ul>
 			</div>
 		</div>
