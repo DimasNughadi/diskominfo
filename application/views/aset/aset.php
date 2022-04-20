@@ -19,39 +19,29 @@
                                         <th>Owner</th>
                                         <th>Subclass</th>
                                         <th>Used By</th>
+                                        <!-- <th>Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($aset as $us) : ?>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
+                                        <th scope="row"><?= $i; ?></th>
+                                        <td><?= $us['no_aset']; ?></td>
+                                        <td><?= $us['nama_aset']; ?></td>
+                                        <td><?= $us['jenis_aset']; ?></td>
+                                        <td><?= $us['owner_aset']; ?></td>
+                                        <td><?= $us['lokasi_aset']; ?></td>
+                                        <td><?= $us['subclass_aset']; ?></td>
+                                        <td><?= $us['used_by']; ?></td>
+                                        <!-- <td>
+                                            <a href="<?= base_url('Aset/detail') . $us[id_aset]; ?>"></a>
+                                            <a href="<?= base_url('Aset/detail') . $us[id_aset]; ?>"></a>
+                                            <a href="<?= base_url('Aset/detail') . $us[id_aset]; ?>"></a>
+                                        </td> -->
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                        <td>...</td>
-                                    </tr>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
