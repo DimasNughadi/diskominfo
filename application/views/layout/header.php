@@ -22,6 +22,8 @@
 	<link href="<?=base_url('assets/')?>css/lib/chartist/chartist.min.css" rel="stylesheet">
 	<link href="<?=base_url('assets/')?>css/lib/font-awesome.min.css" rel="stylesheet">
 	<link href="<?=base_url('assets/')?>css/lib/themify-icons.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="<?=base_url('assets/')?>css/lib/jsgrid/jsgrid.min.css" type="text/css" rel="stylesheet" />
 	<link href="<?=base_url('assets/')?>css/lib/owl.carousel.min.css" rel="stylesheet" />
 	<link href="<?=base_url('assets/')?>css/lib/owl.theme.default.min.css" rel="stylesheet" />
 	<link href="<?=base_url('assets/')?>css/lib/weather-icons.css" rel="stylesheet" />
@@ -48,7 +50,7 @@
 					<li><a href="Aset"><i class="ti-package"></i> Assets </a></li>
 					<li><a href="Akun"><i class="ti-user"></i> Account</a></li>
 					<li><a href="Report"><i class="ti-file"></i> Report</a></li>
-					<li><a href="Logout "><i class="ti-close"></i> Logout</a></li>
+					<li><a href="Auth/logout"><i class="ti-close"></i> Logout</a></li>
 				</ul>
 			</div>
 		</div>

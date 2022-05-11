@@ -33,6 +33,14 @@
 	<script src="<?=base_url('assets/')?>js/lib/sparklinechart/sparkline.init.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/owl-carousel/owl.carousel.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/owl-carousel/owl.carousel-init.js"></script>
+	<script src="<?=base_url('assets/')?>js/lib/data-table/jquery-3.5.1"></script>
+	<script src="<?=base_url('assets/')?>js/lib/data-table/jquery.dataTables.min"></script>
+	<script src="<?=base_url('assets/')?>js/lib/data-table/dataTables.bootstrap4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+    		$('#example1').DataTable();
+		} );
+	</script>
 	<!-- scripit init-->
 	<script src="<?=base_url('assets/')?>js/dashboard2.js"></script>
 </body>
