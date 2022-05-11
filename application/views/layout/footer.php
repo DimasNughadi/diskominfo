@@ -1,14 +1,14 @@
-					<!-- /# row -->	
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="footer">
-								<p>2018 © Admin Board. - <a href="#">example.com</a></p>
-							</div>
-						</div>
-					</div>
-				</section>
+	<!-- /# row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="footer">
+				<p>2018 © Admin Board. - <a href="#">example.com</a></p>
 			</div>
 		</div>
+	</div>
+	</section>
+	</div>
+	</div>
 	</div>
 
 	<!-- jquery vendor -->
@@ -33,16 +33,64 @@
 	<script src="<?=base_url('assets/')?>js/lib/sparklinechart/sparkline.init.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/owl-carousel/owl.carousel.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/owl-carousel/owl.carousel-init.js"></script>
-	<script src="<?=base_url('assets/')?>js/lib/data-table/jquery-3.5.1"></script>
-	<script src="<?=base_url('assets/')?>js/lib/data-table/jquery.dataTables.min"></script>
-	<script src="<?=base_url('assets/')?>js/lib/data-table/dataTables.bootstrap4.min.js"></script>
-	<script>
-		$(document).ready(function() {
-    		$('#example1').DataTable();
-		} );
-	</script>
 	<!-- scripit init-->
 	<script src="<?=base_url('assets/')?>js/dashboard2.js"></script>
-</body>
 
-</html>
+	<!-- jQuery -->
+	<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- DataTables  & Plugins -->
+	<script src="<?= base_url('assets/') ?>plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/jszip/jszip.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/pdfmake/pdfmake.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/pdfmake/vfs_fonts.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
+	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="<?= base_url('assets/') ?>dist/js/adminlte.min.js"></script>
+	<!-- AdminLTE for demo purposes -->
+	<script src="<?= base_url('assets/') ?>dist/js/demo.js"></script>
+	<!-- SweetAlert2 -->
+	<script src="<?= base_url('assets/') ?>plugins/sweetalert2/sweetalert2.min.js"></script>
+	<!-- Bootstrap Switch -->
+	<script src="<?= base_url('assets/') ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+	<!-- Page specific script -->
+
+
+	<script>
+		$(function () {
+			$(".custom-file-input").on("change", function () {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+			})
+			$("input[data-bootstrap-switch]").each(function () {
+				$(this).bootstrapSwitch('state', $(this).prop('checked'));
+			})
+			$("#example1").DataTable({
+				"responsive": true,
+				"lengthChange": false,
+				"autoWidth": false,
+				"buttons": ["colvis"]
+			}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+			$('#example2').DataTable({
+				"paging": true,
+				"lengthChange": false,
+				"searching": false,
+				"ordering": true,
+				"info": true,
+				"autoWidth": false,
+				"responsive": true,
+			});
+		});
+
+	</script>
+	</body>
+
+	</html>
