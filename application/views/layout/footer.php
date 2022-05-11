@@ -18,16 +18,12 @@
 	<script src="<?=base_url('assets/')?>js/lib/menubar/sidebar.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/preloader/pace.min.js"></script>
 	<!-- sidebar -->
-
 	<script src="<?=base_url('assets/')?>js/lib/bootstrap.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/scripts.js"></script>
 	<!-- bootstrap -->
-
 	<script src="<?=base_url('assets/')?>js/lib/calendar-2/moment.latest.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/calendar-2/pignose.calendar.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/calendar-2/pignose.init.js"></script>
-
-
 	<script src="<?=base_url('assets/')?>js/lib/weather/jquery.simpleWeather.min.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/weather/weather-init.js"></script>
 	<script src="<?=base_url('assets/')?>js/lib/circle-progress/circle-progress.min.js"></script>
