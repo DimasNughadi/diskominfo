@@ -104,7 +104,7 @@
 															<!-- /.modal-dialog -->
 														</div>
 														<!-- /.modal -->
-														<button type="button" class="btn btn-success sbtn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-pencil"></i>
 														</button>
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
