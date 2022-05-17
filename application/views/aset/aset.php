@@ -20,7 +20,7 @@
 								<?= $this->session->flashdata('message'); ?>
 								<!-- /.card-header -->
 								<div class="card-body">
-									<table id="example1" class="table table-bordered table-striped" mt_getrandmax>
+									<table id="example1" class="table table-bordered table-striped">
 										<thead>
 											<tr>
 												<th>No</th>
@@ -65,31 +65,31 @@
 																		<div class="card card-primary card-outline">
 																			<div class="card-body box-profile">
 
-																				<h3 class="profile-username text-center"><?php echo $us['no_aset']; ?></h3>
+																				<h3 class="profile-username text-center"><?php echo $us['nama_aset']; ?></h3>
 
 																				<p class="text-muted text-center">
-																					<?php echo $us['nama_aset']; ?></h3>
+																					<?php echo $us['jenis_aset']; ?></h3>
 																				</p>
 
 																				<ul class="list-group list-group-unbordered mb-3">
 																					<li class="list-group-item">
-																						<b>Nama</b>
+																						<b>Nama Aset</b> <a class="float-right"><?= $us['nama_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Nama Paket</b>
-																						<a class="float-right">
-
-																						</a>
+																						<b>Nomor Aset</b> <a class="float-right"><?= $us['no_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Harga</b>
-
-																						</a>
+																						<b>Owner</b> <a class="float-right"><?= $us['owner_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>No HP</b>
+																						<b>Lokasi</b> <a class="float-right"><?= $us['lokasi_aset']; ?></a>
 																					</li>
-
+																					<li class="list-group-item">
+																						<b>Subclass</b> <a class="float-right"><?= $us['subclass_aset']; ?></a>
+																					</li>
+																					<li class="list-group-item">
+																						<b>Used by</b> <a class="float-right"><?= $us['used_by']; ?></a>
+																					</li>
 																				</ul>
 																			</div>
 																			<!-- /.card-body -->
@@ -104,7 +104,7 @@
 															<!-- /.modal-dialog -->
 														</div>
 														<!-- /.modal -->
-														<button type="button" class="btn btn-success	 btn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-success sbtn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-pencil"></i>
 														</button>
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
