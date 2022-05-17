@@ -54,6 +54,7 @@
 
 					<li class="label">Apps</li>
 					<li><a href="Aset"><i class="ti-package"></i> Assets </a></li>
+					<li><a href="Resiko"><i class="ti-support"></i> Risk </a></li>
 					<li><a href="Akun"><i class="ti-user"></i> Account</a></li>
 					<li><a href="Report"><i class="ti-file"></i> Report</a></li>
 					<li><a href="Auth/logout"><i class="ti-close"></i> Logout</a></li>
