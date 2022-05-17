@@ -254,7 +254,6 @@
 												<a href="#">
 													<i class="ti-power-off"></i>
 													<span>Logout</span>
-													<script>confim("logout?");</script>
 												</a>
 											</li>
 										</ul>
