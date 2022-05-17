@@ -44,19 +44,19 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Jenis Aset</label>
                                         <div class="form-group">
-                                            <select class="form-control">
+                                            <select name="jenis_aset" class="form-control">
                                                 <option selected disabled>Pilih jenis aset</option>
                                                 <option value="Fisik">Fisik</option>
                                                 <option value="Non Fisik">Non Fisik</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <br />
-                                    <br />
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
+                                    <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
                                 </div>
                                 <!-- /.card-body -->
-
-
                         </div>
                         <!-- /.card -->
                     </div>
@@ -92,10 +92,7 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <div class="card-footer">
-                            <button type="submit" name="tambah" class="btn btn-primary">Simpan Data</button>
-                            <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
-                        </div>
+
                         <!-- /.card -->
                         </form>
                     </div>

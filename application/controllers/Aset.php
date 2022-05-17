@@ -6,10 +6,11 @@ class Aset extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('User_model');
         $this->load->model('Aset_model');
     }
 
-    function index()
+    public function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
@@ -33,9 +34,7 @@ class Aset extends CI_Controller {
         $this->form_validation->set_rules('nama_aset', 'Nama Aset', 'required', [
             'required' => 'Nama Aset Wajib di isi'
         ]);
-        $this->form_validation->set_rules('jenis_aset', 'Jenis Aset', 'required', [
-            'required' => 'Jenis Aset Wajib di isi'
-        ]);
+
         $this->form_validation->set_rules('owner_aset', 'Ownet Aset', 'required', [
             'required' => 'Ownet Aset Wajib di isi'
         ]);
