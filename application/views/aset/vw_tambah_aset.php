@@ -55,10 +55,7 @@
                                     <br />
                                 </div>
                                 <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <button type="submit" name="simpan" class="btn btn-primary">Simpan Data</button>
-                                    <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
-                                </div>
+
 
                         </div>
                         <!-- /.card -->
@@ -91,8 +88,13 @@
                                     <input type="text" class="form-control" name="used_by" value="<?= set_value('used_by'); ?>" id="used_by" placeholder="Masukkan Pengguna Aset">
                                     <?= form_error('used_by', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
+                                <br><br>
                             </div>
                             <!-- /.card-body -->
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" name="tambah" class="btn btn-primary">Simpan Data</button>
+                            <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
                         </div>
                         <!-- /.card -->
                         </form>

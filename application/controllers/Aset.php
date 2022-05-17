@@ -19,10 +19,11 @@ class Aset extends CI_Controller {
 
     }
 
-    function tambah()
+    public function tambah()
     {
         $data['judul'] = "Tambah Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
         $this->form_validation->set_rules('id_user', 'ID User', 'required', [
             'required' => 'ID User Wajib di isi'
         ]);
