@@ -1,4 +1,3 @@
-	<script>alert("Selamat datang");</script>
 	<div class="content-wrap">
 		<div class="main">
 			<div class="container-fluid">
