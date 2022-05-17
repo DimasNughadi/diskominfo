@@ -73,22 +73,22 @@
 
 																				<ul class="list-group list-group-unbordered mb-3">
 																					<li class="list-group-item">
-																						<b>Nama Aset</b> <a class="float-right"><?= $us['nama_aset']; ?></a>
+																						<b class="float-left">Nama Aset</b> <a class="float-right"><?= $us['nama_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Nomor Aset</b> <a class="float-right"><?= $us['no_aset']; ?></a>
+																						<b class="float-left">Nomor Aset</b> <a class="float-right"><?= $us['no_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Owner</b> <a class="float-right"><?= $us['owner_aset']; ?></a>
+																						<b class="float-left"b>Owner</b> <a class="float-right"><?= $us['owner_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Lokasi</b> <a class="float-right"><?= $us['lokasi_aset']; ?></a>
+																						<b class="float-left">Lokasi</b> <a class="float-right"><?= $us['lokasi_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Subclass</b> <a class="float-right"><?= $us['subclass_aset']; ?></a>
+																						<b class="float-left">Subclass</b> <a class="float-right"><?= $us['subclass_aset']; ?></a>
 																					</li>
 																					<li class="list-group-item">
-																						<b>Used by</b> <a class="float-right"><?= $us['used_by']; ?></a>
+																						<b class="float-left">Used by</b> <a class="float-right"><?= $us['used_by']; ?></a>
 																					</li>
 																				</ul>
 																			</div>
@@ -110,6 +110,7 @@
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-trash"></i>
 														</button>
+														
 													</td>
 												</tr>
 												<?php $i++; ?>
