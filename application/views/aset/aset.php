@@ -37,33 +37,6 @@
 										<tbody>
 											<?php $i = 1; ?>
 											<?php foreach ($aset as $us) : ?>
-<<<<<<< HEAD
-											<tr>
-												<td><?= $i; ?></td>
-												<td><?= $us['no_aset']; ?></td>
-												<td><?= $us['nama_aset']; ?></td>
-												<td><?= $us['jenis_aset']; ?></td>
-												<td><?= $us['owner_aset']; ?></td>
-												<td><?= $us['lokasi_aset']; ?></td>
-												<td><?= $us['subclass_aset']; ?></td>
-												<td><?= $us['used_by']; ?></td>
-												<td>
-													<button type="button" class="btn btn-primary btn-sm"
-														<?php echo $us['id_aset']; ?>>
-														<i class="ti-info-alt"></i>
-													</button>
-													<button type="button" class="btn btn-success btn-sm"
-														<?php echo $us['id_aset']; ?>>
-														<i class="ti-pencil-alt"></i>
-													</button>
-													<button type="button" class="btn btn-danger btn-sm"
-														<?php echo $us['id_aset']; ?>>
-														<i class="ti-trash"></i>
-													</button>
-												</td>
-											</tr>
-											<?php $i++; ?>
-=======
 												<tr>
 													<td><?= $i; ?></td>
 													<td><?= $us['no_aset']; ?></td>
@@ -75,15 +48,17 @@
 													<td><?= $us['used_by']; ?></td>
 													<td>
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
-															<i class="ti-trash"></i>
+															<i class="ti-info-alt"></i>
 														</button>
 														<button type="button" class="btn btn-primary btn-sm" <?php echo $us['id_aset']; ?>>
-															<i class="ti-info-alt"></i>
+															<i class="ti-pencil"></i>
+														</button>
+														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
+															<i class="ti-trash"></i>
 														</button>
 													</td>
 												</tr>
 												<?php $i++; ?>
->>>>>>> b291fb785b37ec0f0ade857545aece09d1f7d04d
 											<?php endforeach; ?>
 										</tbody>
 									</table>
