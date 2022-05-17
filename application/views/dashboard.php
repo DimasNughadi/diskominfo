@@ -285,3 +285,4 @@
 							</div>
 						</div>
 					</div>
+					<script>alert("Selamat datang");</script>
