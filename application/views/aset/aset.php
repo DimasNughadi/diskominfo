@@ -47,10 +47,10 @@
 													<td><?= $us['subclass_aset']; ?></td>
 													<td><?= $us['used_by']; ?></td>
 													<td>
-														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-primary btn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-info-alt"></i>
 														</button>
-														<button type="button" class="btn btn-primary btn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-success	 btn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-pencil"></i>
 														</button>
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
