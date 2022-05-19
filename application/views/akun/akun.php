@@ -26,8 +26,8 @@
 												<th>No</th>
 												<th>ID User</th>
 												<th>Username</th>
-												<th>Password</th>
 												<th>Role</th>
+                                                <th>Departemen</th>
 												<th>Status</th>
 												<th>Aksi</th>
 											</tr>
@@ -39,8 +39,8 @@
 												<td><?= $i; ?></td>
 												<td><?= $us['id_user']; ?></td>
 												<td><?= $us['username']; ?></td>
-												<td><?= $us['password']; ?></td>
 												<td><?= $us['role']; ?></td>
+                                                <td><?= $us['departemen']; ?></td>
 												<td><?= $us['status']; ?></td>
 												<td>
 
@@ -50,7 +50,7 @@
 													<!-- Modal -->
 													<div class="modal fade"
 														id="modal-default<?php echo $us['id_user'] ?>">
-														<div class="modal-dialog">
+														<div class="modal-dialog modal-lg">
 															<div class="modal-content">
 																<div class="modal-header">
 																	<h4 class="modal-title">Detail User</h4>
@@ -74,10 +74,58 @@
 																			<ul
 																				class="list-group list-group-unbordered mb-3">
 																				<li class="list-group-item">
-																					<b class="float-left">status</b>
-																					<a
-																						class="float-right"><?= $us['status']; ?></a>
+																					<b class="float-left">Status</b>
+																					<a class="float-right">
+                                                                                        <?php if ($us['status'] == 'Active') { ?>
+                                                                                            <?php if ($_SESSION['username'] == $us['username']) { ?>
+                                                                                                <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+                                                                                            <?php } else { ?>
+                                                                                                <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm">Active</a>
+                                                                                            <?php } ?>
+                                                                                        <?php } else { ?>
+                                                                                            <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+                                                                                        <?php } ?>
+                                                                                    </a>
 																				</li>
+                                                                                <li class="list-group-item">
+																					<b class="float-left">Departemen</b>
+																					<a class="float-right">
+                                                                                        <?= $us['departemen']; ?>
+                                                                                    </a>
+																				</li>
+                                                                                <li class="list-group-item">
+                                                                                    <b class="float-left">Hak Akses</b><br>
+                                                                                    <table class="table table-bordered table-striped">
+                                                                                        <thead class="thead-dark">
+                                                                                            <tr>
+                                                                                                <th>Data Aset</th>
+                                                                                                <th>Data Resiko</th>
+                                                                                                <th>Data User</th>
+                                                                                                <th>Data Departemen</th>
+                                                                                                <th>Report</th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td>
+                                                                                                   <input type="checkbox">
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <input type="checkbox">
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <input type="checkbox">
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <input type="checkbox">
+                                                                                                </td>
+                                                                                                <td>
+                                                                                                    <input type="checkbox">
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </li>
 																			</ul>
 																		</div>
 																		<!-- /.card-body -->
