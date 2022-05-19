@@ -1,160 +1,268 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-  <title>Diskominfotik - Riau</title>
-
-  <link rel="icon" href="<?= base_url("assets/images/logo.png") ?>" type="image/jpeg">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?= base_url("assets/plugins/fontawesome-free/css/all.min.css") ?>">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?= base_url("assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css") ?>">
-  <!-- jQuery -->
-  <script src="<?= base_url("assets/plugins/jquery/jquery.min.js") ?>"></script>
-  <!-- DataTables -->
-  <script src="<?= base_url("assets/plugins/datatables/jquery.dataTables.min.js") ?>"></script>
-  <script src="<?= base_url("assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js") ?>"></script>
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url("assets/dist/css/adminlte.min.css") ?>">
-  <!-- Sweetalert -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/plugins/sweetalert2/dark.css' ?>">
-  <!-- Toastr -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/plugins/toastr/toastr.min.css' ?>">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Manajemen Aset: Dashboard</title>
+	<!-- ================= Favicon ================== -->
+	<!-- Standard -->
+	<link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+	<!-- Retina iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+	<!-- Retina iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+	<!-- Standard iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+	<!-- Standard iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
+	<!-- Styles -->
+	<link href="<?=base_url('assets/')?>css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/chartist/chartist.min.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/font-awesome.min.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/themify-icons.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+    <link href="<?=base_url('assets/')?>css/lib/jsgrid/jsgrid.min.css" type="text/css" rel="stylesheet" />
+	<link href="<?=base_url('assets/')?>css/lib/owl.carousel.min.css" rel="stylesheet" />
+	<link href="<?=base_url('assets/')?>css/lib/owl.theme.default.min.css" rel="stylesheet" />
+	<link href="<?=base_url('assets/')?>css/lib/weather-icons.css" rel="stylesheet" />
+	<link href="<?=base_url('assets/')?>css/lib/menubar/sidebar.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/lib/helper.css" rel="stylesheet">
+	<link href="<?=base_url('assets/')?>css/style.css" rel="stylesheet">
+	<!-- DataTables -->
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
-  <div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-light navbar-white">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-      </ul>
-    </nav>
-    <!-- /.navbar -->
+<body>
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary  elevation-4">
-      <!-- Brand Logo -->
-      <a href="<?= base_url() ?>" class="brand-link navbar-light">
-        <img src="<?= base_url("assets/images/logo.png") ?>" alt="AdminLTE Logo" class="brand-image">
-        <span class="brand-text text-secondary font-weight-bold">DiskominfotikRiau</span>
-      </a>
+	<div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+		<div class="nano">
+			<div class="nano-content">
+				<ul>
+					<div class="logo"><a href="Dashboard">
+							<!-- <img src="<?=base_url('assets/')?>images/logo.png" alt="" /> --><span>DISKOMINFO</span></a>
+					</div>
+					<li class="label">Main</li>
+					<li><a href="Dashboard"><i class="ti-home"></i> Dashboard</a>
+					</li>
 
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3  d-flex">
-          <div class="image">
-            <img src="<?= base_url('assets/images/user.jpg') ?>" class="img-circle mt-3" alt="User Image">
-          </div>
-          <div class="info">
-            <a href="#" class="d-block"><?= ucwords($this->session->userdata('username')) ?> </a>
-            <p><span class="mb-0 badge badge-light"><?= ucwords($this->session->userdata('role')) ?></span>
-              <span class="mb-0 badge badge-light"><?= $this->session->userdata('departemen') ?></span>
-            </p>
-          </div>
-        </div>
+					<li class="label">Apps</li>
+					<li><a href="Aset"><i class="ti-package"></i> Assets </a></li>
+					<li><a href="Akun"><i class="ti-user"></i> Account</a></li>
+					<li><a href="Report"><i class="ti-file"></i> Report</a></li>
+					<li><a href="Auth/logout"><i class="ti-close"></i> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- /# sidebar -->
 
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-            <li class="nav-item">
-              <a href="<?php echo base_url('dashboard') ?>" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url('permintaan') ?>" class="nav-link">
-                <i class="nav-icon fa fa-paper-plane"></i>
-                <p>
-                  Permintaan Aset
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="<?php echo base_url('perbaikan') ?>" class="nav-link">
-                <i class="nav-icon fa fa-wrench"></i>
-                <p>
-                  Perbaikan Aset
-                </p>
-              </a>
-            </li>
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-database"></i>
-                  <p>
-                    Data Master
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="<?= base_url('aset') ?>" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data Aset</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= base_url('kategori') ?>" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data Kategori</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= base_url('user') ?>" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data User</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="<?= base_url('departemen') ?>" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Data Departemen</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            <li class="nav-item">
-              <a href="<?= base_url('setting') ?>" class="nav-link">
-                <i class="nav-icon fas fa-user-cog"></i>
-                <p>
-                  Setting
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <hr>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-logout">
-                <i class="nav-icon fas fa-sign-out-alt"></i>
-                <p>
-                  Logout
-                </p>
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-    </aside>
+	<div class="header">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="float-left">
+						<div class="hamburger sidebar-toggle">
+							<span class="line"></span>
+							<span class="line"></span>
+							<span class="line"></span>
+						</div>
+					</div>
+					<div class="float-right">
+						<div class="dropdown dib">
+							<div class="header-icon" data-toggle="dropdown">
+								<i class="ti-bell"></i>
+								<div class="drop-down dropdown-menu dropdown-menu-right">
+									<div class="dropdown-content-heading">
+										<span class="text-left">Recent Notifications</span>
+									</div>
+									<div class="dropdown-content-body">
+										<ul>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/3.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Mr. John</div>
+														<div class="notification-text">5 members joined today </div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/3.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Mariam</div>
+														<div class="notification-text">likes a photo of you</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/3.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Tasnim</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/3.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Mr. John</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li class="text-center">
+												<a href="#" class="more-link">See All</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="dropdown dib">
+							<div class="header-icon" data-toggle="dropdown">
+								<i class="ti-email"></i>
+								<div class="drop-down dropdown-menu dropdown-menu-right">
+									<div class="dropdown-content-heading">
+										<span class="text-left">2 New Messages</span>
+										<a href="email.html">
+											<i class="ti-pencil-alt pull-right"></i>
+										</a>
+									</div>
+									<div class="dropdown-content-body">
+										<ul>
+											<li class="notification-unread">
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/1.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Michael Qin</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li class="notification-unread">
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/2.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Mr. John</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/3.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Michael Qin</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="pull-left m-r-10 avatar-img"
+														src="<?=base_url('assets/')?>images/avatar/2.jpg" alt="" />
+													<div class="notification-content">
+														<small class="notification-timestamp pull-right">02:34
+															PM</small>
+														<div class="notification-heading">Mr. John</div>
+														<div class="notification-text">Hi Teddy, Just wanted to let you
+															...</div>
+													</div>
+												</a>
+											</li>
+											<li class="text-center">
+												<a href="#" class="more-link">See All</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="dropdown dib">
+							<div class="header-icon" data-toggle="dropdown">
+								<span class="user-avatar"><?= $user['username']; ?>
+									<i class="ti-angle-down f-s-10"></i>
+								</span>
+								<div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
+									<div class="dropdown-content-heading">
+										<span class="text-left">Upgrade Now</span>
+										<p class="trial-day">30 Days Trail</p>
+									</div>
+									<div class="dropdown-content-body">
+										<ul>
+											<li>
+												<a href="#">
+													<i class="ti-user"></i>
+													<span>Profile</span>
+												</a>
+											</li>
 
+											<li>
+												<a href="#">
+													<i class="ti-email"></i>
+													<span>Inbox</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="ti-settings"></i>
+													<span>Setting</span>
+												</a>
+											</li>
+
+											<li>
+												<a href="#">
+													<i class="ti-lock"></i>
+													<span>Lock Screen</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="ti-power-off"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
