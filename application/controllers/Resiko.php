@@ -13,6 +13,7 @@ class Resiko extends CI_Controller {
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Data Risiko";
         $data['aset'] = $this->Aset_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('resiko/resiko', $data);

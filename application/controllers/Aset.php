@@ -12,6 +12,7 @@ class Aset extends CI_Controller {
 
     public function index()
     {
+        $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
         $this->load->view('layout/header', $data);
@@ -71,14 +72,14 @@ class Aset extends CI_Controller {
     }
     public function hapus($id)
     {
-        $this->Paket_model->delete($id);
+        $this->Aset_model->delete($id);
         $error = $this->db->error();
         if ($error['code'] != 0) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon  fas fa-info-circle"></i>Data Paket tidak dapat dihapus (sudah berelasi)!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon  fas fa-info-circle"></i>Data Aset tidak dapat dihapus (sudah berelasi)!</div>');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Paket Berhasil Dihapus!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Aset Berhasil Dihapus!</div>');
         }
-        redirect('Paket');
+        redirect('aset');
     }
 
     function edit($id)

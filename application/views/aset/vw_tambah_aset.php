@@ -5,11 +5,22 @@
                 <div class="col-md-8 p-r-0 title-margin-right">
                     <div class="page-header">
                         <div class="page-title">
-                            <br>
-                            <h2>Form Tambah Data Aset</span></h2>
+                            <h2><?= $judul; ?></h2>
                         </div>
                     </div>
                 </div>
+                <!-- /# column -->
+                <div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="<?= base_url('aset') ?>">Data Aset</a></li>
+                                <li class="breadcrumb-item active">Tambah Data Aset</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <!-- /# column -->
             </div>
             <!-- /# row -->
             <div id="main-content">
