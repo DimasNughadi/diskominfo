@@ -88,7 +88,7 @@
 																						class="float-right"><?= $us['no_aset']; ?></a>
 																				</li>
 																				<li class="list-group-item">
-																					<b class="float-left" b>Owner</b> <a
+																					<b class="float-left">Owner</b> <a
 																						class="float-right"><?= $us['owner_aset']; ?></a>
 																				</li>
 																				<li class="list-group-item">
