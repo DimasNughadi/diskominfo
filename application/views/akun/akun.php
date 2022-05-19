@@ -41,7 +41,19 @@
 													<td><?= $us['username']; ?></td>
 													<td><?= $us['role']; ?></td>
 													<td><?= $us['departemen']; ?></td>
-													<td><?= $us['status']; ?></td>
+                                                    <td>
+                                                        <a class="float-right">
+                                                            <?php if ($us['status'] == 'Active') { ?>
+                                                                <?php if ($_SESSION['username'] == $us['username']) { ?>
+                                                                    <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+                                                                <?php } else { ?>
+                                                                    <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm">Active</a>
+                                                                <?php } ?>
+                                                            <?php } else { ?>
+                                                                <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+                                                            <?php } ?>
+                                                        </a>
+                                                    </td>
 													<td>
 
 														<!-- Trigger Detail -->
@@ -70,16 +82,8 @@
 																				<ul class="list-group list-group-unbordered mb-3">
 																					<li class="list-group-item">
 																						<b class="float-left">Status</b>
-																						<a class="float-right">
-																							<?php if ($us['status'] == 'Active') { ?>
-																								<?php if ($_SESSION['username'] == $us['username']) { ?>
-																									<a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm disabled">Active</a>
-																								<?php } else { ?>
-																									<a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm">Active</a>
-																								<?php } ?>
-																							<?php } else { ?>
-																								<a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-warning btn-sm">Inactive</a>
-																							<?php } ?>
+                                                                                        <a class="float-right">
+                                                                                        <?= $us['status']; ?>
 																						</a>
 																					</li>
 																					<li class="list-group-item">
