@@ -7,12 +7,12 @@ class Auth extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
         $this->load->model('User_model', 'userrole');
     }
 
     function index()
     {
+        check_already_login();
         if ($this->session->userdata('username')) {
             redirect('Dashboard');
         }
@@ -103,6 +103,7 @@ class Auth extends CI_Controller
                 $data = [
                     'username' => $user['username'],
                     'role' => $user['role'],
+                    'departemen' => $user['departemen'],
                     'status' => $user['status'],
                     'id_user' => $user['id_user'],
                 ];

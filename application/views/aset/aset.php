@@ -1,7 +1,7 @@
 <div class="content-wrap">
 	<div class="main">
 		<div class="container-fluid">
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-lg-8 p-r-0 title-margin-right">
 					<div class="page-header">
 						<div class="page-title">
@@ -9,17 +9,18 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- /# row -->
 			<div id="main-content">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="col-md-6"><a href="<?= base_url(); ?>Aset/tambah" class="btn btn-info mb-2">Tambah Aset</a></div>
+						<div class="card"></div>
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
 								<!-- /.card-header -->
 								<div class="card-body">
+									
 									<table id="example1" class="table table-bordered table-striped">
 										<thead>
 											<tr>
@@ -57,7 +58,7 @@
 														<div class="modal-dialog">
 															<div class="modal-content">
 																<div class="modal-header">
-																	<h4 class="modal-title">Detail Aset</h4>
+																	<h4 class="modal-title">Detail Pesanan</h4>
 																	<button type="button" class="close"
 																		data-dismiss="modal" aria-label="Close">
 																		<span aria-hidden="true">&times;</span>
@@ -88,7 +89,7 @@
 																						class="float-right"><?= $us['no_aset']; ?></a>
 																				</li>
 																				<li class="list-group-item">
-																					<b class="float-left">Owner</b> <a
+																					<b class="float-left" b>Owner</b> <a
 																						class="float-right"><?= $us['owner_aset']; ?></a>
 																				</li>
 																				<li class="list-group-item">
