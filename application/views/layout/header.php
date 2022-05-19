@@ -39,7 +39,13 @@
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
-	
+	<!-- Common -->
+	<link href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/lib/themify-icons.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -98,7 +104,7 @@
 						<div class="user-panel mt-3  d-flex">
 							<div class="info">
 								<p><span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('username')) ?></span>
-								<span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('departemen')) ?></span>
+									<span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('departemen')) ?></span>
 								</p>
 							</div>
 						</div>

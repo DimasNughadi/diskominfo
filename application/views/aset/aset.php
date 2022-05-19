@@ -16,7 +16,7 @@
 					<div class="col-lg-8 p-r-0 title-margin-right">
 						<div class="page-header">
 							<div class="page-title">
-								<h2><?=$judul;?></h2>
+								<h2><?= $judul; ?></h2>
 							</div>
 						</div>
 					</div>
@@ -25,7 +25,7 @@
 						<div class="page-header">
 							<div class="page-title">
 								<ol class="breadcrumb">
-									<li class="breadcrumb-item active"><?=$judul;?></li>
+									<li class="breadcrumb-item active"><?= $judul; ?></li>
 								</ol>
 							</div>
 						</div>
@@ -78,9 +78,9 @@
 															<div class="modal-dialog">
 																<div class="modal-content">
 																	<div class="modal-header">
-																		<h4 class="modal-title">Detail Pesanan</h4>
-																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																			<span aria-hidden="true">&times;</span>
+																		<h4 class="text-dark">Detail Aset</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
 																		</button>
 																	</div>
 																	<div class="modal-body">
@@ -123,7 +123,7 @@
 																		</div>
 																	</div>
 																	<div class="modal-footer justify-content-between">
-																		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-primary cen" data-dismiss="modal">Tutup</button>
 																	</div>
 																</div>
 																<!-- /.modal-content -->
@@ -134,9 +134,37 @@
 														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_aset']; ?>>
 															<i class="ti-pencil"></i>
 														</button>
-														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
-															<i class="ti-trash"></i>
+
+														<!-- Trigger Hapus -->
+														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
+															<i class="fas fa-trash"></i>
 														</button>
+
+														<!-- Modal -->
+														<div class="modal fade" id="modal-danger<?php echo $us['id_aset']; ?>">
+															<div class="modal-dialog">
+																<div class="modal-content bg-danger">
+																	<div class="modal-header">
+																		<h4 class="text-light">Hapus Data Aset</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<p class="card-title text-light">Anda yakin akan menghapus data ini&hellip; ?</p>
+																	</div>
+																	<div class="modal-footer justify-content-between">
+																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
+																		<a href="<?= base_url('Aset/hapus/') . $us['id_aset']; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
+														</div>
+														<!-- /.modal -->
+
+
 													</td>
 												</tr>
 												<?php $i++; ?>
