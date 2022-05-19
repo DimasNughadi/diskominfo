@@ -59,8 +59,8 @@
 						<ul>
 
 							<li><a href="<?= site_url('aset') ?>">Data Aset</a></li>
-							<li><a href="#">Data Risiko</a></li>
-							<li><a href="#">Data User</a></li>
+							<li><a href="<?= site_url('resiko') ?>">Data Risiko</a></li>
+							<li><a href="<?= site_url('akun') ?>">Data User</a></li>
 							<li><a href="#">Data Departemen</a></li>
 						</ul>
 					</li>
