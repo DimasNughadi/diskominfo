@@ -26,8 +26,9 @@
                             <form action="" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id_user" value="<?= $user['id_user']; ?>" id="id_user" readonly>
                                         <label for="exampleInputName">User</label>
-                                        <input type="text" class="form-control" name="id_user" value="<?= $user['id_user']; ?>" id="id_user" readonly>
+                                        <input type="text" class="form-control" name="nama_user" value="<?= $user['username']; ?>" id="nama_user" readonly>
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
