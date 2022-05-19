@@ -12,6 +12,7 @@ class Aset extends CI_Controller {
 
     public function index()
     {
+        $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
         $this->load->view('layout/header', $data);
