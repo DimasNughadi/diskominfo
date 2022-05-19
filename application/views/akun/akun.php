@@ -156,7 +156,7 @@ input:checked + .slider:before {
 																					<li class="list-group-item">
 																						<b class="float-left">Hak Akses</b><br/>
 																						<table class="table table-bordered table-striped" style="text-align: center;">
-																							<thead class="thead-dark ">
+																							<thead class="thead-dark">
 																								<tr>
 																									<th>Data Aset</th>
 																									<th>Data Resiko</th>
