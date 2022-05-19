@@ -50,6 +50,7 @@
 													<td><?= $us['used_by']; ?></td>
 													<td>
 
+
 														<!-- Trigger Detail -->
 														<a href="" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default<?php echo $us['id_aset'] ?>">Detail</a>
 														<!-- Modal -->
@@ -66,6 +67,27 @@
 																		<!-- Profile Image -->
 																		<div class="card card-primary card-outline">
 																			<div class="card-body box-profile">
+
+													<!-- Trigger Detail -->
+													<a href="" class="btn btn-info btn-sm" data-toggle="modal"
+														data-target="#modal-default<?php echo $us['id_aset'] ?>">Detail</a>
+													<!-- Modal -->
+													<div class="modal fade"
+														id="modal-default<?php echo $us['id_aset'] ?>">
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title">Detail Aset</h4>
+																	<button type="button" class="close"
+																		data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<!-- Profile Image -->
+																	<div class="card card-primary card-outline">
+																		<div class="card-body box-profile">
+
 
 																				<h3 class="profile-username text-center">
 																					<?php echo $us['nama_aset']; ?></h3>
