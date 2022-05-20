@@ -23,6 +23,7 @@ class Aset extends CI_Controller {
 
     }
 
+
     public function tambah()
     {
         $data['judul'] = "Tambah Data Aset";
