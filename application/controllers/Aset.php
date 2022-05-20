@@ -56,13 +56,17 @@ class Aset extends CI_Controller {
         } else {
             $data = [
                 'id_user' => $this->input->post('id_user'),
+                'id_jenis_aset' => $this->input->post('id_jenis_aset'),
+                'id_bidang' => $this->input->post('id_bidang'),
                 'no_aset' => $this->input->post('no_aset'),
                 'nama_aset' => $this->input->post('nama_aset'),
-                'jenis_aset' => $this->input->post('jenis_aset'),
+                'merk_aset' => $this->input->post('merk_aset'),
+                'qty' => $this->input->post('qty'),
                 'owner_aset' => $this->input->post('owner_aset'),
                 'lokasi_aset' => $this->input->post('lokasi_aset'),
                 'subclass_aset' => $this->input->post('subclass_aset'),
-                'used_by' => $this->input->post('used_by')
+                'used_by' => $this->input->post('used_by'),
+                'created_on' => time()
             ];
             $this->Aset_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
