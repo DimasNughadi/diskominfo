@@ -71,7 +71,7 @@
 							<li><a href="<?= site_url('resiko') ?>">Data Risiko</a></li>
 							<li><a href="<?= site_url('jenisaset') ?>">Data Jenis Aset</a></li>
 							<li><a href="<?= site_url('akun') ?>">Data User</a></li>
-							<li><a href="#">Data Departemen</a></li>
+							<li><a href="<?= site_url('bidang') ?>">Data Bidang</a></li>
 						</ul>
 					</li>
 					<li><a href="#"><i class="ti-user"></i> Account</a></li>
