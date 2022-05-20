@@ -28,11 +28,10 @@
                     <!-- left column -->
                     <div class="col-md-6">
                         <!-- general form elements -->
+                        <div class="card bg-primary text-white">
+                            <h3 class="card-title text-white">Data Aset</h3>
+                        </div>
                         <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Data Aset</h3>
-                            </div>
-                            <!-- /.card-header -->
                             <!-- form start -->
                             <form action="" method="POST">
                                 <div class="card-body">
@@ -43,25 +42,36 @@
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputStatus">Jenis Aset</label>
+                                        <select id="inputStatus" name="id_jenis_aset" value="<?= set_value('id_jenis_aset'); ?>" class="form-control custom-select">
+                                            <option selected disabled>Pilih Jenis Aset</option>
+                                            <?php foreach ($jenisaset as $udt) : ?>
+                                                <?php if ($udt['nama_jenis_aset'] != null) { ?>
+                                                    <option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+                                                <?php } ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputStatus">Bidang</label>
+                                        <select id="inputStatus" name="id_bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
+                                            <option selected disabled>Pilih Bidang</option>
+                                            <?php foreach ($bidang as $udt) : ?>
+                                                <?php if ($udt['nama_bidang'] != null) { ?>
+                                                    <option value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
+                                                <?php } ?>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputName">Nomor Aset</label>
                                         <input type="text" class="form-control" name="no_aset" value="<?= set_value('no_aset'); ?>" id="no_aset" placeholder="Masukkan Nomor Aset">
                                         <?= form_error('no_aset', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Nama Aset</label>
-                                        <input type="text" class="form-control" name="nama_aset" value="<?= set_value('nama_aset'); ?>" id="nama_aset" placeholder="Masukkan nama aset">
+                                        <input type="text" class="form-control" name="nama_aset" value="<?= set_value('nama_aset'); ?>" id="nama_aset" placeholder="Masukkan Nama aset">
                                         <?= form_error('nama_aset', '<small class="text-danger pl-3">', '</small>'); ?>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="exampleInputName">Jenis Aset</label>
-                                        <div class="form-group">
-                                            <select name="jenis_aset" class="form-control">
-                                                <option selected disabled>Pilih jenis aset</option>
-                                                <option value="Fisik">Fisik</option>
-                                                <option value="Non Fisik">Non Fisik</option>
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -75,11 +85,21 @@
                     <!--/.col (right) -->
                     <div class="col-md-6">
                         <!-- Form Element sizes -->
+                        <div class="card bg-success text-white">
+                            <h3 class="card-title text-white">Detail Aset</h3>
+                        </div>
                         <div class="card card-success">
-                            <div class="card-header">
-                                <h3 class="card-title">Detail Aset</h3>
-                            </div>
                             <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputName">Merk Aset</label>
+                                    <input type="text" class="form-control" name="merk_aset" value="<?= set_value('merk_aset'); ?>" id="merk_aset" placeholder="Masukkan Owner Aset">
+                                    <?= form_error('merk_aset', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputName">Qty</label>
+                                    <input type="number" class="form-control" name="qty" value="<?= set_value('qty'); ?>" id="qty" placeholder="Masukkan Jumlah  Aset">
+                                    <?= form_error('qty', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Owner Aset</label>
                                     <input type="text" class="form-control" name="owner_aset" value="<?= set_value('owner_aset'); ?>" id="owner_aset" placeholder="Masukkan Owner Aset">

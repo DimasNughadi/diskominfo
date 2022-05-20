@@ -33,7 +33,6 @@
 	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/style.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/slider/slider.css" rel="stylesheet">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -56,8 +55,7 @@
 			<div class="nano-content">
 				<ul>
 					<div class="logo"><a href="Dashboard">
-							<!-- <img src="<?= base_url('assets/') ?>images/logo.png" alt="" /> --><span>DISKOMINFO</span>
-						</a>
+						<h4 class="text-white"><span class="badge badge-secondary"><a href="<?= site_url('dashboard') ?>">Diskominfotik<b>Riau</b></a></span></h4>
 					</div>
 					<li class="label">Main</li>
 					<li><a href="<?= site_url('dashboard') ?>"><i class="ti-home"></i> Dashboard</a>

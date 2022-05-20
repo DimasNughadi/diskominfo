@@ -8,6 +8,8 @@ class Aset extends CI_Controller {
         parent::__construct();
         $this->load->model('User_model');
         $this->load->model('Aset_model');
+        $this->load->model('JenisAset_model');
+        $this->load->model('Bidang_model');
     }
 
     public function index()
@@ -24,6 +26,8 @@ class Aset extends CI_Controller {
     public function tambah()
     {
         $data['judul'] = "Tambah Data Aset";
+        $data['jenisaset'] = $this->JenisAset_model->get();
+        $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $this->form_validation->set_rules('id_user', 'ID User', 'required', [
@@ -34,6 +38,12 @@ class Aset extends CI_Controller {
         ]);
         $this->form_validation->set_rules('nama_aset', 'Nama Aset', 'required', [
             'required' => 'Nama Aset Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('qty', 'Jumlah Aset', 'required', [
+            'required' => 'Jumlah Aset Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('merk_aset', 'Merk Aset', 'required', [
+            'required' => 'Merk Aset Wajib di isi'
         ]);
 
         $this->form_validation->set_rules('owner_aset', 'Ownet Aset', 'required', [

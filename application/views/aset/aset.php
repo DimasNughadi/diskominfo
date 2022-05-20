@@ -64,7 +64,7 @@
 													<td><?= $i; ?></td>
 													<td><?= $us['no_aset']; ?></td>
 													<td><?= $us['nama_aset']; ?></td>
-													<td><?= $us['jenis_aset']; ?></td>
+													<td><?= $us['nama_aset']; ?></td>
 													<td><?= $us['owner_aset']; ?></td>
 													<td><?= $us['lokasi_aset']; ?></td>
 													<td><?= $us['subclass_aset']; ?></td>
