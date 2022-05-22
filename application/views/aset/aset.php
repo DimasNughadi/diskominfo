@@ -36,6 +36,16 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
+							<div class="col-md-6">
+								<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
+									<option selected disabled>Pilih Jenis Aset</option>
+									<?php foreach ($jenisaset as $udt) : ?>
+										<?php if ($udt['nama_jenis_aset'] != null) { ?>
+											<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+										<?php } ?>
+									<?php endforeach; ?>
+								</select>
+							</div>
 						</div>
 						<div class="card">
 							<div class="jsgrid-table-panel">
@@ -50,11 +60,11 @@
 												<th>No Aset</th>
 												<th>Nama Aset</th>
 												<th>Jenis</th>
-												<th>Lokasi</th>
-												<th>Owner</th>
-												<th>Subclass</th>
-												<th>Used By</th>
-												<th>Aksi</th>
+												<th>Qty</th>
+												<th>Bidang</th>
+												<th>Added by</th>
+												<th>Tanggal</th>
+												<th style="text-align: center;">Aksi</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -64,11 +74,30 @@
 													<td><?= $i; ?></td>
 													<td><?= $us['no_aset']; ?></td>
 													<td><?= $us['nama_aset']; ?></td>
-													<td><?= $us['nama_aset']; ?></td>
-													<td><?= $us['owner_aset']; ?></td>
-													<td><?= $us['lokasi_aset']; ?></td>
-													<td><?= $us['subclass_aset']; ?></td>
-													<td><?= $us['used_by']; ?></td>
+													<td>
+														<?php foreach ($jenisaset as $ja) : ?>
+															<?php if ($us['id_jenis_aset'] == $ja['id_jenis_aset']) { ?>
+																<?= $ja['nama_jenis_aset']; ?>
+															<?php } ?>
+														<?php endforeach; ?>
+													</td>
+													<td><?= $us['qty']; ?></td>
+													<td>
+														<?php foreach ($bidang as $bdg) : ?>
+															<?php if ($us['id_bidang'] == $bdg['id_bidang']) { ?>
+																<?= $bdg['nama_bidang']; ?>
+															<?php } ?>
+														<?php endforeach; ?>
+													</td>
+													<td>
+														<?php foreach ($userdata as $user) : ?>
+															<?php if ($us['id_user'] == $user['id_user']) { ?>
+																<?= $user['username']; ?>
+															<?php } ?>
+														<?php endforeach; ?>
+													</td>
+
+													<td><?= date('d-m-Y', $us['created_on']); ?></td>
 													<td>
 
 														<!-- Trigger Detail -->
@@ -92,7 +121,11 @@
 																					<?php echo $us['nama_aset']; ?></h3>
 
 																				<p class="text-muted text-center">
-																					<?php echo $us['jenis_aset']; ?></h3>
+																					<?php foreach ($jenisaset as $ja) : ?>
+																						<?php if ($us['id_jenis_aset'] == $ja['id_jenis_aset']) { ?>
+																							<?= $ja['nama_jenis_aset']; ?>
+																						<?php } ?>
+																					<?php endforeach; ?>
 																				</p>
 
 																				<ul class="list-group list-group-unbordered mb-3">
@@ -103,6 +136,14 @@
 																					<li class="list-group-item">
 																						<b class="float-left">Nomor Aset</b>
 																						<a class="float-right"><?= $us['no_aset']; ?></a>
+																					</li>
+																					<li class="list-group-item">
+																						<b class="float-left">Merk Aset</b>
+																						<a class="float-right"><?= $us['merk_aset']; ?></a>
+																					</li>
+																					<li class="list-group-item">
+																						<b class="float-left">Jumlah</b>
+																						<a class="float-right"><?= $us['qty']; ?></a>
 																					</li>
 																					<li class="list-group-item">
 																						<b class="float-left" b>Owner</b> <a class="float-right"><?= $us['owner_aset']; ?></a>
