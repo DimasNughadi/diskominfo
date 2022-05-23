@@ -8,79 +8,59 @@ class Resiko extends CI_Controller {
         parent::__construct();
         $this->load->model('User_model');
         $this->load->model('Aset_model');
+        $this->load->model('Resiko_model');
     }
 
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['judul'] = "Data Risiko";
+        $data['judul'] = "Variabel Risiko";
+        $data['resiko'] = $this->Resiko_model->get();
         $data['aset'] = $this->Aset_model->get();
+        $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('resiko/resiko', $data);
         $this->load->view('layout/footer', $data);
 
     }
 
-    // public function tambah()
-    // {
-    //     $data['judul'] = "Tambah Data Aset";
-    //     $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+    public function tambah()
+    {
+        $data['judul'] = "Tambah Variabel Resiko";
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['aset'] = $this->Aset_model->get();
 
-    //     $this->form_validation->set_rules('id_user', 'ID User', 'required', [
-    //         'required' => 'ID User Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('no_aset', 'Nomor Aset', 'required', [
-    //         'required' => 'Nomor Aset Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('nama_aset', 'Nama Aset', 'required', [
-    //         'required' => 'Nama Aset Wajib di isi'
-    //     ]);
+        $this->form_validation->set_rules('nama_risiko', 'Nama Risiko', 'required', [
+            'required' => 'Nama Risiko Wajib di isi'
+        ]);
 
-    //     $this->form_validation->set_rules('owner_aset', 'Ownet Aset', 'required', [
-    //         'required' => 'Ownet Aset Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('lokasi_aset', 'Lokasi Aset', 'required', [
-    //         'required' => 'Lokasi Aset Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('subclass_aset', 'Subclass Aset', 'required', [
-    //         'required' => 'Subclass Aset Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('used_by', 'Pengguna Aset', 'required', [
-    //         'required' => 'Pengguna Aset Wajib di isi'
-    //     ]);
-
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view("layout/header", $data);
-    //         $this->load->view("aset/vw_tambah_aset", $data);
-    //         $this->load->view("layout/footer", $data);
-    //     } else {
-    //         $data = [
-    //             'id_user' => $this->input->post('id_user'),
-    //             'no_aset' => $this->input->post('no_aset'),
-    //             'nama_aset' => $this->input->post('nama_aset'),
-    //             'jenis_aset' => $this->input->post('jenis_aset'),
-    //             'owner_aset' => $this->input->post('owner_aset'),
-    //             'lokasi_aset' => $this->input->post('lokasi_aset'),
-    //             'subclass_aset' => $this->input->post('subclass_aset'),
-    //             'used_by' => $this->input->post('used_by')
-    //         ];
-    //         $this->Aset_model->insert($data);
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
-    //                                             Aset Berhasil Ditambah!</div>');
-    //         redirect('Aset');
-    //     }
-    // }
-    // public function hapus($id)
-    // {
-    //     $this->Paket_model->delete($id);
-    //     $error = $this->db->error();
-    //     if ($error['code'] != 0) {
-    //         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon  fas fa-info-circle"></i>Data Paket tidak dapat dihapus (sudah berelasi)!</div>');
-    //     } else {
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Paket Berhasil Dihapus!</div>');
-    //     }
-    //     redirect('Paket');
-    // }
+        if ($this->form_validation->run() == false) {
+            $this->load->view("layout/header", $data);
+            $this->load->view("resiko/vw_tambah_resiko", $data);
+            $this->load->view("layout/footer", $data);
+        } else {
+            $data = [
+                'nama_risiko' => $this->input->post('nama_risiko'),
+                'id_aset' => $this->input->post('id_aset'),
+                'id_user' => $this->input->post('id_user')
+            ];
+            $this->Resiko_model->insert($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
+                                                Variabel Risiko Berhasil Ditambah!</div>');
+            redirect('resiko');
+        }
+    }
+    public function hapus($id)
+    {
+        $this->Paket_model->delete($id);
+        $error = $this->db->error();
+        if ($error['code'] != 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon  fas fa-info-circle"></i>Data Paket tidak dapat dihapus (sudah berelasi)!</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Paket Berhasil Dihapus!</div>');
+        }
+        redirect('Paket');
+    }
 
     // function edit($id)
     // {
