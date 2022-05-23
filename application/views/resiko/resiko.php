@@ -36,8 +36,8 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>Nama Risiko</th>
 												<th>Nama Aset</th>
+												<th>Nama Risiko</th>
 												<th>Added by</th>
 												<th>Aksi</th>
 											</tr>
@@ -47,7 +47,6 @@
 											<?php foreach ($resiko as $us) : ?>
 												<tr>
 													<td><?= $i; ?></td>
-													<td><?= $us['nama_risiko']; ?></td>
 													<td>
 														<?php foreach ($aset as $ja) : ?>
 															<?php if ($us['id_aset'] == $ja['id_aset']) { ?>
@@ -55,6 +54,7 @@
 															<?php } ?>
 														<?php endforeach; ?>
 													</td>
+													<td><?= $us['nama_risiko']; ?></td>
 													<td>
 														<?php foreach ($userdata as $ja) : ?>
 															<?php if ($us['id_user'] == $ja['id_user']) { ?>
