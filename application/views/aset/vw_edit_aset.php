@@ -36,6 +36,7 @@
                             <form action="" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <input type="hidden" name="id_aset  " value="<?= $aset['id_aset']; ?>">
                                         <input type="hidden" class="form-control" name="id_user" value="<?= $user['id_user']; ?>" id="id_user" readonly>
                                         <label for="exampleInputName">User</label>
                                         <input type="text" class="form-control" name="nama_user" value="<?= $user['username']; ?>" id="nama_user" readonly>

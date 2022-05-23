@@ -186,9 +186,9 @@
 															<div class="modal-dialog">
 																<div class="modal-content bg-warning">
 																	<div class="modal-header">
-																		<h4 class="modal-title">Edit Data</h4>
-																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																			<span aria-hidden="true">&times;</span>
+																		<h4 class="text-light">Edit Data</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
 																		</button>
 																	</div>
 																	<div class="modal-body">
