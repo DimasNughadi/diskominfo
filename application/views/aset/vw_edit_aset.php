@@ -56,9 +56,9 @@
                                         <label for="inputStatus">Bidang</label>
                                         <select id="inputStatus" name="id_bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
                                             <?php foreach ($bidang as $udt) : ?>
-                                                <?php if ($udt['nama_bidang'] != null) { ?>
-                                                    <option value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
-                                                <?php } ?>
+                                                <option <?php if ($udt['id_bidang'] == $aset['id_bidang']) {
+                                                            echo 'selected="selected"';
+                                                        } ?> value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
