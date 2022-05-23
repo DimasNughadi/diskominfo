@@ -159,7 +159,7 @@ class Aset extends CI_Controller {
 
             $id = $this->input->post('id_aset');
             $this->Aset_model->update(['id_aset' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Paket Berhasil Diubah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Aset Berhasil Diubah!</div>');
             redirect('Aset');
         }
     }
