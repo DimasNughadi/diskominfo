@@ -103,6 +103,7 @@ class Aset extends CI_Controller {
     function edit($id)
     {
         $data['judul'] = "Ubah Data Aset";
+        $data['aset'] = $this->Aset_model->getById($id);
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -155,9 +156,10 @@ class Aset extends CI_Controller {
                 'used_by' => $this->input->post('used_by'),
                 'created_on' => time()
             ];
-            $this->Aset_model->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
-                                                Aset Berhasil Ditambah!</div>');
+
+            $id = $this->input->post('id_aset');
+            $this->Aset_model->update(['id_aset' => $id], $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Paket Berhasil Diubah!</div>');
             redirect('Aset');
         }
     }

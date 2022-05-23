@@ -176,10 +176,34 @@
 															<!-- /.modal-dialog -->
 														</div>
 														<!-- /.modal -->
-														<button type="button" class="btn btn-warning btn-sm" href="<?= site_url(); ?>aset/edit" <?php echo $us['id_aset']; ?>>
-														<a href="<?= site_url(); ?>aset/edit"><i class="ti-pencil-alt"></i></a>	
-														
+
+														<!-- Trigger Edit -->
+														<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-warning<?php echo $us['id_aset'];?>">
+															<i class="fas fa-edit"></i>
 														</button>
+														<!-- Modal -->
+														<div class="modal fade" id="modal-warning<?php echo $us['id_aset'];?>">
+															<div class="modal-dialog">
+																<div class="modal-content bg-warning">
+																	<div class="modal-header">
+																		<h4 class="modal-title">Edit Data</h4>
+																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																			<span aria-hidden="true">&times;</span>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<p>Anda yakin ingin mengubah data ini&hellip; ?</p>
+																	</div>
+																	<div class="modal-footer justify-content-between">
+																		<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
+																		<a href="<?= base_url('aset/edit/') . $us['id_aset']; ?>" class="btn btn-outline-dark">Ubah</a>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
+														</div>
+														<!-- /.modal -->
 
 														<!-- Trigger Hapus -->
 														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
