@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Bulan Mei 2022 pada 17.31
+-- Waktu pembuatan: 23 Bulan Mei 2022 pada 18.18
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -48,7 +48,7 @@ CREATE TABLE `aset` (
 --
 
 INSERT INTO `aset` (`id_aset`, `id_user`, `id_jenis_aset`, `id_bidang`, `no_aset`, `nama_aset`, `merk_aset`, `qty`, `owner_aset`, `lokasi_aset`, `subclass_aset`, `used_by`, `created_on`) VALUES
-(5, 1, 1, 1, 'AS0001', 'Router', 'Cisco', 5, 'Persandian', 'Kantor Gubernur ', 'Perangkat Jaring', 'Persandian', 0),
+(5, 1, 1, 1, 'AS0001', 'Handphone', 'Samsung', 5, 'Persandian', 'Kantor Gubernur ', 'Perangkat Jaring', 'Persandian', 0),
 (6, 1, 2, 2, 'AS0002', 'Microsoft Office', 'Microsofy', 1, 'Persandian', 'Kantor Gubernur', 'Aplikasi', 'Persandian', 0),
 (7, 1, 1, 1, 'AS0003', 'Switch', 'MikroTik', 2, 'Persandian', 'Kantor Bidang Persandian', 'Perangkat Jaringan', 'Persandian', 1653125044);
 
@@ -123,8 +123,17 @@ CREATE TABLE `monitor_rtp` (
 CREATE TABLE `risiko` (
   `id_risiko` int(11) NOT NULL,
   `nama_risiko` text NOT NULL,
-  `id_aset` int(11) NOT NULL
+  `id_aset` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `risiko`
+--
+
+INSERT INTO `risiko` (`id_risiko`, `nama_risiko`, `id_aset`, `id_user`) VALUES
+(2, 'Smartphone hilang/dicuri', 5, 1),
+(3, 'Penonaktifan smartphone yang tidak tepat', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -203,7 +212,8 @@ ALTER TABLE `monitor_rtp`
 --
 ALTER TABLE `risiko`
   ADD PRIMARY KEY (`id_risiko`),
-  ADD KEY `id_aset` (`id_aset`);
+  ADD KEY `id_aset` (`id_aset`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `sop_risiko`
@@ -244,7 +254,7 @@ ALTER TABLE `jenis_aset`
 -- AUTO_INCREMENT untuk tabel `risiko`
 --
 ALTER TABLE `risiko`
-  MODIFY `id_risiko` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_risiko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `sop_risiko`
@@ -280,7 +290,8 @@ ALTER TABLE `monitor_rtp`
 -- Ketidakleluasaan untuk tabel `risiko`
 --
 ALTER TABLE `risiko`
-  ADD CONSTRAINT `risiko_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `aset` (`id_aset`);
+  ADD CONSTRAINT `risiko_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `aset` (`id_aset`),
+  ADD CONSTRAINT `risiko_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `sop_risiko`
