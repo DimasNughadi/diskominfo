@@ -176,8 +176,9 @@
 															<!-- /.modal-dialog -->
 														</div>
 														<!-- /.modal -->
-														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_aset']; ?>>
-															<i class="ti-pencil"></i>
+														<button type="button" class="btn btn-warning btn-sm" href="<?= site_url(); ?>aset/edit" <?php echo $us['id_aset']; ?>>
+														<a href="<?= site_url(); ?>aset/edit"><i class="ti-pencil-alt"></i></a>	
+														
 														</button>
 
 														<!-- Trigger Hapus -->
