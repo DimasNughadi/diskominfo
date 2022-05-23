@@ -65,14 +65,14 @@
 					<li><a class="sidebar-sub-toggle"><i class="nav-icon fas fa-database"></i> Data Master <span class="sidebar-collapse-icon ti-angle-down"></span></a>
 						<ul>
 
-							<li><a href="<?= site_url('aset') ?>">Data Aset</a></li>
-							<li><a href="<?= site_url('resiko') ?>">Data Risiko</a></li>
-							<li><a href="<?= site_url('jenisaset') ?>">Data Jenis Aset</a></li>
-							<li><a href="<?= site_url('akun') ?>">Data User</a></li>
-							<li><a href="<?= site_url('bidang') ?>">Data Bidang</a></li>
+							<li><a href="<?= site_url('aset') ?>"><i class="ti-control-record"></i>Data Aset</a></li>
+							<li><a href="<?= site_url('resiko') ?>"><i class="ti-control-record"></i>Data Risiko</a></li>
+							<li><a href="<?= site_url('jenisaset') ?>"><i class="ti-control-record"></i>Data Jenis Aset</a></li>
+							<li><a href="<?= site_url('akun') ?>"><i class="ti-control-record"></i>Data User</a></li>
+							<li><a href="<?= site_url('bidang') ?>"><i class="ti-control-record"></i>Data Bidang</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="ti-user"></i> Account</a></li>
+					<li><a href="#"><i class="ti-id-badge"></i> Account</a></li>
 					<li><a href="#"><i class="ti-file"></i> Report</a></li>
 					<li><a href="<?= site_url('auth/logout') ?>"><i class="ti-close"></i> Logout</a></li>
 				</ul>
