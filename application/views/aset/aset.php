@@ -178,13 +178,13 @@
 														<!-- /.modal -->
 
 														<!-- Trigger Edit -->
-														<button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-warning<?php echo $us['id_aset'];?>">
-															<i class="fas fa-edit"></i>
+														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset'];?>">
+															<i class="ti-pencil-alt"></i>
 														</button>
 														<!-- Modal -->
-														<div class="modal fade" id="modal-warning<?php echo $us['id_aset'];?>">
+														<div class="modal fade" id="modal-success<?php echo $us['id_aset'];?>">
 															<div class="modal-dialog">
-																<div class="modal-content bg-warning">
+																<div class="modal-content bg-success">
 																	<div class="modal-header">
 																		<h4 class="text-light">Edit Data</h4>
 																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
@@ -192,11 +192,11 @@
 																		</button>
 																	</div>
 																	<div class="modal-body">
-																		<p>Anda yakin ingin mengubah data ini&hellip; ?</p>
+																		<p class="text-light">Anda yakin ingin mengubah data ini&hellip; ?</p>
 																	</div>
 																	<div class="modal-footer justify-content-between">
-																		<button type="button" class="btn btn-outline-dark" data-dismiss="modal">Close</button>
-																		<a href="<?= base_url('aset/edit/') . $us['id_aset']; ?>" class="btn btn-outline-dark">Ubah</a>
+																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+																		<a href="<?= base_url('aset/edit/') . $us['id_aset']; ?>" class="btn btn-outline-light">Ubah</a>
 																	</div>
 																</div>
 																<!-- /.modal-content -->
