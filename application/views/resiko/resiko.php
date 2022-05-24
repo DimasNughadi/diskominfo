@@ -38,41 +38,51 @@
 												<th>No</th>
 												<th>Nama Aset</th>
 												<th>Nama Risiko</th>
+												<th>Penyebab</th>
+												<th>Dampak</th>
 												<th>Added by</th>
 												<th>Aksi</th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $i = 1; ?>
-											<?php foreach ($resiko as $us) : ?>
+											<?php $noskp = 1;
+											$jum = 1; ?>
+											<?php foreach ($resiko as $skp) { ?>
 												<tr>
-													<td><?= $i; ?></td>
+													<?php
+
+													if ($jum <= 1) {
+														$jmlrow = $skp->rowpk;
+														if ($jmlrow == 0) {
+															$jmlrow = 1;
+														}
+													?>
+														<td rowspan="<?= $jmlrow ?>"><?= $noskp ?></td>
+														<td rowspan="<?= $jmlrow ?>"><?= $skp->nama_aset ?></td>
+													<?php
+														$jum = $skp->rowpk;
+														$noskp++;
+													} else {
+														$jum = $jum - 1;
+													}
+													?>
+
+													<td><?= $skp->nama_risiko ?></td>
+													<td><?= $skp->penyebab ?></td>
+													<td><?= $skp->dampak ?></td>
+													<td><?= $skp->username ?></td>
 													<td>
-														<?php foreach ($aset as $ja) : ?>
-															<?php if ($us['id_aset'] == $ja['id_aset']) { ?>
-																<?= $ja['nama_aset']; ?>
-															<?php } ?>
-														<?php endforeach; ?>
-													</td>
-													<td><?= $us['nama_risiko']; ?></td>
-													<td>
-														<?php foreach ($userdata as $ja) : ?>
-															<?php if ($us['id_user'] == $ja['id_user']) { ?>
-																<?= $ja['username']; ?>
-															<?php } ?>
-														<?php endforeach; ?>
-													</td>
-													<td>
-														<button type="button" class="btn btn-success	 btn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-pencil"></i>
 														</button>
-														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_aset']; ?>>
+														<button type="button" class="btn btn-danger btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-trash"></i>
 														</button>
 													</td>
+
 												</tr>
-												<?php $i++; ?>
-											<?php endforeach; ?>
+											<?php  } ?>
+
 										</tbody>
 									</table>
 								</div>

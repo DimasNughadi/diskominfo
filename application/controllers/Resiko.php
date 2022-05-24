@@ -15,7 +15,7 @@ class Resiko extends CI_Controller {
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Variabel Risiko";
-        $data['resiko'] = $this->Resiko_model->get();
+        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
         $data['aset'] = $this->Aset_model->get();
         $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
@@ -33,6 +33,12 @@ class Resiko extends CI_Controller {
         $this->form_validation->set_rules('nama_risiko', 'Nama Risiko', 'required', [
             'required' => 'Nama Risiko Wajib di isi'
         ]);
+        $this->form_validation->set_rules('penyebab', 'Penyebab', 'required', [
+            'required' => 'Penyebab Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('dampak', 'Dampak', 'required', [
+            'required' => 'Dampak Wajib di isi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
@@ -41,6 +47,8 @@ class Resiko extends CI_Controller {
         } else {
             $data = [
                 'nama_risiko' => $this->input->post('nama_risiko'),
+                'penyebab' => $this->input->post('penyebab'),
+                'dampak' => $this->input->post('dampak'),
                 'id_aset' => $this->input->post('id_aset'),
                 'id_user' => $this->input->post('id_user')
             ];

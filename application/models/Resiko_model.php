@@ -17,6 +17,19 @@ class Resiko_model extends CI_Model
         return $query->result_array();
     }
 
+    function showRisiko()
+    {
+
+
+        $this->db->select('*');
+        $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+        $this->db->having('risiko.id_risiko > 1');
+        $this->db->from('aset');
+        $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
+        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
+        return $this->db->get();
+    }
+
     public function getById($id)
     {
         $this->db->from($this->table);
@@ -38,7 +51,7 @@ class Resiko_model extends CI_Model
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
-    
+
     public function update($where, $data)
     {
         $this->db->update($this->table, $data, $where);
@@ -51,8 +64,8 @@ class Resiko_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-    
-    
+
+
 
     // public function update_status_model($id, $status)
     // {

@@ -57,6 +57,17 @@
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Penyebab</label>
+                                        <textarea class="form-control" rows="6" name="penyebab" value="<?= set_value('penyebab'); ?>" id="penyebab" placeholder="Masukkan Penyebab Risiko"></textarea>
+                                        <?= form_error('penyebab', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Dampak</label>
+                                        <textarea class="form-control" rows="6" name="dampak" value="<?= set_value('dampak'); ?>" id="dampak" placeholder="Masukkan Dampak Risiko"></textarea>
+                                        <?= form_error('dampak', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
