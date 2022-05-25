@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Bulan Mei 2022 pada 18.18
+-- Waktu pembuatan: 25 Bulan Mei 2022 pada 09.18
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -48,9 +48,10 @@ CREATE TABLE `aset` (
 --
 
 INSERT INTO `aset` (`id_aset`, `id_user`, `id_jenis_aset`, `id_bidang`, `no_aset`, `nama_aset`, `merk_aset`, `qty`, `owner_aset`, `lokasi_aset`, `subclass_aset`, `used_by`, `created_on`) VALUES
-(5, 1, 1, 1, 'AS0001', 'Handphone', 'Samsung', 5, 'Persandian', 'Kantor Gubernur ', 'Perangkat Jaring', 'Persandian', 0),
-(6, 1, 2, 2, 'AS0002', 'Microsoft Office', 'Microsofy', 1, 'Persandian', 'Kantor Gubernur', 'Aplikasi', 'Persandian', 0),
-(7, 1, 1, 1, 'AS0003', 'Switch', 'MikroTik', 2, 'Persandian', 'Kantor Bidang Persandian', 'Perangkat Jaringan', 'Persandian', 1653125044);
+(5, 1, 1, 3, 'AS0001', 'Handphone', 'Samsung', 5, 'Persandian', 'Kantor Gubernur ', 'Perangkat Jaring', 'Persandian', 1653329584),
+(6, 1, 2, 3, 'AS0002', 'Microsoft Office', 'Microsofy', 1, 'Persandian', 'Kantor Gubernur', 'Aplikasi', 'Persandian', 1653329604),
+(7, 1, 1, 1, 'AS0003', 'Switch', 'MikroTik', 2, 'Persandian', 'Kantor Bidang Persandian', 'Perangkat Jaringan', 'Persandian', 1653125044),
+(8, 1, 1, 2, 'AS0006', 'Komputer', 'Samsung', 10, 'Persandian', 'Persandian', 'Perngkat Keras', 'Persandian', 1653407186);
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,7 @@ INSERT INTO `jenis_aset` (`id_jenis_aset`, `nama_jenis_aset`) VALUES
 --
 
 CREATE TABLE `monitor_rtp` (
-  `id_sop` int(11) NOT NULL,
+  `id_risiko` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
   `plan_mulai` date NOT NULL,
   `plan_selesai` date NOT NULL,
@@ -123,6 +124,14 @@ CREATE TABLE `monitor_rtp` (
 CREATE TABLE `risiko` (
   `id_risiko` int(11) NOT NULL,
   `nama_risiko` text NOT NULL,
+  `penyebab` text NOT NULL,
+  `dampak` text NOT NULL,
+  `skala_dampak` int(11) NOT NULL,
+  `skala_kemungkinan` int(11) NOT NULL,
+  `tingkat_risiko` int(11) NOT NULL,
+  `kategori_penyebab` varchar(100) NOT NULL,
+  `pengendalian` text NOT NULL,
+  `keputusan` text NOT NULL,
   `id_aset` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -131,28 +140,11 @@ CREATE TABLE `risiko` (
 -- Dumping data untuk tabel `risiko`
 --
 
-INSERT INTO `risiko` (`id_risiko`, `nama_risiko`, `id_aset`, `id_user`) VALUES
-(2, 'Smartphone hilang/dicuri', 5, 1),
-(3, 'Penonaktifan smartphone yang tidak tepat', 5, 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `sop_risiko`
---
-
-CREATE TABLE `sop_risiko` (
-  `id_sop` int(11) NOT NULL,
-  `dampak` text NOT NULL,
-  `skala_dampak` text NOT NULL,
-  `skala_kemungkinan` int(11) NOT NULL,
-  `tingkat_risiko` int(11) NOT NULL,
-  `penyebab` text NOT NULL,
-  `kategori_penyebab` varchar(100) NOT NULL,
-  `pengendalian` text NOT NULL,
-  `keputusan` text NOT NULL,
-  `id_risiko` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `risiko` (`id_risiko`, `nama_risiko`, `penyebab`, `dampak`, `skala_dampak`, `skala_kemungkinan`, `tingkat_risiko`, `kategori_penyebab`, `pengendalian`, `keputusan`, `id_aset`, `id_user`) VALUES
+(8, 'Handphone Rusak', 'Percobaan', 'Percobaan', 0, 0, 0, '', '', '', 6, 1),
+(9, 'Crash Pada Aplikasi', 'Percobaan', 'Percobaan', 0, 0, 0, '', '', '', 6, 1),
+(10, 'Smartphone hilang/dicuri', 'Kecopetan di kereta\r\n', 'Tidak bisa menghubungi teman untuk agenda pertemuan\r\n', 0, 0, 0, '', 'Melakukan backup data dan kontak di harddisk eksternal', 'Risiko dikurangi (mitigasi)', 5, 1),
+(11, 'Penonaktifan smartphone yang tidak tepat', 'Lalai menghapus data dengan aman\r\n', 'Data rahasia tersebar luas di masyarakat\r\n', 0, 0, 0, '', 'Menghapus data di folder sampah (recycle bin)', 'Risiko ditransfer ke pihak lain', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +197,7 @@ ALTER TABLE `jenis_aset`
 -- Indeks untuk tabel `monitor_rtp`
 --
 ALTER TABLE `monitor_rtp`
-  ADD KEY `id_sop` (`id_sop`);
+  ADD KEY `id_sop` (`id_risiko`);
 
 --
 -- Indeks untuk tabel `risiko`
@@ -214,13 +206,6 @@ ALTER TABLE `risiko`
   ADD PRIMARY KEY (`id_risiko`),
   ADD KEY `id_aset` (`id_aset`),
   ADD KEY `id_user` (`id_user`);
-
---
--- Indeks untuk tabel `sop_risiko`
---
-ALTER TABLE `sop_risiko`
-  ADD PRIMARY KEY (`id_sop`),
-  ADD KEY `id_risiko` (`id_risiko`);
 
 --
 -- Indeks untuk tabel `user`
@@ -236,7 +221,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `aset`
 --
 ALTER TABLE `aset`
-  MODIFY `id_aset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_aset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `bidang`
@@ -254,13 +239,7 @@ ALTER TABLE `jenis_aset`
 -- AUTO_INCREMENT untuk tabel `risiko`
 --
 ALTER TABLE `risiko`
-  MODIFY `id_risiko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `sop_risiko`
---
-ALTER TABLE `sop_risiko`
-  MODIFY `id_sop` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_risiko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -284,7 +263,7 @@ ALTER TABLE `aset`
 -- Ketidakleluasaan untuk tabel `monitor_rtp`
 --
 ALTER TABLE `monitor_rtp`
-  ADD CONSTRAINT `monitor_rtp_ibfk_1` FOREIGN KEY (`id_sop`) REFERENCES `sop_risiko` (`id_sop`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `monitor_rtp_ibfk_1` FOREIGN KEY (`id_risiko`) REFERENCES `risiko` (`id_risiko`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `risiko`
@@ -292,12 +271,6 @@ ALTER TABLE `monitor_rtp`
 ALTER TABLE `risiko`
   ADD CONSTRAINT `risiko_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `aset` (`id_aset`),
   ADD CONSTRAINT `risiko_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `sop_risiko`
---
-ALTER TABLE `sop_risiko`
-  ADD CONSTRAINT `sop_risiko_ibfk_1` FOREIGN KEY (`id_risiko`) REFERENCES `risiko` (`id_risiko`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
