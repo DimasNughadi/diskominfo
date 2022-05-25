@@ -14,7 +14,7 @@ class Resiko extends CI_Controller {
     public function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['judul'] = "Variabel Risiko";
+        $data['judul'] = "Identifikasi Risiko";
         $data['resiko'] = $this->Resiko_model->showRisiko()->result();
         $data['aset'] = $this->Aset_model->get();
         $data['userdata'] = $this->User_model->get();
@@ -26,7 +26,7 @@ class Resiko extends CI_Controller {
 
     public function tambah()
     {
-        $data['judul'] = "Tambah Variabel Resiko";
+        $data['judul'] = "Tambah Risiko";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
 

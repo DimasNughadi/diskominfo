@@ -35,14 +35,22 @@
 									<table id="example1" class="table table-bordered table-striped" mt_getrandmax>
 										<thead>
 											<tr>
-												<th>No</th>
-												<th>Nama Aset</th>
-												<th>Nama Risiko</th>
-												<th>Penyebab</th>
-												<th>Dampak</th>
-												<th>Added by</th>
-												<th>Aksi</th>
+												<th rowspan="2">No</th>
+												<th rowspan="2">Nama Aset</th>
+												<th rowspan="2">Nama Risiko</th>
+												<th rowspan="2">Penyebab</th>
+												<th rowspan="2">Dampak</th>
+												<th colspan="3" style="text-align: center;">Penilaian Risiko</th>
+												<th rowspan="2">Pengendalian</th>
+												<th rowspan="2">Keputusan</th>
+												<th rowspan="2" style="width: 8%;">Aksi</th>
 											</tr>
+											<tr>
+												<th>SD</th>
+												<th>SK</th>
+												<th>TR</th>
+											</tr>
+
 										</thead>
 										<tbody>
 											<?php $noskp = 1;
@@ -66,11 +74,14 @@
 														$jum = $jum - 1;
 													}
 													?>
-
 													<td><?= $skp->nama_risiko ?></td>
 													<td><?= $skp->penyebab ?></td>
 													<td><?= $skp->dampak ?></td>
-													<td><?= $skp->username ?></td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td><?= $skp->pengendalian?></td>
+													<td><?= $skp->keputusan?></td>
 													<td>
 														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-pencil"></i>
@@ -79,8 +90,8 @@
 															<i class="ti-trash"></i>
 														</button>
 													</td>
-
 												</tr>
+
 											<?php  } ?>
 
 										</tbody>

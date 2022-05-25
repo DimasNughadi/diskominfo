@@ -74,8 +74,7 @@
 					<li><a class="sidebar-sub-toggle"><i class="nav-icon fas fa-database"></i> Manajemen Risiko <span class="sidebar-collapse-icon ti-angle-down"></span></a>
 						<ul>
 
-							<li><a href="<?= site_url('resiko') ?>"><i class="ti-control-record"></i>Variabel Risiko</a></li>
-							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Identifikasi Risiko</a></li>
+							<li><a href="<?= site_url('resiko') ?>"><i class="ti-control-record"></i>Identifikasi Risiko</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Daftar Risiko</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Rencana Penanganan</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Realisasi Penangan</a></li>
