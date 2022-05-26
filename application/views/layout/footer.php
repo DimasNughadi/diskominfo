@@ -63,6 +63,10 @@
 	<script src="<?= base_url('assets/') ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 	<!-- Page specific script -->
 
+	<script src="<?= base_url('assets/') ?>js/lib/barRating/jquery.barrating.js"></script>
+    <script src="<?= base_url('assets/') ?>js/lib/barRating/barRating.init.js"></script>
+    <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script><script src="assets/js/scripts.js"></script>
+
 
 	<script>
 		$(function() {

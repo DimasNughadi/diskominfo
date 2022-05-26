@@ -35,20 +35,20 @@
 									<table id="example1" class="table table-bordered table-striped" mt_getrandmax>
 										<thead>
 											<tr>
-												<th rowspan="2">No</th>
-												<th rowspan="2">Nama Aset</th>
-												<th rowspan="2">Nama Risiko</th>
-												<th rowspan="2">Penyebab</th>
-												<th rowspan="2">Dampak</th>
-												<th colspan="3" style="text-align: center;">Penilaian Risiko</th>
-												<th rowspan="2">Pengendalian</th>
-												<th rowspan="2">Keputusan</th>
-												<th rowspan="2" style="width: 8%;">Aksi</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Aset</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Risiko</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Penyebab</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
+												<th colspan="3" style="text-align: center; vertical-align: middle;">Penilaian Risiko</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
+												<th rowspan="2" style="width: 8%; text-align: center; vertical-align: middle;">Aksi</th>
 											</tr>
 											<tr>
-												<th>SD</th>
-												<th>SK</th>
-												<th>TR</th>
+												<th style="text-align: center; vertical-align: middle;">SD</th>
+												<th style="text-align: center; vertical-align: middle;">SK</th>
+												<th style="text-align: center; vertical-align: middle;">TR</th>
 											</tr>
 
 										</thead>

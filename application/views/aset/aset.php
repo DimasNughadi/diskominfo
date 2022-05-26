@@ -178,11 +178,11 @@
 														<!-- /.modal -->
 
 														<!-- Trigger Edit -->
-														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset'];?>">
+														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
 															<i class="ti-pencil-alt"></i>
 														</button>
 														<!-- Modal -->
-														<div class="modal fade" id="modal-success<?php echo $us['id_aset'];?>">
+														<div class="modal fade" id="modal-success<?php echo $us['id_aset']; ?>">
 															<div class="modal-dialog">
 																<div class="modal-content bg-success">
 																	<div class="modal-header">

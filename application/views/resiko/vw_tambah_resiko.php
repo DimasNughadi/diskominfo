@@ -15,7 +15,7 @@
                         <div class="page-title">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url('resiko') ?>">Variabel Resiko</a></li>
-                                <li class="breadcrumb-item active">Tambah Variabel Resiko</li>
+                                <li class="breadcrumb-item active">Tambah Risiko</li>
                             </ol>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <div class="col-md-6">
                         <!-- general form elements -->
                         <div class="card bg-primary text-white">
-                            <h3 class="card-title text-white">Data Variabel Resiko</h3>
+                            <h3 class="card-title text-white">Identifikasi Risiko</h3>
                         </div>
                         <div class="card card-primary">
                             <!-- form start -->
@@ -67,6 +67,16 @@
                                         <textarea class="form-control" rows="6" name="dampak" value="<?= set_value('dampak'); ?>" id="dampak" placeholder="Masukkan Dampak Risiko"></textarea>
                                         <?= form_error('dampak', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Pengendalian</label>
+                                        <textarea class="form-control" rows="6" name="pengendalian" value="<?= set_value('pengendalian'); ?>" id="pengendalian" placeholder="Masukkan Pengendalian Risiko"></textarea>
+                                        <?= form_error('pengendalian', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputName">Keputusan</label>
+                                        <textarea class="form-control" rows="6" name="keputusan" value="<?= set_value('keputusan'); ?>" id="keputusan" placeholder="Masukkan Keputusan Risiko"></textarea>
+                                        <?= form_error('keputusan', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
 
                                 </div>
                                 <div class="card-footer">
@@ -77,7 +87,57 @@
                         </div>
                         <!-- /.card -->
                     </div>
+                    <!--/.col (right) -->
+                    <div class="col-md-6">
+                        <!-- Form Element sizes -->
+                        <div class="card bg-success text-white">
+                            <h3 class="card-title text-white">Penilaian Risiko</h3>
+                        </div>
+                        <div class="card card-success">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <label for="exampleInputName">Skala Dampak</label>
+                                    <div class="card-title-right-icon">
+                                        <ul>
 
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="rating2">
+                                    <select id="example-movie" name="rating" autocomplete="off">
+                                        <option value="1" selected="selected">Tidak Berarti</option>
+                                        <option value="2">Kecil</option>
+                                        <option value="3">Sedang</option>
+                                        <option value="4">Besar</option>
+                                        <option value="5">Besar Sekali</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="card-title">
+                                    <label for="exampleInputName">Skala Dampak</label>
+                                    <div class="card-title-right-icon">
+                                        <ul>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="rating3">
+                                    <select id="example-movie" name="rating" autocomplete="off">
+                                        <option value="1" selected="selected">Tidak Berarti</option>
+                                        <option value="2">Kecil</option>
+                                        <option value="3">Sedang</option>
+                                        <option value="4">Besar</option>
+                                        <option value="5">Besar Sekali</option>
+                                    </select>
+                                </div>
+                                <br>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+
+                        <!-- /.card -->
+                        </form>
+                    </div>
                     <div class="col-lg-12">
 
                         <!-- /# column -->

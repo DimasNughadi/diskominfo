@@ -46,6 +46,8 @@
 	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/style.css" rel="stylesheet">
+
+	<link href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css" rel="stylesheet">
 </head>
 
 <body>
