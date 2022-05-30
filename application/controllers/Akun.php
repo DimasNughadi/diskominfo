@@ -15,6 +15,7 @@ class Akun extends CI_Controller {
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['akun'] = $this->User_model->get();
+        $data['bidang'] = $this->Bidang_model->get();
         $data['judul'] = "Data Akun";
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
