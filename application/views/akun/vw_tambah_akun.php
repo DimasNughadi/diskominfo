@@ -47,7 +47,7 @@
                                         <label class="form-check-label" for="Check1">Show Password</label>
                                         <?= form_error('password1   ', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="exampleInputName">Verifikasi Password</label>
                                         <input type="Password" class="form-control" name="password2" value="<?= set_value('password'); ?>" id="password2" placeholder="Ulangi Password">
@@ -61,7 +61,6 @@
                                             <option selected disabled>Pilih Role</option>
                                             <option>Admin</option>
                                             <option>User</option>
-
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -84,18 +83,14 @@
                                     <a href="<?= base_url('Akun') ?>" class="btn btn-danger">Tutup</a>
                                 </div>
                                 <!-- /.card-body -->
+                            </div>
+                            </form>
                         </div>
+                                                </div>
                         <!-- /.card -->
-                    </div>
+                
                     <!--/.col (right) -->
                 
-
-                        <!-- /.card -->
-                        </form>
-                    <div class="col-lg-12">
-
-                        <!-- /# column -->
-                    </div>
                     <!-- /# row -->
                     <script>
                     function myFunction() {
