@@ -207,7 +207,7 @@
 
 														<!-- Trigger Hapus -->
 														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
-															<i class="fas fa-trash"></i>
+															<i class="ti-trash"></i>
 														</button>
 
 														<!-- Modal -->
