@@ -38,7 +38,7 @@
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
-								<div class="col-md-6">
+								<div class="col-md-2">
 									<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
 										<option selected disabled>Pilih Jenis Aset</option>
 										<?php foreach ($jenisaset as $udt) : ?>
