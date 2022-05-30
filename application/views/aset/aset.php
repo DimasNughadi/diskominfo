@@ -34,27 +34,29 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="card">
-							<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
-							<div class="col-md-6">
-								<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
-									<option selected disabled>Pilih Jenis Aset</option>
-									<?php foreach ($jenisaset as $udt) : ?>
-										<?php if ($udt['nama_jenis_aset'] != null) { ?>
-											<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
-										<?php } ?>
-									<?php endforeach; ?>
-								</select>
-							</div>
-						</div>
+						<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
-								<!-- /.card-header -->
-								<div class="card-body">
-
-									<table id="example1" class="table table-bordered table-striped">
-										<thead>
+								<div class="col-md-6">
+									<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
+										<option selected disabled>Pilih Jenis Aset</option>
+										<?php foreach ($jenisaset as $udt) : ?>
+											<?php if ($udt['nama_jenis_aset'] != null) { ?>
+												<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+											<?php } ?>
+										<?php endforeach; ?>
+									</select>
+								</div>
+							</div>
+							<div class="card">
+								<div class="jsgrid-table-panel">
+									<?= $this->session->flashdata('message'); ?>
+									<!-- /.card-header -->
+									<div class="card-body">
+										
+										<table id="example1" class="table table-bordered table-striped">
+											<thead>
 											<tr>
 												<th>No</th>
 												<th>No Aset</th>
