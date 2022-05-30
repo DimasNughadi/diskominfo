@@ -18,7 +18,6 @@
 	<!-- Standard iPhone Touch Icon-->
 	<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 	<!-- Styles -->
-	<link href="<?= base_url('assets/') ?>css/lib/calendar2/pignose.calendar.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="<?= base_url("assets/plugins/fontawesome-free/css/all.min.css") ?>">
