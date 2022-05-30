@@ -43,6 +43,7 @@
 												<th colspan="3" style="text-align: center; vertical-align: middle;">Penilaian Risiko</th>
 												<th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
 												<th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Ket</th>
 												<th rowspan="2" style="width: 8%; text-align: center; vertical-align: middle;">Aksi</th>
 											</tr>
 											<tr>
@@ -77,11 +78,29 @@
 													<td><?= $skp->nama_risiko ?></td>
 													<td><?= $skp->penyebab ?></td>
 													<td><?= $skp->dampak ?></td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td>&nbsp;</td>
-													<td><?= $skp->pengendalian?></td>
-													<td><?= $skp->keputusan?></td>
+													<td><?= $skp->skala_dampak ?></td>
+													<td><?= $skp->skala_kemungkinan ?></td>
+													<td><?= $skp->tingkat_risiko ?></td>
+													<td><?= $skp->pengendalian ?></td>
+													<td><?= $skp->keputusan ?></td>
+													<td>
+														<?php
+
+														if ($skp->tingkat_risiko == 0) {
+															echo "<small>NULL</small>";
+														} elseif ($skp->tingkat_risiko >= 1 && $skp->tingkat_risiko <= 5 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Sangat Rendah</span>";
+														} elseif ($skp->tingkat_risiko >= 6 && $skp->tingkat_risiko <= 11 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Rendah</span>";
+														} elseif ($skp->tingkat_risiko >= 12 && $skp->tingkat_risiko <= 15 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-warning'>Sedang</span>";
+														} elseif ($skp->tingkat_risiko >= 16 && $skp->tingkat_risiko <= 19 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Tinggi</span>";
+														} else {
+															echo "<span class='mb-0 badge badge-success'>Sangat Tinggi</span>";
+														}
+														?>
+													</td>
 													<td>
 														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-pencil-alt"></i>
@@ -90,6 +109,7 @@
 															<i class="ti-trash"></i>
 														</button>
 													</td>
+
 												</tr>
 
 											<?php  } ?>

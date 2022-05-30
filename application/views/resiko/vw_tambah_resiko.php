@@ -95,16 +95,9 @@
                         </div>
                         <div class="card card-success">
                             <div class="card-body">
-                                <div class="card-title">
+                                <div class="col-sm-10">
                                     <label for="exampleInputName">Skala Dampak</label>
-                                    <div class="card-title-right-icon">
-                                        <ul>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rating2">
-                                    <select id="example-movie" name="skala_dampak" autocomplete="off">
+                                    <select class="form-control" name="skala_dampak">
                                         <option value="1" selected="selected">Tidak Berarti</option>
                                         <option value="2">Kecil</option>
                                         <option value="3">Sedang</option>
@@ -112,25 +105,16 @@
                                         <option value="5">Besar Sekali</option>
                                     </select>
                                 </div>
-                                <br/><br/>
-                                <div class="card-title">
+                                <div class="col-sm-10">
                                     <label for="exampleInputName">Skala Kemungkinan</label>
-                                    <div class="card-title-right-icon">
-                                        <ul>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rating2">
-                                    <select id="example-kemungkinan" name="rating" autocomplete="off">
-                                        <option value="1" selected="selected">Tidak Berarti</option>
-                                        <option value="2">Kecil</option>
+                                    <select class="form-control" name="skala_kemungkinan">
+                                        <option value="1" selected="selected">Sangat Jarang</option>
+                                        <option value="2">Jarang</option>
                                         <option value="3">Sedang</option>
-                                        <option value="4">Besar</option>
-                                        <option value="5">Besar Sekali</option>
+                                        <option value="4">Sering</option>
+                                        <option value="5">Sangat Sering</option>
                                     </select>
                                 </div>
-                                <br>
                             </div>
                             <!-- /.card-body -->
                         </div>

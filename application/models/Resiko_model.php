@@ -19,11 +19,9 @@ class Resiko_model extends CI_Model
 
     function showRisiko()
     {
-
-
         $this->db->select('*');
         $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        $this->db->having('risiko.id_risiko > 1');
+        $this->db->having('risiko.id_risiko > 0');
         $this->db->from('aset');
         $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
         $this->db->join('user', 'user.id_user = aset.id_user', 'left');
