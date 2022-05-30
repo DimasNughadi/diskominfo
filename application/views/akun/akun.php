@@ -155,7 +155,7 @@
 														</div>
 														<!-- /.modal -->
 														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_user']; ?>>
-															<i class="ti-pencil"></i>
+															<i class="ti-pencil-alt"></i>
 														</button>
 														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_user']; ?>>
 															<i class="ti-trash"></i>

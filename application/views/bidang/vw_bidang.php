@@ -52,12 +52,12 @@
 													<td>
 														<!-- /.modal -->
 														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_bidang']; ?>>
-															<i class="ti-pencil"></i>
+															<i class="ti-pencil-alt"></i>
 														</button>
 
 														<!-- Trigger Hapus -->
 														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_bidang']; ?>">
-															<i class="fas fa-trash"></i>
+															<i class="ti-trash"></i>
 														</button>
 
 														<!-- Modal -->

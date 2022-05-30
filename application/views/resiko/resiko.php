@@ -84,7 +84,7 @@
 													<td><?= $skp->keputusan?></td>
 													<td>
 														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
-															<i class="ti-pencil"></i>
+															<i class="ti-pencil-alt"></i>
 														</button>
 														<button type="button" class="btn btn-danger btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-trash"></i>
