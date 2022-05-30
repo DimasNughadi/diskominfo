@@ -14,7 +14,7 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?= base_url('resiko') ?>">Variabel Resiko</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('resiko') ?>">Identifikasi Resiko</a></li>
                                 <li class="breadcrumb-item active">Tambah Risiko</li>
                             </ol>
                         </div>
@@ -79,10 +79,7 @@
                                     </div>
 
                                 </div>
-                                <div class="card-footer">
-                                    <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
-                                    <a href="<?= base_url('Resiko') ?>" class="btn btn-danger">Tutup</a>
-                                </div>
+
                                 <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
@@ -115,10 +112,14 @@
                                         <option value="5">Sangat Sering</option>
                                     </select>
                                 </div>
+                                <br/>
                             </div>
                             <!-- /.card-body -->
+                            <div class="card-footer bg-white">
+                                <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
+                                <a href="<?= base_url('Resiko') ?>" class="btn btn-danger">Tutup</a>
+                            </div>
                         </div>
-
                         <!-- /.card -->
                         </form>
                     </div>
