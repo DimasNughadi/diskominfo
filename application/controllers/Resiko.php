@@ -23,6 +23,18 @@ class Resiko extends CI_Controller
         $this->load->view('resiko/resiko', $data);
         $this->load->view('layout/footer', $data);
     }
+    
+    public function daftar()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Daftar Risiko";
+        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        $data['aset'] = $this->Aset_model->get();
+        $data['userdata'] = $this->User_model->get();
+        $this->load->view('layout/header', $data);
+        $this->load->view('resiko/daftar_risiko', $data);
+        $this->load->view('layout/footer', $data);
+    }
 
     public function tambah()
     {
