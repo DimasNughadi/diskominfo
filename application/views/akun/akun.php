@@ -27,7 +27,7 @@
 												<th>ID User</th>
 												<th>Username</th>
 												<th>Role</th>
-												<th>Departemen</th>
+												<th>Bidang</th>
 												<th>Status</th>
 												<th>Aksi</th>
 											</tr>
@@ -40,7 +40,7 @@
 													<td><?= $us['id_user']; ?></td>
 													<td><?= $us['username']; ?></td>
 													<td><?= $us['role']; ?></td>
-													<td><?= $us['departemen']; ?></td>
+													<td><?= $us['bidang']; ?></td>
                                                     <td>
                                                         <a class="float-right">
                                                             <?php if ($us['status'] == 'Active') { ?>
@@ -63,9 +63,9 @@
 															<div class="modal-dialog modal-lg">
 																<div class="modal-content">
 																	<div class="modal-header">
-																		<h4 class="modal-title">Detail User</h4>
-																		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																			<span aria-hidden="true">&times;</span>
+																		<h4 class="text-dark">Detail User</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
 																		</button>
 																	</div>
 																	<div class="modal-body">
@@ -87,20 +87,20 @@
 																						</a>
 																					</li>
 																					<li class="list-group-item">
-																						<b class="float-left">Departemen</b>
+																						<b class="float-left">Bidang</b>
 																						<a class="float-right">
-																							<?= $us['departemen']; ?>
+																							<?= $us['bidang']; ?>
 																						</a>
 																					</li>
 																					<li class="list-group-item">
 																						<b class="float-left">Hak Akses</b><br/>
 																						<table class="table table-bordered table-striped" style="text-align: center;">
-																							<thead class="thead-dark">
+																							<thead class="thead-light">
 																								<tr>
 																									<th>Data Aset</th>
 																									<th>Data Resiko</th>
 																									<th>Data User</th>
-																									<th style="width: 9rem;">Data Departemen</th>
+																									<th style="width: 9rem;">Data Bidang</th>
 																									<th style="text-align: center;">Report</th>
 																								</tr>
 																							</thead>
@@ -146,7 +146,7 @@
 																		</div>
 																	</div>
 																	<div class="modal-footer justify-content-between">
-																		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
 																	</div>
 																</div>
 																<!-- /.modal-content -->
