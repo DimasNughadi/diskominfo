@@ -40,7 +40,7 @@
 													<td><?= $us['id_user']; ?></td>
 													<td><?= $us['username']; ?></td>
 													<td><?= $us['role']; ?></td>
-													<td><?= $us['bidang']; ?></td>
+													<td><?= $us['departemen']; ?></td>
                                                     <td>
                                                         <a class="float-right">
                                                             <?php if ($us['status'] == 'Active') { ?>

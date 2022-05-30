@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Resiko extends CI_Controller {
+class Resiko extends CI_Controller
+{
 
     public function __construct()
     {
@@ -21,7 +22,18 @@ class Resiko extends CI_Controller {
         $this->load->view('layout/header', $data);
         $this->load->view('resiko/resiko', $data);
         $this->load->view('layout/footer', $data);
-
+    }
+    
+    public function daftar()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Daftar Risiko";
+        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        $data['aset'] = $this->Aset_model->get();
+        $data['userdata'] = $this->User_model->get();
+        $this->load->view('layout/header', $data);
+        $this->load->view('resiko/daftar_risiko', $data);
+        $this->load->view('layout/footer', $data);
     }
 
     public function tambah()
@@ -39,17 +51,30 @@ class Resiko extends CI_Controller {
         $this->form_validation->set_rules('dampak', 'Dampak', 'required', [
             'required' => 'Dampak Wajib di isi'
         ]);
+        $this->form_validation->set_rules('pengendalian', 'Pengendalian', 'required', [
+            'required' => 'Pengendalian Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('keputusan', 'Keputusan', 'required', [
+            'required' => 'Keputusan Wajib di isi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
             $this->load->view("resiko/vw_tambah_resiko", $data);
             $this->load->view("layout/footer", $data);
         } else {
+            $skala_dampak = $this->input->post('skala_dampak');
+            $skala_kemungkinan = $this->input->post('skala_kemungkinan');
             $data = [
                 'nama_risiko' => $this->input->post('nama_risiko'),
                 'penyebab' => $this->input->post('penyebab'),
                 'dampak' => $this->input->post('dampak'),
+                'pengendalian' => $this->input->post('pengendalian'),
+                'keputusan' => $this->input->post('keputusan'),
                 'id_aset' => $this->input->post('id_aset'),
+                'skala_dampak' => $this->input->post('skala_dampak'),
+                'skala_kemungkinan' => $this->input->post('skala_kemungkinan'),
+                'tingkat_risiko' => $skala_dampak * $skala_kemungkinan,
                 'id_user' => $this->input->post('id_user')
             ];
             $this->Resiko_model->insert($data);

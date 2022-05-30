@@ -26,10 +26,8 @@
 			<div id="main-content">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="col-md-6"><a href="<?= base_url(); ?>resiko/tambah" class="btn btn-info mb-2">Tambah</a></div>
 						<div class="card">
 							<div class="jsgrid-table-panel">
-								<?= $this->session->flashdata('message'); ?>
 								<!-- /.card-header -->
 								<div class="card-body">
 									<table id="example1" class="table table-bordered table-striped" mt_getrandmax>
@@ -43,7 +41,7 @@
 												<th colspan="3" style="text-align: center; vertical-align: middle;">Penilaian Risiko</th>
 												<th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
 												<th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
-												<th rowspan="2" style="width: 8%; text-align: center; vertical-align: middle;">Aksi</th>
+												<th rowspan="2" style="text-align: center; vertical-align: middle;">Keterangan</th>
 											</tr>
 											<tr>
 												<th style="text-align: center; vertical-align: middle;">SD</th>
@@ -82,18 +80,25 @@
 													<td><?= $skp->tingkat_risiko ?></td>
 													<td><?= $skp->pengendalian ?></td>
 													<td><?= $skp->keputusan ?></td>
-													
 													<td>
-														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
-															<i class="ti-pencil-alt"></i>
-														</button>
-														<button type="button" class="btn btn-danger btn-sm" <?= $skp->id_risiko ?>>
-															<i class="ti-trash"></i>
-														</button>
+														<?php
+
+														if ($skp->tingkat_risiko == 0) {
+															echo "<small>NULL</small>";
+														} elseif ($skp->tingkat_risiko >= 1 && $skp->tingkat_risiko <= 5 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Sangat Rendah</span>";
+														} elseif ($skp->tingkat_risiko >= 6 && $skp->tingkat_risiko <= 11 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Rendah</span>";
+														} elseif ($skp->tingkat_risiko >= 12 && $skp->tingkat_risiko <= 15 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-warning'>Sedang</span>";
+														} elseif ($skp->tingkat_risiko >= 16 && $skp->tingkat_risiko <= 19 && $skp->dampak != 5) {
+															echo "<span class='mb-0 badge badge-success'>Tinggi</span>";
+														} else {
+															echo "<span class='mb-0 badge badge-success'>Sangat Tinggi</span>";
+														}
+														?>
 													</td>
-
 												</tr>
-
 											<?php  } ?>
 
 										</tbody>
