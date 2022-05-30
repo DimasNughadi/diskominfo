@@ -104,7 +104,7 @@
                                     </div>
                                 </div>
                                 <div class="rating2">
-                                    <select id="example-movie" name="rating" autocomplete="off">
+                                    <select id="example-movie" name="skala_dampak" autocomplete="off">
                                         <option value="1" selected="selected">Tidak Berarti</option>
                                         <option value="2">Kecil</option>
                                         <option value="3">Sedang</option>
@@ -112,17 +112,17 @@
                                         <option value="5">Besar Sekali</option>
                                     </select>
                                 </div>
-                                <br>
+                                <br/><br/>
                                 <div class="card-title">
-                                    <label for="exampleInputName">Skala Dampak</label>
+                                    <label for="exampleInputName">Skala Kemungkinan</label>
                                     <div class="card-title-right-icon">
                                         <ul>
 
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="rating3">
-                                    <select id="example-movie" name="rating" autocomplete="off">
+                                <div class="rating2">
+                                    <select id="example-kemungkinan" name="rating" autocomplete="off">
                                         <option value="1" selected="selected">Tidak Berarti</option>
                                         <option value="2">Kecil</option>
                                         <option value="3">Sedang</option>

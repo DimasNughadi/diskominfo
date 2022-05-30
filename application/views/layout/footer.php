@@ -21,20 +21,14 @@
 	<script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
 	<script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 	<!-- bootstrap -->
-	<script src="<?= base_url('assets/') ?>js/lib/calendar-2/moment.latest.min.js"></script>
-	<script src="<?= base_url('assets/') ?>js/lib/calendar-2/pignose.calendar.min.js"></script>
-	<script src="<?= base_url('assets/') ?>js/lib/calendar-2/pignose.init.js"></script>
+	
 	<script src="<?= base_url('assets/') ?>js/lib/weather/jquery.simpleWeather.min.js"></script>
 	<script src="<?= base_url('assets/') ?>js/lib/weather/weather-init.js"></script>
 	<script src="<?= base_url('assets/') ?>js/lib/circle-progress/circle-progress.min.js"></script>
 	<script src="<?= base_url('assets/') ?>js/lib/circle-progress/circle-progress-init.js"></script>
-	<script src="<?= base_url('assets/') ?>js/lib/chartist/chartist.min.js"></script>
-	<script src="<?= base_url('assets/') ?>js/lib/sparklinechart/jquery.sparkline.min.js"></script>
-	<script src="<?= base_url('assets/') ?>js/lib/sparklinechart/sparkline.init.js"></script>
 	<script src="<?= base_url('assets/') ?>js/lib/owl-carousel/owl.carousel.min.js"></script>
 	<script src="<?= base_url('assets/') ?>js/lib/owl-carousel/owl.carousel-init.js"></script>
 	<!-- scripit init-->
-	<script src="<?= base_url('assets/') ?>js/dashboard2.js"></script>
 
 	<!-- jQuery -->
 	<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
@@ -54,9 +48,6 @@
 	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 	<script src="<?= base_url('assets/') ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 	<!-- AdminLTE App -->
-	<script src="<?= base_url('assets/') ?>dist/js/adminlte.min.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="<?= base_url('assets/') ?>dist/js/demo.js"></script>
 	<!-- SweetAlert2 -->
 	<script src="<?= base_url('assets/') ?>plugins/sweetalert2/sweetalert2.min.js"></script>
 	<!-- Bootstrap Switch -->
@@ -65,7 +56,8 @@
 
 	<script src="<?= base_url('assets/') ?>js/lib/barRating/jquery.barrating.js"></script>
     <script src="<?= base_url('assets/') ?>js/lib/barRating/barRating.init.js"></script>
-    <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script><script src="assets/js/scripts.js"></script>
+    <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
+	<script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 
 
 	<script>

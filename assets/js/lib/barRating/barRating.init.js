@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     "use strict";
     function ratingEnable() {
         $('#example-1to10').barrating('show', {
@@ -9,7 +9,11 @@ $(function() {
             theme: 'bars-movie'
         });
 
-//        $('#example-movie').barrating('set', 'Mediocre');
+        $('#example-kemungkinan').barrating('show', {
+            theme: 'bars-kemungkinan'
+        });
+
+        //        $('#example-movie').barrating('set', 'Mediocre');
 
         $('#example-square').barrating('show', {
             theme: 'bars-square',
@@ -24,7 +28,7 @@ $(function() {
             showSelectedRating: false,
             allowEmpty: true,
             emptyValue: '-- no rating selected --',
-            onSelect: function(value, text) {
+            onSelect: function (value, text) {
                 alert('Selected rating: ' + value);
             }
         });
@@ -56,13 +60,15 @@ $(function() {
             showSelectedRating: false
         });
 
+
+
         var currentRating = $('#example-fontawesome-o').data('current-rating');
 
         $('.stars-example-fontawesome-o .current-rating')
             .find('span')
             .html(currentRating);
 
-        $('.stars-example-fontawesome-o .clear-rating').on('click', function(event) {
+        $('.stars-example-fontawesome-o .clear-rating').on('click', function (event) {
             event.preventDefault();
 
             $('#example-fontawesome-o')
@@ -73,7 +79,7 @@ $(function() {
             theme: 'fontawesome-stars-o',
             showSelectedRating: false,
             initialRating: currentRating,
-            onSelect: function(value, text) {
+            onSelect: function (value, text) {
                 if (!value) {
                     $('#example-fontawesome-o')
                         .barrating('clear');
@@ -87,7 +93,7 @@ $(function() {
                         .html(value);
                 }
             },
-            onClear: function(value, text) {
+            onClear: function (value, text) {
                 $('.stars-example-fontawesome-o')
                     .find('.current-rating')
                     .removeClass('hidden')
@@ -102,7 +108,7 @@ $(function() {
         $('select').barrating('destroy');
     }
 
-    $('.rating-enable').on("click", function(event) {
+    $('.rating-enable').on("click", function (event) {
         event.preventDefault();
 
         ratingEnable();
@@ -111,7 +117,7 @@ $(function() {
         $('.rating-disable').removeClass('deactivated');
     });
 
-    $('.rating-disable').on("click", function(event) {
+    $('.rating-disable').on("click", function (event) {
         event.preventDefault();
 
         ratingDisable();
