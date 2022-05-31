@@ -82,14 +82,40 @@
 													<td><?= $skp->tingkat_risiko ?></td>
 													<td><?= $skp->pengendalian ?></td>
 													<td><?= $skp->keputusan ?></td>
-													
+
 													<td>
 														<button type="button" class="btn btn-success	 btn-sm" <?= $skp->id_risiko ?>>
 															<i class="ti-pencil-alt"></i>
 														</button>
-														<button type="button" class="btn btn-danger btn-sm" <?= $skp->id_risiko ?>>
+
+														<!-- Trigger Hapus -->
+														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $skp->id_risiko; ?>">
 															<i class="ti-trash"></i>
 														</button>
+
+														<!-- Modal -->
+														<div class="modal fade" id="modal-danger<?php echo $skp->id_risiko; ?>">
+															<div class="modal-dialog">
+																<div class="modal-content bg-danger">
+																	<div class="modal-header">
+																		<h4 class="text-light">Hapus Data Risiko</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<p class="card-title text-light">Anda yakin akan menghapus data ini&hellip; ?</p>
+																	</div>
+																	<div class="modal-footer justify-content-between">
+																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
+																		<a href="<?= base_url('Resiko/hapus/') . $skp->id_risiko; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
+														</div>
+														<!-- /.modal -->
 													</td>
 
 												</tr>
