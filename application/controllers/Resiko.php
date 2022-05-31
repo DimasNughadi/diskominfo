@@ -23,7 +23,7 @@ class Resiko extends CI_Controller
         $this->load->view('resiko/resiko', $data);
         $this->load->view('layout/footer', $data);
     }
-    
+
     public function daftar()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
@@ -95,74 +95,56 @@ class Resiko extends CI_Controller
         redirect('Resiko');
     }
 
-    // function edit($id)
-    // {
-    //     $data['judul'] = "Edit Data Paket";
-    //     $data['paket'] = $this->Paket_model->getById($id);
-    //     $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    function edit($id)
+    {
+        $data['judul'] = "Ubah Data Risiko";
+        $data['aset'] = $this->Aset_model->get();
+        $data['resiko'] = $this->Resiko_model->getById($id);
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-    //     $this->form_validation->set_rules('jenis', 'Jenis Paket', 'required', [
-    //         'required' => 'Jenis Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('nama', 'Nama Paket', 'required', [
-    //         'required' => 'Nama Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('harga', 'Harga Paket', 'required|numeric', [
-    //         'required' => 'Harga Wajib di isi',
-    //         'numeric' => 'Harga Wajib Angka'
-    //     ]);
-    //     $this->form_validation->set_rules('deskripsi1', 'Deskripsi Paket', 'required', [
-    //         'required' => 'Deskripsi Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('deskripsi2', 'Deskripsi Paket', 'required', [
-    //         'required' => 'Deskripsi Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('deskripsi3', 'Deskripsi Paket', 'required', [
-    //         'required' => 'Deskripsi Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('deskripsi4', 'Deskripsi Paket', 'required', [
-    //         'required' => 'Deskripsi Paket Wajib di isi'
-    //     ]);
-    //     $this->form_validation->set_rules('deskripsi5', 'Deskripsi Paket', 'required', [
-    //         'required' => 'Deskripsi Paket Wajib di isi'
-    //     ]);
+        $this->form_validation->set_rules('nama_risiko', 'Nama Risiko', 'required', [
+            'required' => 'Nama Risiko Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('penyebab', 'Penyebab', 'required', [
+            'required' => 'Penyebab Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('dampak', 'Dampak', 'required', [
+            'required' => 'Dampak Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('pengendalian', 'Pengendalian', 'required', [
+            'required' => 'Pengendalian Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('keputusan', 'Keputusan', 'required', [
+            'required' => 'Keputusan Wajib di isi'
+        ]);
 
-    //     if ($this->form_validation->run() == false) {
-    //         $this->load->view("layout/header", $data);
-    //         $this->load->view("paket/vw_ubah_paket", $data);
-    //         $this->load->view("layout/footer");
-    //     } else {
-    //         $data = [
-    //             'jenis' => $this->input->post('jenis'),
-    //             'nama' => $this->input->post('nama'),
-    //             'harga' => $this->input->post('harga'),
-    //             'deskripsi1' => $this->input->post('deskripsi1'),
-    //             'deskripsi2' => $this->input->post('deskripsi2'),
-    //             'deskripsi3' => $this->input->post('deskripsi3'),
-    //             'deskripsi4' => $this->input->post('deskripsi4'),
-    //             'deskripsi5' => $this->input->post('deskripsi5'),
-    //         ];
-    //         $upload_image = $_FILES['gambar']['name'];
-    //         if ($upload_image) {
-    //             $config['allowed_types'] = 'gif|jpg|png';
-    //             $config['max_size'] = '2048';
-    //             $config['upload_path'] = './assets/images/paket/';
-    //             $this->load->library('upload', $config);
-    //             if ($this->upload->do_upload('gambar')) {
-    //                 $new_image = $this->upload->data('file_name');
-    //                 $query = $this->db->set('gambar', $new_image);
-    //                 if ($query) {
-    //                     $old_image = $this->db->get_where('paket', ['id' => $id])->row();
-    //                     unlink(FCPATH . 'assets/images/paket/' . $old_image->gambar);
-    //                 }
-    //             } else {
-    //                 echo $this->upload->display_errors();
-    //             }
-    //         }
-    //         $id = $this->input->post('id');
-    //         $this->Paket_model->update(['id' => $id], $data);
-    //         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Paket Berhasil Diubah!</div>');
-    //         redirect('Paket');
-    //     }
-    // }
+        if ($this->form_validation->run() == false) {
+            $this->load->view("layout/header", $data);
+            $this->load->view("resiko/vw_edit_resiko", $data);
+            $this->load->view("layout/footer", $data);
+        } else {
+
+            $skala_dampak = $this->input->post('skala_dampak');
+            $skala_kemungkinan = $this->input->post('skala_kemungkinan');
+            $data = [
+                'nama_risiko' => $this->input->post('nama_risiko'),
+                'penyebab' => $this->input->post('penyebab'),
+                'dampak' => $this->input->post('dampak'),
+                'pengendalian' => $this->input->post('pengendalian'),
+                'keputusan' => $this->input->post('keputusan'),
+                'id_aset' => $this->input->post('id_aset'),
+                'skala_dampak' => $this->input->post('skala_dampak'),
+                'skala_kemungkinan' => $this->input->post('skala_kemungkinan'),
+                'tingkat_risiko' => $skala_dampak * $skala_kemungkinan,
+                'id_user' => $this->input->post('id_user'),
+
+                'id_risiko' => $this->input->post('id_risiko'),
+            ];
+
+            $id = $this->input->post('id_risiko');
+            $this->Resiko_model->update(['id_risiko' => $id], $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Resiko Berhasil Diubah!</div>');
+            redirect('Resiko');
+        }
+    }
 }

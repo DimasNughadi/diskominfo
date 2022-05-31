@@ -15,7 +15,7 @@
                         <div class="page-title">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url('resiko') ?>">Identifikasi Resiko</a></li>
-                                <li class="breadcrumb-item active">Tambah Risiko</li>
+                                <li class="breadcrumb-item active">Edit Risiko</li>
                             </ol>
                         </div>
                     </div>
@@ -36,6 +36,7 @@
                             <form action="" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <input type="hidden" name="id_risiko" value="<?= $resiko['id_risiko']; ?>">
                                         <input type="hidden" class="form-control" name="id_user" value="<?= $user['id_user']; ?>" id="id_user" readonly>
                                         <label for="exampleInputName">User</label>
                                         <input type="text" class="form-control" name="nama_user" value="<?= $user['username']; ?>" id="nama_user" readonly>
@@ -43,38 +44,38 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Nama Risiko</label>
-                                        <input type="text" class="form-control" name="nama_risiko" value="<?= set_value('nama_risiko'); ?>" id="nama_risiko" placeholder="Masukkan Nama Risiko">
+                                        <input type="text" class="form-control" name="nama_risiko" value="<?= $resiko['nama_risiko']; ?>" id="nama_risiko" placeholder="Masukkan Nama Risiko">
                                         <?= form_error('nama_risiko', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputStatus">Nama Aset</label>
-                                        <select id="inputStatus" name="id_aset" value="<?= set_value('id_aset'); ?>" class="form-control custom-select">
+                                        <select id="inputStatus" name="id_aset" class="form-control custom-select">
                                             <option selected disabled>Pilih Aset</option>
-                                            <?php foreach ($aset as $udt) : ?>
-                                                <?php if ($udt['nama_aset'] != null) { ?>
-                                                    <option value="<?= $udt['id_aset']; ?>"><?= $udt['nama_aset']; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
+                                            <?php foreach ($aset as $udt) { ?>
+                                                <option <?php if ($udt['id_aset'] == $resiko['id_aset']) {
+                                                            echo 'selected="selected"';
+                                                        } ?> value="<?= $udt['id_aset']; ?>"><?= $udt['nama_aset']; ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Penyebab</label>
-                                        <textarea class="form-control" rows="6" name="penyebab" value="<?= set_value('penyebab'); ?>" id="penyebab" placeholder="Masukkan Penyebab Risiko"></textarea>
+                                        <textarea class="form-control" rows="6" name="penyebab"  id="penyebab" placeholder="Masukkan Penyebab Risiko"><?= $resiko['penyebab']; ?></textarea>
                                         <?= form_error('penyebab', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Dampak</label>
-                                        <textarea class="form-control" rows="6" name="dampak" value="<?= set_value('dampak'); ?>" id="dampak" placeholder="Masukkan Dampak Risiko"></textarea>
+                                        <textarea class="form-control" rows="6" name="dampak"  id="dampak" placeholder="Masukkan Dampak Risiko"><?= $resiko['dampak']; ?></textarea>
                                         <?= form_error('dampak', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Pengendalian</label>
-                                        <textarea class="form-control" rows="6" name="pengendalian" value="<?= set_value('pengendalian'); ?>" id="pengendalian" placeholder="Masukkan Pengendalian Risiko"></textarea>
+                                        <textarea class="form-control" rows="6" name="pengendalian"  id="pengendalian" placeholder="Masukkan Pengendalian Risiko"><?= $resiko['pengendalian']; ?></textarea>
                                         <?= form_error('pengendalian', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Keputusan</label>
-                                        <textarea class="form-control" rows="6" name="keputusan" value="<?= set_value('keputusan'); ?>" id="keputusan" placeholder="Masukkan Keputusan Risiko"></textarea>
+                                        <textarea class="form-control" rows="6" name="keputusan" id="keputusan" placeholder="Masukkan Keputusan Risiko"><?= $resiko['keputusan']; ?></textarea>
                                         <?= form_error('keputusan', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
 
@@ -112,7 +113,7 @@
                                         <option value="5">Sangat Sering</option>
                                     </select>
                                 </div>
-                                <br/>
+                                <br />
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer bg-white">
