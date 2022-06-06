@@ -9,6 +9,7 @@ class Akun extends CI_Controller {
         $this->load->model('User_model');
         $this->load->model('Aset_model');
         $this->load->model('Bidang_model');
+        $this->load->model('JenisAset_model');
     }
 
     function index()
@@ -108,29 +109,19 @@ class Akun extends CI_Controller {
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
-            $this->load->view("aset/vw_edit_aset", $data);
+            $this->load->view("akun/vw_edit_akun", $data);
             $this->load->view("layout/footer", $data);
         } else {
             $data = [
-                'id_user' => $this->input->post('id_user'),
-                'id_jenis_aset' => $this->input->post('id_jenis_aset'),
-                'id_bidang' => $this->input->post('id_bidang'),
-                'no_aset' => $this->input->post('no_aset'),
-                'nama_aset' => $this->input->post('nama_aset'),
-                'merk_aset' => $this->input->post('merk_aset'),
-                'qty' => $this->input->post('qty'),
-                'owner_aset' => $this->input->post('owner_aset'),
-                'lokasi_aset' => $this->input->post('lokasi_aset'),
-                'subclass_aset' => $this->input->post('subclass_aset'),
-                'used_by' => $this->input->post('used_by'),
-                'created_on' => time(),
-                'id_aset' => $this->input->post('id_aset'),
+                'username' => $this->input->post('username'),
+                'password' => $this->input->post('password'),
+                'role' => $this->input->post('role'),
+                'id_bidang' => $this->input->post('bidang'),
+                'status' => $this->input->post('status')
             ];
-
-            $id = $this->input->post('id_aset');
-            $this->Aset_model->update(['id_aset' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Aset Berhasil Diubah!</div>');
-            redirect('Aset');
+            $this->User_model->insert($data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User Baru Berhasil Ditambah!</div>');
+            redirect('Akun');
         }
     }
 }
