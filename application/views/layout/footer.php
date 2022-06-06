@@ -52,6 +52,9 @@
 <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 
+<script src="<?= base_url('assets/') ?>js/lib/toastr/toastr.min.js"></script>
+<script src="<?= base_url('assets/') ?>js/lib/toastr/toastr.init.js"></script>
+
 
 <script>
 	$(function() {

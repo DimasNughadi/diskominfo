@@ -33,6 +33,8 @@
 	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/slider/slider.css" rel="stylesheet">
+	
+    <link href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css" rel="stylesheet">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
