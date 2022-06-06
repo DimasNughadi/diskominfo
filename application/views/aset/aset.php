@@ -188,7 +188,7 @@
 															<div class="modal-dialog">
 																<div class="modal-content bg-success">
 																	<div class="modal-header">
-																		<h4 class="text-light">Edit Data</h4>
+																		<h4 class="text-light">Edit Data Aset</h4>
 																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
 																			<i class="fa fa-close"></i>
 																		</button>
@@ -197,7 +197,7 @@
 																		<p class="text-light">Anda yakin ingin mengubah data ini&hellip; ?</p>
 																	</div>
 																	<div class="modal-footer justify-content-between">
-																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
 																		<a href="<?= base_url('aset/edit/') . $us['id_aset']; ?>" class="btn btn-outline-light">Ubah</a>
 																	</div>
 																</div>
@@ -227,7 +227,7 @@
 																	</div>
 																	<div class="modal-footer justify-content-between">
 																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
-																		<a href="<?= base_url('Aset/hapus/') . $us['id_aset']; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
+																		<a href="<?= base_url('Aset/hapus/') . $us['id_aset']; ?>" class="btn btn-outline-light">Hapus</a>
 																	</div>
 																</div>
 																<!-- /.modal-content -->
