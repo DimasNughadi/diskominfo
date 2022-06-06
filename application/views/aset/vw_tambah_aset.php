@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" value="Simpan class="btn btn-primary">Simpan Data</button>
+                                    <button type="submit" name="simpan" value="Simpan"  class="btn btn-primary">Simpan Data</button>
                                     <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
                                 </div>
                                 <!-- /.card-body -->
