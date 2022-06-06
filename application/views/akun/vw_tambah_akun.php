@@ -43,16 +43,16 @@
                                     <div class="form-group">
                                         <label for="exampleInputName">Password</label>
                                         <input type="password" class="form-control" name="password" value="<?= set_value('password'); ?>" id="password1" placeholder="Masukkan Password">
-                                        <!-- <input type="checkbox" class="mt-3" id="Check1" onclick="myFunction()"> -->
-                                        <!-- <label class="form-check-label" for="Check1">Show Password</label> -->
+                                        <input type="checkbox" class="mt-3" id="Check1" onclick="myFunction()">
+                                        <label class="form-check-label" for="Check1">Show Password</label>
                                         <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="exampleInputName">Verifikasi Password</label>
                                         <input type="Password" class="form-control" name="password2" value="<?= set_value('password'); ?>" id="password2" placeholder="Ulangi Password">
-                                        <!-- <input type="checkbox" class="mt-3" id="Check2" onclick="myFunction2()"> -->
-                                        <!-- <label class="form-check-label" for="Check2">Show Password</label> -->
+                                        <input type="checkbox" class="mt-3" id="Check2" onclick="myFunction2()">
+                                        <label class="form-check-label" for="Check2">Show Password</label>
                                         <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
