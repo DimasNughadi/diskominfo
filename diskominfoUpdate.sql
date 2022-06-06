@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2022 pada 08.30
+-- Waktu pembuatan: 06 Jun 2022 pada 10.49
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -154,16 +154,18 @@ CREATE TABLE `user` (
   `username` varchar(32) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` varchar(16) NOT NULL,
-  `departemen` varchar(16) NOT NULL,
-  `status` varchar(16) NOT NULL
+  `status` varchar(16) NOT NULL,
+  `id_bidang` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `departemen`, `status`) VALUES
-(1, 'admin', '$2y$10$3Bb1Vo37c1BfRAD/CNXBu.cCamOoM4p2bdZMFTm0jEwP2A4Jj3Bq6', 'Admin', 'Persandian', 'Active');
+INSERT INTO `user` (`id_user`, `username`, `password`, `role`, `status`, `id_bidang`) VALUES
+(1, 'admin', '$2y$10$3Bb1Vo37c1BfRAD/CNXBu.cCamOoM4p2bdZMFTm0jEwP2A4Jj3Bq6', 'Admin', 'Active', 1),
+(2, 'reza', 'reza', 'User', 'Active', 1),
+(3, 'tes', '$2y$10$GjApaQzNe8MnVilu78w.sOa3PwLlswddOaEXcXcHE92CRi5bqJhBm', 'User', 'Active', 1);
 
 --
 -- Indexes for dumped tables
@@ -208,7 +210,8 @@ ALTER TABLE `risiko`
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_user`),
+  ADD KEY `id_bidang` (`id_bidang`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -218,7 +221,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `aset`
 --
 ALTER TABLE `aset`
-  MODIFY `id_aset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_aset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `bidang`
@@ -242,7 +245,7 @@ ALTER TABLE `risiko`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -268,6 +271,12 @@ ALTER TABLE `monitor_rtp`
 ALTER TABLE `risiko`
   ADD CONSTRAINT `risiko_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `risiko_ibfk_3` FOREIGN KEY (`id_aset`) REFERENCES `aset` (`id_aset`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_bidang`) REFERENCES `bidang` (`id_bidang`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
