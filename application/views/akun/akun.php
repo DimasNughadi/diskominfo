@@ -163,9 +163,35 @@
 														<button type="button" class="btn btn-success btn-sm" <?php echo $us['id_user']; ?>>
 															<i class="ti-pencil-alt"></i>
 														</button>
-														<button type="button" class="btn btn-danger btn-sm" <?php echo $us['id_user']; ?>>
+														
+														<!-- Trigger Hapus -->
+														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_user']; ?>">
 															<i class="ti-trash"></i>
 														</button>
+														<!-- Modal -->
+														<div class="modal fade" id="modal-danger<?php echo $us['id_user']; ?>">
+															<div class="modal-dialog">
+																<div class="modal-content bg-danger">
+																	<div class="modal-header">
+																		<h4 class="text-light">Hapus Data User</h4>
+																		<button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+																			<i class="fa fa-close"></i>
+																		</button>
+																	</div>
+																	<div class="modal-body">
+																		<p class="card-title text-light">Anda yakin akan menghapus user ini&hellip; ?</p>
+																	</div>
+																	<div class="modal-footer justify-content-between">
+																		<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
+																		<a href="<?= base_url('Akun/hapus/') . $us['id_user']; ?>" class="btn btn-outline-light">Hapus</a>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+															<!-- /.modal-dialog -->
+														</div>
+														<!-- /.modal -->
+
 													</td>
 												</tr>
 												<?php $i++; ?>
