@@ -37,45 +37,45 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputName">Username</label>
-                                        <input type="text" class="form-control" name="no_aset" value="<?= set_value('username'); ?>" id="username" placeholder="Masukkan Username">
+                                        <input type="text" class="form-control" name="username" value="<?= set_value('username'); ?>" id="username" placeholder="Masukkan Username">
                                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Password</label>
                                         <input type="password" class="form-control" name="password" value="<?= set_value('password'); ?>" id="password1" placeholder="Masukkan Password">
-                                        <input type="checkbox" class="mt-3" id="Check1" onclick="myFunction()">
-                                        <label class="form-check-label" for="Check1">Show Password</label>
-                                        <?= form_error('password1   ', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        <!-- <input type="checkbox" class="mt-3" id="Check1" onclick="myFunction()"> -->
+                                        <!-- <label class="form-check-label" for="Check1">Show Password</label> -->
+                                        <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     
                                     <div class="form-group">
                                         <label for="exampleInputName">Verifikasi Password</label>
                                         <input type="Password" class="form-control" name="password2" value="<?= set_value('password'); ?>" id="password2" placeholder="Ulangi Password">
-                                        <input type="checkbox" class="mt-3" id="Check2" onclick="myFunction2()">
-                                        <label class="form-check-label" for="Check2">Show Password</label>
+                                        <!-- <input type="checkbox" class="mt-3" id="Check2" onclick="myFunction2()"> -->
+                                        <!-- <label class="form-check-label" for="Check2">Show Password</label> -->
                                         <?= form_error('password2', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Role</label>
-                                        <select id="inputStatus" name="id_bidang" value="<?= set_value('role'); ?>" class="form-control custom-select">
+                                        <label for="role">Role</label>
+                                        <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">
                                             <option selected disabled>Pilih Role</option>
                                             <option>Admin</option>
                                             <option>User</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Bidang</label>
-                                        <select id="inputStatus" name="id_bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
+                                        <label for="bidang">Bidang</label>
+                                        <select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
                                             <option selected disabled>Pilih Bidang</option>
                                             <?php foreach ($bidang as $udt) : ?>
                                                 <?php if ($udt['nama_bidang'] != null) { ?>
-                                                    <option value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
+                                                    <option value="<?= $udt['nama_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                                 <?php } ?>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="hidden" class="form-control" name="status" value="Active" id="status" placeholder="Masukkan Username">
+                                        <input type="hidden" class="form-control" name="status" value="Active" id="status">
                                     </div>
                                 </div>
                                 <div class="card-footer">
@@ -86,7 +86,7 @@
                             </div>
                             </form>
                         </div>
-                                                </div>
+                    </div>
                         <!-- /.card -->
                 
                     <!--/.col (right) -->

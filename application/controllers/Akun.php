@@ -30,10 +30,10 @@ class Akun extends CI_Controller {
         $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-        $this->form_validation->set_rules('username', 'Username', 'required', [
+        $this->form_validation->set_rules('username', 'username', 'required', [
             'required' => 'Username Wajib di isi'
         ]);
-        $this->form_validation->set_rules('password1', 'password1', 'required', [
+        $this->form_validation->set_rules('password', 'password', 'required', [
             'required' => 'Password Wajib di isi'
         ]);
         $this->form_validation->set_rules('password2', 'password2', 'required', [
