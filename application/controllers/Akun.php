@@ -73,7 +73,7 @@ class Akun extends CI_Controller {
     function edit($id)
     {
         $data['judul'] = "Ubah Data User";
-        $data['user'] = $this->User_model->getById($id);
+        $data['userdata'] = $this->User_model->getById($id);
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();

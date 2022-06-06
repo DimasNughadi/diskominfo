@@ -37,21 +37,21 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputName">Username</label>
-                                        <input type="text" class="form-control" name="username" value="<?= $user['username']; ?>" id="username" placeholder="Masukkan Username">
+                                        <input type="text" class="form-control" name="username" value="<?= $userdata['username']; ?>" id="username" placeholder="Masukkan Username">
                                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="role">Role</label>
                                         <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">                                        
-                                            <option value="Admin" <?php if ($user['role']=='Admin'){echo 'selected="selected"';}?>>Admin</option>
-                                            <option value="User" <?php if ($user['role']=='User'){echo 'selected="selected"';}?>>User</option>
+                                            <option value="Admin" <?php if ($userdata['role']=='Admin'){echo 'selected="selected"';}?>>Admin</option>
+                                            <option value="User" <?php if ($userdata['role']=='User'){echo 'selected="selected"';}?>>User</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="bidang">Bidang</label>
                                         <select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
                                         <?php foreach ($bidang as $udt) : ?>
-                                                <option <?php if ($udt['id_bidang'] == $user['id_bidang']) {
+                                                <option <?php if ($udt['id_bidang'] == $userdata['id_bidang']) {
                                                             echo 'selected="selected"';
                                                         } ?> value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                             <?php endforeach; ?>
