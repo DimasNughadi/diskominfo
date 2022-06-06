@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Akun extends CI_Controller {
+class Akun extends CI_Controller
+{
 
     public function __construct()
     {
@@ -21,7 +22,6 @@ class Akun extends CI_Controller {
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
         $this->load->view('layout/footer', $data);
-
     }
 
     public function tambah()
@@ -34,13 +34,17 @@ class Akun extends CI_Controller {
         $this->form_validation->set_rules('username', 'username', 'required', [
             'required' => 'Username Wajib di isi'
         ]);
-        $this->form_validation->set_rules('password', 'password', 'required', [
-            'required' => 'Password Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('password2', 'password2', 'required', [
-            'required' => 'Password Wajib di isi'
-        ]);
-
+        $this->form_validation->set_rules(
+            'password1',
+            'password',
+            'required|trim|min_length[5]|matches[password2]',
+            [
+                'matches' => 'Password Tidak Sama',
+                'min_length' => 'Password Terlalu Pendek',
+                'required' => 'Password harus diisi'
+            ]
+        );
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
             $this->load->view("akun/vw_tambah_akun", $data);
@@ -48,7 +52,7 @@ class Akun extends CI_Controller {
         } else {
             $data = [
                 'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
+                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role' => $this->input->post('role'),
                 'id_bidang' => $this->input->post('bidang'),
                 'status' => $this->input->post('status')
