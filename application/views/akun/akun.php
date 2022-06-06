@@ -40,7 +40,13 @@
 													<td><?= $us['id_user']; ?></td>
 													<td><?= $us['username']; ?></td>
 													<td><?= $us['role']; ?></td>
-													<td><?= $us['bidang']; ?></td>
+													<td>
+														<?php foreach ($bidang as $bdg) : ?>
+															<?php if ($us['id_bidang'] == $bdg['id_bidang']) { ?>
+																<?= $bdg['nama_bidang']; ?>
+															<?php } ?>
+														<?php endforeach; ?>
+													</td>
                                                     <td>
                                                         <a class="float-right">
                                                             <?php if ($us['status'] == 'Active') { ?>

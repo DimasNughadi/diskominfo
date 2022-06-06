@@ -69,7 +69,7 @@
                                             <option selected disabled>Pilih Bidang</option>
                                             <?php foreach ($bidang as $udt) : ?>
                                                 <?php if ($udt['nama_bidang'] != null) { ?>
-                                                    <option value="<?= $udt['nama_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
+                                                    <option value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                                 <?php } ?>
                                             <?php endforeach; ?>
                                         </select>

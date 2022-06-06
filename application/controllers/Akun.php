@@ -49,7 +49,7 @@ class Akun extends CI_Controller {
                 'username' => $this->input->post('username'),
                 'password' => $this->input->post('password'),
                 'role' => $this->input->post('role'),
-                'bidang' => $this->input->post('bidang'),
+                'id_bidang' => $this->input->post('bidang'),
                 'status' => $this->input->post('status')
             ];
             $this->User_model->insert($data);
