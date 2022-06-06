@@ -55,9 +55,8 @@
 		<div class="nano">
 			<div class="nano-content">
 				<ul>
-					<div class="logo"><a href="Dashboard">
-						<h4 class="text-white"><span class="badge badge-secondary"><a href="<?= site_url('dashboard') ?>">Diskominfotik<b>Riau</b></a></span></h4>
-					</div>
+					<div class="logo"><a href="<?= site_url('dashboard') ?>">
+							<span>Diskominfotik Riau</span></a></div>
 					<li class="label">Main</li>
 					<li><a href="<?= site_url('dashboard') ?>"><i class="ti-home"></i> Dashboard</a>
 					</li>
@@ -66,13 +65,13 @@
 					<li><a class="sidebar-sub-toggle"><i class="nav-icon fas fa-database"></i> Data Master <span class="sidebar-collapse-icon ti-angle-down"></span></a>
 						<ul>
 
-							<li><a href="<?= site_url('aset') ?>"><i class="ti-control-record"></i>Data Aset</a></li>
+							<li><a href="<?= site_url('aset') ?>"><i class="ti-control-record "></i>Data Aset</a></li>
 							<li><a href="<?= site_url('jenisaset') ?>"><i class="ti-control-record"></i>Data Jenis Aset</a></li>
 							<li><a href="<?= site_url('akun') ?>"><i class="ti-control-record"></i>Data User</a></li>
 							<li><a href="<?= site_url('bidang') ?>"><i class="ti-control-record"></i>Data Bidang</a></li>
 						</ul>
 					</li>
-					<li><a class="sidebar-sub-toggle"><i class="nav-icon fas fa-database"></i> Manajemen Risiko <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+					<li><a class="sidebar-sub-toggle"><i class="nav-icon fas fa-server"></i></i> Manajemen Risiko <span class="sidebar-collapse-icon ti-angle-down"></span></a>
 						<ul>
 
 							<li><a href="<?= site_url('resiko') ?>"><i class="ti-control-record"></i>Identifikasi Risiko</a></li>
