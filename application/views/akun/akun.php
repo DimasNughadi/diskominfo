@@ -95,7 +95,11 @@
 																					<li class="list-group-item">
 																						<b class="float-left">Bidang</b>
 																						<a class="float-right">
-																							<?= $us['id_bidang']; ?>
+																							<?php foreach ($bidang as $bdg) : ?>
+																								<?php if ($us['id_bidang'] == $bdg['id_bidang']) { ?>
+																									<?= $bdg['nama_bidang']; ?>
+																								<?php } ?>
+																							<?php endforeach; ?>
 																						</a>
 																					</li>
 																					<li class="list-group-item">
