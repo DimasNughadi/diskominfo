@@ -95,7 +95,7 @@
 																					<li class="list-group-item">
 																						<b class="float-left">Bidang</b>
 																						<a class="float-right">
-																							<?= $us['bidang']; ?>
+																							<?= $us['id_bidang']; ?>
 																						</a>
 																					</li>
 																					<li class="list-group-item">
