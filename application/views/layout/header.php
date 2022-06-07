@@ -78,7 +78,7 @@
 
 							<li><a href="<?= site_url('resiko') ?>"><i class="ti-control-record"></i>Identifikasi Risiko</a></li>
 							<li><a href="<?= site_url('resiko/daftar') ?>"><i class="ti-control-record"></i>Daftar Risiko</a></li>
-							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Rencana Penanganan</a></li>
+							<li><a href="<?= site_url('rencana') ?>"><i class="ti-control-record"></i>Rencana Penanganan</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Realisasi Penangan</a></li>
 						</ul>
 					</li>

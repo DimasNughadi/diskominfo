@@ -17,11 +17,13 @@ class Rencana extends CI_Controller
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Rencana Penanganan";
-        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+
+        $data['rencana'] = $this->Rencana_model->showRencana()->result();
         $data['aset'] = $this->Aset_model->get();
+        $data['resiko'] = $this->Resiko_model->get();
         $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
-        $this->load->view('resiko/resiko', $data);
+        $this->load->view('rencana/vw_rencana', $data);
         $this->load->view('layout/footer', $data);
     }
 }
