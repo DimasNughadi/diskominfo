@@ -29,20 +29,10 @@ class Rencana_model extends CI_Model
         // $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
         // $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
         $this->db->where($where);
-        $this->db->order_by('monitor_rtp.plan_mulai ASC');
+        // $this->db->order_by('monitor_rtp.plan_mulai ASC');
         return $this->db->get();
     }
 
-    function showRisiko()
-    {
-        $this->db->select('*');
-        $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        $this->db->having('risiko.id_risiko > 0');
-        $this->db->from('aset');
-        $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        return $this->db->get();
-    }
 
 
     public function getById($id)
