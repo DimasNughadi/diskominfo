@@ -18,6 +18,7 @@
 <script src="<?= base_url('assets/') ?>js/lib/preloader/pace.min.js"></script>
 <!-- sidebar -->
 <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
+<script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js.map"></script>
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 <!-- bootstrap -->
 
@@ -49,11 +50,8 @@
 
 <script src="<?= base_url('assets/') ?>js/lib/barRating/jquery.barrating.js"></script>
 <script src="<?= base_url('assets/') ?>js/lib/barRating/barRating.init.js"></script>
-<script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 
-<script src="<?= base_url('assets/') ?>js/lib/toastr/toastr.min.js"></script>
-<script src="<?= base_url('assets/') ?>js/lib/toastr/toastr.init.js"></script>
 
 
 <script>

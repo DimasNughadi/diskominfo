@@ -30,7 +30,8 @@
 	<link href="<?= base_url('assets/') ?>css/lib/owl.theme.default.min.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/') ?>css/lib/weather-icons.css" rel="stylesheet" />
 	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
+	<!-- <link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css.map" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/slider/slider.css" rel="stylesheet">
 
@@ -44,7 +45,7 @@
 	<link href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/themify-icons.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/style.css" rel="stylesheet">
 
