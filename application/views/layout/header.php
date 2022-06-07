@@ -33,8 +33,8 @@
 	<link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
 	<link href="<?= base_url('assets/') ?>css/lib/slider/slider.css" rel="stylesheet">
-	
-    <link href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css" rel="stylesheet">
+
+	<link href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css" rel="stylesheet">
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -114,7 +114,7 @@
 						<div class="user-panel mt-3  d-flex">
 							<div class="info">
 								<p><span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('username')) ?></span>
-									<span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('departemen')) ?></span>
+									<span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('id_bidang')) ?></span>
 								</p>
 							</div>
 						</div>
