@@ -16,6 +16,7 @@ class Akun extends CI_Controller
     function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        // $data['userdata'] = $this->User_model->getById($id);
         $data['akun'] = $this->User_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['judul'] = "Data Akun";
@@ -71,7 +72,7 @@ class Akun extends CI_Controller
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Aset Berhasil Dihapus!</div>');
         }
-        redirect('akun');
+        redirect('Akun');
     }
 
     function edit($id)
@@ -118,13 +119,13 @@ class Akun extends CI_Controller
         } else {
             $data = [
                 'username' => $this->input->post('username'),
-                'password' => $this->input->post('password'),
                 'role' => $this->input->post('role'),
                 'id_bidang' => $this->input->post('bidang'),
-                'status' => $this->input->post('status')
+                'id_user' => $this->input->post('id_user'),
             ];
-            $this->User_model->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User Baru Berhasil Ditambah!</div>');
+            $id = $this->input->post('id_user');
+            $this->JenisAset_model->update(['id_user' => $id], $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Jenis Aset Berhasil Diubah!</div>');
             redirect('Akun');
         }
     }

@@ -227,7 +227,7 @@
 																		</div>
 																		<div class="modal-footer justify-content-between">
 																			<button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
-																			<a href="<?= base_url('Aset/hapus/') . $us['id_aset']; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
+																			<a href="<?= base_url('Aset/hapus/') . $us['id_aset']; ?>" class="btn btn-outline-light">Hapus</a>
 																		</div>
 																	</div>
 																	<!-- /.modal-content -->

@@ -37,6 +37,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputName">Username</label>
+                                        <input type="hidden" class="form-control" name="id_user" value="<?= $userdata['id_user']; ?>" id="id_user" placeholder="Masukkan Username">
                                         <input type="text" class="form-control" name="username" value="<?= $userdata['username']; ?>" id="username" placeholder="Masukkan Username">
                                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
@@ -57,12 +58,9 @@
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="hidden" class="form-control" name="status" value="Active" id="status">
-                                    </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Daftarkan</button>
+                                    <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Ubah</button>
                                     <a href="<?= base_url('Akun') ?>" class="btn btn-danger">Tutup</a>
                                 </div>
                                 <!-- /.card-body -->
