@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Aset extends CI_Controller {
+class Aset extends CI_Controller
+{
 
     public function __construct()
     {
@@ -17,14 +18,17 @@ class Aset extends CI_Controller {
         $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
-        // $data['aset'] = $this->Aset_model->getPhysical()->result();
+        // $session = $this->session->userdata('id_bidang');
+        // $where2 = array(
+        //     'user.id_bidang' => $session
+        // );
+        // $data['aset'] = $this->Aset_model->getPhysical($where2)->result();
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('aset/aset', $data);
         $this->load->view('layout/footer', $data);
-
     }
 
 
