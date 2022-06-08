@@ -83,33 +83,14 @@ class Akun extends CI_Controller
         $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
-        $this->form_validation->set_rules('id_user', 'ID User', 'required', [
-            'required' => 'ID User Wajib di isi'
+        $this->form_validation->set_rules('username', 'username', 'required', [
+            'required' => 'Username Wajib di isi'
         ]);
-        $this->form_validation->set_rules('no_aset', 'Nomor Aset', 'required', [
+        $this->form_validation->set_rules('role', 'role', 'required', [
             'required' => 'Nomor Aset Wajib di isi'
         ]);
-        $this->form_validation->set_rules('nama_aset', 'Nama Aset', 'required', [
+        $this->form_validation->set_rules('bidang', 'bidang', 'required', [
             'required' => 'Nama Aset Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('qty', 'Jumlah Aset', 'required', [
-            'required' => 'Jumlah Aset Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('merk_aset', 'Merk Aset', 'required', [
-            'required' => 'Merk Aset Wajib di isi'
-        ]);
-
-        $this->form_validation->set_rules('owner_aset', 'Ownet Aset', 'required', [
-            'required' => 'Ownet Aset Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('lokasi_aset', 'Lokasi Aset', 'required', [
-            'required' => 'Lokasi Aset Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('subclass_aset', 'Subclass Aset', 'required', [
-            'required' => 'Subclass Aset Wajib di isi'
-        ]);
-        $this->form_validation->set_rules('used_by', 'Pengguna Aset', 'required', [
-            'required' => 'Pengguna Aset Wajib di isi'
         ]);
 
         if ($this->form_validation->run() == false) {
@@ -118,13 +99,13 @@ class Akun extends CI_Controller
             $this->load->view("layout/footer", $data);
         } else {
             $data = [
+                
                 'username' => $this->input->post('username'),
                 'role' => $this->input->post('role'),
                 'id_bidang' => $this->input->post('bidang'),
-                'id_user' => $this->input->post('id_user'),
             ];
             $id = $this->input->post('id_user');
-            $this->JenisAset_model->update(['id_user' => $id], $data);
+            $this->User_model->update(['id_user' => $id], $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Jenis Aset Berhasil Diubah!</div>');
             redirect('Akun');
         }
