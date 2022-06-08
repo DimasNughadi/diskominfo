@@ -110,4 +110,19 @@ class Akun extends CI_Controller
             redirect('Akun');
         }
     }
+
+        public function update_status($id, $status)
+    {
+        $this->load->model('User_model', 'userdata');
+
+        //send id and status to the model to update the status
+        if ($this->userdata->update_status_model($id, $status)) {
+            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-success');
+        } else {
+            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-danger');
+        }
+        return redirect('Akun');
+    }
 }

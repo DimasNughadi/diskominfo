@@ -73,12 +73,12 @@
                                                         <a class="float-right">
                                                             <?php if ($us['status'] == 'Active') { ?>
                                                                 <?php if ($_SESSION['username'] == $us['username']) { ?>
-                                                                    <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+                                                                    <a href="<?php echo base_url(); ?>akun/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm disabled">Active</a>
                                                                 <?php } else { ?>
-                                                                    <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm">Active</a>
+                                                                    <a href="<?php echo base_url(); ?>akun/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-success btn-sm">Active</a>
                                                                 <?php } ?>
                                                             <?php } else { ?>
-                                                                <a href="<?php echo base_url(); ?>user/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+                                                                <a href="<?php echo base_url(); ?>akun/update_status/<?php echo $us['id_user']; ?>/<?php echo $us['status']; ?>" class="btn btn-warning btn-sm">Inactive</a>
                                                             <?php } ?>
                                                         </a>
                                                     </td>
