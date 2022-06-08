@@ -54,8 +54,6 @@ class Rencana extends CI_Controller
             $this->load->view("rencana/vw_tambah_rencana", $data);
             $this->load->view("layout/footer", $data);
         } else {
-            // $skala_dampak = $this->input->post('skala_dampak');
-            // $skala_kemungkinan = $this->input->post('skala_kemungkinan');
             $data = [
                 'id_risiko' => $this->input->post('id_risiko'),
                 'deskripsi' => $this->input->post('deskripsi'),
@@ -68,6 +66,48 @@ class Rencana extends CI_Controller
             $this->Rencana_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
                                                 Rencana Penanganan Berhasil Ditambah!</div>');
+            redirect('rencana');
+        }
+    }
+
+    function edit($id)
+    {
+        $data['judul'] = "Edit Rencana Penanganan";
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['rencana'] = $this->Rencana_model->showRencanaById($id);
+        $data['bidang'] = $this->Bidang_model->get();
+
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi RTP', 'required', [
+            'required' => 'Deskripsi RTP Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('plan_mulai', 'Plan Mulai', 'required', [
+            'required' => 'Plan Mulai Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('plan_selesai', 'Plan Selesai', 'required', [
+            'required' => 'Plan Selesai Wajib di isi'
+        ]);
+        $this->form_validation->set_rules('indikator_output', 'Indikator Output', 'required', [
+            'required' => 'Indikator Output Wajib di isi'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view("layout/header", $data);
+            $this->load->view("rencana/vw_edit_rencana", $data);
+            $this->load->view("layout/footer", $data);
+        } else {
+            $data = [
+                'deskripsi' => $this->input->post('deskripsi'),
+                'plan_mulai' => $this->input->post('plan_mulai'),
+                'plan_selesai' => $this->input->post('plan_selesai'),
+                'indikator_output' => $this->input->post('indikator_output'),
+                'pic' => $this->input->post('pic'),
+                'status' => $this->input->post('status'),
+                'id_risiko' => $this->input->post('id_risiko'),
+            ];
+
+            $id = $this->input->post('id_risiko');
+            $this->Rencana_model->update(['id_risiko' => $id], $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Rencana Penanganan Risiko Berhasil Diubah!</div>');
             redirect('rencana');
         }
     }

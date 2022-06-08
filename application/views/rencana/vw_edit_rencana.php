@@ -74,22 +74,22 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputName">Deskripsi RTP</label>
-                                    <input type="text" class="form-control" name="deskripsi" value="<?= set_value('deskripsi'); ?>" id="deskripsi" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
+                                    <input type="text" class="form-control" name="deskripsi" value="<?= $rencana['deskripsi']; ?>" id="deskripsi" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
                                     <?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Plan Mulai</label>
-                                    <input type="date" class="form-control" name="plan_mulai" value="<?= set_value('plan_mulai'); ?>" id="plan_mulai" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
+                                    <input type="date" class="form-control" name="plan_mulai" value="<?= $rencana['plan_mulai']; ?>" id="plan_mulai" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
                                     <?= form_error('plan_mulai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Plan Selesai</label>
-                                    <input type="date" class="form-control" name="plan_selesai" value="<?= set_value('plan_selesai'); ?>" id="plan_selesai" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
+                                    <input type="date" class="form-control" name="plan_selesai" value="<?= $rencana['plan_selesai']; ?>" id="plan_selesai" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko">
                                     <?= form_error('plan_selesai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Indikator Output</label>
-                                    <input type="text" class="form-control" name="indikator_output" value="<?= set_value('indikator_output'); ?>" id="indikator_output" placeholder="Masukkan Indikator Output">
+                                    <input type="text" class="form-control" name="indikator_output" value="<?= $rencana['indikator_output']; ?>" id="indikator_output" placeholder="Masukkan Indikator Output">
                                     <?= form_error('indikator_output', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
@@ -97,9 +97,9 @@
                                     <select id="inputStatus" name="pic" class="form-control custom-select">
                                         <option selected disabled>Pilih Bidang</option>
                                         <?php foreach ($bidang as $udt) : ?>
-                                            <?php if ($udt['nama_bidang'] != null) { ?>
-                                                <option value="<?= $udt['nama_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
-                                            <?php } ?>
+                                            <option <?php if ($udt['nama_bidang'] == $rencana['pic']) {
+                                                        echo 'selected="selected"';
+                                                    } ?> value="<?= $udt['nama_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

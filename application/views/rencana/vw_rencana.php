@@ -79,14 +79,13 @@
                                                         <td><?= $us->indikator_output ?></td>
                                                         <td><?= $us->pic ?></td>
                                                         <td><?php if (!empty((int)$us->anggaran)) {
-                                                                echo "Rp" . number_format($us->anggaran,2,',','.');;
+                                                                echo "Rp" . number_format($us->anggaran, 2, ',', '.');;
                                                             } else echo "Rp.0"; ?></td>
                                                         <td>
                                                             <?php if (!isset($us->deskripsi)) { ?>
-
                                                                 <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Rencana</a>
                                                             <?php } else { ?>
-                                                                <button id="edit" class="btn btn-sm btn-success">Edit Rencana</button>
+                                                                <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Rencana</a>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
