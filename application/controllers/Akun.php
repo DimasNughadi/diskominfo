@@ -19,7 +19,7 @@ class Akun extends CI_Controller
         // $data['userdata'] = $this->User_model->getById($id);
         $data['akun'] = $this->User_model->get();
         $data['bidang'] = $this->Bidang_model->get();
-        $data['judul'] = "Data Akun";
+        $data['judul'] = "Data User";
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
         $this->load->view('layout/footer', $data);
