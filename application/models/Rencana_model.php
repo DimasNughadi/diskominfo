@@ -33,6 +33,22 @@ class Rencana_model extends CI_Model
         return $this->db->get();
     }
 
+    function showRencanaById($id)
+    {
+
+        $this->db->select('*');
+
+        $this->db->from('monitor_rtp');
+        $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'right');
+        // $this->db->join('tbl_skp', 'tbl_skp.id_skp = risiko.id_skp', 'left');
+        // $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
+        // $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+        $this->db->where('risiko.id_risiko', $id);
+        // $this->db->order_by('monitor_rtp.plan_mulai ASC');
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 
 
     public function getById($id)

@@ -71,17 +71,20 @@
                                                         <td><?= $us->pengendalian ?></td>
                                                         <td><?= $us->deskripsi ?></td>
                                                         <td><?php if (!empty((int)$us->plan_mulai)) {
-                                                                echo date('d-m-Y', $us->plan_mulai);
+                                                                echo date('d-m-Y', strtotime($us->plan_mulai));
                                                             } else echo " "; ?></td>
                                                         <td><?php if (!empty((int)$us->plan_selesai)) {
-                                                                echo date('d-m-Y', $us->plan_selesai);
+                                                                echo date('d-m-Y', strtotime($us->plan_selesai));
                                                             } else echo " "; ?></td>
                                                         <td><?= $us->indikator_output ?></td>
-                                                        <td><?= $us->anggaran ?></td>
                                                         <td><?= $us->pic ?></td>
+                                                        <td><?php if (!empty((int)$us->anggaran)) {
+                                                                echo "Rp" . number_format($us->anggaran,2,',','.');;
+                                                            } else echo "Rp.0"; ?></td>
                                                         <td>
                                                             <?php if (!isset($us->deskripsi)) { ?>
-                                                                <button id="tambah" class="btn btn-sm btn-info">Buat Rencana</button>
+
+                                                                <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Rencana</a>
                                                             <?php } else { ?>
                                                                 <button id="edit" class="btn btn-sm btn-success">Edit Rencana</button>
                                                             <?php } ?>
