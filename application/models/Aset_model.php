@@ -17,6 +17,17 @@ class Aset_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getPhysical()
+    {
+        $where = 'Physical';
+        $this->db->select('*');
+        $this->db->from('aset');
+        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
+        $this->db->where('jenis_aset.nama_jenis_aset', $where);
+        return $this->db->get();
+        // return $query->row_array();
+    }
+
     public function getById($id)
     {
         $this->db->from($this->table);
@@ -38,7 +49,7 @@ class Aset_model extends CI_Model
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
-    
+
     public function update($where, $data)
     {
         $this->db->update($this->table, $data, $where);
@@ -51,8 +62,8 @@ class Aset_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-    
-    
+
+
 
     // public function update_status_model($id, $status)
     // {

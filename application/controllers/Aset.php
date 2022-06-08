@@ -17,6 +17,7 @@ class Aset extends CI_Controller {
         $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
+        // $data['aset'] = $this->Aset_model->getPhysical()->result();
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['userdata'] = $this->User_model->get();
