@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <label for="role">Role</label>
                                             <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">
-                                                <option selected disabled>Pilih Role</option>
+                                                <option selected disabled hidden>Pilih Role</option>
                                                 <option>Admin</option>
                                                 <option>User</option>
                                             </select>
@@ -69,7 +69,7 @@
                                         <div class="form-group">
                                             <label for="bidang">Bidang</label>
                                             <select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
-                                                <option selected disabled>Pilih Bidang</option>
+                                                <option selected disabled hidden>Pilih Bidang</option>
                                                 <?php foreach ($bidang as $udt) : ?>
                                                     <?php if ($udt['nama_bidang'] != null) { ?>
                                                         <option value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>

@@ -40,7 +40,7 @@
 							<div class="jsgrid-table-panel">
 								<div class="col-md-2">
 									<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
-										<option selected disabled>Pilih Jenis Aset</option>
+										<option selected disabled hidden>Pilih Jenis Aset</option>
 										<?php foreach ($jenisaset as $udt) : ?>
 											<?php if ($udt['nama_jenis_aset'] != null) { ?>
 												<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>

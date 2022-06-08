@@ -18,7 +18,7 @@
 <script src="<?= base_url('assets/') ?>js/lib/preloader/pace.min.js"></script>
 <!-- sidebar -->
 <script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js"></script>
-<script src="<?= base_url('assets/') ?>js/lib/bootstrap.min.js.map"></script>
+
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 <!-- bootstrap -->
 
