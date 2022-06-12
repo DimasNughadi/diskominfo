@@ -93,7 +93,7 @@
                                                         <td>
                                                             <?php if ($us->status == "Close") {
                                                                 if ($us->berkas == "") { ?>
-                                                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#uploadzip" id="upload" data-id_upload="<?= $us->id_risiko ?>">Upload <span class="fa fa-upload"></span> </button>
+                                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">Upload <span class="fa fa-upload"></span> </button>
 
                                                                 <?php       } else { ?>
                                                                     <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/' . $us->berkas) ?>">Download<span class="fa fa-download"></span></a>
@@ -125,7 +125,7 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="uploadzip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -134,17 +134,20 @@
                                 </h5>
                             </div>
 
-                            <form class="form-upload" enctype="multipart/form-data">
+                            <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
                                 <div class="modal-body">
-                                    <input type="hidden" name="id_sop" id="upload_id">
+                                    <input type="hidden" name="id_risiko" value="<?= $us->id_risiko; ?>" id="upload_id">
+                                    <label for="exampleInputFile">Pilih File</label>
                                     <div class="form-group">
-                                        <label> Pilih File ZIP </label>
-                                        <input type="file" name="zip_file" class="form-control" required />
+                                        <div class="custom-file">
+                                            <input type="file" name="berkas" class="custom-file-input" id="berkas">
+                                            <label for="berkas" class="custom-file-label">Choose File</label>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+                                    <button type="submit" name="save" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>
                         </div>

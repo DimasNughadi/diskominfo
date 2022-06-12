@@ -97,7 +97,7 @@ class Realisasi_model extends CI_Model
     function saveupload($upload)
     {
         $data = array(
-            'berkas' => $upload['file']['file_name']
+            'berkas' => $upload['berkas']['file_name']
         );
         $where = array(
             'id_risiko' => $this->input->post('id_risiko')
