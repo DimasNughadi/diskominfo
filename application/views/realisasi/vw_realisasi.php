@@ -58,6 +58,7 @@
                                                     <th>Selesai</th>
                                                     <th>Hambatan</th>
                                                     <th>Keterangan</th>
+                                                    <th>File</th>
                                                     <th style="text-align: center;">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -90,6 +91,18 @@
                                                         <td><?= $us->hambatan ?></td>
                                                         <td><?= $us->keterangan ?></td>
                                                         <td>
+                                                            <?php if ($us->status == "Close") {
+                                                                if ($us->berkas == "") { ?>
+                                                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#uploadzip" id="upload" data-id_upload="<?= $us->id_risiko ?>">Upload <span class="fa fa-upload"></span> </button>
+
+                                                                <?php       } else { ?>
+                                                                    <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/' . $us->berkas) ?>">Download<span class="fa fa-download"></span></a>
+                                                            <?php       }
+                                                            } else {
+                                                                echo "";
+                                                            } ?>
+                                                        </td>
+                                                        <td>
                                                             <?php if (!isset($us->real_mulai)) { ?>
                                                                 <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
                                                             <?php } else { ?>
@@ -108,5 +121,32 @@
                             <!-- /# column -->
                         </div>
                         <!-- /# row -->
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="uploadzip" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Upload Zip
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </h5>
+                            </div>
+
+                            <form class="form-upload" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <input type="hidden" name="id_sop" id="upload_id">
+                                    <div class="form-group">
+                                        <label> Pilih File ZIP </label>
+                                        <input type="file" name="zip_file" class="form-control" required />
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
