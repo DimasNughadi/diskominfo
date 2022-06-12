@@ -52,6 +52,9 @@ class Rencana extends CI_Controller
             'required' => 'Anggaran Wajib di isi',
             'numeric' => 'Anggaran Wajib Angka'
         ]);
+        $this->form_validation->set_rules('pic', 'PIC', 'required', [
+            'required' => 'PIC Wajib di isi'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
@@ -85,6 +88,7 @@ class Rencana extends CI_Controller
         $this->form_validation->set_rules('deskripsi', 'Deskripsi RTP', 'required', [
             'required' => 'Deskripsi RTP Wajib di isi'
         ]);
+        
         $this->form_validation->set_rules('plan_mulai', 'Plan Mulai', 'required', [
             'required' => 'Plan Mulai Wajib di isi'
         ]);

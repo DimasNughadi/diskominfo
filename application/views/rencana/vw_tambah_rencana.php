@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputStatus">PIC</label>
-                                    <select id="inputStatus" name="pic[]" class="form-control custom-select">
+                                    <select id="inputStatus" name="pic" class="form-control custom-select">
                                         <option selected disabled>Pilih Bidang</option>
                                         <?php foreach ($bidang as $udt) : ?>
                                             <?php if ($udt['nama_bidang'] != null) { ?>
@@ -102,6 +102,7 @@
                                             <?php } ?>
                                         <?php endforeach; ?>
                                     </select>
+                                    <?= form_error('pic', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <label for="exampleInputName">Anggaran</label>
                                 <div class="input-group mb-3">

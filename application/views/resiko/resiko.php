@@ -86,7 +86,7 @@
 													<td>
 														<!-- Trigger Edit -->
 														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $skp->id_risiko; ?>">
-															<i class="ti-pencil-alt"></i>
+															<span>Edit Risiko</span>
 														</button>
 														<!-- Modal -->
 														<div class="modal fade" id="modal-success<?php echo $skp->id_risiko; ?>">
