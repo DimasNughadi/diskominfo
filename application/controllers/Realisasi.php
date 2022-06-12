@@ -117,7 +117,7 @@ class Realisasi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         if ($this->input->method() === 'post') {
-            $nama_file = 'file__' . $this->session->userdata('username');
+            $nama_file = 'file_' . $this->session->userdata('username');
             $config['upload_path']   = './uploadzip/';
             $config['allowed_types'] = 'jpg|png|jpeg|zip|rar';
             $config['max_size']      = '3048';

@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="inputStatus">PIC</label>
-                                    <select id="inputStatus" name="pic" class="form-control custom-select">
+                                    <select id="inputStatus" name="pic[]" class="form-control custom-select">
                                         <option selected disabled>Pilih Bidang</option>
                                         <?php foreach ($bidang as $udt) : ?>
                                             <?php if ($udt['nama_bidang'] != null) { ?>
