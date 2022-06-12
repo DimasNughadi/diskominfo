@@ -48,6 +48,10 @@ class Rencana extends CI_Controller
         $this->form_validation->set_rules('indikator_output', 'Indikator Output', 'required', [
             'required' => 'Indikator Output Wajib di isi'
         ]);
+        $this->form_validation->set_rules('anggaran', 'Anggaran', 'required|numeric', [
+            'required' => 'Anggaran Wajib di isi',
+            'numeric' => 'Anggaran Wajib Angka'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
@@ -60,6 +64,7 @@ class Rencana extends CI_Controller
                 'plan_mulai' => $this->input->post('plan_mulai'),
                 'plan_selesai' => $this->input->post('plan_selesai'),
                 'indikator_output' => $this->input->post('indikator_output'),
+                'anggaran' => $this->input->post('anggaran'),
                 'pic' => $this->input->post('pic'),
                 'status' => $this->input->post('status'),
             ];
@@ -90,6 +95,11 @@ class Rencana extends CI_Controller
             'required' => 'Indikator Output Wajib di isi'
         ]);
 
+        $this->form_validation->set_rules('anggaran', 'Anggaran', 'required|numeric', [
+            'required' => 'Anggaran Wajib di isi',
+            'numeric' => 'Anggaran Wajib Angka'
+        ]);
+
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
             $this->load->view("rencana/vw_edit_rencana", $data);
@@ -101,6 +111,7 @@ class Rencana extends CI_Controller
                 'plan_selesai' => $this->input->post('plan_selesai'),
                 'indikator_output' => $this->input->post('indikator_output'),
                 'pic' => $this->input->post('pic'),
+                'anggaran' => $this->input->post('anggaran'),
                 'status' => $this->input->post('status'),
                 'id_risiko' => $this->input->post('id_risiko'),
             ];

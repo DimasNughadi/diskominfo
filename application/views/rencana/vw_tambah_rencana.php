@@ -103,6 +103,17 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
+                                <label for="exampleInputName">Anggaran</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Rp.</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="anggaran" value="<?= set_value('anggaran'); ?>" placeholder="Masukkan Anggaran">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">.00</span>
+                                    </div>
+                                    <?= form_error('anggaran', '<small class="text-danger pl-3">', '</small>'); ?>
+                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Status</label>
                                     <input type="text" class="form-control" name="status" value="Open" id="status" placeholder="Masukkan Status" readonly>

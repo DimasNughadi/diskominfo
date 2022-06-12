@@ -59,6 +59,7 @@ class Realisasi extends CI_Controller
                 'real_selesai' => $this->input->post('real_selesai'),
                 'hambatan' => $this->input->post('hambatan'),
                 'keterangan' => $this->input->post('keterangan'),
+                'status' => "Close",
                 'id_risiko' => $this->input->post('id_risiko'),
             ];
             $id = $this->input->post('id_risiko');
