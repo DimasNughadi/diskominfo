@@ -55,7 +55,7 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputName">Deskripsi RTP</label>
-                                        <input type="text" class="form-control" name="deskripsi" value="<?= $realisasi['deskripsi']; ?>" id="deskripsi" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko" readonly> 
+                                        <input type="text" class="form-control" name="deskripsi" value="<?= $realisasi['deskripsi']; ?>" id="deskripsi" placeholder="Masukkan Deskripsi Rencana Pengendalian Risiko" readonly>
                                         <?= form_error('deskripsi', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
@@ -78,7 +78,7 @@
                                         <select id="inputStatus" name="pic" class="form-control custom-select" disabled>
                                             <option selected disabled>Pilih Bidang</option>
                                             <?php foreach ($bidang as $udt) : ?>
-                                                <option <?php if ($udt['nama_bidang'] == $rencana['pic']) {
+                                                <option <?php if ($udt['nama_bidang'] == $realisasi['pic']) {
                                                             echo 'selected="selected"';
                                                         } ?> value="<?= $udt['nama_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
                                             <?php endforeach; ?>
@@ -107,22 +107,22 @@
 
                                 <div class="form-group">
                                     <label for="exampleInputName">Hambatan</label>
-                                    <input type="text" class="form-control" name="hambatan" value="<?= set_value('hambatan'); ?>" id="hambatan" placeholder="Masukkan Hambatan Realisasi Pengendalian Risiko">
+                                    <input type="text" class="form-control" name="hambatan" value="<?= $realisasi['hambatan']; ?>" id="hambatan" placeholder="Masukkan Hambatan Realisasi Pengendalian Risiko">
                                     <?= form_error('hambatan', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Real Mulai</label>
-                                    <input type="date" class="form-control" name="real_mulai" value="<?= set_value('real_mulai'); ?>" id="real_mulai" require>
+                                    <input type="date" class="form-control" name="real_mulai" value="<?= $realisasi['real_mulai']; ?>" id="real_mulai" require>
                                     <?= form_error('real_mulai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Real Selesai</label>
-                                    <input type="date" class="form-control" name="real_selesai" value="<?= set_value('real_selesai'); ?>" id="real_selesai" require>
+                                    <input type="date" class="form-control" name="real_selesai" value="<?= $realisasi['real_selesai']; ?>" id="real_selesai" require>
                                     <?= form_error('real_selesai', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputName">Keterangan</label>
-                                    <input type="text" class="form-control" name="keterangan" value="<?= set_value('keterangan'); ?>" id="keterangan" placeholder="Masukkan Keterangan Realisasi Pengendalian Risiko">
+                                    <input type="text" class="form-control" name="keterangan" value="<?= $realisasi['keterangan']; ?>" id="keterangan" placeholder="Masukkan Keterangan Realisasi Pengendalian Risiko">
                                     <?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="card-footer bg-white">
