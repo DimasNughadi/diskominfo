@@ -20,16 +20,18 @@ class Realisasi_model extends CI_Model
     function showRealisasi()
     {
         $this->db->select('*');
+        $this->db->select('(select count(id_risiko) from monitor_rtp where monitor_rtp.id_risiko = risiko.id_risiko) as rowpk');
+        $this->db->having('monitor_rtp.id_risiko > 0');
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
         $this->db->order_by('monitor_rtp.real_mulai ASC');
-        $query = $this->db->get();
-        if($query->num_rows() != 0)
-        {
-            return $query->result_array();
-        }else{
-            return false;
-        }
+        return $this->db->get();
+        // if($query->num_rows() != 0)
+        // {
+        //     return $query->result_array();
+        // }else{
+        //     return false;
+        // }
     }
 
     function showRealisasiById($id)
