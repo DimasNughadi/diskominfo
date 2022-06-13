@@ -135,9 +135,11 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Upload Zip
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                </h5>
+                                <h4 class="modal-title" id="exampleModalLabel">Upload File
+                                </h4>
+                                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                                    <i class="fa fa-close"></i>
+                                </button>
                             </div>
 
                             <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
