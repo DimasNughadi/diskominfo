@@ -1,3 +1,4 @@
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<div class="content-wrap">
 		<div class="main">
 			<div class="container-fluid">
@@ -79,7 +80,35 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="ct-pie-chart">
+										<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+											<script>
+											var xValues = ["Sangat Rendah", "Rendah", "Sedang", "Tinggi", "Sangat Tinggi"];
+											var yValues = [<?php echo $sangatrendah ?>, <?php echo $rendah ?>, <?php echo $sedang ?>, <?php echo $tinggi ?>, <?php echo $sangattinggi ?>];
+											var barColors = [
+											"#17a2b8",
+											"#28a745",
+											"#ffc107",
+											"#ff8800",
+											"#dc3545"
+											];
 
+											new Chart("myChart", {
+											type: "pie",
+											data: {
+												labels: xValues,
+												datasets: [{
+												backgroundColor: barColors,
+												data: yValues
+												}]
+											},
+											options: {
+												title: {
+												display: true,
+												text: "Tingkat Risiko"
+												}
+											}
+											});
+											</script>
 									</div>
 								</div>
 							</div>
@@ -89,7 +118,35 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="ct-pie-chart">
-										
+										<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+											<script>
+											var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+											var yValues = [55, 49, 44, 24, 15];
+											var barColors = [
+											"#b91d47",
+											"#00aba9",
+											"#2b5797",
+											"#e8c3b9",
+											"#1e7145"
+											];
+
+											new Chart("myChart2", {
+											type: "pie",
+											data: {
+												labels: xValues,
+												datasets: [{
+												backgroundColor: barColors,
+												data: yValues
+												}]
+											},
+											options: {
+												title: {
+												display: true,
+												text: "World Wide Wine Production 2018"
+												}
+											}
+											});
+											</script>
 									</div>
 								</div>
 							</div>
@@ -99,7 +156,35 @@
 							<div class="card">
 								<div class="card-body">
 									<div class="ct-pie-chart">
-										
+										<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
+											<script>
+											var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+											var yValues = [55, 49, 44, 24, 15];
+											var barColors = [
+											"#b91d47",
+											"#00aba9",
+											"#2b5797",
+											"#e8c3b9",
+											"#1e7145"
+											];
+
+											new Chart("myChart3", {
+											type: "pie",
+											data: {
+												labels: xValues,
+												datasets: [{
+												backgroundColor: barColors,
+												data: yValues
+												}]
+											},
+											options: {
+												title: {
+												display: true,
+												text: "World Wide Wine Production 2018"
+												}
+											}
+											});
+											</script>
 									</div>
 								</div>
 							</div>

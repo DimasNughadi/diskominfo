@@ -92,9 +92,9 @@
 														} elseif ($skp->tingkat_risiko >= 12 && $skp->tingkat_risiko <= 15 && $skp->dampak != 5) {
 															echo "<span class='mb-0 badge badge-warning'>Sedang</span>";
 														} elseif ($skp->tingkat_risiko >= 16 && $skp->tingkat_risiko <= 19 && $skp->dampak != 5) {
-															echo "<span class='mb-0 badge badge-success'>Tinggi</span>";
+															echo "<span class='mb-0 badge badge-danger'>Tinggi</span>";
 														} else {
-															echo "<span class='mb-0 badge badge-success'>Sangat Tinggi</span>";
+															echo "<span class='mb-0 badge badge-danger'>Sangat Tinggi</span>";
 														}
 														?>
 													</td>

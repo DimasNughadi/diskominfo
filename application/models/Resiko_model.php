@@ -28,6 +28,59 @@ class Resiko_model extends CI_Model
         return $this->db->get();
     }
 
+    function getCountSR()
+    {
+        $this->db->select('*');
+        $this->db->from('risiko');
+        $this->db->where('tingkat_risiko >= 1');
+        $this->db->where('tingkat_risiko <= 5');
+        $this->db->where('skala_dampak != 5');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
+    function getCountR()
+    {
+        $this->db->select('*');
+        $this->db->from('risiko');
+        $this->db->where('tingkat_risiko >= 6');
+        $this->db->where('tingkat_risiko <= 11');
+        $this->db->where('skala_dampak != 5');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
+    function getCountS()
+    {
+        $this->db->select('*');
+        $this->db->from('risiko');
+        $this->db->where('tingkat_risiko >= 12');
+        $this->db->where('tingkat_risiko <= 15');
+        $this->db->where('skala_dampak != 5');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
+    function getCountT()
+    {
+        $this->db->select('*');
+        $this->db->from('risiko');
+        $this->db->where('tingkat_risiko >= 16');
+        $this->db->where('tingkat_risiko <= 19');
+        $this->db->where('skala_dampak != 5');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
+    function getCountST()
+    {
+        $this->db->select('*');
+        $this->db->from('risiko');
+        $this->db->where('tingkat_risiko >= 20');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
     public function getById($id)
     {
         $this->db->from($this->table);

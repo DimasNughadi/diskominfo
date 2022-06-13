@@ -52,8 +52,6 @@
 <script src="<?= base_url('assets/') ?>js/lib/barRating/barRating.init.js"></script>
 <script src="<?= base_url('assets/') ?>js/scripts.js"></script>
 
-
-
 <script>
 	$(function() {
 		$(".custom-file-input").on("change", function() {

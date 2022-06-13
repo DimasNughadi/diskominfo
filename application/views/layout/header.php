@@ -20,36 +20,25 @@
 	<!-- Styles -->
 	<link href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css" rel="stylesheet">
 
-	<link rel="stylesheet" href="<?= base_url("assets/plugins/fontawesome-free/css/all.min.css") ?>">
-
-	<link href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/themify-icons.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
-	<link href="<?= base_url('assets/') ?>css/lib/jsgrid/jsgrid.min.css" type="text/css" rel="stylesheet" />
-	<link href="<?= base_url('assets/') ?>css/lib/owl.carousel.min.css" rel="stylesheet" />
-	<link href="<?= base_url('assets/') ?>css/lib/owl.theme.default.min.css" rel="stylesheet" />
-	<link href="<?= base_url('assets/') ?>css/lib/weather-icons.css" rel="stylesheet" />
-	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
-	<!-- <link href="<?= base_url('assets/') ?>css/lib/bootstrap.min.css" rel="stylesheet"> -->
-	<link href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css.map" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/slider/slider.css" rel="stylesheet">
-
-	<link href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css" rel="stylesheet">
+	
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+	
 	<!-- Common -->
-	<link href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/themify-icons.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/lib/helper.css" rel="stylesheet">
-	<link href="<?= base_url('assets/') ?>css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?= base_url("assets/plugins/fontawesome-free/css/all.min.css") ?>">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/calendar2/pignose.calendar.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/themify-icons.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/menubar/sidebar.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/helper.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/style.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css" 	>
 
-	<link href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css" rel="stylesheet">
 </head>
 
 <body>
