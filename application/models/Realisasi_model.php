@@ -23,7 +23,13 @@ class Realisasi_model extends CI_Model
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
         $this->db->order_by('monitor_rtp.real_mulai ASC');
-        return $this->db->get();
+        $query = $this->db->get();
+        if($query->num_rows() != 0)
+        {
+            return $query->result_array();
+        }else{
+            return false;
+        }
     }
 
     function showRealisasiById($id)

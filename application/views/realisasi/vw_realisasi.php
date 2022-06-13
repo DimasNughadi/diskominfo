@@ -68,46 +68,46 @@
                                                     <?php foreach ($realisasi as $us) : ?>
                                                         <tr>
                                                             <td><?= $i; ?></td>
-                                                            <td><?= $us->nama_risiko ?></td>
-                                                            <td><?= $us->deskripsi ?></td>
+                                                            <td><?= $us['nama_risiko'] ?></td>
+                                                            <td><?= $us['deskripsi'] ?></td>
 
-                                                            <td><?php if (!empty((int)$us->plan_mulai)) {
-                                                                    echo date('d-m-Y', strtotime($us->plan_mulai));
+                                                            <td><?php if (!empty((int)$us['plan_mulai'])) {
+                                                                    echo date('d-m-Y', strtotime($us['plan_mulai']));
                                                                 } else echo " "; ?></td>
-                                                            <td><?php if (!empty((int)$us->plan_selesai)) {
-                                                                    echo date('d-m-Y', strtotime($us->plan_selesai));
+                                                            <td><?php if (!empty((int)$us['plan_selesai'])) {
+                                                                    echo date('d-m-Y', strtotime($us['plan_selesai']));
                                                                 } else echo " "; ?></td>
 
-                                                            <td><?= $us->indikator_output ?></td>
-                                                            <td><?= $us->pic ?></td>
-                                                            <td><?php if (!empty((int)$us->anggaran)) {
-                                                                    echo "Rp" . number_format($us->anggaran, 2, ',', '.');;
+                                                            <td><?= $us['indikator_output'] ?></td>
+                                                            <td><?= $us['pic'] ?></td>
+                                                            <td><?php if (!empty((int)$us['anggaran'])) {
+                                                                    echo "Rp" . number_format($us['anggaran'], 2, ',', '.');;
                                                                 } else echo "Rp.0"; ?></td>
-                                                            <td><?php if (!empty((int)$us->real_mulai)) {
-                                                                    echo date('d-m-Y', strtotime($us->real_mulai));
+                                                            <td><?php if (!empty((int)$us['real_mulai'])) {
+                                                                    echo date('d-m-Y', strtotime($us['real_mulai']));
                                                                 } else echo " "; ?></td>
-                                                            <td><?php if (!empty((int)$us->real_selesai)) {
-                                                                    echo date('d-m-Y', strtotime($us->real_selesai));
+                                                            <td><?php if (!empty((int)$us['real_selesai'])) {
+                                                                    echo date('d-m-Y', strtotime($us['real_selesai']));
                                                                 } else echo " "; ?></td>
-                                                            <td><?= $us->hambatan ?></td>
-                                                            <td><?= $us->keterangan ?></td>
+                                                            <td><?= $us['hambatan'] ?></td>
+                                                            <td><?= $us['keterangan'] ?></td>
                                                             <td>
-                                                                <?php if ($us->status == "Close") {
-                                                                    if ($us->berkas == "") { ?>
-                                                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">Upload <span class="fa fa-upload"></span> </button>
+                                                                <?php if ($us['status'] == "Close") {
+                                                                    if ($us['berkas'] == "") { ?>
+                                                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_risiko']; ?>">Upload <span class="fa fa-upload"></span> </button>
 
                                                                     <?php       } else { ?>
-                                                                        <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/' . $us->berkas) ?>">Download<span class="fa fa-download"></span></a>
+                                                                        <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/' . $us['berkas']) ?>">Download<span class="fa fa-download"></span></a>
                                                                 <?php       }
                                                                 } else {
                                                                     echo "";
                                                                 } ?>
                                                             </td>
                                                             <td>
-                                                                <?php if (!isset($us->real_mulai)) { ?>
-                                                                    <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
+                                                                <?php if (!isset($us['real_mulai'])) { ?>
+                                                                    <a href="<?= base_url('realisasi/tambah/') . $us['id_risiko']; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
                                                                 <?php } else { ?>
-                                                                    <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Realisasi</a>
+                                                                    <a href="<?= base_url('realisasi/edit/') . $us['id_risiko']; ?>" class="btn btn-sm btn-success">Edit Realisasi</a>
                                                                 <?php } ?>
                                                             </td>
                                                         </tr>
@@ -130,7 +130,7 @@
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal-danger<?php echo $us['id_risiko']; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -139,9 +139,9 @@
                                 </h5>
                             </div>
 
-                            <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
+                            <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us['id_risiko']; ?>" method="post" enctype="multipart/form-data">
                                 <div class="modal-body">
-                                    <input type="hidden" name="id_risiko" value="<?= $us->id_risiko; ?>" id="upload_id">
+                                    <input type="hidden" name="id_risiko" value="<?= $us['id_risiko']; ?>" id="upload_id">
                                     <label for="exampleInputFile">Pilih File</label>
                                     <div class="form-group">
                                         <div class="custom-file">
