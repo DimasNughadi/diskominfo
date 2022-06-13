@@ -17,6 +17,8 @@ class Dashboard extends CI_Controller {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Dashboard";
         $data['aset'] = $this->Aset_model->getCount();
+        $data['asetP'] = $this->Aset_model->getCountPhy();
+        $data['asetS'] = $this->Aset_model->getCountSoft();
         $data['usercount'] = $this->User_model->getCount();
         $data['sangatrendah'] = $this->Resiko_model->getCountSR();
         $data['rendah'] = $this->Resiko_model->getCountR();

@@ -50,13 +50,9 @@ class Aset_model extends CI_Model
     }
 
     public function getCountPhy(){
-        $where = 'Physical';
         $this->db->select('*');
         $this->db->from('aset');
-        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where($where2);
-        $this->db->where('jenis_aset.nama_jenis_aset', $where);
+        $this->db->where('id_jenis_aset = 1');
         // return $this->db->get();
         return $this->db->count_all_results();
     }
@@ -65,10 +61,7 @@ class Aset_model extends CI_Model
         $where = 'Software';
         $this->db->select('*');
         $this->db->from('aset');
-        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where($where2);
-        $this->db->where('jenis_aset.nama_jenis_aset', $where);
+        $this->db->where('id_jenis_aset = 2');
         // return $this->db->get();
         return $this->db->count_all_results();
     }

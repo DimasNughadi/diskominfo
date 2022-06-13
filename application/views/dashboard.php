@@ -120,14 +120,14 @@
 									<div class="ct-pie-chart">
 										<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
 											<script>
-											var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-											var yValues = [55, 49, 44, 24, 15];
+											var xValues = ["Sangat Rendah", "Rendah", "Sedang", "Tinggi", "Sangat Tinggi"];
+											var yValues = [<?php echo $sangatrendah ?>, <?php echo $rendah ?>, <?php echo $sedang ?>, <?php echo $tinggi ?>, <?php echo $sangattinggi ?>];
 											var barColors = [
-											"#b91d47",
-											"#00aba9",
-											"#2b5797",
-											"#e8c3b9",
-											"#1e7145"
+											"#17a2b8",
+											"#28a745",
+											"#ffc107",
+											"#ff8800",
+											"#dc3545"
 											];
 
 											new Chart("myChart2", {
@@ -158,14 +158,11 @@
 									<div class="ct-pie-chart">
 										<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
 											<script>
-											var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-											var yValues = [55, 49, 44, 24, 15];
+											var xValues = ["Physical", "Software"];
+											var yValues = [<?php echo $asetP ?>, <?php echo $asetS ?>];
 											var barColors = [
-											"#b91d47",
-											"#00aba9",
-											"#2b5797",
-											"#e8c3b9",
-											"#1e7145"
+											"#17a2b8",
+											"#28a745"
 											];
 
 											new Chart("myChart3", {
@@ -180,7 +177,7 @@
 											options: {
 												title: {
 												display: true,
-												text: "World Wide Wine Production 2018"
+												text: "Perbandingan Jenis Aset"
 												}
 											}
 											});
