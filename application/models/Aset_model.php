@@ -17,6 +17,14 @@ class Aset_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getCount()
+    {
+        $this->db->select('*');
+        $this->db->from('aset');
+        return $this->db->count_all_results();
+        
+    }
+
     public function getPhysical($where2)
     {
         $where = 'Physical';
@@ -28,6 +36,7 @@ class Aset_model extends CI_Model
         $this->db->where('jenis_aset.nama_jenis_aset', $where);
         return $this->db->get();
     }
+
     public function getSoftware($where2)
     {
         $where = 'Software';
@@ -38,6 +47,30 @@ class Aset_model extends CI_Model
         $this->db->where($where2);
         $this->db->where('jenis_aset.nama_jenis_aset', $where);
         return $this->db->get();
+    }
+
+    public function getCountPhy(){
+        $where = 'Physical';
+        $this->db->select('*');
+        $this->db->from('aset');
+        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
+        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
+        $this->db->where($where2);
+        $this->db->where('jenis_aset.nama_jenis_aset', $where);
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
+    public function getCountSoft(){
+        $where = 'Software';
+        $this->db->select('*');
+        $this->db->from('aset');
+        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
+        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
+        $this->db->where($where2);
+        $this->db->where('jenis_aset.nama_jenis_aset', $where);
+        // return $this->db->get();
+        return $this->db->count_all_results();
     }
 
     public function getById($id)
@@ -75,40 +108,5 @@ class Aset_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-
-
-    // public function update_status_model($id, $status)
-    // {
-    //     //here we will change the value of the status that if we get the value one of the status then zero is updated in database otherwise one.
-
-    //     if ($status == 'Active') {
-    //         $sval = 'Inactive';
-    //     } else {
-    //         $sval = 'Active';
-    //     }
-
-    //     // update status value in database 
-    //     $data = array('status' => $sval);
-
-    //     $this->db->where('id_user', $id);
-
-    //     return $this->db->update('user', $data);
-    // }
-
-    // public function tklien()
-    // {
-    //     $this->db->from($this->table);
-    //     $query = $this->db->where('role', 'User');
-    //     $query = $this->db->get();
-    //     return $query->num_rows();
-    // }
-
-    // public function tdesainer()
-    // {
-    //     $this->db->from($this->table);
-    //     $query = $this->db->where('role', 'Desainer');
-    //     $query = $this->db->get();
-    //     return $query->num_rows();
-    // }
 
 }
