@@ -57,6 +57,11 @@
                                                     <th>Indikator Output</th>
                                                     <th>PIC</th>
                                                     <th>Anggaran</th>
+                                                    <th>Real Mulai</th>
+                                                    <th>Real Selesai</th>
+                                                    <th>Hambatan</th>
+                                                    <th>Keterangan</th>
+                                                    <th>File</th>
                                                     <th style="text-align: center;">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -66,6 +71,9 @@
                                                     <tr>
                                                         <td><?= $i; ?></td>
                                                         <td><?= $us->nama_risiko ?></td>
+                                                        <td><?= $us->penyebab ?></td>
+                                                        <td><?= $us->tingkat_risiko ?></td>
+                                                        <td><?= $us->pengendalian ?></td>
                                                         <td><?= $us->deskripsi ?></td>
 
                                                         <td><?php if (!empty((int)$us->plan_mulai)) {
