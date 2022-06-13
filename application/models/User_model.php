@@ -17,13 +17,12 @@ class User_model extends CI_Model
         return $query->result_array();
     }
 
-    // public function getDesainer()
-    // {
-    //     $this->db->from($this->table);
-    //     $this->db->where('role', 'Desainer');
-    //     $query = $this->db->get();
-    //     return $query->result_array();
-    // }
+    public function getCount()
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        return $this->db->count_all_results();
+    }
 
     public function getById($id)
     {
@@ -77,21 +76,5 @@ class User_model extends CI_Model
 
         return $this->db->update('user', $data);
     }
-
-    // public function tklien()
-    // {
-    //     $this->db->from($this->table);
-    //     $query = $this->db->where('role', 'User');
-    //     $query = $this->db->get();
-    //     return $query->num_rows();
-    // }
-
-    // public function tdesainer()
-    // {
-    //     $this->db->from($this->table);
-    //     $query = $this->db->where('role', 'Desainer');
-    //     $query = $this->db->get();
-    //     return $query->num_rows();
-    // }
 
 }
