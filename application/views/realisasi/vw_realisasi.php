@@ -129,3 +129,33 @@
                         <!-- /# row -->
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Upload Zip
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </h5>
+                            </div>
+
+                            <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <input type="hidden" name="id_risiko" value="<?= $us->id_risiko; ?>" id="upload_id">
+                                    <label for="exampleInputFile">Pilih File</label>
+                                    <div class="form-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="berkas" class="custom-file-input" id="berkas">
+                                            <label for="berkas" class="custom-file-label">Choose File</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" name="save" class="btn btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
