@@ -64,6 +64,15 @@ class Akun extends CI_Controller
                 'status' => $this->input->post('status')
             ];
             $this->User_model->insert($data);
+            $i = [2, 3, 5, 6, 7, 8, 9];
+            $maxuid = $this->User_model->getMaxUID();
+            foreach ($i as $j){
+                $data2 = [
+                'id_user' => $maxuid,
+                'id_menu' => $j,
+            ];
+            $this->HakAkses_model->insert($data2);
+            }
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User Baru Berhasil Ditambah!</div>');
             redirect('Akun');
         }

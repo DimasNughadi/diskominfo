@@ -25,4 +25,10 @@ class HakAkses_model extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+
+        public function insert($data2)
+    {
+        $this->db->insert($this->table, $data2);
+        return $this->db->insert_id();
+    }
 }

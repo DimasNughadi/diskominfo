@@ -32,6 +32,13 @@ class User_model extends CI_Model
         return $query->row_array();
     }
 
+    public function getMaxUID()
+    {
+        $this->db->select_max('id_user');
+        $query = $this->db->get('user')->row_array();
+        return $query['id_user'];
+    }
+
     public function getBy()
     {
         $this->db->from($this->table);
