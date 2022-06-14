@@ -129,45 +129,37 @@
 																						<table class="table table-bordered table-striped" style="text-align: center;">
 																							<thead class="thead-light">
 																								<tr>
-																									<th>Data Aset</th>
-																									<th>Data Resiko</th>
-																									<th>Data User</th>
-																									<th style="width: 9rem;">Data Bidang</th>
-																									<th style="text-align: center;">Report</th>
+																									<th>Menu</th>
+																									<th>Create</th>
+																									<th>Read</th>
+																									<th style="text-align: center;">Delete</th>
 																								</tr>
 																							</thead>
 																							<tbody style="text-align: center;">
+																								<?php foreach ($menu as $mn) : ?>
 																								<tr>
 																									<td>
-																										<label class="switch">
-                                                                                                            <input type="checkbox">
-                                                                                                            <span class="slider round"></span>
-                                                                                                        </label>
+																										<?= $mn['nama_menu']; ?>
 																									</td>
 																									<td>
-																										<label class="switch">
-                                                                                                            <input type="checkbox">
-                                                                                                            <span class="slider round"></span>
-                                                                                                        </label>
+																										<label>
+																											<input type="checkbox">
+																											<span class="slider round"></span>
+																										</label>
 																									</td>
 																									<td>
-																										<label class="switch">
-                                                                                                            <input type="checkbox">
-                                                                                                            <span class="slider round"></span>
-                                                                                                        </label>
-																									</td>
-																									<td>
-																										<label class="switch">
-                                                                                                            <input type="checkbox">
-                                                                                                            <span class="slider round"></span>
-                                                                                                        </label>
+																										<label">
+																											<input type="checkbox">
+																											<span class="slider round"></span>
+																										</label>
 																									</td>
 																									<td style="text-align: center;">
-																										<label class="switch">
-                                                                                                            <input type="checkbox">
-                                                                                                            <span class="slider round"></span>
-                                                                                                        </label>
+																										<label>
+																											<input type="checkbox">
+																											<span class="slider round"></span>
+																										</label>
 																									</td>
+																									<?php endforeach; ?>
 																								</tr>
 																							</tbody>
 																						</table>

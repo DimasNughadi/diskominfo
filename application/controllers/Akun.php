@@ -12,6 +12,7 @@ class Akun extends CI_Controller
         $this->load->model('Aset_model');
         $this->load->model('Bidang_model');
         $this->load->model('JenisAset_model');
+        $this->load->model('Menu_model');
     }
 
     function index()
@@ -20,6 +21,7 @@ class Akun extends CI_Controller
         // $data['userdata'] = $this->User_model->getById($id);
         $data['akun'] = $this->User_model->get();
         $data['bidang'] = $this->Bidang_model->get();
+        $data['menu'] = $this->Menu_model->get();
         $data['judul'] = "Data User";
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
