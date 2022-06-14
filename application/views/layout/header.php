@@ -58,7 +58,9 @@
 						<ul>
 							<li><a href="<?= site_url('aset') ?>"><i class="ti-control-record "></i>Data Aset</a></li>
 							<li><a href="<?= site_url('jenisaset') ?>"><i class="ti-control-record"></i>Data Jenis Aset</a></li>
-							<li><a href="<?= site_url('akun') ?>"><i class="ti-control-record"></i>Data User</a></li>
+							<?php if ($this->session->userdata('role') == 'Admin'){ ?>
+								<li><a href="<?= site_url('akun') ?>"><i class="ti-control-record"></i>Data User</a></li>
+							<?php } ?>
 							<li><a href="<?= site_url('bidang') ?>"><i class="ti-control-record"></i>Data Bidang</a></li>
 						</ul>
 					</li>
