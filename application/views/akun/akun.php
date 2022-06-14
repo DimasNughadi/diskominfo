@@ -137,6 +137,7 @@
 																							</thead>
 																							<tbody style="text-align: center;">
 																								<?php foreach ($hak as $hk) : ?>
+																									<?php if ($hk['id_user'] == $us['id_user']) { ?>
 																								<tr>
 																									<td>
 																										<?php foreach ($menu as $mn) : ?>
@@ -150,6 +151,8 @@
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['tambah']== 1 ) { ?>
 																														<input type="checkbox" name="tambah" id="tambah" value="yes" <?php echo 'checked';?>>
+																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
+																														<input type="checkbox" name="tambah" id="tambah" value="yes">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
@@ -159,6 +162,8 @@
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 1) { ?>
 																														<input type="checkbox" name="edit" id="edit" value="yes" <?php echo 'checked';?>>
+																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
+																														<input type="checkbox" name="edit" id="edit" value="yes">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
@@ -168,11 +173,14 @@
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['hapus']== 1) { ?>
 																														<input type="checkbox" name="hapus" id="hapus" value="yes" <?php echo 'checked';?>>
+																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
+																														<input type="checkbox" name="hapus" id="hapus" value="yes">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
 																										</td>
 																									</tr>
+																									<?php } ?>
 																									<?php endforeach; ?>
 																							</tbody>
 																						</table>
