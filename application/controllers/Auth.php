@@ -49,10 +49,10 @@ class Auth extends CI_Controller
                     $this->session->set_userdata($data);
                     if ($user['role'] == 'Admin') {
                         redirect('Dashboard');
-                    } else if($user['role'] == 'Operator'){
+                    } else if($user['role'] == 'User'){
                         redirect('Dashboard');
                     } else{
-                        redirect('Dashboard');
+                        redirect('Auth');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Tidak Aktif!</div>');

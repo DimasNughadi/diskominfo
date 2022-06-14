@@ -35,7 +35,7 @@ function check_role_admin()
     $user_session = $CI->session->userdata('role');
     if ($user_session != 'Admin') {
         // $CI->session->set_flashdata('error', 'Hak akses terbatas!');
-        $CI->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Anda Tidak Dapat Mengakses Halaman tersebut</div>');
+        $CI->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Anda Tidak Dapat Mengakses Halaman tersebut!</div>');
         redirect('dashboard', 'refresh');
     }
 }
