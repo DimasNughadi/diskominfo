@@ -130,9 +130,9 @@
 																							<thead class="thead-light">
 																								<tr>
 																									<th>Menu</th>
-																									<th>Create</th>
-																									<th>Read</th>
-																									<th style="text-align: center;">Delete</th>
+																									<th>Tambah</th>
+																									<th>Edit</th>
+																									<th style="text-align: center;">Hapus</th>
 																								</tr>
 																							</thead>
 																							<tbody style="text-align: center;">
