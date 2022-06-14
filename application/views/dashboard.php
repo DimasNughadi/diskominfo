@@ -188,6 +188,52 @@
 						</div>
 					</div>
 
+					<!-- <div class="row">
+						<div class="col-lg-6">
+							<div class="card">
+								<div class="card-body">
+									<div class="ct-line-chart">
+										<canvas id="barChart" style="width:100%;max-width:900px"></canvas>
+											<script>
+											var xValues = ["Sangat Rendah", "Rendah"];
+											var yValues = [1, 3];
+											var barColors = [
+											"#17a2b8",
+											"#28a745"
+											];
+
+											new Chart("barChart", {
+											type: "line",
+											data: {
+												labels: xValues,
+												datasets: [{
+												backgroundColor: barColors,
+												data: yValues
+												}]
+											},
+											options: {
+												title: {
+												display: true,
+												text: "Tingkat Risiko"
+												}
+											}
+											});
+											</script>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="year-calendar"></div>
+                                </div>
+                            </div>
+                        </div>
+
+					</div> -->
+
 					<!-- /# row -->
 					<div class="row">
 						<div class="col-lg-3">
