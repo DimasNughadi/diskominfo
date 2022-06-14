@@ -13,6 +13,7 @@ class Akun extends CI_Controller
         $this->load->model('Bidang_model');
         $this->load->model('JenisAset_model');
         $this->load->model('Menu_model');
+        $this->load->model('HakAkses_model');
     }
 
     function index()
@@ -22,6 +23,7 @@ class Akun extends CI_Controller
         $data['akun'] = $this->User_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['menu'] = $this->Menu_model->get();
+        $data['hak'] = $this->HakAkses_model->get();
         $data['judul'] = "Data User";
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
@@ -66,6 +68,7 @@ class Akun extends CI_Controller
             redirect('Akun');
         }
     }
+
     public function hapus($id)
     {
         $this->User_model->delete($id);
@@ -76,6 +79,11 @@ class Akun extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Aset Berhasil Dihapus!</div>');
         }
         redirect('Akun');
+    }
+
+    function hakakses($id)
+    {
+        
     }
 
     function edit($id)

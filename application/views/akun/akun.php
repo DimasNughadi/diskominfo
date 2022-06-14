@@ -136,31 +136,44 @@
 																								</tr>
 																							</thead>
 																							<tbody style="text-align: center;">
-																								<?php foreach ($menu as $mn) : ?>
+																								<?php foreach ($hak as $hk) : ?>
 																								<tr>
 																									<td>
-																										<?= $mn['nama_menu']; ?>
-																									</td>
-																									<td>
-																										<label>
-																											<input type="checkbox">
-																											<span class="slider round"></span>
-																										</label>
-																									</td>
-																									<td>
-																										<label">
-																											<input type="checkbox">
-																											<span class="slider round"></span>
-																										</label>
-																									</td>
-																									<td style="text-align: center;">
-																										<label>
-																											<input type="checkbox">
-																											<span class="slider round"></span>
-																										</label>
-																									</td>
+																										<?php foreach ($menu as $mn) : ?>
+																											<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
+																												<?= $mn['nama_menu']; ?>
+																											<?php } ?>
+																										<?php endforeach; ?>
+																										</td>
+																										<td>
+																											<label>
+																												<?php foreach ($menu as $mn) : ?>
+																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['tambah']== 1 ) { ?>
+																														<input type="checkbox" name="tambah" id="tambah" value="yes" <?php echo 'checked';?>>
+																													<?php } ?>
+																												<?php endforeach; ?>
+																											</label>
+																										</td>
+																										<td>
+																											<label>
+																												<?php foreach ($menu as $mn) : ?>
+																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 1) { ?>
+																														<input type="checkbox" name="edit" id="edit" value="yes" <?php echo 'checked';?>>
+																													<?php } ?>
+																												<?php endforeach; ?>
+																											</label>
+																										</td>
+																										<td style="text-align: center;">
+																											<label>
+																												<?php foreach ($menu as $mn) : ?>
+																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['hapus']== 1) { ?>
+																														<input type="checkbox" name="hapus" id="hapus" value="yes" <?php echo 'checked';?>>
+																													<?php } ?>
+																												<?php endforeach; ?>
+																											</label>
+																										</td>
+																									</tr>
 																									<?php endforeach; ?>
-																								</tr>
 																							</tbody>
 																						</table>
 																					</li>
@@ -171,6 +184,7 @@
 																	</div>
 																	<div class="modal-footer justify-content-between">
 																		<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+																		<button type="button" class="btn btn-success" data-dismiss="modal">Simpan</button>
 																	</div>
 																</div>
 																<!-- /.modal-content -->

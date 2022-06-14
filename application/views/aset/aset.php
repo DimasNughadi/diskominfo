@@ -161,10 +161,6 @@
 																							<b class="float-left">Used by</b> <a class="float-right"><?= $us['used_by']; ?></a>
 																						</li>
 																					</ul>
-																					<div class="row">
-																						<div class="col-md"> <strong><a href="#" class="text-primary">[Risiko Aset]</a></strong>
-																						</div>
-																					</div>
 																				</div>
 																				<!-- /.card-body -->
 																			</div>
