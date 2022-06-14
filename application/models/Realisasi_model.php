@@ -17,6 +17,22 @@ class Realisasi_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getOpen()
+    {
+        $this->db->select('*');
+        $this->db->from('monitor_rtp');
+        $this->db->where('status = "Open"');
+        return $this->db->count_all_results();
+    }
+
+    public function getClose()
+    {
+        $this->db->select('*');
+        $this->db->from('monitor_rtp');
+        $this->db->where('status = "Close"');
+        return $this->db->count_all_results();
+    }
+
     function showRealisasi()
     {
         $this->db->select('*');

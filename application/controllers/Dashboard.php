@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
     {
         parent::__construct();
         check_not_login();
+        $this->load->model('Realisasi_model');
         $this->load->model('Aset_model');
         $this->load->model('User_model');
         $this->load->model('Resiko_model');
@@ -16,6 +17,8 @@ class Dashboard extends CI_Controller {
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Dashboard";
+        $data['open'] = $this->Realisasi_model->getOpen();
+        $data['close'] = $this->Realisasi_model->getClose();
         $data['aset'] = $this->Aset_model->getCount();
         $data['asetP'] = $this->Aset_model->getCountPhy();
         $data['asetS'] = $this->Aset_model->getCountSoft();

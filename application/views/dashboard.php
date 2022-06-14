@@ -57,7 +57,7 @@
 									</div>
 									<div class="stat-content dib">
 										<div class="stat-text">Aset Kritis</div>
-										<div class="stat-digit">...</div>
+										<div class="stat-digit"><?php echo $tinggi + $sangattinggi ?></div>
 									</div>
 								</div>
 							</div>
@@ -120,8 +120,8 @@
 									<div class="ct-pie-chart">
 										<canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
 											<script>
-											var xValues = ["Sangat Rendah", "Rendah", "Sedang", "Tinggi", "Sangat Tinggi"];
-											var yValues = [<?php echo $sangatrendah ?>, <?php echo $rendah ?>, <?php echo $sedang ?>, <?php echo $tinggi ?>, <?php echo $sangattinggi ?>];
+											var xValues = ["Open", "Close"];
+											var yValues = [<?php echo $open ?>, <?php echo $close ?>];
 											var barColors = [
 											"#17a2b8",
 											"#28a745",
@@ -142,7 +142,7 @@
 											options: {
 												title: {
 												display: true,
-												text: "World Wide Wine Production 2018"
+												text: "Status Penanganan Risiko"
 												}
 											}
 											});
