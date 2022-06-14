@@ -21,6 +21,7 @@
 							</div>
 						</div>
 					</div>
+					<?= $this->session->flashdata('error'); ?>
 					<!-- /# column -->
 				</div>
 				<!-- /# row -->

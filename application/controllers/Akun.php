@@ -7,6 +7,7 @@ class Akun extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        check_role_admin();
         $this->load->model('User_model');
         $this->load->model('Aset_model');
         $this->load->model('Bidang_model');
@@ -111,7 +112,7 @@ class Akun extends CI_Controller
         }
     }
 
-        public function update_status($id, $status)
+    public function update_status($id, $status)
     {
         $this->load->model('User_model', 'userdata');
 
