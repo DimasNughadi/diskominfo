@@ -56,24 +56,18 @@ class User_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-    
-    
-
+     
     public function update_status_model($id, $status)
     {
         //here we will change the value of the status that if we get the value one of the status then zero is updated in database otherwise one.
-
         if ($status == 'Active') {
             $sval = 'Inactive';
         } else {
             $sval = 'Active';
         }
-
         // update status value in database 
         $data = array('status' => $sval);
-
         $this->db->where('id_user', $id);
-
         return $this->db->update('user', $data);
     }
 
