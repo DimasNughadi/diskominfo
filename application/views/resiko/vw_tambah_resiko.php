@@ -47,6 +47,11 @@
                                         <?= form_error('nama_risiko', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputName">Tahun Risiko</label>
+                                        <input type="number" class="form-control" name="tahun" value="<?= set_value('tahun'); ?>" id="tahun" placeholder="Masukkan Tahun Risiko">
+                                        <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="inputStatus">Nama Aset</label>
                                         <select id="inputStatus" name="id_aset" value="<?= set_value('id_aset'); ?>" class="form-control custom-select">
                                             <option selected disabled>Pilih Aset</option>
@@ -62,6 +67,7 @@
                                         <textarea class="form-control" rows="6" name="penyebab" value="<?= set_value('penyebab'); ?>" id="penyebab" placeholder="Masukkan Penyebab Risiko"></textarea>
                                         <?= form_error('penyebab', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label for="exampleInputName">Dampak</label>
                                         <textarea class="form-control" rows="6" name="dampak" value="<?= set_value('dampak'); ?>" id="dampak" placeholder="Masukkan Dampak Risiko"></textarea>
