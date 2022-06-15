@@ -49,6 +49,7 @@ function check_menu_tambah_access($id_user, $id_menu, $tambah)
 
     if($result->num_rows() > 0){
         if($tambah == 1){
+            // return"value='1'";
             return"checked='checked'";
         }elseif($tambah == 0){
             return"";
@@ -65,6 +66,7 @@ function check_menu_edit_access($id_user, $id_menu, $edit)
 
     if($result->num_rows() > 0){
         if($edit == 1){
+            // return"value='1'";
             return"checked='checked'";
         }elseif($edit == 0){
             return"";
@@ -81,6 +83,7 @@ function check_menu_hapus_access($id_user, $id_menu, $hapus)
 
     if($result->num_rows() > 0){
         if($hapus == 1){
+            // return"value='1'";
             return"checked='checked'";
         }elseif($hapus == 0){
             return"";

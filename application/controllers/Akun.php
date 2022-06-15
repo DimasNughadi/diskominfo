@@ -90,11 +90,6 @@ class Akun extends CI_Controller
         redirect('Akun');
     }
 
-    function hakakses($id)
-    {
-        
-    }
-
     function edit($id)
     {
         $data['judul'] = "Ubah Data User";
@@ -152,8 +147,9 @@ class Akun extends CI_Controller
             ];
             $id = $this->input->post('id_hak_akses');
             $this->HakAkses_model->update(['id_hak_akses' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
-            redirect('Akun');
+            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
+            return var_dump($data);
+            // redirect('Akun');
         // }
     }
 

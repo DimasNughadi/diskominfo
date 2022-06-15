@@ -126,42 +126,48 @@
 																					</li>
 																					<li class="list-group-item">
 																						<b class="float-left">Hak Akses</b><br/>
-																						<table class="table table-bordered table-striped" style="text-align: center;">
-																							<thead class="thead-light">
-																								<tr>
-																									<th>Menu</th>
-																									<th>Tambah</th>
-																									<th>Edit</th>
-																									<th style="text-align: center;">Hapus</th>
-																								</tr>
-																							</thead>
-																							<tbody style="text-align: center;">
-																								<?php foreach ($hak as $hk) : ?>
+																						<form action="akun/edithak/" method="POST">
+																							<table class="table table-bordered table-striped" style="text-align: center;">
+																								<thead class="thead-light">
+																									<tr>
+																										<th>Id Hak Akses</th>
+																										<th>Menu</th>
+																										<th>Tambah</th>
+																										<th>Edit</th>
+																										<th style="text-align: center;">Hapus</th>
+																									</tr>
+																								</thead>
+																								<tbody style="text-align: center;">
+																									<?php foreach ($hak as $hk) : ?>
+																										<!-- <input type="text" value="<?= $hak['id_hak_akses'] ?>"> -->
 																									<?php if ($hk['id_user'] == $us['id_user']) { ?>
 																								<tr>
 																									<td>
-																										<?php foreach ($menu as $mn) : ?>
-																											<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
-																												<?= $mn['nama_menu']; ?>
-																											<?php } ?>
-																										<?php endforeach; ?>
-																										</td>
-																										<td>
-																											<label>
-																												<input type="checkbox" name="tambah" id="tambah" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['tambah']) ;?>>
-																											</label>
-																										</td>
-																										<td>
-																											<label>
-																												<input type="checkbox" name="edit" id="edit" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['edit']) ;?>>
-																											</label>
-																										</td>
-																										<td style="text-align: center;">
-																											<label>
-																												<input type="checkbox" name="hapus" id="hapus" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['hapus']) ;?>>
-																											</label>
-																										</td>
-																									 </tr>
+																										<?= $hk['id_hak_akses'] ?>
+																									</td>
+																									<td>
+																									<?php foreach ($menu as $mn) : ?>
+																										<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
+																											<?= $mn['nama_menu']; ?>
+																										<?php } ?>
+																									<?php endforeach; ?>
+																									</td>
+																									<td>
+																										<label>
+																											<input type="checkbox" name="tambah" id="tambah" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['tambah']) ;?>>
+																										</label>
+																									</td>
+																									<td>
+																										<label>
+																											<input type="checkbox" name="edit" id="edit" <?= check_menu_edit_access($us['id_user'], $mn['id_menu'], $hk['edit']) ;?>>
+																										</label>
+																									</td>
+																									<td style="text-align: center;">
+																										<label>
+																											<input type="checkbox" name="hapus" id="hapus" <?= check_menu_hapus_access($us['id_user'], $mn['id_menu'], $hk['hapus']) ;?>>
+																										</label>
+																									</td>
+																									</tr>
 																									<?php } ?>
 																									<?php endforeach; ?>
 																							</tbody>
@@ -174,8 +180,10 @@
 																	</div>
 																	<div class="modal-footer justify-content-between">
 																		<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+																		<button type="submit" value="Submit" name="submit" class="btn btn-primary" data-dismiss="modal">Simpan Form</button>
 																		<a href="<?= base_url('akun/edithak/') . $hk['id_hak_akses']; ?>" class="btn btn-success">Simpan</a>
 																	</div>
+																											</form>
 																</div>
 																<!-- /.modal-content -->
 															</div>
