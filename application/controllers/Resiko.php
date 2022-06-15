@@ -51,6 +51,9 @@ class Resiko extends CI_Controller
         $this->form_validation->set_rules('dampak', 'Dampak', 'required', [
             'required' => 'Dampak Wajib di isi'
         ]);
+        $this->form_validation->set_rules('tahun', 'Tahun', 'required', [
+            'required' => 'Tahun Wajib di isi'
+        ]);
         $this->form_validation->set_rules('pengendalian', 'Pengendalian', 'required', [
             'required' => 'Pengendalian Wajib di isi'
         ]);
@@ -69,6 +72,7 @@ class Resiko extends CI_Controller
                 'nama_risiko' => $this->input->post('nama_risiko'),
                 'penyebab' => $this->input->post('penyebab'),
                 'dampak' => $this->input->post('dampak'),
+                'tahun' => $this->input->post('tahun'),
                 'pengendalian' => $this->input->post('pengendalian'),
                 'keputusan' => $this->input->post('keputusan'),
                 'id_aset' => $this->input->post('id_aset'),
@@ -111,6 +115,9 @@ class Resiko extends CI_Controller
         $this->form_validation->set_rules('dampak', 'Dampak', 'required', [
             'required' => 'Dampak Wajib di isi'
         ]);
+        $this->form_validation->set_rules('tahun', 'Tahun', 'required', [
+            'required' => 'Tahun Wajib di isi'
+        ]);
         $this->form_validation->set_rules('pengendalian', 'Pengendalian', 'required', [
             'required' => 'Pengendalian Wajib di isi'
         ]);
@@ -130,6 +137,7 @@ class Resiko extends CI_Controller
                 'nama_risiko' => $this->input->post('nama_risiko'),
                 'penyebab' => $this->input->post('penyebab'),
                 'dampak' => $this->input->post('dampak'),
+                'tahun' => $this->input->post('tahun'),
                 'pengendalian' => $this->input->post('pengendalian'),
                 'keputusan' => $this->input->post('keputusan'),
                 'id_aset' => $this->input->post('id_aset'),

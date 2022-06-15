@@ -48,6 +48,11 @@
                                         <?= form_error('nama_risiko', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputName">Tahun Risiko</label>
+                                        <input type="number" class="form-control" name="tahun" value="<?= $resiko['tahun']; ?>" id="tahun" placeholder="Masukkan Tahun Risiko">
+                                        <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="inputStatus">Nama Aset</label>
                                         <select id="inputStatus" name="id_aset" class="form-control custom-select">
                                             <option selected disabled>Pilih Aset</option>
