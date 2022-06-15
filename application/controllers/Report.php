@@ -44,17 +44,12 @@ class Report extends CI_Controller
         if (null !== $this->input->post('DRexcel')) {
             $this->load->view('laporan/v_daftarResikoExcel', $data);
         } elseif (null !== $this->input->post('DRpdf')) {
-            $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
-
-
-
             $this->load->library('pdf');
-            $pdf = $this->pdf->load();
-            $pdf->SetProtection(array('print'));
-            $pdf->SetDisplayMode('fullpage');
-            $pdf->WriteHTML($html);
-            $pdf->Output("Daftar_Risiko.pdf", 'I');
-            exit;
+            $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
+            
+            $this->pdf->createPDF($html, 'mypdf', 'landscape');
+
+            // 8
         }
     }
 

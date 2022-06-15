@@ -43,18 +43,18 @@
 
 <body>
 
-    <!--mpdf
+
     <htmlpageheader name="myheader">
         <table width="100%" style="font-size: 9pt; padding-top: 1mm; border-bottom: 1px solid #000000;">
             <tr>
                 <td rowspan="2" width="6%" align="center">
-                    <img src="<?= base_url() . 'images/setwapres.png' ?>" height="50" width="50">
+                    <img src="<?= base_url() . 'assets/images/riau.png' ?>" height="50" width="50">
                 </td>
                 <td style="vertical-align: bottom;">
-                    SEKRETARIAT WAKIL PRESIDEN
-               </td>
+                    DINAS KOMUNIKASI INFORMATIKA DAN STATISTIK PROVINSI RIAU
+                </td>
                 <td>
-                    
+
                 </td>
             </tr>
             <tr>
@@ -62,34 +62,34 @@
                     SISTEM INFORMASI MONITORING MANAJEMEN RISIKO
                 </td>
                 <td style="text-align: right;">
-                    Daftar Risiko - <?php echo $this->session->userdata('nama_unit') ?>
+                    Daftar Risiko - <?php echo $this->session->userdata('username') ?>
                 </td>
             </tr>
         </table>
     </htmlpageheader>
-    
+
     <htmlpagefooter name="myfooter">
-    <div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
-    Page {PAGENO} of {nb}
-    </div>
+        <div style="border-top: 1px solid #000000; font-size: 9pt; text-align: center; padding-top: 3mm; ">
+            Page {PAGENO} of {nb}
+        </div>
     </htmlpagefooter>
 
     <sethtmlpageheader name="myheader" value="on" show-this-page="1" />
     <sethtmlpagefooter name="myfooter" value="on" />
-mpdf-->
+
 
     <table class="items" width="100%" style="font-size:9pt; border-collapse: collapse; " cellpadding="8" autosize="1.8">
         <thead>
             <tr style="background-color: rgb(162, 216, 250);">
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Aset</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Risiko</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Penyebab</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
-                <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
+                <th style="text-align: center; vertical-align: middle;">No</th>
+                <th style="text-align: center; vertical-align: middle;">Nama Aset</th>
+                <th style="text-align: center; vertical-align: middle;">Nama Risiko</th>
+                <th style="text-align: center; vertical-align: middle;">Penyebab</th>
+                <th style="text-align: center; vertical-align: middle;">Dampak</th>
+                <th style="text-align: center; vertical-align: middle;">Pengendalian</th>
+                <th style="text-align: center; vertical-align: middle;">Keputusan</th>
+                <th style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
+                <th style="text-align: center; vertical-align: middle;">Dampak</th>
             </tr>
         </thead>
         <tbody>
@@ -120,8 +120,8 @@ mpdf-->
                     <td><?= $skp->dampak ?></td>
                     <td><?= $skp->pengendalian ?></td>
                     <td><?= $skp->keputusan ?></td>
-                    <td><?= $skp->skala_dampak ?></td>
                     <td><?= $skp->skala_kemungkinan ?></td>
+                    <td><?= $skp->skala_dampak ?></td>
                 </tr>
 
             <?php  } ?>

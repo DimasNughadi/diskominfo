@@ -41,7 +41,7 @@
         <?= $this->session->flashdata('message'); ?>
         <div class="card">
             <div class="card-body login-card-body">
-                
+
                 <p class="login-box-msg">Login untuk memulai sesi anda</p>
 
                 <form action="" method="post" autocomplete="off">
@@ -87,7 +87,7 @@
     <script src="<?= base_url('assets/') ?>plugins/sweetalert2/sweetalert2.min.js"></script>
     <script src="<?= base_url('assets/') ?>plugins/toastr/toastr.min.js"></script>
 
-    
+
 
 </body>
 
