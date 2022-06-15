@@ -76,7 +76,7 @@
 					<li><a class="sidebar-sub-toggle"><i class="nav-icon ti-file"></i></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
 						<ul>
 
-							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Daftar Risiko</a></li>
+							<li><a href="<?= site_url('report') ?>"><i class="ti-control-record"></i>Laporan Daftar Risiko</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Rencana Penanganan</a></li>
 							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Realisasi Penanganan</a></li>\
 						</ul>
