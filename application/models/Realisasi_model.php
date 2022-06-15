@@ -50,23 +50,6 @@ class Realisasi_model extends CI_Model
         // }
     }
 
-    function showRealisasiJoinRisiko()
-    {
-        $this->db->select('risiko.nama_risiko, risiko.penyebab, risiko.skala_dampak, risiko.skala_kemungkinan, risiko.tingkat_risiko, monitor_rtp.deskripsi, monitor_rtp.plan_mulai, monitor_rtp.plan_selesai, monitor_rtp.pic, monitor_rtp.status');
-        $this->db->select('(select count(id_risiko) from monitor_rtp where monitor_rtp.id_risiko = risiko.id_risiko) as rowpk');
-        $this->db->having('monitor_rtp.id_risiko > 0');
-        $this->db->from('monitor_rtp');
-        $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
-        $this->db->order_by('monitor_rtp.real_mulai ASC');
-        return $this->db->get();
-        // if($query->num_rows() != 0)
-        // {
-        //     return $query->result_array();
-        // }else{
-        //     return false;
-        // }
-    }
-
     function showRealisasiById($id)
     {
 

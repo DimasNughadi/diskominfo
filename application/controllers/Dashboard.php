@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
         $this->load->model('Aset_model');
         $this->load->model('User_model');
         $this->load->model('Resiko_model');
+        $this->load->model('Realisasi_model');
     }
 
     function index()
@@ -28,6 +29,9 @@ class Dashboard extends CI_Controller {
         $data['sedang'] = $this->Resiko_model->getCountS();
         $data['tinggi'] = $this->Resiko_model->getCountT();
         $data['sangattinggi'] = $this->Resiko_model->getCountST();
+        $data['realisasi'] = $this->Realisasi_model->showRealisasi()->result();
+        $data['resiko'] = $this->Resiko_model->get();
+        $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('dashboard', $data);
         $this->load->view('layout/footer', $data);
