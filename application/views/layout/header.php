@@ -20,16 +20,16 @@
 	<!-- Styles -->
 	<link href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css" rel="stylesheet">
 
-	
+
 	<!-- DataTables -->
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-	
+
 	<!-- Common -->
 	<link rel="stylesheet" href="<?= base_url("assets/plugins/fontawesome-free/css/all.min.css") ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/calendar2/pignose.calendar.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css">
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/chartist/chartist.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/toastr/toastr.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/font-awesome.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/themify-icons.css">
@@ -37,7 +37,7 @@
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/helper.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/style.css">
-	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css" 	>
+	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css">
 
 </head>
 
@@ -58,7 +58,7 @@
 						<ul>
 							<li><a href="<?= site_url('aset') ?>"><i class="ti-control-record "></i>Data Aset</a></li>
 							<li><a href="<?= site_url('jenisaset') ?>"><i class="ti-control-record"></i>Data Jenis Aset</a></li>
-							<?php if ($this->session->userdata('role') == 'Admin'){ ?>
+							<?php if ($this->session->userdata('role') == 'Admin') { ?>
 								<li><a href="<?= site_url('akun') ?>"><i class="ti-control-record"></i>Data User</a></li>
 							<?php } ?>
 							<li><a href="<?= site_url('bidang') ?>"><i class="ti-control-record"></i>Data Bidang</a></li>
@@ -73,8 +73,15 @@
 							<li><a href="<?= site_url('realisasi') ?>"><i class="ti-control-record"></i>Realisasi Penanganan</a></li>
 						</ul>
 					</li>
+					<li><a class="sidebar-sub-toggle"><i class="nav-icon ti-file"></i></i> Laporan <span class="sidebar-collapse-icon ti-angle-down"></span></a>
+						<ul>
+
+							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Daftar Risiko</a></li>
+							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Rencana Penanganan</a></li>
+							<li><a href="<?= site_url('#') ?>"><i class="ti-control-record"></i>Laporan Realisasi Penanganan</a></li>\
+						</ul>
+					</li>
 					<li><a href="#"><i class="ti-id-badge"></i> Account</a></li>
-					<li><a href="#"><i class="ti-file"></i> Report</a></li>
 					<li><a href="<?= site_url('auth/logout') ?>"><i class="ti-close"></i> Logout</a></li>
 				</ul>
 			</div>
