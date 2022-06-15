@@ -150,9 +150,9 @@
 																											<label>
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['tambah']== 1 ) { ?>
-																														<input type="checkbox" name="tambah" id="tambah" value="yes" <?php echo 'checked';?>>
+																														<input type="checkbox" name="tambah" id="tambah" value="1" <?php echo 'checked';?>>
 																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="tambah" id="tambah" value="yes">
+																														<input type="checkbox" name="tambah" id="tambah" value="0">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
@@ -161,9 +161,9 @@
 																											<label>
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 1) { ?>
-																														<input type="checkbox" name="edit" id="edit" value="yes" <?php echo 'checked';?>>
+																														<input type="checkbox" name="edit" id="edit" value="1" <?php echo 'checked';?>>
 																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="edit" id="edit" value="yes">
+																														<input type="checkbox" name="edit" id="edit" value="0">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
@@ -172,9 +172,9 @@
 																											<label>
 																												<?php foreach ($menu as $mn) : ?>
 																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['hapus']== 1) { ?>
-																														<input type="checkbox" name="hapus" id="hapus" value="yes" <?php echo 'checked';?>>
+																														<input type="checkbox" name="hapus" id="hapus" value="1" <?php echo 'checked';?>>
 																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="hapus" id="hapus" value="yes">
+																														<input type="checkbox" name="hapus" id="hapus" value="0">
 																													<?php } ?>
 																												<?php endforeach; ?>
 																											</label>
@@ -192,7 +192,7 @@
 																	</div>
 																	<div class="modal-footer justify-content-between">
 																		<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-																		<button type="button" class="btn btn-success" data-dismiss="modal">Simpan</button>
+																		<a href="<?= base_url('akun/edithak/') . $hk['id_hak_akses']; ?>" class="btn btn-success">Simpan</a>
 																	</div>
 																</div>
 																<!-- /.modal-content -->

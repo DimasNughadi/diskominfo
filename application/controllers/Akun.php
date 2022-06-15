@@ -119,16 +119,42 @@ class Akun extends CI_Controller
             $this->load->view("layout/footer", $data);
         } else {
             $data = [
-                
                 'username' => $this->input->post('username'),
                 'role' => $this->input->post('role'),
                 'id_bidang' => $this->input->post('bidang'),
             ];
             $id = $this->input->post('id_user');
             $this->User_model->update(['id_user' => $id], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Jenis Aset Berhasil Diubah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data User Berhasil Diubah!</div>');
             redirect('Akun');
         }
+    }
+
+    public function edithak($id)
+    {
+
+        $data['judul'] = "Ubah Hak Akses";
+        $data['userdata'] = $this->User_model->getById($id);
+        $data['hakakses'] = $this->HakAkses_model->getById($id);
+        $data['jenisaset'] = $this->JenisAset_model->get();
+        $data['bidang'] = $this->Bidang_model->get();
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
+        // if ($this->form_validation->run() == false) {
+        //     // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
+        //     redirect('Akun');
+        // } else {
+            $data = [
+                'tambah' => $this->input->post('tambah'),
+                'edit' => $this->input->post('edit'),
+                'hapus' => $this->input->post('hapus'),
+                'id_hak_akses' => $this->input->post('id_hak_akses')
+            ];
+            $id = $this->input->post('id_hak_akses');
+            $this->HakAkses_model->update(['id_hak_akses' => $id], $data);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
+            redirect('Akun');
+        // }
     }
 
     public function update_status($id, $status)

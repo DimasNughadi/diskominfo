@@ -18,6 +18,14 @@ class HakAkses_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getById($id)
+    {
+        $this->db->from($this->table);
+        $this->db->where('id_hak_akses', $id);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     public function getPerUser($id2)
     {
         $this->db->from($this->table);
@@ -26,9 +34,15 @@ class HakAkses_model extends CI_Model
         return $query->row_array();
     }
 
-        public function insert($data2)
+    public function insert($data2)
     {
         $this->db->insert($this->table, $data2);
         return $this->db->insert_id();
+    }
+
+    public function update($where, $data)
+    {
+        $this->db->update($this->table, $data, $where);
+        return $this->db->affected_rows();
     }
 }
