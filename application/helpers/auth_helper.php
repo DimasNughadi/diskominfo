@@ -39,3 +39,51 @@ function check_role_admin()
         redirect('dashboard', 'refresh');
     }
 }
+
+function check_menu_tambah_access($id_user, $id_menu, $tambah)
+{
+    $CI = &get_instance();
+    $CI->db->where('id_user', $id_user);
+    $CI->db->where('id_menu', $id_menu);
+    $result = $CI->db->get('hak_akses');
+
+    if($result->num_rows() > 0){
+        if($tambah == 1){
+            return"checked='checked'";
+        }elseif($tambah == 0){
+            return"";
+        }
+    }
+}
+
+function check_menu_edit_access($id_user, $id_menu, $edit)
+{
+    $CI = &get_instance();
+    $CI->db->where('id_user', $id_user);
+    $CI->db->where('id_menu', $id_menu);
+    $result = $CI->db->get('hak_akses');
+
+    if($result->num_rows() > 0){
+        if($edit == 1){
+            return"checked='checked'";
+        }elseif($edit == 0){
+            return"";
+        }
+    }
+}
+
+function check_menu_hapus_access($id_user, $id_menu, $hapus)
+{
+    $CI = &get_instance();
+    $CI->db->where('id_user', $id_user);
+    $CI->db->where('id_menu', $id_menu);
+    $result = $CI->db->get('hak_akses');
+
+    if($result->num_rows() > 0){
+        if($hapus == 1){
+            return"checked='checked'";
+        }elseif($hapus == 0){
+            return"";
+        }
+    }
+}
