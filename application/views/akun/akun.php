@@ -148,38 +148,20 @@
 																										</td>
 																										<td>
 																											<label>
-																												<?php foreach ($menu as $mn) : ?>
-																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['tambah']== 1 ) { ?>
-																														<input type="checkbox" name="tambah" id="tambah" value="1" <?php echo 'checked';?>>
-																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="tambah" id="tambah" value="0">
-																													<?php } ?>
-																												<?php endforeach; ?>
+																												<input type="checkbox" name="tambah" id="tambah" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['tambah']) ;?>>
 																											</label>
 																										</td>
 																										<td>
 																											<label>
-																												<?php foreach ($menu as $mn) : ?>
-																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 1) { ?>
-																														<input type="checkbox" name="edit" id="edit" value="1" <?php echo 'checked';?>>
-																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="edit" id="edit" value="0">
-																													<?php } ?>
-																												<?php endforeach; ?>
+																												<input type="checkbox" name="edit" id="edit" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['edit']) ;?>>
 																											</label>
 																										</td>
 																										<td style="text-align: center;">
 																											<label>
-																												<?php foreach ($menu as $mn) : ?>
-																													<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['hapus']== 1) { ?>
-																														<input type="checkbox" name="hapus" id="hapus" value="1" <?php echo 'checked';?>>
-																													<?php } elseif($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user'] && $hk['edit']== 0) { ?>
-																														<input type="checkbox" name="hapus" id="hapus" value="0">
-																													<?php } ?>
-																												<?php endforeach; ?>
+																												<input type="checkbox" name="hapus" id="hapus" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['hapus']) ;?>>
 																											</label>
 																										</td>
-																									</tr>
+																									 </tr>
 																									<?php } ?>
 																									<?php endforeach; ?>
 																							</tbody>
