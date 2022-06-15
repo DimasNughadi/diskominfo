@@ -12,15 +12,76 @@ class Report extends CI_Controller
         $this->load->model('Aset_model');
         $this->load->model('User_model');
         $this->load->model('Resiko_model');
+        $this->load->model('Laporan_model');
     }
 
     function index()
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Laporan Daftar Risiko";
-        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        $data['select'] = $this->Laporan_model->selectTahunPK()->result();
+
         $this->load->view('layout/header', $data);
         $this->load->view('laporan/vw_laporan_daftar_risiko', $data);
         $this->load->view('layout/footer', $data);
+    }
+
+    function exportdaftarrisiko()
+    {
+        $tahun = $this->input->post('tahun');
+
+        $where = array(
+            'risiko.tahun' => $tahun
+        );
+
+
+        if (empty($tahun)) {
+            $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        } else {
+            $data['resiko'] = $this->Laporan_model->showDR($where)->result();
+        }
+
+        if (null !== $this->input->post('DRexcel')) {
+            $this->load->view('laporan/v_daftarResikoExcel', $data);
+        } elseif (null !== $this->input->post('DRpdf')) {
+            $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
+
+
+
+            $this->load->library('pdf');
+            $pdf = $this->pdf->load();
+            $pdf->SetProtection(array('print'));
+            $pdf->SetDisplayMode('fullpage');
+            $pdf->WriteHTML($html);
+            $pdf->Output("Daftar_Risiko.pdf", 'I');
+            exit;
+        }
+    }
+
+    function getDR()
+    {
+        $tahun_pk = $this->input->post('tahun');
+
+        $where = array(
+            'risiko.tahun' => $tahun_pk
+        );
+
+        if ($tahun_pk == '') {
+            $dr = $this->Resiko_model->showRisiko()->result();
+        } else {
+            $dr = $this->Laporan_model->showDR($where)->result();
+        }
+
+
+        if (count($dr) > 0) {
+
+
+            foreach ($dr as $key) {
+
+                $tbDr[] = $key;
+            }
+
+            echo json_encode($tbDr);
+        }
     }
 }

@@ -26,17 +26,18 @@
             <div id="main-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form class="" action="<?= base_url('unit_kerja/laporan/exportdaftarrisiko')  ?>" target="__blank" method="post">
+                        <form class="" action="<?= base_url('report/exportdaftarrisiko')  ?>" target="__blank" method="post">
                             <div class="col-md-4">
                                 <label for="">Pilih Tahun </label>
                                 <div class="input-group input-group-md">
-                                    <select class="form-control" name="tahun_pk" id="selectTahunDR">
+                                    <select class="form-control" name="tahun" id="selectTahunDR">
                                         <option value="">-- Semua -- </option>
                                         <?php foreach ($select as $periode) : ?>
-                                            <?php echo $periode->tahun_pk; ?>
-                                            <option value="<?= $periode->tahun_pk ?>"><?= $periode->tahun_pk ?></option>
+                                            <?php echo $periode->tahun; ?>
+                                            <option value="<?= $periode->tahun ?>"><?= $periode->tahun ?></option>
                                         <?php endforeach; ?>
                                     </select>
+                                    &nbsp;
                                     <span class="input-group-btn">
                                         <button type="submit" name="DRpdf" class="btn btn-info">Export PDF</button>
                                         <button type="submit" name="DRexcel" class="btn btn-info">Export Excel</button>
@@ -49,7 +50,7 @@
                                 <?= $this->session->flashdata('message'); ?>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped" mt_getrandmax>
+                                    <table id="tbDR" class="table table-bordered table-striped" mt_getrandmax>
                                         <thead>
                                             <tr>
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
@@ -57,112 +58,14 @@
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Risiko</th>
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">Penyebab</th>
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
-                                                <th colspan="3" style="text-align: center; vertical-align: middle;">Penilaian Risiko</th>
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
                                                 <th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
-                                                <th rowspan="2" style="width: 8%; text-align: center; vertical-align: middle;">Aksi</th>
+                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
+                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
                                             </tr>
-                                            <tr>
-                                                <th style="text-align: center; vertical-align: middle;">SD</th>
-                                                <th style="text-align: center; vertical-align: middle;">SK</th>
-                                                <th style="text-align: center; vertical-align: middle;">TR</th>
-                                            </tr>
-
                                         </thead>
-                                        <tbody>
-                                            <?php $noskp = 1;
-                                            $jum = 1; ?>
-                                            <?php foreach ($resiko as $skp) { ?>
-                                                <tr>
-                                                    <?php
-
-                                                    if ($jum <= 1) {
-                                                        $jmlrow = $skp->rowpk;
-                                                        if ($jmlrow == 0) {
-                                                            $jmlrow = 1;
-                                                        }
-                                                    ?>
-                                                        <td rowspan="<?= $jmlrow ?>"><?= $noskp ?></td>
-                                                        <td rowspan="<?= $jmlrow ?>"><?= $skp->nama_aset ?></td>
-                                                    <?php
-                                                        $jum = $skp->rowpk;
-                                                        $noskp++;
-                                                    } else {
-                                                        $jum = $jum - 1;
-                                                    }
-                                                    ?>
-                                                    <td><?= $skp->nama_risiko ?></td>
-                                                    <td><?= $skp->penyebab ?></td>
-                                                    <td><?= $skp->dampak ?></td>
-                                                    <td><?= $skp->skala_dampak ?></td>
-                                                    <td><?= $skp->skala_kemungkinan ?></td>
-                                                    <td><?= $skp->tingkat_risiko ?></td>
-                                                    <td><?= $skp->pengendalian ?></td>
-                                                    <td><?= $skp->keputusan ?></td>
-
-                                                    <td>
-                                                        <!-- Trigger Edit -->
-                                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $skp->id_risiko; ?>">
-                                                            <i class="ti-pencil-alt"></i>
-                                                        </button>
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="modal-success<?php echo $skp->id_risiko; ?>">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content bg-success">
-                                                                    <div class="modal-header">
-                                                                        <h4 class="text-light">Edit Data</h4>
-                                                                        <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
-                                                                            <i class="fa fa-close"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <p class="text-light">Anda yakin ingin mengubah data ini&hellip; ?</p>
-                                                                    </div>
-                                                                    <div class="modal-footer justify-content-between">
-                                                                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
-                                                                        <a href="<?= base_url('resiko/edit/') . $skp->id_risiko; ?>" class="btn btn-outline-light">Ubah</a>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- /.modal-content -->
-                                                            </div>
-                                                            <!-- /.modal-dialog -->
-                                                        </div>
-                                                        <!-- /.modal -->
-
-                                                        <!-- Trigger Hapus -->
-                                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $skp->id_risiko; ?>">
-                                                            <i class="ti-trash"></i>
-                                                        </button>
-
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="modal-danger<?php echo $skp->id_risiko; ?>">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content bg-danger">
-                                                                    <div class="modal-header">
-                                                                        <h4 class="text-light">Hapus Data Risiko</h4>
-                                                                        <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
-                                                                            <i class="fa fa-close"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <p class="card-title text-light">Anda yakin akan menghapus data ini&hellip; ?</p>
-                                                                    </div>
-                                                                    <div class="modal-footer justify-content-between">
-                                                                        <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
-                                                                        <a href="<?= base_url('Resiko/hapus/') . $skp->id_risiko; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- /.modal-content -->
-                                                            </div>
-                                                            <!-- /.modal-dialog -->
-                                                        </div>
-                                                        <!-- /.modal -->
-                                                    </td>
-
-                                                </tr>
-
-                                            <?php  } ?>
-
+                                        <tbody id="tb_lapDR">
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -172,3 +75,131 @@
                         <!-- /# column -->
                     </div>
                     <!-- /# row -->
+
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#tbDR').each(function() {
+                                var tahun = $('#selectTahunDR').val();
+                                var link = "<?= base_url('report/getDR') ?>"
+
+                                $.ajax({
+                                    url: link,
+                                    type: "POST",
+                                    data: {
+                                        'tahun': tahun
+                                    },
+                                    dataType: 'JSON',
+                                    success: function(data) {
+                                        //alert(data.length);
+                                        // $('#tb_lapDR').html(data);
+                                        var no = 1;
+                                        var jum1 = 1;
+                                        var jum2 = 1;
+                                        var i;
+                                        var html = '';
+
+                                        for (i = 0, no = 1; i < data.length; i++) {
+                                            if (jum2 <= 1) {
+                                                var jmlpk = data[i].rowpk;
+                                                if (jmlpk == 0) {
+                                                    jmlpk = 1;
+                                                }
+                                                html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
+                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_risiko + '</td>';
+                                                jum2 = data[i].rowpk;
+                                            } else {
+                                                jum2 = jum2 - 1;
+                                            }
+
+                                            if (jum1 <= 1) {
+                                                var jmlskp = data[i].risiko;
+                                                if (jmlskp == 0) {
+                                                    jmlskp = 1;
+                                                }
+                                                html += '<td rowspan="' + jmlskp + '">' + data[i].nama_skp + '</td>';
+                                                jum1 = data[i].risiko;
+                                            } else {
+                                                jum1 = jum1 - 1;
+                                            }
+
+                                            html += '<td>' + data[i].nama_risiko + '</td>';
+                                            html += '<td>' + data[i].nama_risk + '</td>';
+                                            html += '<td>' + data[i].deskripsi_cause + '</td>';
+                                            html += '<td>' + data[i].deskripsi_pengendalian + '</td>';
+                                            html += '<td>' + data[i].sisa_risk + '</td>';
+                                            html += '<td>' + data[i].frekuensi + '</td>';
+                                            html += '<td>' + data[i].dampak + '</td></tr>';
+                                        }
+
+                                        $('#tb_lapDR').html(html);
+                                    },
+                                    error: function() {
+                                        $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                    }
+                                });
+                            });
+
+                            $('#selectTahunDR').on('change', function() {
+                                var tahun = $('#selectTahunDR').val();
+                                var link = "<?= base_url('report/getDR') ?>"
+
+
+                                $.ajax({
+                                    url: link,
+                                    type: "POST",
+                                    data: {
+                                        'tahun': tahun
+                                    },
+                                    dataType: 'JSON',
+                                    success: function(data) {
+                                        // $('#tb_lapDR').html(data);
+                                        //alert('Berhasil');
+                                        var no = 1;
+                                        var jum1 = 1;
+                                        var jum2 = 1;
+                                        var i;
+                                        var html = '';
+
+                                        for (i = 0, no = 1; i < data.length; i++) {
+                                            if (jum2 <= 1) {
+                                                var jmlpk = data[i].rowpk;
+                                                if (jmlpk == 0) {
+                                                    jmlpk = 1;
+                                                }
+                                                html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
+                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_ik + '</td>';
+                                                jum2 = data[i].rowpk;
+                                            } else {
+                                                jum2 = jum2 - 1;
+                                            }
+
+                                            if (jum1 <= 1) {
+                                                var jmlskp = data[i].rowskp;
+                                                if (jmlskp == 0) {
+                                                    jmlskp = 1;
+                                                }
+                                                html += '<td rowspan="' + jmlskp + '">' + data[i].nama_skp + '</td>';
+                                                jum1 = data[i].rowskp;
+                                            } else {
+                                                jum1 = jum1 - 1;
+                                            }
+
+                                            html += '<td>' + data[i].nama_sop + '</td>';
+                                            html += '<td>' + data[i].nama_risk + '</td>';
+                                            html += '<td>' + data[i].deskripsi_cause + '</td>';
+                                            html += '<td>' + data[i].deskripsi_pengendalian + '</td>';
+                                            html += '<td>' + data[i].sisa_risk + '</td>';
+                                            html += '<td>' + data[i].frekuensi + '</td>';
+                                            html += '<td>' + data[i].dampak + '</td></tr>';
+                                        }
+
+                                        $('#tb_lapDR').html(html);
+
+                                    },
+                                    error: function() {
+                                        $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                    }
+                                });
+                            });
+                        });
+                    </script>

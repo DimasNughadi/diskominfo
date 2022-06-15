@@ -19,14 +19,24 @@ class Resiko_model extends CI_Model
 
     function showRisiko()
     {
+        // $this->db->select('*');
+        // $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+        // $this->db->having('risiko.id_risiko > 0');
+        // $this->db->from('aset');
+        // $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
+        // $this->db->join('user', 'user.id_user = aset.id_user', 'left');
+        // return $this->db->get();
+
         $this->db->select('*');
+        $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset) as rowpk');
         $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        $this->db->having('risiko.id_risiko > 0');
-        $this->db->from('aset');
-        $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        return $this->db->get();
+
+        $this->db->from('risiko');
+        $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+
+        return $this->db->get();    
     }
+
 
     function getCountSR()
     {
@@ -115,6 +125,4 @@ class Resiko_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-
-
 }
