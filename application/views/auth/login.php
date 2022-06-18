@@ -38,7 +38,7 @@
             <a href="auth">Diskominfotik<b>Riau</b></a>
         </div>
         <!-- /.login-logo -->
-        <?= $this->session->flashdata('message'); ?>
+        <?= $this->session->flashdata('error'); ?>
         <div class="card">
             <div class="card-body login-card-body">
 

@@ -14,7 +14,7 @@ function check_not_login()
     $CI = &get_instance();
     $user_session = $CI->session->userdata('username');
     if (!$user_session) {
-        $CI->session->set_flashdata('error', 'Silahkan Login terlebih dahulu!');
+        $CI->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Silahkan Login terlebih dahulu!</div>');
         redirect('auth', 'refresh');
     }
 }
