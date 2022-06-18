@@ -216,8 +216,6 @@
 																	</div>
 																	<div class="modal-footer justify-content-between">
 																		<button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
-																		<button type="submit" value="Submit" name="submit" class="btn btn-primary" data-dismiss="modal">Simpan Form</button>
-																		<a href="<?= base_url('akun/edithak/') . $hk['id_hak_akses']; ?>" class="btn btn-success">Simpan</a>
 																	</div>
 																	</form>
 																</div>

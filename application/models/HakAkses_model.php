@@ -63,7 +63,7 @@ class HakAkses_model extends CI_Model
     public function update_hak_model_edit($id_hak_akses, $edit)
     {
         //here we will change the value of the status that if we get the value one of the status then zero is updated in database otherwise one.
-        if ($hapus == 1) {
+        if ($edit == 1) {
             $sval = 0;
         } else {
             $sval = 1;
