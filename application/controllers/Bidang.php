@@ -8,6 +8,7 @@ class Bidang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Bidang_model');
+        $this->load->model('HakAkses_model');
     }
 
     public function index()
