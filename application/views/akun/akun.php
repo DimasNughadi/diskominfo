@@ -140,65 +140,47 @@
 																									<?php foreach ($hak as $hk) : ?>
 																										<!-- <input type="text" value="<?= $hak['id_hak_akses'] ?>"> -->
 																									<?php if ($hk['id_user'] == $us['id_user']) { ?>
-																								<tr>
-																									<td>
-																									<?php foreach ($menu as $mn) : ?>
-																										<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
-																											<?= $mn['nama_menu']; ?>
-																										<?php } ?>
-																									<?php endforeach; ?>
-																									</td>
-																									<td>
-																										<?php if ($hk['tambah'] == 1 ) { ?>
-                                                                										<?php if ($_SESSION['username'] == $us['username']) { ?>
-                                                                    										<a onclick="refreshmodal();"href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																									<tr>
+																										<td>
+																										<?php foreach ($menu as $mn) : ?>
+																											<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
+																												<?= $mn['nama_menu']; ?>
+																											<?php } ?>
+																										<?php endforeach; ?>
+																										</td>
+																										<td>
+																											<?php if ($hk['tambah'] == 1 ) { ?>
+																											<?php if ($_SESSION['username'] == $us['username']) { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																											<?php } else { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<?php } ?>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
-																									<?php } else { ?>
-																										<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm">Inactive</a>
-																									<?php } ?>
-																									</td>
-																									<td>
-																										<?php if ($hk['edit'] == 1 ) { ?>
-                                                                										<?php if ($_SESSION['username'] == $us['username']) { ?>
-                                                                    										<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																										</td>
+																										<td>
+																											<?php if ($hk['edit'] == 1 ) { ?>
+																											<?php if ($_SESSION['username'] == $us['username']) { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																											<?php } else { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<?php } ?>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
-																									<?php } else { ?>
-																										<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-warning btn-sm">Inactive</a>
-																									<?php } ?>
-																									</td>
-																									<td style="text-align: center;" >
-																										<?php if ($hk['hapus'] == 1 ) { ?>
-                                                                										<?php if ($_SESSION['username'] == $us['username']) { ?>
-                                                                    										<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																										</td>
+																										<td style="text-align: center;" >
+																											<?php if ($hk['hapus'] == 1 ) { ?>
+																											<?php if ($_SESSION['username'] == $us['username']) { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																											<?php } else { ?>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<?php } ?>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm">Active</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
-																									<?php } else { ?>
-																										<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-warning btn-sm">Inactive</a>
-																									<?php } ?>
-																									</td>
-																									<!-- <td>
-																										<label>
-																											<?= $hk['id_hak_akses']; ?>
-																											<input type="checkbox" name="tambah" id="tambah" <?= check_menu_tambah_access($us['id_user'], $mn['id_menu'], $hk['tambah']) ;?>>
-																										</label>
-																									</td>
-																									<td>
-																										<label>
-																											<?= $hk['id_hak_akses']; ?>
-																											<input type="checkbox" name="edit" id="edit" <?= check_menu_edit_access($us['id_user'], $mn['id_menu'], $hk['edit']) ;?>>
-																										</label>
-																									</td>
-																									<td style="text-align: center;">
-																										<label>
-																											<?= $hk['id_hak_akses']; ?>
-																											<input type="checkbox" name="hapus" id="hapus" <?= check_menu_hapus_access($us['id_user'], $mn['id_menu'], $hk['hapus']) ;?>>
-																										</label>
-																									</td> -->
+																										</td>
 																									</tr>
 																									<?php } ?>
 																									<?php endforeach; ?>
