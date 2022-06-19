@@ -180,7 +180,7 @@
 																		<i class="ti-pencil-alt"></i>
 																	</button>
 																	<?php } else { ?>
-																	<button type="button" class="btn btn-secondary btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
+																	<button type="button" class="btn btn-success btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
 																		<i class="ti-pencil-alt"></i>
 																	</button>
 																		<?php } ?>
