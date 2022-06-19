@@ -27,7 +27,7 @@
 						<?php foreach ($hak as $hk) : ?>
 							<?php if ($hk['id_menu'] == 2 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
 								<?php if ($hk['tambah'] == 1){ ?>
-								<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
+									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
 								<?php } else { ?>
 									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-secondary mb-2 disabled">Tambah Data Aset</a></div>
 									<?php } ?>
