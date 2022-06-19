@@ -58,9 +58,19 @@
 													<td><?= $us['lokasi']; ?></td>
 													<td>
 														<!-- Trigger Edit -->
-														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_bidang'];?>">
-															<i class="ti-pencil-alt"></i>
-														</button>
+														<?php foreach ($hak as $hk) : ?>
+															<?php if ($hk['id_menu'] == 5 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+																<?php if ($hk['tambah'] == 1){ ?>
+																<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_bidang'];?>">
+																	<i class="ti-pencil-alt"></i>
+																</button>
+																<?php } else { ?>
+																	<button type="button" class="btn btn-success btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $us['id_bidang'];?>">
+																		<i class="ti-pencil-alt"></i>
+																	</button>
+																	<?php } ?>
+															<?php } ?>
+														<?php endforeach; ?>
 														<!-- Modal -->
 														<div class="modal fade" id="modal-success<?php echo $us['id_bidang'];?>">
 															<div class="modal-dialog">
@@ -86,9 +96,19 @@
 														<!-- /.modal -->
 
 														<!-- Trigger Hapus -->
-														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_bidang']; ?>">
-															<i class="ti-trash"></i>
-														</button>
+														<?php foreach ($hak as $hk) : ?>
+															<?php if ($hk['id_menu'] == 5 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+																<?php if ($hk['tambah'] == 1){ ?>
+																	<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_bidang']; ?>">
+																		<i class="ti-trash"></i>
+																	</button>
+																<?php } else { ?>
+																	<button type="button" class="btn btn-danger btn-sm" disabled data-toggle="modal" data-target="#modal-danger<?php echo $us['id_bidang']; ?>">
+																		<i class="ti-trash"></i>
+																	</button>
+																	<?php } ?>
+															<?php } ?>
+														<?php endforeach; ?>
 
 														<!-- Modal -->
 														<div class="modal fade" id="modal-danger<?php echo $us['id_bidang']; ?>">
