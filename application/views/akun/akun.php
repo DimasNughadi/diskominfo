@@ -130,7 +130,6 @@
 																							<table class="table table-bordered table-striped" style="text-align: center;">
 																								<thead class="thead-light">
 																									<tr>
-																										<th>Id Hak Akses</th>
 																										<th>Menu</th>
 																										<th>Tambah</th>
 																										<th>Edit</th>
@@ -143,9 +142,6 @@
 																									<?php if ($hk['id_user'] == $us['id_user']) { ?>
 																								<tr>
 																									<td>
-																										<?= $hk['id_hak_akses'] ?>
-																									</td>
-																									<td>
 																									<?php foreach ($menu as $mn) : ?>
 																										<?php if ($hk['id_menu'] == $mn['id_menu'] && $hk['id_user'] == $us['id_user']) { ?>
 																											<?= $mn['nama_menu']; ?>
@@ -155,7 +151,7 @@
 																									<td>
 																										<?php if ($hk['tambah'] == 1 ) { ?>
                                                                 										<?php if ($_SESSION['username'] == $us['username']) { ?>
-                                                                    										<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+                                                                    										<a onclick="refreshmodal();"href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																										<?php } else { ?>
 																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm">Active</a>
 																										<?php } ?>
@@ -296,3 +292,9 @@
 					<!-- /# row -->
 				</div>
 			</div>
+			<script>
+				function refreshmodal()
+				{
+					$('#modal-default<?php echo $us['id_user'] ?>').load(location.href + "#modal-default<?php echo $us['id_user'] ?>");	
+				}
+			</script>
