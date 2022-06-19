@@ -18,13 +18,12 @@ class Akun extends CI_Controller
 
     function index()
     {
+        $data['judul'] = "Data User";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        // $data['userdata'] = $this->User_model->getById($id);
         $data['akun'] = $this->User_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['menu'] = $this->Menu_model->get();
         $data['hak'] = $this->HakAkses_model->get();
-        $data['judul'] = "Data User";
         $this->load->view('layout/header', $data);
         $this->load->view('akun/akun', $data);
         $this->load->view('layout/footer', $data);
@@ -33,7 +32,6 @@ class Akun extends CI_Controller
     public function tambah()
     {
         $data['judul'] = "Tambah Data Akun";
-        // $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 

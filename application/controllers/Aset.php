@@ -12,6 +12,7 @@ class Aset extends CI_Controller
         $this->load->model('Aset_model');
         $this->load->model('JenisAset_model');
         $this->load->model('Bidang_model');
+        $this->load->model('HakAkses_model');
     }
 
     public function index()
@@ -19,11 +20,6 @@ class Aset extends CI_Controller
         $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['aset'] = $this->Aset_model->get();
-        // $session = $this->session->userdata('id_bidang');
-        // $where2 = array(
-        //     'user.id_bidang' => $session
-        // );
-        // $data['aset'] = $this->Aset_model->getPhysical($where2)->result();
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['userdata'] = $this->User_model->get();
@@ -31,7 +27,6 @@ class Aset extends CI_Controller
         $this->load->view('aset/aset', $data);
         $this->load->view('layout/footer', $data);
     }
-
 
     public function tambah()
     {
@@ -89,8 +84,7 @@ class Aset extends CI_Controller
                 'created_on' => time()
             ];
             $this->Aset_model->insert($data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data
-                                                Aset Berhasil Ditambah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Datan Aset Berhasil Ditambah!</div>');
             redirect('Aset');
         }
     }

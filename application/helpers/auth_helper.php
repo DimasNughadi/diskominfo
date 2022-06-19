@@ -19,16 +19,6 @@ function check_not_login()
     }
 }
 
-// function check_role_sales()
-// {
-//     $CI = &get_instance();
-//     $user_session = $CI->session->userdata('role');
-//     if ($user_session != 'User') {
-//         $CI->session->set_flashdata('error', 'Hak akses terbatas!');
-//         redirect('dashboard', 'refresh');
-//     }
-// }
-
 function check_role_admin()
 {
     $CI = &get_instance();
@@ -40,19 +30,19 @@ function check_role_admin()
     }
 }
 
-// function check_menu_tambah_access($id_user, $id_menu, $tambah)
-// {
-//     $CI = &get_instance();
-//     $CI->db->where('id_user', $id_user);
-//     $CI->db->where('id_menu', $id_menu);
-//     $result = $CI->db->get('hak_akses');
+function check_menu_tambah_access()
+{
+    $CI = &get_instance();
+    $CI->db->where('id_user', $id_user);
+    $CI->db->where('id_menu', $id_menu);
+    $result = $CI->db->get('hak_akses');
 
-//     if($result->num_rows() > 0){
-//         if($tambah == 0){
-//             $CI->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Anda Tidak Dapat Mengakses Halaman tersebut!</div>');
-//         }
-//     }
-// }
+    if($result->num_rows() > 0){
+        if($tambah == 0){
+            $CI->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Anda Tidak Dapat Mengakses Halaman tersebut!</div>');
+        }
+    }
+}
 
 // function check_menu_edit_access($id_user, $id_menu, $edit)
 // {
