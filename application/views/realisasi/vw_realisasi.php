@@ -110,9 +110,25 @@
                                                         </td>
                                                         <td>
                                                             <?php if (!isset($us->real_mulai)) { ?>
-                                                                <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
+                                                                <?php foreach ($hak as $hk) : ?>
+                                                                    <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                            <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
+                                                                        <?php } else { ?>
+                                                                           <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Realisasi</a>
+                                                                        <?php } ?>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
                                                             <?php } else { ?>
-                                                                <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Realisasi</a>
+                                                                <?php foreach ($hak as $hk) : ?>
+                                                                    <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                            <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Realisasi</a>
+                                                                        <?php } else { ?>
+                                                                           <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success disabled">Edit Realisasi</a>
+                                                                        <?php } ?>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
