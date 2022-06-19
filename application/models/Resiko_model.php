@@ -17,24 +17,43 @@ class Resiko_model extends CI_Model
         return $query->result_array();
     }
 
+    // function showRisiko()
+    // {
+    //     $where2 = "aset.nama_aset != ''";
+    //     $this->db->select('*');
+    //     $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset ) as rowpk');
+    //     // $this->db->where('risiko.tahun','2022');
+    //     $this->db->from('aset');
+    //     $this->db->join('risiko', 'risiko.id_aset = aset.id_aset ', 'left');
+    //     $this->db->join('user', 'user.id_user = aset.id_user ', 'left');
+    //     $this->db->where($where2);
+    //     return $this->db->get();
+    //     // return $this->db->get();
+    //     // $where2 = "aset.nama_aset != ''";
+    //     // $this->db->select('*');
+    //     // $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset ) as rowpk');
+    //     // $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset ) as rowpk');
+
+    //     // $this->db->from('risiko');
+    //     // $this->db->join('aset', 'aset.id_aset = risiko.id_aset and risiko.tahun = 2022', 'left');
+    //     // 
+    // }
+
     function showRisiko()
     {
-        // $this->db->select('*');
-        // $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        // $this->db->having('risiko.id_risiko > 0');
-        // $this->db->from('aset');
-        // $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
-        // $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        // return $this->db->get();
-
         $this->db->select('*');
+        // $this->db->select('(select count(nama_skp) from tbl_skp where tbl_skp.id_pk = tbl_pk.id_pk) as rowpk');
         $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset) as rowpk');
         $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
 
         $this->db->from('risiko');
         $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+        // $this->db->join('tbl_sop_risk', 'tbl_sop_risk.id_skp = tbl_skp.id_skp', 'left');
+        // $this->db->join('tbl_pk', 'tbl_pk.id_pk = tbl_skp.id_pk', 'left');
+        // $this->db->join('tbl_unit_kerja', 'tbl_unit_kerja.id_unit = tbl_pk.id_unit', 'left');
+        $this->db->where('risiko.tahun','2022');
 
-        return $this->db->get();    
+        return $this->db->get();
     }
 
 
