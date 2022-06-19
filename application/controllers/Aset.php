@@ -23,6 +23,7 @@ class Aset extends CI_Controller
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['userdata'] = $this->User_model->get();
+        $data['hak'] = $this->HakAkses_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('aset/aset', $data);
         $this->load->view('layout/footer', $data);
@@ -30,6 +31,7 @@ class Aset extends CI_Controller
 
     public function tambah()
     {
+        // check_menu_tambah_access();
         $data['judul'] = "Tambah Data Aset";
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();

@@ -16,6 +16,7 @@ class JenisAset extends CI_Controller
         $data['judul'] = "Data Jenis Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['jenisaset'] = $this->JenisAset_model->get();
+        $data['hak'] = $this->HakAkses_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('aset/vw_jenis_aset', $data);
         $this->load->view('layout/footer', $data);

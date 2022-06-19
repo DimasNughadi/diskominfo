@@ -36,7 +36,16 @@
 			<div id="main-content">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="col-md-6"><a href="<?= base_url(); ?>Akun/tambah" class="btn btn-info mb-2">Tambah Akun</a></div>
+						<?php foreach ($hak as $hk) : ?>
+							<?php if ($hk['id_menu'] == 4 && $hk['id_user'] == $user['id_user']) { ?>
+								<?php if ($hk['tambah'] == 1){ ?>
+								<div class="col-md-6"><a href="<?= base_url(); ?>Akun/tambah" class="btn btn-info mb-2">Tambah Akun</a></div>
+								<?php } else { ?>
+									<div class="col-md-6"><a href="<?= base_url(); ?>Akun/tambah" class="btn btn-secondary mb-2 disabled">Tambah Akun</a></div>
+									<?php } ?>
+							<?php } ?>
+						<?php endforeach; ?>
+						<!-- <div class="col-md-6"><a href="<?= base_url(); ?>Akun/tambah" class="btn btn-info mb-2">Tambah Akun</a></div> -->
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
