@@ -38,7 +38,7 @@ class Report extends CI_Controller
 
 
         if (empty($tahun)) {
-            $data['resiko'] = $this->Resiko_model->showRis3iko()->result();
+            $data['resiko'] = $this->Resiko_model->showRisiko()->result();
         } else {
             $data['resiko'] = $this->Laporan_model->showDR($where)->result();
         }
