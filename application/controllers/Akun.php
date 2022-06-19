@@ -7,7 +7,7 @@ class Akun extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        check_role_admin();
+        check_not_login();
         $this->load->model('User_model');
         $this->load->model('Aset_model');
         $this->load->model('Bidang_model');
@@ -125,32 +125,52 @@ class Akun extends CI_Controller
         }
     }
 
-    public function edithak($id)
+    public function update_hak_tambah($id_menu, $tambah)
     {
 
-        $data['judul'] = "Ubah Hak Akses";
-        $data['userdata'] = $this->User_model->getById($id);
-        $data['hakakses'] = $this->HakAkses_model->getById($id);
-        $data['jenisaset'] = $this->JenisAset_model->get();
-        $data['bidang'] = $this->Bidang_model->get();
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $this->load->model('HakAkses_model', 'userdata');
 
-        // if ($this->form_validation->run() == false) {
-        //     // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
-        //     redirect('Akun');
-        // } else {
-            $data = [
-                'tambah' => $this->input->post('tambah'),
-                'edit' => $this->input->post('edit'),
-                'hapus' => $this->input->post('hapus'),
-                'id_hak_akses' => $this->input->post('id_hak_akses')
-            ];
-            $id = $this->input->post('id_hak_akses');
-            $this->HakAkses_model->update(['id_hak_akses' => $id], $data);
-            // $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Hak Akses Berhasil Diubah!</div>');
-            return var_dump($data);
-            // redirect('Akun');
-        // }
+        //send id and status to the model to update the status
+        if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
+            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-success');
+        } else {
+            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-danger');
+        }
+        return redirect('Akun');
+    }
+
+    public function update_hak_edit($id_menu, $edit)
+    {
+
+        $this->load->model('HakAkses_model', 'userdata');
+
+        //send id and status to the model to update the status
+        if ($this->userdata->update_hak_model_edit($id_menu, $edit)) {
+            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-success');
+        } else {
+            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-danger');
+        }
+        return redirect('Akun');
+    }
+
+    public function update_hak_hapus($id_menu, $hapus)
+    {
+
+        $this->load->model('HakAkses_model', 'userdata');
+
+        //send id and status to the model to update the status
+        if ($this->userdata->update_hak_model_hapus($id_menu, $hapus)) {
+            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-success');
+        } else {
+            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
+            $this->session->set_flashdata('msg_class', 'alert-danger');
+        }
+        return redirect('Akun');
     }
 
     public function update_status($id, $status)
