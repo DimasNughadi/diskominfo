@@ -30,13 +30,15 @@ class Report extends CI_Controller
     {
         $tahun = $this->input->post('tahun');
 
-        $where = array(
-            'risiko.tahun' => $tahun
-        );
+        // $where = array(
+        //     'risiko.tahun' => $tahun
+        // );
+
+        $where =  $tahun;
 
 
         if (empty($tahun)) {
-            $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+            $data['resiko'] = $this->Resiko_model->showRis3iko()->result();
         } else {
             $data['resiko'] = $this->Laporan_model->showDR($where)->result();
         }

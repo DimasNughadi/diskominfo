@@ -65,7 +65,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="tb_lapDR">
-                                           
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -81,6 +81,7 @@
                             $('#tbDR').each(function() {
                                 var tahun = $('#selectTahunDR').val();
                                 var link = "<?= base_url('report/getDR') ?>"
+                                
 
                                 $.ajax({
                                     url: link,
@@ -203,3 +204,5 @@
                             });
                         });
                     </script>
+
+                   
