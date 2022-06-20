@@ -95,15 +95,16 @@
                                         var i;
                                         var html = '';
 
-                                        
+                                            
 
                                         for (i = 0, no = 1; i < data.length; i++) {
+                                            html += '<tr>';
                                             if (jum <= 1) {
                                                 var jmlpk = data[i].rowpk;
                                                 if (jmlpk == 0) {
                                                     jmlpk = 1;
                                                 }
-                                                html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
+                                                html += '<td rowspan="' + jmlpk + '">' + no++ + '</td>';
                                                 html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
                                                 jum = data[i].rowpk;
                                             } else {
@@ -113,6 +114,7 @@
                                             html += '<td>' + data[i].nama_risiko + '</td>';
                                             html += '<td>' + data[i].penyebab + '</td>';
                                             html += '<td>' + data[i].pengendalian + '</td>';
+                                            html += '<td>' + data[i].dampak + '</td>';
                                             html += '<td>' + data[i].keputusan + '</td>';
                                             html += '<td>' + data[i].skala_kemungkinan + '</td>';
                                             html += '<td>' + data[i].skala_dampak + '</td>';
@@ -139,22 +141,19 @@
                                     },
                                     dataType: 'JSON',
                                     success: function(data) {
-                                        // $('#tb_lapDR').html(data);
-                                        //alert('Berhasil');
                                         var no = 1;
                                         var jum = 1;
                                         var i;
                                         var html = '';
 
-                                        
-
                                         for (i = 0, no = 1; i < data.length; i++) {
+                                            html += '<tr>';
                                             if (jum <= 1) {
                                                 var jmlpk = data[i].rowpk;
                                                 if (jmlpk == 0) {
                                                     jmlpk = 1;
                                                 }
-                                                html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
+                                                html += '<td rowspan="' + jmlpk + '">' + no++ + '</td>';
                                                 html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
                                                 jum = data[i].rowpk;
                                             } else {
@@ -164,6 +163,7 @@
                                             html += '<td>' + data[i].nama_risiko + '</td>';
                                             html += '<td>' + data[i].penyebab + '</td>';
                                             html += '<td>' + data[i].pengendalian + '</td>';
+                                            html += '<td>' + data[i].dampak + '</td>';
                                             html += '<td>' + data[i].keputusan + '</td>';
                                             html += '<td>' + data[i].skala_kemungkinan + '</td>';
                                             html += '<td>' + data[i].skala_dampak + '</td>';
