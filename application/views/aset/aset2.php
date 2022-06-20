@@ -1,15 +1,6 @@
 <div class="content-wrap">
 	<div class="main">
 		<div class="container-fluid">
-			<!-- <div class="row">
-				<div class="col-lg-8 p-r-0 title-margin-right">
-					<div class="page-header">
-						<div class="page-title">
-							<h1>Hello, <span>Welcome Here</span></h1>
-						</div>
-					</div>
-				</div>
-			</div> -->
 			<!-- /# row -->
 			<div id="main-content">
 				<div class="row">
@@ -35,7 +26,6 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
-						
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<div class="col-md-2">

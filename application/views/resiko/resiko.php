@@ -26,7 +26,15 @@
 			<div id="main-content">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="col-md-6"><a href="<?= base_url(); ?>resiko/tambah" class="btn btn-info mb-2">Tambah</a></div>
+						<?php foreach ($hak as $hk) : ?>
+							<?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+								<?php if ($hk['tambah'] == 1){ ?>
+									<div class="col-md-6"><a href="<?= base_url(); ?>resiko/tambah" class="btn btn-info mb-2">Tambah</a></div>
+								<?php } else { ?>
+									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-secondary mb-2 disabled">Tambah</a></div>
+									<?php } ?>
+							<?php } ?>
+						<?php endforeach; ?>
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
@@ -85,9 +93,19 @@
 
 													<td>
 														<!-- Trigger Edit -->
-														<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $skp->id_risiko; ?>">
-															<i class="ti-pencil-alt"></i>
-														</button>
+														<?php foreach ($hak as $hk) : ?>
+															<?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+																<?php if ($hk['edit'] == 1){ ?>
+																	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $skp->id_risiko; ?>">
+																		<i class="ti-pencil-alt"></i>
+																	</button>
+																<?php } else { ?>
+																	<button type="button" class="btn btn-success btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $skp->id_risiko; ?>">
+																		<i class="ti-pencil-alt"></i>
+																	</button>
+																	<?php } ?>
+															<?php } ?>
+														<?php endforeach; ?>
 														<!-- Modal -->
 														<div class="modal fade" id="modal-success<?php echo $skp->id_risiko; ?>">
 															<div class="modal-dialog">
@@ -113,10 +131,19 @@
 														<!-- /.modal -->
 
 														<!-- Trigger Hapus -->
-														<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $skp->id_risiko; ?>">
-															<i class="ti-trash"></i>
-														</button>
-
+														<?php foreach ($hak as $hk) : ?>
+															<?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+																<?php if ($hk['edit'] == 1){ ?>
+																	<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $skp->id_risiko; ?>">
+																		<i class="ti-trash"></i>
+																	</button>
+																<?php } else { ?>
+																	<button type="button" class="btn btn-danger btn-sm" disabled data-toggle="modal" data-target="#modal-danger<?php echo $skp->id_risiko; ?>">
+																		<i class="ti-trash"></i>
+																	</button>
+																	<?php } ?>
+															<?php } ?>
+														<?php endforeach; ?>
 														<!-- Modal -->
 														<div class="modal fade" id="modal-danger<?php echo $skp->id_risiko; ?>">
 															<div class="modal-dialog">

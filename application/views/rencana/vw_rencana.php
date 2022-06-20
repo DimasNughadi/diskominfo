@@ -83,9 +83,25 @@
                                                             } else echo "Rp.0"; ?></td>
                                                         <td>
                                                             <?php if (!isset($us->deskripsi)) { ?>
-                                                                <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Rencana</a>
+                                                                <?php foreach ($hak as $hk) : ?>
+                                                                    <?php if ($hk['id_menu'] == 8 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                            <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Rencana</a>
+                                                                        <?php } else { ?>
+                                                                            <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Rencana</a>
+                                                                        <?php } ?>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
                                                             <?php } else { ?>
-                                                                <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Rencana</a>
+                                                                <?php foreach ($hak as $hk) : ?>
+                                                                    <?php if ($hk['id_menu'] == 8 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                        <?php if ($hk['edit'] == 1){ ?>
+                                                                            <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Rencana</a>
+                                                                        <?php } else { ?>
+                                                                            <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success disabled">Edit Rencana</a>
+                                                                        <?php } ?>
+                                                                    <?php } ?>
+                                                                <?php endforeach; ?>
                                                             <?php } ?>
                                                         </td>
                                                     </tr>

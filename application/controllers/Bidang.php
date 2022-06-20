@@ -16,6 +16,7 @@ class Bidang extends CI_Controller
         $data['judul'] = "Data Bidang";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['bidang'] = $this->Bidang_model->get();
+        $data['hak'] = $this->HakAkses_model->get();
         $this->load->view('layout/header', $data);
         $this->load->view('bidang/vw_bidang', $data);
         $this->load->view('layout/footer', $data);
