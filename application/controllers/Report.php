@@ -48,8 +48,9 @@ class Report extends CI_Controller
         } elseif (null !== $this->input->post('DRpdf')) {
             $this->load->library('pdf');
             $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
-            
             $this->pdf->createPDF($html, 'mypdf', 'landscape');
+            $this->pdf->set_option('isRemoteEnabled', true);
+            $this->pdf->render();
 
             // 8
         }
