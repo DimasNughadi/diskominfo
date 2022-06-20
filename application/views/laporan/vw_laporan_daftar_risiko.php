@@ -30,10 +30,10 @@
                             <div class="col-md-4">
                                 <label for="">Pilih Tahun </label>
                                 <div class="input-group input-group-md">
-                                    <select class="form-control" name="tahun" id="selectTahunDR">
+                                    <select class="form-control select" name="tahun" id="selectTahun">
                                         <option value="">-- Semua -- </option>
                                         <?php foreach ($select as $periode) : ?>
-                                            <?php echo $periode->tahun; ?>
+                                        <?php echo $periode->tahun; ?>
                                             <option value="<?= $periode->tahun ?>"><?= $periode->tahun ?></option>
                                         <?php endforeach; ?>
                                     </select>
@@ -77,7 +77,7 @@
                     <script type="text/javascript">
                         $(document).ready(function() {
                             $('#tbDR').each(function() {
-                                var tahun = $('#selectTahunDR').val();
+                                var tahun = $('#selectTahun').val();
                                 var link = "<?= base_url('report/getDR') ?>"
 
                                 $.ajax({
@@ -93,9 +93,7 @@
                                         var no = 1;
                                         var jum = 1;
                                         var i;
-                                        var html = '';
-
-                                            
+                                        var html = '';         
 
                                         for (i = 0, no = 1; i < data.length; i++) {
                                             html += '<tr>';
@@ -128,8 +126,8 @@
                                 });
                             });
 
-                            $('#selectTahunDR').on('change', function() {
-                                var tahun = $('#selectTahunDR').val();
+                            $('.select').on('change', function() {
+                                var tahun = $('#selectTahun').val();
                                 var link = "<?= base_url('report/getDR') ?>"
 
 

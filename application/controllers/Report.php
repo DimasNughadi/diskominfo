@@ -60,16 +60,13 @@ class Report extends CI_Controller
     {
         $tahun = $this->input->post('tahun');
 
-        $where = array(
-            'risiko.tahun' => $tahun
-        );
+        $where = $tahun;
 
         if ($tahun == '') {
             $dr = $this->Resiko_model->showRisiko()->result();
-        } else {
+        } elseif($tahun != '') {
             $dr = $this->Laporan_model->showDR($where)->result();
         }
-
 
         if (count($dr) > 0) {
 
