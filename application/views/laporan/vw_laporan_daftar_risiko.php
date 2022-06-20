@@ -53,20 +53,18 @@
                                     <table id="tbDR" class="table table-bordered table-striped" mt_getrandmax>
                                         <thead>
                                             <tr>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">No</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Aset</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Nama Risiko</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Penyebab</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Pengendalian</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Keputusan</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
-                                                <th rowspan="2" style="text-align: center; vertical-align: middle;">Dampak</th>
+                                                <th>No</th>
+                                                <th>Nama Aset</th>
+                                                <th>Nama Risiko</th>
+                                                <th>Penyebab</th>
+                                                <th>Dampak</th>
+                                                <th>Pengendalian</th>
+                                                <th>Keputusan</th>
+                                                <th>Kemungkinan Terjadi</th>
+                                                <th>Dampak</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tb_lapDR">
-
-                                        </tbody>
+                                        <tbody id="tb_lapDR"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -81,7 +79,6 @@
                             $('#tbDR').each(function() {
                                 var tahun = $('#selectTahunDR').val();
                                 var link = "<?= base_url('report/getDR') ?>"
-                                
 
                                 $.ajax({
                                     url: link,
@@ -94,42 +91,31 @@
                                         //alert(data.length);
                                         // $('#tb_lapDR').html(data);
                                         var no = 1;
-                                        var jum1 = 1;
-                                        var jum2 = 1;
+                                        var jum = 1;
                                         var i;
                                         var html = '';
 
+                                        
+
                                         for (i = 0, no = 1; i < data.length; i++) {
-                                            if (jum2 <= 1) {
+                                            if (jum <= 1) {
                                                 var jmlpk = data[i].rowpk;
                                                 if (jmlpk == 0) {
                                                     jmlpk = 1;
                                                 }
                                                 html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
-                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_risiko + '</td>';
-                                                jum2 = data[i].rowpk;
+                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
+                                                jum = data[i].rowpk;
                                             } else {
-                                                jum2 = jum2 - 1;
-                                            }
-
-                                            if (jum1 <= 1) {
-                                                var jmlskp = data[i].risiko;
-                                                if (jmlskp == 0) {
-                                                    jmlskp = 1;
-                                                }
-                                                html += '<td rowspan="' + jmlskp + '">' + data[i].nama_skp + '</td>';
-                                                jum1 = data[i].risiko;
-                                            } else {
-                                                jum1 = jum1 - 1;
+                                                jum = jum - 1;
                                             }
 
                                             html += '<td>' + data[i].nama_risiko + '</td>';
-                                            html += '<td>' + data[i].nama_risk + '</td>';
-                                            html += '<td>' + data[i].deskripsi_cause + '</td>';
-                                            html += '<td>' + data[i].deskripsi_pengendalian + '</td>';
-                                            html += '<td>' + data[i].sisa_risk + '</td>';
-                                            html += '<td>' + data[i].frekuensi + '</td>';
-                                            html += '<td>' + data[i].dampak + '</td></tr>';
+                                            html += '<td>' + data[i].penyebab + '</td>';
+                                            html += '<td>' + data[i].pengendalian + '</td>';
+                                            html += '<td>' + data[i].keputusan + '</td>';
+                                            html += '<td>' + data[i].skala_kemungkinan + '</td>';
+                                            html += '<td>' + data[i].skala_dampak + '</td>';
                                         }
 
                                         $('#tb_lapDR').html(html);
@@ -156,42 +142,31 @@
                                         // $('#tb_lapDR').html(data);
                                         //alert('Berhasil');
                                         var no = 1;
-                                        var jum1 = 1;
-                                        var jum2 = 1;
+                                        var jum = 1;
                                         var i;
                                         var html = '';
 
+                                        
+
                                         for (i = 0, no = 1; i < data.length; i++) {
-                                            if (jum2 <= 1) {
+                                            if (jum <= 1) {
                                                 var jmlpk = data[i].rowpk;
                                                 if (jmlpk == 0) {
                                                     jmlpk = 1;
                                                 }
                                                 html += '<tr><td rowspan="' + jmlpk + '">' + no++ + '</td>';
-                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_ik + '</td>';
-                                                jum2 = data[i].rowpk;
+                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
+                                                jum = data[i].rowpk;
                                             } else {
-                                                jum2 = jum2 - 1;
+                                                jum = jum - 1;
                                             }
 
-                                            if (jum1 <= 1) {
-                                                var jmlskp = data[i].rowskp;
-                                                if (jmlskp == 0) {
-                                                    jmlskp = 1;
-                                                }
-                                                html += '<td rowspan="' + jmlskp + '">' + data[i].nama_skp + '</td>';
-                                                jum1 = data[i].rowskp;
-                                            } else {
-                                                jum1 = jum1 - 1;
-                                            }
-
-                                            html += '<td>' + data[i].nama_sop + '</td>';
-                                            html += '<td>' + data[i].nama_risk + '</td>';
-                                            html += '<td>' + data[i].deskripsi_cause + '</td>';
-                                            html += '<td>' + data[i].deskripsi_pengendalian + '</td>';
-                                            html += '<td>' + data[i].sisa_risk + '</td>';
-                                            html += '<td>' + data[i].frekuensi + '</td>';
-                                            html += '<td>' + data[i].dampak + '</td></tr>';
+                                            html += '<td>' + data[i].nama_risiko + '</td>';
+                                            html += '<td>' + data[i].penyebab + '</td>';
+                                            html += '<td>' + data[i].pengendalian + '</td>';
+                                            html += '<td>' + data[i].keputusan + '</td>';
+                                            html += '<td>' + data[i].skala_kemungkinan + '</td>';
+                                            html += '<td>' + data[i].skala_dampak + '</td>';
                                         }
 
                                         $('#tb_lapDR').html(html);
@@ -204,5 +179,3 @@
                             });
                         });
                     </script>
-
-                   

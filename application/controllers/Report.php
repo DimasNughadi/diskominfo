@@ -57,13 +57,13 @@ class Report extends CI_Controller
 
     function getDR()
     {
-        $tahun_pk = $this->input->post('tahun');
+        $tahun = $this->input->post('tahun');
 
         $where = array(
-            'risiko.tahun' => $tahun_pk
+            'risiko.tahun' => $tahun
         );
 
-        if ($tahun_pk == '') {
+        if ($tahun == '') {
             $dr = $this->Resiko_model->showRisiko()->result();
         } else {
             $dr = $this->Laporan_model->showDR($where)->result();

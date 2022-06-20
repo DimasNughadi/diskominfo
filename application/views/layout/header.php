@@ -39,6 +39,8 @@
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/style.css">
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/lib/barRating/barRating.css">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -109,7 +111,7 @@
 
 							</div>
 						</div> -->
-						
+
 						<div class="user-panel mt-3  d-flex">
 							<div class="info">
 								<p><span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('username')) ?></span>
