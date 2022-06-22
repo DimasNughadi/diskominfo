@@ -99,7 +99,7 @@ class Report extends CI_Controller
         $where = $tahun;
 
         if ($tahun == '') {
-            $rcn = $this->Rencana_model->showRencana()->result();
+            $rcn = $this->Rencana_model->showRencanaReport()->result();
         } elseif ($tahun != '') {
             $rcn = $this->Laporan_model->showRencana($where)->result();
         }
@@ -110,6 +110,7 @@ class Report extends CI_Controller
             foreach ($rcn as $key) {
 
                 $tbRencana[] = $key;
+                
             }
 
             echo json_encode($tbRencana);
