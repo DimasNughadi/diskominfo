@@ -61,7 +61,7 @@ class Resiko_model extends CI_Model
         $this->db->select('*');
         $this->db->from('risiko');
         $this->db->where('tingkat_risiko >= 12');
-        $this->db->where('tingkat_risiko <= 15');
+        $this->db->where('tingkat_risiko <= 16');
         $this->db->where('skala_dampak != 5');
         // return $this->db->get();
         return $this->db->count_all_results();
