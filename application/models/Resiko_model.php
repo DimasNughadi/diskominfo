@@ -23,24 +23,18 @@ class Resiko_model extends CI_Model
         $this->db->select('*');
         $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
         $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-
         $this->db->from('risiko');
         $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
-        // $this->db->having('rowrs > 0');
-        // $this->db->where('risiko.tahun','2019');
         return $this->db->get();
     }
-
-    
-
 
     function getCountSR()
     {
         $this->db->select('*');
         $this->db->from('risiko');
-        $this->db->where('tingkat_risiko >= 1');
-        $this->db->where('tingkat_risiko <= 5');
-        $this->db->where('skala_dampak != 5');
+        $this->db->where('tingkat_risiko >=', 1);
+        $this->db->where('tingkat_risiko <=', 5);
+        $this->db->where('skala_dampak !=', 5);
         // return $this->db->get();
         return $this->db->count_all_results();
     }
@@ -49,9 +43,9 @@ class Resiko_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('risiko');
-        $this->db->where('tingkat_risiko >= 6');
-        $this->db->where('tingkat_risiko <= 11');
-        $this->db->where('skala_dampak != 5');
+        $this->db->where('tingkat_risiko >=', 6);
+        $this->db->where('tingkat_risiko <=', 11);
+        $this->db->where('skala_dampak !=', 5);
         // return $this->db->get();
         return $this->db->count_all_results();
     }
@@ -60,9 +54,9 @@ class Resiko_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('risiko');
-        $this->db->where('tingkat_risiko >= 12');
-        $this->db->where('tingkat_risiko <= 16');
-        $this->db->where('skala_dampak != 5');
+        $this->db->where('tingkat_risiko >=', 12);
+        $this->db->where('tingkat_risiko <=', 15);
+        $this->db->where('skala_dampak !=', 5);
         // return $this->db->get();
         return $this->db->count_all_results();
     }
@@ -71,9 +65,9 @@ class Resiko_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('risiko');
-        $this->db->where('tingkat_risiko >= 16');
-        $this->db->where('tingkat_risiko <= 19');
-        $this->db->where('skala_dampak != 5');
+        $this->db->where('tingkat_risiko >=', 16);
+        $this->db->where('tingkat_risiko <=', 19);
+        $this->db->where('skala_dampak !=', 5);
         // return $this->db->get();
         return $this->db->count_all_results();
     }
@@ -82,7 +76,7 @@ class Resiko_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('risiko');
-        $this->db->where('tingkat_risiko >= 20');
+        $this->db->where('tingkat_risiko >=', 20);
         // return $this->db->get();
         return $this->db->count_all_results();
     }
