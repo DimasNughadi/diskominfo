@@ -262,11 +262,6 @@
 					<!-- Left -->
 					<div class="me-5 d-none d-lg-block">
 						<span>Get connected with us :</span>
-					</div>
-					<!-- Left -->
-
-					<!-- Right -->
-					<div>
 						<a href="" class="me-4 text-reset">
 							<i class="fab fa-facebook-f"></i>
 						</a>
@@ -279,86 +274,64 @@
 						<a href="" class="me-4 text-reset">
 							<i class="fab fa-instagram"></i>
 						</a>
-						<!-- <a href="" class="me-4 text-reset">
-							<i class="fab fa-linkedin"></i>
-						</a>
-						<a href="" class="me-4 text-reset">
-							<i class="fab fa-github"></i>
-						</a> -->
 					</div>
-					<!-- Right -->
+					<!-- Left -->
 				</section>
 				<!-- Section: Social media -->
 
 				<!-- Section: Links  -->
-				<section class="">
-					<div class="container text-center text-md-start mt-5">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="mt-3">
+								<p><i class="fas fa-home"></i> Pemerintah Provinsi Riau@2021</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="mt-3">
+								<p><i class="fas fa-road"></i> Jl. Diponegoro No. 24 A</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="mt-3">
+								<p><i class="fas fa-envelope"></i> diskominfotik@riau.go.id</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="mt-3">
+								<p><i class="fas fa-phone"></i> (0761)45505 </p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <section class="">
+					<div class="container text-center text-md-start mt-5"> -->
 					<!-- Grid row -->
-					<div class="row mt-3">
-						<!-- Grid column -->
-						<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-						<!-- Content -->
-						<h6 class="text-uppercase fw-bold mb-4">
-							<!-- <i class="fas fa-gem me-3"></i> -->
-						</h6>
+					<!-- <div class="row mt-3">
+						<div class="col-md-3 col-lg-3 col-xl-3 mx-auto">
+							<h6 class="text-uppercase fw-bold mb-4"></h6>
 						<p>Pemerintah Provinsi Riau@2021</p>
 						</div>
-						<!-- Grid column -->
-
-						<!-- Grid column -->
-						<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">
-							
-						</h6>
+						<div class="col-md-2 col-lg-3 col-xl-2 mx-auto mb-4">
+							<h6 class="text-uppercase fw-bold mb-4"></h6>
 						<p><i class="fas fa-home me-3"></i> Jl. Diponegoro No. 24 A</p>
-						<!-- <p>
-							<a href="#!" class="text-reset">React</a>
-						</p>
-						<p>
-							<a href="#!" class="text-reset">Vue</a>
-						</p>
-						<p>
-							<a href="#!" class="text-reset">Laravel</a>
-						</p> -->
 						</div>
-						<!-- Grid column -->
-
-						<!-- Grid column -->
-						<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">
-							
-						</h6>
-						<p><i class="fas fa-envelope me-3"></i>diskominfotik@riau.go.id</p>
-						<!-- <p>
-							<a href="#!" class="text-reset">Settings</a>
-						</p>
-						<p>
-							<a href="#!" class="text-reset">Orders</a>
-						</p>
-						<p>
-							<a href="#!" class="text-reset">Help</a>
-						</p> -->
+						<div class="col-md-3 col-lg-3 col-xl-2 mx-auto mb-4">
+							<h6 class="text-uppercase fw-bold mb-4"></h6>
+						<p><i class="fas fa-envelope me-3"></i> diskominfotik@riau.go.id</p>
 						</div>
-						<!-- Grid column -->
-
-						<!-- Grid column -->
 						<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-						<!-- Links -->
-						<h6 class="text-uppercase fw-bold mb-4">
-							
-						</h6>
-						
-						
+							<h6 class="text-uppercase fw-bold mb-4"></h6>
 						<p><i class="fas fa-phone me-3"></i> (0761)45505 </p>
-						<!-- <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p> -->
 						</div>
-						<!-- Grid column -->
-					<!-- </div>
-					Grid row
-					</div> -->
-				</section>
+				</section> -->
 				<!-- Section: Links  -->
 
 				<!-- Copyright -->
@@ -397,7 +370,7 @@
 											<div class="stat-text">Subscribes</div>
 										</div> -->
 									<!-- </div>
-								</a> --> -->
+								</a> -->
 							<!-- </div> -->
 						<!-- </div>
 						<div class="col-lg-3">
