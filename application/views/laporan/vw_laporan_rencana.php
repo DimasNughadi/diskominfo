@@ -117,13 +117,14 @@
                                             html += '<td>' + data[i].indikator_output + '</td>';
                                             html += '<td>' + data[i].pic + '</td>';
                                             html += '<td>' + data[i].anggaran + '</td>';
+                                            
                                         }
 
                                         $('#tb_lapRcn').html(html);
                                         
                                     },
                                     error: function() {
-                                        $('#tb_lapRcn').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapRcn').html('<tr><td colspan="11"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });
@@ -167,7 +168,7 @@
                                         $('#tb_lapRcn').html(html);
                                     },
                                     error: function() {
-                                        $('#tb_lapRcn').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapRcn').html('<tr><td colspan="11" style="text-align: center;"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });

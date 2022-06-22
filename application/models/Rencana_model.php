@@ -27,6 +27,29 @@ class Rencana_model extends CI_Model
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'right');
         $this->db->where($where);
         return $this->db->get();
+
+        // return $this->db->query("SELECT * FROM monitor_rtp
+        // RIGHT JOIN risiko
+        // ON risiko.id_risiko = monitor_rtp.id_risiko
+        // WHERE '.$where.'")->result_array();
+    }
+
+    function showRencanaReport()
+    {
+        $where = "risiko.nama_risiko != ''";
+
+        $this->db->select('*');
+
+        $this->db->from('monitor_rtp');
+        $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'right');
+        $this->db->where($where);
+        $this->db->where('monitor_rtp.deskripsi !=','');
+        return $this->db->get();
+
+        // return $this->db->query("SELECT * FROM monitor_rtp
+        // RIGHT JOIN risiko
+        // ON risiko.id_risiko = monitor_rtp.id_risiko
+        // WHERE '.$where.'")->result_array();
     }
 
     function showRencanaById($id)

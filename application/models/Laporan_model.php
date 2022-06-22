@@ -55,6 +55,7 @@ class Laporan_model extends CI_Model
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'right');
         $this->db->where($where2);
         $this->db->where('risiko.tahun',$where);
+        $this->db->where('monitor_rtp.deskripsi !=','');
         return $this->db->get();
 
 
