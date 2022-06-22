@@ -9,6 +9,7 @@ class Report extends CI_Controller
         parent::__construct();
         check_not_login();
         $this->load->model('Realisasi_model');
+        $this->load->model('Rencana_model');
         $this->load->model('Aset_model');
         $this->load->model('User_model');
         $this->load->model('Resiko_model');
@@ -48,8 +49,8 @@ class Report extends CI_Controller
         } elseif (null !== $this->input->post('DRpdf')) {
             $this->load->library('pdf');
             $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
+
             $this->pdf->createPDF($html, 'mypdf', 'landscape');
-            $this->pdf->set_option('isRemoteEnabled', true);
             $this->pdf->render();
 
             // 8
@@ -64,7 +65,7 @@ class Report extends CI_Controller
 
         if ($tahun == '') {
             $dr = $this->Resiko_model->showRisiko()->result();
-        } elseif($tahun != '') {
+        } elseif ($tahun != '') {
             $dr = $this->Laporan_model->showDR($where)->result();
         }
 
@@ -77,6 +78,41 @@ class Report extends CI_Controller
             }
 
             echo json_encode($tbDr);
+        }
+    }
+
+    function rencana()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Laporan Rencana Penanganan Risiko";
+        $data['select'] = $this->Laporan_model->selectTahunPK()->result();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('laporan/vw_laporan_rencana', $data);
+        $this->load->view('layout/footer', $data);
+    }
+
+    function getRencana()
+    {
+        $tahun = $this->input->post('tahun');
+
+        $where = $tahun;
+
+        if ($tahun == '') {
+            $rcn = $this->Rencana_model->showRencana()->result();
+        } elseif ($tahun != '') {
+            $rcn = $this->Laporan_model->showRencana($where)->result();
+        }
+
+        if (count($rcn) > 0) {
+
+
+            foreach ($rcn as $key) {
+
+                $tbRencana[] = $key;
+            }
+
+            echo json_encode($tbRencana);
         }
     }
 }

@@ -48,7 +48,7 @@
         <table width="100%" style="font-size: 9pt; padding-top: 1mm; border-bottom: 1px solid #000000;">
             <tr>
                 <td rowspan="2" width="6%" align="center">
-                    <img src="<?= base_url() . 'assets/images/riau.png' ?>" height="50" width="50">
+                    <img src="<?= base_url() . 'assets/images/riau.png' ?>" height="50" width="80">
                 </td>
                 <td style="vertical-align: bottom;">
                     DINAS KOMUNIKASI INFORMATIKA DAN STATISTIK PROVINSI RIAU

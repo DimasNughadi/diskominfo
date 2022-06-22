@@ -33,7 +33,7 @@
                                     <select class="form-control select" name="tahun" id="selectTahun">
                                         <option value="">-- Semua -- </option>
                                         <?php foreach ($select as $periode) : ?>
-                                        <?php echo $periode->tahun; ?>
+                                            <?php echo $periode->tahun; ?>
                                             <option value="<?= $periode->tahun ?>"><?= $periode->tahun ?></option>
                                         <?php endforeach; ?>
                                     </select>
@@ -50,21 +50,25 @@
                                 <?= $this->session->flashdata('message'); ?>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="tbDR" class="table table-bordered table-striped" mt_getrandmax>
+                                    <table id="tbRencana" class="table table-bordered table-striped" mt_getrandmax>
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Aset</th>
-                                                <th>Nama Risiko</th>
+                                                <th>Risiko</th>
                                                 <th>Penyebab</th>
-                                                <th>Dampak</th>
-                                                <th>Pengendalian</th>
-                                                <th>Keputusan</th>
-                                                <th  style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
-                                                <th  style="text-align: center; vertical-align: middle;">Dampak</th>
+                                                <th>Tingkat Risiko</th>
+                                                <th>Penanganan Yang Sudah Ada</th>
+                                                <th>Rencana Penanganan</th>
+                                                <th>Mulai</th>
+                                                <th>Selesai</th>
+                                                <th>Indikator Output</th>
+                                                <th>PIC</th>
+                                                <th>Anggaran</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tb_lapDR"></tbody>
+                                        <tbody id="tb_lapRcn">
+                                           
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -74,11 +78,14 @@
                     </div>
                     <!-- /# row -->
 
+
+
                     <script type="text/javascript">
                         $(document).ready(function() {
-                            $('#tbDR').each(function() {
+                            $('#tbRencana').each(function() {
                                 var tahun = $('#selectTahun').val();
-                                var link = "<?= base_url('report/getDR') ?>"
+                                var link = "<?= base_url('report/getRencana') ?>"
+
 
                                 $.ajax({
                                     url: link,
@@ -89,46 +96,42 @@
                                     dataType: 'JSON',
                                     success: function(data) {
                                         //alert(data.length);
-                                        // $('#tb_lapDR').html(data);
+                                        // $('#tb_lapRcn').html(data);
+                                        
                                         var no = 1;
                                         var jum = 1;
                                         var i;
-                                        var html = '';         
+                                        var html = '';
 
                                         for (i = 0, no = 1; i < data.length; i++) {
+                                            
                                             html += '<tr>';
-                                            if (jum <= 1) {
-                                                var jmlpk = data[i].rowpk;
-                                                if (jmlpk == 0) {
-                                                    jmlpk = 1;
-                                                }
-                                                html += '<td rowspan="' + jmlpk + '">' + no++ + '</td>';
-                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
-                                                jum = data[i].rowpk;
-                                            } else {
-                                                jum = jum - 1;
-                                            }
-
+                                            html += '<td>' + no++ + '</td>';
                                             html += '<td>' + data[i].nama_risiko + '</td>';
                                             html += '<td>' + data[i].penyebab + '</td>';
+                                            html += '<td>' + data[i].tingkat_risiko + '</td>';
                                             html += '<td>' + data[i].pengendalian + '</td>';
-                                            html += '<td>' + data[i].dampak + '</td>';
-                                            html += '<td>' + data[i].keputusan + '</td>';
-                                            html += '<td>' + data[i].skala_kemungkinan + '</td>';
-                                            html += '<td>' + data[i].skala_dampak + '</td>';
+                                            html += '<td>' + data[i].deskripsi + '</td>';
+                                            html += '<td>' + data[i].plan_mulai + '</td>';
+                                            html += '<td>' + data[i].plan_selesai + '</td>';
+                                            html += '<td>' + data[i].indikator_output + '</td>';
+                                            html += '<td>' + data[i].pic + '</td>';
+                                            html += '<td>' + data[i].anggaran + '</td>';
                                         }
 
-                                        $('#tb_lapDR').html(html);
+                                        $('#tb_lapRcn').html(html);
+                                        
                                     },
                                     error: function() {
-                                        $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapRcn').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });
 
                             $('.select').on('change', function() {
                                 var tahun = $('#selectTahun').val();
-                                var link = "<?= base_url('report/getDR') ?>"
+                                var link = "<?= base_url('report/getRencana') ?>"
+
 
 
                                 $.ajax({
@@ -139,6 +142,8 @@
                                     },
                                     dataType: 'JSON',
                                     success: function(data) {
+                                        //alert(data.length);
+                                        // $('#tb_lapRcn').html(data);
                                         var no = 1;
                                         var jum = 1;
                                         var i;
@@ -146,32 +151,23 @@
 
                                         for (i = 0, no = 1; i < data.length; i++) {
                                             html += '<tr>';
-                                            if (jum <= 1) {
-                                                var jmlpk = data[i].rowpk;
-                                                if (jmlpk == 0) {
-                                                    jmlpk = 1;
-                                                }
-                                                html += '<td rowspan="' + jmlpk + '">' + no++ + '</td>';
-                                                html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
-                                                jum = data[i].rowpk;
-                                            } else {
-                                                jum = jum - 1;
-                                            }
-
+                                            html += '<td>' + no++ + '</td>';
                                             html += '<td>' + data[i].nama_risiko + '</td>';
                                             html += '<td>' + data[i].penyebab + '</td>';
+                                            html += '<td>' + data[i].tingkat_risiko + '</td>';
                                             html += '<td>' + data[i].pengendalian + '</td>';
-                                            html += '<td>' + data[i].dampak + '</td>';
-                                            html += '<td>' + data[i].keputusan + '</td>';
-                                            html += '<td>' + data[i].skala_kemungkinan + '</td>';
-                                            html += '<td>' + data[i].skala_dampak + '</td>';
+                                            html += '<td>' + data[i].deskripsi + '</td>';
+                                            html += '<td>' + data[i].plan_mulai + '</td>';
+                                            html += '<td>' + data[i].plan_selesai + '</td>';
+                                            html += '<td>' + data[i].indikator_output + '</td>';
+                                            html += '<td>' + data[i].pic + '</td>';
+                                            html += '<td>' + data[i].anggaran + '</td>';
                                         }
 
-                                        $('#tb_lapDR').html(html);
-
+                                        $('#tb_lapRcn').html(html);
                                     },
                                     error: function() {
-                                        $('#tb_lapDR').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapRcn').html('<tr><td colspan="10"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });

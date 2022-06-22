@@ -7,6 +7,9 @@ class Pdf
 {
     function createPDF($html, $filename='', $download=TRUE, $paper='A4-L', $orientation='landscape'){
         $dompdf = new Dompdf\DOMPDF();
+        $options = $dompdf->getOptions(); 
+        $options->set(array('isRemoteEnabled' => true));
+        $dompdf->setOptions($options);
         $dompdf->load_html($html);
         $dompdf->set_paper($paper, $orientation);
         $dompdf->render();
