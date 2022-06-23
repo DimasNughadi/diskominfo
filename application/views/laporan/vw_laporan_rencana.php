@@ -159,6 +159,7 @@
                                             html += '<td>' + data[i].pengendalian + '</td>';
                                             html += '<td>' + data[i].deskripsi + '</td>';
                                             html += '<td>' + data[i].plan_mulai + '</td>';
+                                            
                                             html += '<td>' + data[i].plan_selesai + '</td>';
                                             html += '<td>' + data[i].indikator_output + '</td>';
                                             html += '<td>' + data[i].pic + '</td>';
