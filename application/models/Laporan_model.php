@@ -60,4 +60,17 @@ class Laporan_model extends CI_Model
 
 
     }
+
+    function showRealisasi($where)
+    {
+        $this->db->select('*');
+        $this->db->select('(select count(id_risiko) from monitor_rtp where monitor_rtp.id_risiko = risiko.id_risiko) as rowpk');
+        $this->db->having('monitor_rtp.id_risiko > 0');
+        $this->db->from('monitor_rtp');
+        $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
+        $this->db->where('risiko.tahun',$where);
+        $this->db->order_by('monitor_rtp.real_mulai ASC');
+        return $this->db->get();
+
+    }
 }

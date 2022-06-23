@@ -27,6 +27,17 @@ class Report extends CI_Controller
         $this->load->view('layout/footer', $data);
     }
 
+    function risiko()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Laporan Daftar Risiko";
+        $data['select'] = $this->Laporan_model->selectTahunPK()->result();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('laporan/vw_laporan_daftar_risiko', $data);
+        $this->load->view('layout/footer', $data);
+    }
+
     function exportdaftarrisiko()
     {
         $tahun = $this->input->post('tahun');
@@ -114,6 +125,42 @@ class Report extends CI_Controller
             }
 
             echo json_encode($tbRencana);
+        }
+    }
+
+    function realisasi()
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['judul'] = "Laporan Realisasi Penanganan Risiko";
+        $data['select'] = $this->Laporan_model->selectTahunPK()->result();
+
+        $this->load->view('layout/header', $data);
+        $this->load->view('laporan/vw_laporan_realisasi', $data);
+        $this->load->view('layout/footer', $data);
+    }
+
+    function getRealisasi()
+    {
+        $tahun = $this->input->post('tahun');
+
+        $where = $tahun;
+
+        if ($tahun == '') {
+            $real = $this->Realisasi_model->showRealisasiReport()->result();
+        } elseif ($tahun != '') {
+            $real = $this->Laporan_model->showRealisasi($where)->result();
+        }
+
+        if (count($real) > 0) {
+
+
+            foreach ($real as $key) {
+
+                $tbRealisasi[] = $key;
+                
+            }
+
+            echo json_encode($tbRealisasi);
         }
     }
 }
