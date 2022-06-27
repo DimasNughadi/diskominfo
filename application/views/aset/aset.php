@@ -64,7 +64,7 @@
 													<th>Bidang</th>
 													<th>Added by</th>
 													<th>Tanggal</th>
-													<th style="text-align: center;">Aksi</th>
+													<th>Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
