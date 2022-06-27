@@ -26,7 +26,7 @@
             <div id="main-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form class="" action="<?= base_url('report/exportdaftarrisiko')  ?>" target="__blank" method="post">
+                        <form class="" action="<?= base_url('report/exportrealisasi')  ?>" target="__blank" method="post">
                             <div class="col-md-4">
                                 <label for="">Pilih Tahun </label>
                                 <div class="input-group input-group-md">
@@ -39,8 +39,8 @@
                                     </select>
                                     &nbsp;
                                     <span class="input-group-btn">
-                                        <button type="submit" name="DRpdf" class="btn btn-info">Export PDF</button>
-                                        <button type="submit" name="DRexcel" class="btn btn-info">Export Excel</button>
+                                        <button type="submit" name="Realisasipdf" class="btn btn-info">Export PDF</button>
+                                        <button type="submit" name="Realisasiexcel" class="btn btn-info">Export Excel</button>
                                     </span>
                                 </div>
                             </div>

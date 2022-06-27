@@ -56,15 +56,12 @@ class Report extends CI_Controller
         }
 
         if (null !== $this->input->post('DRexcel')) {
-            $this->load->view('laporan/v_daftarResikoExcel', $data);
+            $this->load->view('laporan/vw_daftarRisikoExcel', $data);
         } elseif (null !== $this->input->post('DRpdf')) {
             $this->load->library('pdf');
             $html = $this->load->view('laporan/vw_daftarRisikoPDF', $data, true);
-
-            $this->pdf->createPDF($html, 'mypdf', 'landscape');
+            $this->pdf->createPDF($html, 'Laporan_DaftarRisiko', 'landscape');
             $this->pdf->render();
-
-            // 8
         }
     }
 
@@ -103,6 +100,30 @@ class Report extends CI_Controller
         $this->load->view('layout/footer', $data);
     }
 
+    function exportrencana()
+    {
+        $tahun = $this->input->post('tahun');
+
+
+        $where =  $tahun;
+
+
+        if (empty($tahun)) {
+            $data['rencana'] = $this->Rencana_model->showRencana()->result();
+        } else {
+            $data['rencana'] = $this->Laporan_model->showRencana($where)->result();
+        }
+
+        if (null !== $this->input->post('Rencanaexcel')) {
+            $this->load->view('laporan/vw_rencanaExcel', $data);
+        } elseif (null !== $this->input->post('Rencanapdf')) {
+            $this->load->library('pdf');
+            $html = $this->load->view('laporan/vw_rencanaPDF', $data, true);
+            $this->pdf->createPDF($html, 'Laporan_RencanaPenanganan', 'landscape');
+            $this->pdf->render();
+        }
+    }
+
     function getRencana()
     {
         $tahun = $this->input->post('tahun');
@@ -121,7 +142,6 @@ class Report extends CI_Controller
             foreach ($rcn as $key) {
 
                 $tbRencana[] = $key;
-                
             }
 
             echo json_encode($tbRencana);
@@ -137,6 +157,30 @@ class Report extends CI_Controller
         $this->load->view('layout/header', $data);
         $this->load->view('laporan/vw_laporan_realisasi', $data);
         $this->load->view('layout/footer', $data);
+    }
+
+    function exportrealisasi()
+    {
+        $tahun = $this->input->post('tahun');
+
+
+        $where =  $tahun;
+
+
+        if (empty($tahun)) {
+            $data['realisasi'] = $this->Realisasi_model->showRealisasi()->result();
+        } else {
+            $data['realisasi'] = $this->Laporan_model->showRealisasi($where)->result();
+        }
+
+        if (null !== $this->input->post('Realisasiexcel')) {
+            $this->load->view('laporan/vw_realisasiExcel', $data);
+        } elseif (null !== $this->input->post('Realisasipdf')) {
+            $this->load->library('pdf');
+            $html = $this->load->view('laporan/vw_realisasiPDF', $data, true);
+            $this->pdf->createPDF($html, 'Laporan_RealisasiPenanganan', 'landscape');
+            $this->pdf->render();
+        }
     }
 
     function getRealisasi()
@@ -157,7 +201,6 @@ class Report extends CI_Controller
             foreach ($real as $key) {
 
                 $tbRealisasi[] = $key;
-                
             }
 
             echo json_encode($tbRealisasi);
