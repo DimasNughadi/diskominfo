@@ -41,17 +41,33 @@
                                         <input type="text" class="form-control" name="nama_user" value="<?= $user['username']; ?>" id="nama_user" readonly>
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputStatus">Jenis Aset</label>
-                                        <select id="inputStatus" name="id_jenis_aset" value="<?= set_value('id_jenis_aset'); ?>" class="form-control custom-select">
-                                            <option selected disabled hidden>Pilih Jenis Aset</option>
-                                            <?php foreach ($jenisaset as $udt) : ?>
-                                                <?php if ($udt['nama_jenis_aset'] != null) { ?>
-                                                    <option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                                    <?php if ($this->session->userdata('role') == "Infrastruktur") : ?>
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Jenis Aset</label>
+                                            <input type="hidden" class="form-control" name="id_jenis_aset" value="1" id="id_jenis_aset" readonly>
+                                            <input type="text" class="form-control" value="Physical" id="id_jenis_aset" readonly>
+                                            <?= form_error('id_jenis_aset', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                    <?php elseif ($this->session->userdata('role') == "Aptika") : ?>
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Jenis Aset</label>
+                                            <input type="hidden" class="form-control" name="id_jenis_aset" value="2" id="id_jenis_aset" readonly>
+                                            <input type="text" class="form-control" value="Software" id="id_jenis_aset" readonly>
+                                            <?= form_error('id_jenis_aset', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="form-group">
+                                            <label for="inputStatus">Jenis Aset</label>
+                                            <select id="inputStatus" name="id_jenis_aset" value="<?= set_value('id_jenis_aset'); ?>" class="form-control custom-select">
+                                                <option selected disabled hidden>Pilih Jenis Aset</option>
+                                                <?php foreach ($jenisaset as $udt) : ?>
+                                                    <?php if ($udt['nama_jenis_aset'] != null) { ?>
+                                                        <option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+                                                    <?php } ?>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    <?php endif; ?>
                                     <div class="form-group">
                                         <label for="inputStatus">Bidang</label>
                                         <select id="inputStatus" name="id_bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
@@ -75,7 +91,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" name="simpan" value="Simpan"  class="btn btn-primary">Simpan Data</button>
+                                    <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
                                     <a href="<?= base_url('Aset') ?>" class="btn btn-danger">Tutup</a>
                                 </div>
                                 <!-- /.card-body -->
