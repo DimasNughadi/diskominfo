@@ -47,6 +47,7 @@ class Auth extends CI_Controller
                 ];
                 if ($user['status'] == "Active") {
                     $this->session->set_userdata($data);
+                    $this->session->set_flashdata('error', '<div class="alert alert-success" role="alert">Berhasil Login!</div>');
                     if ($user['role'] == 'Admin') {
                         redirect('Dashboard');
                     } else if($user['role'] == 'User'){

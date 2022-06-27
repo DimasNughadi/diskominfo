@@ -21,11 +21,11 @@
 							</div>
 						</div>
 					</div>
-					<?= $this->session->flashdata('message'); ?>
 					<!-- /# column -->
 				</div>
 				<!-- /# row -->
 				<section id="main-content">
+					<?= $this->session->flashdata('error'); ?>
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="card">
