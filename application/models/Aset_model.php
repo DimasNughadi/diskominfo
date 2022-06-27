@@ -66,6 +66,14 @@ class Aset_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function getCountLic(){
+        $this->db->select('*');
+        $this->db->from('aset');
+        $this->db->where('id_jenis_aset = 3');
+        // return $this->db->get();
+        return $this->db->count_all_results();
+    }
+
     public function getById($id)
     {
         $this->db->from($this->table);
