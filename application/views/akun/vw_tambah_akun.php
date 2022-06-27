@@ -63,7 +63,9 @@
                                             <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">
                                                 <option selected disabled hidden>Pilih Role</option>
                                                 <option>Admin</option>
-                                                <option>User</option>
+                                                <option>Eksekutif</option>
+                                                <option>Insfratruktur</option>
+                                                <option>Aptika</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
