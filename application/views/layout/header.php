@@ -83,7 +83,7 @@
 							<li><a href="<?= site_url('report/realisasi') ?>"><i class="ti-control-record"></i>Laporan Realisasi Penanganan</a></li>
 						</ul>
 					</li>
-					<li><a href="#"><i class="ti-id-badge"></i> Account</a></li>
+					<li><a href="<?= site_url('account') ?>"><i class="ti-id-badge"></i> Account</a></li>
 					<li><a href="<?= site_url('auth/logout') ?>"><i class="ti-close"></i> Logout</a></li>
 				</ul>
 			</div>
