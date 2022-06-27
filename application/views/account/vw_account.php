@@ -61,22 +61,37 @@
                                             <div class="form-group row">
                                                 <label for="inputName" class="col-sm-2 col-form-label">Role</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" name="role">
-                                                        <option value="<?= $user['role'] ?>"><?= $user['role'] ?></option>
-                                                        <option value="Admin">Admin</option>
-                                                        <option value="User">User</option>
+                                                    <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">
+                                                        <option value="Admin" <?php if ($user['role'] == 'Admin') {
+                                                                                    echo 'selected="selected"';
+                                                                                } ?>>Admin</option>
+                                                        <option value="Eksekutif" <?php if ($user['role'] == 'Eksekutif') {
+                                                                                        echo 'selected="selected"';
+                                                                                    } ?>>Eksekutif</option>
+                                                        <option value="Insfrastruktur" <?php if ($user['role'] == 'Insfrastruktur') {
+                                                                                            echo 'selected="selected"';
+                                                                                        } ?>>Insfrastruktur</option>
+                                                        <option value="Aptika" <?php if ($user['role'] == 'Aptika') {
+                                                                                    echo 'selected="selected"';
+                                                                                } ?>>Aptika</option>
                                                     </select>
                                                 </div>
-                                                <?= form_error('jenis_kelamin', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                <?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                                <label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
                                                 <div class="col-sm-10">
-                                                    <input type="email" name="email" value="<?= $user['email']; ?>" class="form-control" id="inputEmail" placeholder="Email">
+                                                    <select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
+                                                        <?php foreach ($bidang as $udt) : ?>
+                                                            <option <?php if ($udt['id_bidang'] == $user['id_bidang']) {
+                                                                        echo 'selected="selected"';
+                                                                    } ?> value="<?= $udt['id_bidang']; ?>"><?= $udt['nama_bidang']; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
                                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
-                                            <div class="form-group row">
+                                            <!-- <div class="form-group row">
                                                 <label for="inputName" class="col-sm-2 col-form-label">Alamat</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" name="alamat" value="<?= $user['alamat']; ?>" class="form-control" id="inputName" placeholder="Alamat">
@@ -110,7 +125,7 @@
                                                 <div class="offset-sm-2 col-sm-10">
                                                     <img src="<?= base_url('assets/images/profile/') . $user['gambar']; ?>" style="width: 100px;" class="img-thumbnail">
                                                 </div>
-                                            </div>
+                                            </div> -->
 
 
                                             <div class="form-group row">
