@@ -64,7 +64,7 @@
                                                 <option selected disabled hidden>Pilih Role</option>
                                                 <option>Admin</option>
                                                 <option>Eksekutif</option>
-                                                <option>Insfratruktur</option>
+                                                <option>Insfrastruktur</option>
                                                 <option>Aptika</option>
                                             </select>
                                         </div>
