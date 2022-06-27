@@ -30,6 +30,18 @@ function check_role_admin()
     }
 }
 
+function check_bidang()
+{
+    $CI = &get_instance();
+    $user_session = $CI->session->userdata('id_bidang');
+    if ($user_session == 1) {
+        return 'Persandian';
+    }elseif($user_session == 2){
+        return 'Aptika';
+    }elseif($user_session == 3){
+        return 'Statistika';
+    }
+}
 // function check_menu_tambah_access($id_user, $judul)
 // {
 //     $CI = &get_instance();
