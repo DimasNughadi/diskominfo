@@ -262,16 +262,16 @@
 					<!-- Left -->
 					<div class="me-5 d-none d-lg-block">
 						<span>Get connected with us :</span>
-						<a href="" class="me-4 text-reset">
+						<a target="blank" href="https://www.facebook.com/DinasKomunikasiInformatikaDanStatistikProvinsiRiau/" class="me-4 text-reset">
 							<i class="fab fa-facebook-f"></i>
 						</a>
-						<a href="" class="me-4 text-reset">
+						<a target="blank" href="https://www.youtube.com/channel/UCazEtMcwPncasFt7mVvCdKA" class="me-4 text-reset">
 							<i class="fab fa-youtube"></i>
 						</a>
 						<!-- <a href="" class="me-4 text-reset">
 							<i class="fab fa-google"></i>
 						</a> -->
-						<a href="" class="me-4 text-reset">
+						<a target="blank" href="https://www.instagram.com/kominfo.riau/" class="me-4 text-reset">
 							<i class="fab fa-instagram"></i>
 						</a>
 					</div>
