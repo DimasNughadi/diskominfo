@@ -19,7 +19,17 @@ class Aset extends CI_Controller
     {
         $data['judul'] = "Data Aset";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['aset'] = $this->Aset_model->get();
+        if($this->session->userdata('role') == "Aptika")
+        {
+            $data['aset'] = $this->Aset_model->getSoftware();
+        }elseif($this->session->userdata('role') == "Infrastruktur")
+        {
+            $data['aset'] = $this->Aset_model->getPhysical();
+
+        }else{
+            $data['aset'] = $this->Aset_model->get();
+
+        }
         $data['jenisaset'] = $this->JenisAset_model->get();
         $data['bidang'] = $this->Bidang_model->get();
         $data['userdata'] = $this->User_model->get();

@@ -25,28 +25,28 @@ class Aset_model extends CI_Model
         
     }
 
-    public function getPhysical($where2)
+    public function getPhysical()
     {
         $where = 'Physical';
         $this->db->select('*');
         $this->db->from('aset');
         $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
         $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where($where2);
         $this->db->where('jenis_aset.nama_jenis_aset', $where);
-        return $this->db->get();
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
-    public function getSoftware($where2)
+    public function getSoftware()
     {
         $where = 'Software';
         $this->db->select('*');
         $this->db->from('aset');
         $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
         $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where($where2);
         $this->db->where('jenis_aset.nama_jenis_aset', $where);
-        return $this->db->get();
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function getCountPhy(){
