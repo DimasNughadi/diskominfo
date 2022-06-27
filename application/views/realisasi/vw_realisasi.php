@@ -112,20 +112,20 @@
                                                             <?php if (!isset($us->real_mulai)) { ?>
                                                                 <?php foreach ($hak as $hk) : ?>
                                                                     <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                        <?php if ($hk['tambah'] == 1) { ?>
                                                                             <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
                                                                         <?php } else { ?>
-                                                                           <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Realisasi</a>
+                                                                            <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Realisasi</a>
                                                                         <?php } ?>
                                                                     <?php } ?>
                                                                 <?php endforeach; ?>
                                                             <?php } else { ?>
                                                                 <?php foreach ($hak as $hk) : ?>
                                                                     <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                        <?php if ($hk['tambah'] == 1) { ?>
                                                                             <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Realisasi</a>
                                                                         <?php } else { ?>
-                                                                           <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success disabled">Edit Realisasi</a>
+                                                                            <a href="<?= base_url('realisasi/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success disabled">Edit Realisasi</a>
                                                                         <?php } ?>
                                                                     <?php } ?>
                                                                 <?php endforeach; ?>
@@ -146,34 +146,42 @@
                     </div>
                 </div>
 
-                <!-- Modal -->
-                <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="exampleModalLabel">Upload File
-                                </h4>
-                                <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
-                                    <i class="fa fa-close"></i>
-                                </button>
-                            </div>
+                <?php if ($realisasi != null) : ?>
 
-                            <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <input type="hidden" name="id_risiko" value="<?= $us->id_risiko; ?>" id="upload_id">
-                                    <label for="exampleInputFile">Pilih File</label>
-                                    <div class="form-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="berkas" class="custom-file-input" id="berkas">
-                                            <label for="berkas" class="custom-file-label">Choose File</label>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="exampleModalLabel">Upload File
+                                    </h4>
+                                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                                        <i class="fa fa-close"></i>
+                                    </button>
+                                </div>
+
+                                <form class="form-upload" action="<?= base_url('realisasi/upload/') . $us->id_risiko; ?>" method="post" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <input type="hidden" name="id_risiko" value="<?= $us->id_risiko; ?>" id="upload_id">
+                                        <label for="exampleInputFile">Pilih File</label>
+                                        <div class="form-group">
+                                            <div class="custom-file">
+                                                <input type="file" name="berkas" class="custom-file-input" id="berkas">
+                                                <label for="berkas" class="custom-file-label">Choose File</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="modal-footer">
-                                    <button type="submit" name="save" class="btn btn-primary">Simpan</button>
-                                </div>
-                            </form>
+                                    <div class="modal-footer">
+                                        <button type="submit" name="save" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                <?php else : ?>
+
+
+
+                <?php endif; ?>

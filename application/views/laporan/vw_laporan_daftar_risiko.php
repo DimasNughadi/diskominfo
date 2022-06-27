@@ -53,15 +53,15 @@
                                     <table id="tbDR" class="table table-bordered table-striped" mt_getrandmax>
                                         <thead>
                                             <tr>
-                                                <th>No</th>
-                                                <th>Nama Aset</th>
-                                                <th>Nama Risiko</th>
-                                                <th>Penyebab</th>
-                                                <th>Dampak</th>
-                                                <th>Pengendalian</th>
-                                                <th>Keputusan</th>
-                                                <th  style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
-                                                <th  style="text-align: center; vertical-align: middle;">Dampak</th>
+                                                <th style="text-align: center; vertical-align: middle;">No</th>
+                                                <th style="text-align: center; vertical-align: middle;">Nama Aset</th>
+                                                <th style="text-align: center; vertical-align: middle;">Nama Risiko</th>
+                                                <th style="text-align: center; vertical-align: middle;">Penyebab</th>
+                                                <th style="text-align: center; vertical-align: middle;">Dampak</th>
+                                                <th style="text-align: center; vertical-align: middle;">Pengendalian</th>
+                                                <th style="text-align: center; vertical-align: middle;">Keputusan</th>
+                                                <th style="text-align: center; vertical-align: middle;">Kemungkinan Terjadi</th>
+                                                <th style="text-align: center; vertical-align: middle;">Dampak</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tb_lapDR"></tbody>
@@ -102,7 +102,7 @@
                                                 if (jmlpk == 0) {
                                                     jmlpk = 1;
                                                 }
-                                                html += '<td rowspan="' + jmlpk + '">' + no++ + '</td>';
+                                                html += '<td  rowspan="' + jmlpk + '">' + no++ + '</td>';
                                                 html += '<td rowspan="' + jmlpk + '">' + data[i].nama_aset + '</td>';
                                                 jum = data[i].rowpk;
                                             } else {
@@ -114,8 +114,8 @@
                                             html += '<td>' + data[i].pengendalian + '</td>';
                                             html += '<td>' + data[i].dampak + '</td>';
                                             html += '<td>' + data[i].keputusan + '</td>';
-                                            html += '<td>' + data[i].skala_kemungkinan + '</td>';
-                                            html += '<td>' + data[i].skala_dampak + '</td>';
+                                            html += '<td style="text-align: center; vertical-align: middle;">' + data[i].skala_kemungkinan + '</td>';
+                                            html += '<td style="text-align: center; vertical-align: middle;">' + data[i].skala_dampak + '</td>';
                                         }
 
                                         $('#tb_lapDR').html(html);

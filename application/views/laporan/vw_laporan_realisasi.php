@@ -26,7 +26,7 @@
             <div id="main-content">
                 <div class="row">
                     <div class="col-lg-12">
-                        <form class="" action="<?= base_url('report/exportrencana')  ?>" target="__blank" method="post">
+                        <form class="" action="<?= base_url('report/exportrealisasi')  ?>" target="__blank" method="post">
                             <div class="col-md-4">
                                 <label for="">Pilih Tahun </label>
                                 <div class="input-group input-group-md">
@@ -39,8 +39,8 @@
                                     </select>
                                     &nbsp;
                                     <span class="input-group-btn">
-                                        <button type="submit" name="Rencanapdf" class="btn btn-info">Export PDF</button>
-                                        <button type="submit" name="Rencanaexcel" class="btn btn-info">Export Excel</button>
+                                        <button type="submit" name="Realisasipdf" class="btn btn-info">Export PDF</button>
+                                        <button type="submit" name="Realisasiexcel" class="btn btn-info">Export Excel</button>
                                     </span>
                                 </div>
                             </div>
@@ -50,24 +50,25 @@
                                 <?= $this->session->flashdata('message'); ?>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="tbRencana" class="table table-bordered table-striped" mt_getrandmax>
+                                    <table id="tbRealisasi" class="table table-bordered table-striped" mt_getrandmax>
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Risiko</th>
-                                                <th>Penyebab</th>
-                                                <th>Tingkat Risiko</th>
-                                                <th>Penanganan Yang Sudah Ada</th>
                                                 <th>Rencana Penanganan</th>
                                                 <th>Mulai</th>
                                                 <th>Selesai</th>
                                                 <th>Indikator Output</th>
                                                 <th>PIC</th>
                                                 <th>Anggaran</th>
+                                                <th>Real Mulai</th>
+                                                <th>Real Selesai</th>
+                                                <th>Hambatan</th>
+                                                <th>Keterangan</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tb_lapRcn">
-                                           
+                                        <tbody id="tb_lapReal">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -82,9 +83,9 @@
 
                     <script type="text/javascript">
                         $(document).ready(function() {
-                            $('#tbRencana').each(function() {
+                            $('#tbRealisasi').each(function() {
                                 var tahun = $('#selectTahun').val();
-                                var link = "<?= base_url('report/getRencana') ?>"
+                                var link = "<?= base_url('report/getRealisasi') ?>"
 
 
                                 $.ajax({
@@ -96,42 +97,43 @@
                                     dataType: 'JSON',
                                     success: function(data) {
                                         //alert(data.length);
-                                        // $('#tb_lapRcn').html(data);
-                                        
+                                        // $('#tb_lapReal').html(data);
+
                                         var no = 1;
                                         var jum = 1;
                                         var i;
                                         var html = '';
 
                                         for (i = 0, no = 1; i < data.length; i++) {
-                                            
+
                                             html += '<tr>';
                                             html += '<td>' + no++ + '</td>';
                                             html += '<td>' + data[i].nama_risiko + '</td>';
-                                            html += '<td>' + data[i].penyebab + '</td>';
-                                            html += '<td>' + data[i].tingkat_risiko + '</td>';
-                                            html += '<td>' + data[i].pengendalian + '</td>';
                                             html += '<td>' + data[i].deskripsi + '</td>';
                                             html += '<td>' + data[i].plan_mulai + '</td>';
                                             html += '<td>' + data[i].plan_selesai + '</td>';
                                             html += '<td>' + data[i].indikator_output + '</td>';
                                             html += '<td>' + data[i].pic + '</td>';
                                             html += '<td>' + data[i].anggaran + '</td>';
-                                            
+                                            html += '<td>' + data[i].real_mulai + '</td>';
+                                            html += '<td>' + data[i].real_selesai + '</td>';
+                                            html += '<td>' + data[i].hambatan + '</td>';
+                                            html += '<td>' + data[i].keterangan + '</td>';
+
                                         }
 
-                                        $('#tb_lapRcn').html(html);
-                                        
+                                        $('#tb_lapReal').html(html);
+
                                     },
                                     error: function() {
-                                        $('#tb_lapRcn').html('<tr><td colspan="11"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapReal').html('<tr><td colspan="12"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });
 
                             $('.select').on('change', function() {
                                 var tahun = $('#selectTahun').val();
-                                var link = "<?= base_url('report/getRencana') ?>"
+                                var link = "<?= base_url('report/getRealisasi') ?>"
 
 
 
@@ -144,7 +146,7 @@
                                     dataType: 'JSON',
                                     success: function(data) {
                                         //alert(data.length);
-                                        // $('#tb_lapRcn').html(data);
+                                        // $('#tb_lapReal').html(data);
                                         var no = 1;
                                         var jum = 1;
                                         var i;
@@ -154,22 +156,22 @@
                                             html += '<tr>';
                                             html += '<td>' + no++ + '</td>';
                                             html += '<td>' + data[i].nama_risiko + '</td>';
-                                            html += '<td>' + data[i].penyebab + '</td>';
-                                            html += '<td>' + data[i].tingkat_risiko + '</td>';
-                                            html += '<td>' + data[i].pengendalian + '</td>';
                                             html += '<td>' + data[i].deskripsi + '</td>';
                                             html += '<td>' + data[i].plan_mulai + '</td>';
-                                            
                                             html += '<td>' + data[i].plan_selesai + '</td>';
                                             html += '<td>' + data[i].indikator_output + '</td>';
                                             html += '<td>' + data[i].pic + '</td>';
                                             html += '<td>' + data[i].anggaran + '</td>';
+                                            html += '<td>' + data[i].real_mulai + '</td>';
+                                            html += '<td>' + data[i].real_selesai + '</td>';
+                                            html += '<td>' + data[i].hambatan + '</td>';
+                                            html += '<td>' + data[i].keterangan + '</td>';
                                         }
 
-                                        $('#tb_lapRcn').html(html);
+                                        $('#tb_lapReal').html(html);
                                     },
                                     error: function() {
-                                        $('#tb_lapRcn').html('<tr><td colspan="11" style="text-align: center;"> Tidak Ada Data </td></tr>');
+                                        $('#tb_lapReal').html('<tr><td colspan="12" style="text-align: center;"> Tidak Ada Data </td></tr>');
                                     }
                                 });
                             });
