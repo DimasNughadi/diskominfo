@@ -45,7 +45,9 @@
                                         <label for="role">Role</label>
                                         <select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">                                        
                                             <option value="Admin" <?php if ($userdata['role']=='Admin'){echo 'selected="selected"';}?>>Admin</option>
-                                            <option value="User" <?php if ($userdata['role']=='User'){echo 'selected="selected"';}?>>User</option>
+                                            <option value="Eksekutif" <?php if ($userdata['role']=='Eksekutif'){echo 'selected="selected"';}?>>Eksekutif</option>
+                                            <option value="Insfrastruktur" <?php if ($userdata['role']=='Insfrastruktur'){echo 'selected="selected"';}?>>Insfrastruktur</option>
+                                            <option value="Aptika" <?php if ($userdata['role']=='Aptika'){echo 'selected="selected"';}?>>Aptika</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

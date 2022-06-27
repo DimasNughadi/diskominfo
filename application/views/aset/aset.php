@@ -26,27 +26,31 @@
 					<div class="col-lg-12">
 						<?php foreach ($hak as $hk) : ?>
 							<?php if ($hk['id_menu'] == 2 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-								<?php if ($hk['tambah'] == 1){ ?>
+								<?php if ($hk['tambah'] == 1) { ?>
 									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div>
 								<?php } else { ?>
 									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-secondary mb-2 disabled">Tambah Data Aset</a></div>
-									<?php } ?>
+								<?php } ?>
 							<?php } ?>
 						<?php endforeach; ?>
 						<!-- <div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div> -->
 						<div class="card">
-							<div class="jsgrid-table-panel">
-								<div class="col-md-2">
-									<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
-										<option selected disabled hidden>Pilih Jenis Aset</option>
-										<?php foreach ($jenisaset as $udt) : ?>
-											<?php if ($udt['nama_jenis_aset'] != null) { ?>
-												<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
-											<?php } ?>
-										<?php endforeach; ?>
-									</select>
+							<?php if ($this->session->userdata('role') == "Admin") : ?>
+								<div class="jsgrid-table-panel">
+									<div class="col-md-2">
+										<select id="inputStatus" name="id_jenis_aset" value="#" class="form-control custom-select">
+											<option selected disabled hidden>Pilih Jenis Aset</option>
+											<?php foreach ($jenisaset as $udt) : ?>
+												<?php if ($udt['nama_jenis_aset'] != null) { ?>
+													<option value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+												<?php } ?>
+											<?php endforeach; ?>
+										</select>
+									</div>
 								</div>
-							</div>
+							<?php else : ?>
+							<?php endif; ?>
+
 							<div class="card">
 								<div class="jsgrid-table-panel">
 									<?= $this->session->flashdata('message'); ?>
@@ -172,18 +176,18 @@
 																<!-- /.modal-dialog -->
 															</div>
 															<!-- /.modal -->
-															
+
 															<?php foreach ($hak as $hk) : ?>
 																<?php if ($hk['id_menu'] == 2 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-																	<?php if ($hk['edit'] == 1){ ?>
-																	<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
-																		<i class="ti-pencil-alt"></i>
-																	</button>
+																	<?php if ($hk['edit'] == 1) { ?>
+																		<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
+																			<i class="ti-pencil-alt"></i>
+																		</button>
 																	<?php } else { ?>
-																	<button type="button" class="btn btn-success btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
-																		<i class="ti-pencil-alt"></i>
-																	</button>
-																		<?php } ?>
+																		<button type="button" class="btn btn-success btn-sm" disabled data-toggle="modal" data-target="#modal-success<?php echo $us['id_aset']; ?>">
+																			<i class="ti-pencil-alt"></i>
+																		</button>
+																	<?php } ?>
 																<?php } ?>
 															<?php endforeach; ?>
 															<!-- Trigger Edit -->
@@ -217,15 +221,15 @@
 															<!-- Trigger Hapus -->
 															<?php foreach ($hak as $hk) : ?>
 																<?php if ($hk['id_menu'] == 2 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-																	<?php if ($hk['hapus'] == 1){ ?>
-																	<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
-																<i class="ti-trash"></i>
-															</button>
+																	<?php if ($hk['hapus'] == 1) { ?>
+																		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
+																			<i class="ti-trash"></i>
+																		</button>
 																	<?php } else { ?>
-																	<button type="button" class="btn btn-danger btn-sm" disabled data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
-																<i class="ti-trash"></i>
-															</button>
-																		<?php } ?>
+																		<button type="button" class="btn btn-danger btn-sm" disabled data-toggle="modal" data-target="#modal-danger<?php echo $us['id_aset']; ?>">
+																			<i class="ti-trash"></i>
+																		</button>
+																	<?php } ?>
 																<?php } ?>
 															<?php endforeach; ?>
 
@@ -269,5 +273,3 @@
 						<!-- /# row -->
 					</div>
 				</div>
-				
-

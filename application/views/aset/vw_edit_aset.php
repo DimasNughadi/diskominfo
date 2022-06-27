@@ -42,16 +42,33 @@
                                         <input type="text" class="form-control" name="nama_user" value="<?= $user['username']; ?>" id="nama_user" readonly>
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputStatus">Jenis Aset</label>
-                                        <select id="inputStatus" name="id_jenis_aset" class="form-control custom-select">
-                                            <?php foreach ($jenisaset as $udt) { ?>
-                                                <option <?php if ($udt['id_jenis_aset'] == $aset['id_jenis_aset']) {
-                                                            echo 'selected="selected"';
-                                                        } ?> value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
+                                    <?php if ($this->session->userdata('role') == "Infrastruktur") : ?>
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Jenis Aset</label>
+                                            <input type="hidden" class="form-control" name="id_jenis_aset" value="1" id="id_jenis_aset" readonly>
+                                            <input type="text" class="form-control" value="Physical" id="id_jenis_aset" readonly>
+                                            <?= form_error('id_jenis_aset', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                    <?php elseif ($this->session->userdata('role') == "Aptika") : ?>
+                                        <div class="form-group">
+                                            <label for="exampleInputName">Jenis Aset</label>
+                                            <input type="hidden" class="form-control" name="id_jenis_aset" value="2" id="id_jenis_aset" readonly>
+                                            <input type="text" class="form-control" value="Software" id="id_jenis_aset" readonly>
+                                            <?= form_error('id_jenis_aset', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="form-group">
+                                            <label for="inputStatus">Jenis Aset</label>
+                                            <select id="inputStatus" name="id_jenis_aset" class="form-control custom-select">
+                                                <?php foreach ($jenisaset as $udt) { ?>
+                                                    <option <?php if ($udt['id_jenis_aset'] == $aset['id_jenis_aset']) {
+                                                                echo 'selected="selected"';
+                                                            } ?> value="<?= $udt['id_jenis_aset']; ?>"><?= $udt['nama_jenis_aset']; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    <?php endif; ?>
+
                                     <div class="form-group">
                                         <label for="inputStatus">Bidang</label>
                                         <select id="inputStatus" name="id_bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">

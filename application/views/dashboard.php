@@ -21,11 +21,11 @@
 							</div>
 						</div>
 					</div>
-					<?= $this->session->flashdata('message'); ?>
 					<!-- /# column -->
 				</div>
 				<!-- /# row -->
 				<section id="main-content">
+					<?= $this->session->flashdata('error'); ?>
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="card">
@@ -159,11 +159,12 @@
 									<div class="ct-pie-chart">
 										<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
 											<script>
-											var xValues = ["Physical", "Software"];
-											var yValues = [<?php echo $asetP ?>, <?php echo $asetS ?>];
+											var xValues = ["Physical", "Software", "Lisensi"];
+											var yValues = [<?php echo $asetP ?>, <?php echo $asetS ?>, <?php echo $asetL ?>];
 											var barColors = [
 											"#17a2b8",
-											"#28a745"
+											"#28a745",
+											"#dc3545"
 											];
 
 											new Chart("myChart3", {

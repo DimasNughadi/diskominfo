@@ -115,7 +115,7 @@
 						<div class="user-panel mt-3  d-flex">
 							<div class="info">
 								<p><span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('username')) ?></span>
-									<span class="mb-0 badge badge-dark"><?= ucwords($this->session->userdata('id_bidang')) ?></span>
+									<span class="mb-0 badge badge-dark"><?= check_bidang() ?></span>
 									<!-- <span class="mb-0 badge badge-dark">
 										<?php foreach ($bidang as $bdg) : ?>
 											<?php if ($this->session->userdata('id_bidang') == $bdg['id_bidang']) { ?>
