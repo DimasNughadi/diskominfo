@@ -55,15 +55,15 @@ class Auth extends CI_Controller
                         redirect('Auth');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Tidak Aktif!</div>');
+                    $this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Akun Tidak Aktif!</div>');
                     redirect('auth');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                $this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('auth');
             }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar!</div>');
+            $this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">Akun Belum Terdaftar!</div>');
             redirect('auth');
         }
     }
