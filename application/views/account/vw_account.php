@@ -45,7 +45,6 @@
 											<div class="modal-body">
 												<li class="list-group-item">
 													<b class="float-left">Hak Akses</b><br />
-													<form action="akun/edithak/" method="POST">
 														<table class="table table-bordered table-striped"
 															style="text-align: center;">
 															<thead class="thead-light">
@@ -116,7 +115,6 @@
 															</tbody>
 														</table>
 												</li>
-												</ul>
 											</div>
 											<!-- /.card-body -->
 										</div>
@@ -125,110 +123,113 @@
 							</div>
 						</div>
 					</div>
-                    <!-- /.col -->
-                    <div class="col-md-9">
-                        <div class="card card-primary">
-                            <?= $this->session->flashdata('message'); ?>
-                            <div class="card bg-primary text-white">
-                                <h3 class="card-title text-white">Setting</h3>
-                            </div>
-                            <div class="card-body">
-                                <div class="tab-content">
-                                    <div class="active tab-pane" id="settings">
-                                        <form class="form-horizontal" action="<?= base_url('User/edit/') . $user['id_user']; ?>"
-                                            method="post" enctype="multipart/form-data">
-                                            <input type="hidden" name="id" value="<?= $user['id_user']; ?>">
-                                            <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="nama" value="<?= $user['username']; ?>"
-                                                        class="form-control" id="inputName" placeholder="Name">
-                                                </div>
-                                                <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputName" class="col-sm-2 col-form-label">Role</label>
-                                                <div class="col-sm-10">
-                                                    <select id="role" name="role" value="<?= set_value('role'); ?>"
-                                                        class="form-control custom-select">
-                                                        <option value="Admin" <?php if ($user['role'] == 'Admin') {
+					<!-- /.col -->
+					<div class="col-md-9">
+						<div class="card card-primary">
+							<?= $this->session->flashdata('message'); ?>
+							<div class="card bg-primary text-white">
+								<h3 class="card-title text-white">Setting</h3>
+							</div>
+							<div class="card-body">
+								<div class="tab-content">
+									<div class="active tab-pane" id="settings">
+										<form class="form-horizontal"
+											action="<?= base_url('User/edit/') . $user['id_user']; ?>" method="post"
+											enctype="multipart/form-data">
+											<input type="hidden" name="id" value="<?= $user['id_user']; ?>">
+											<div class="form-group row">
+												<label for="inputName" class="col-sm-2 col-form-label">Nama</label>
+												<div class="col-sm-10">
+													<input type="text" name="nama" value="<?= $user['username']; ?>"
+														class="form-control" id="inputName" placeholder="Name">
+												</div>
+												<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="form-group row">
+												<label for="inputName" class="col-sm-2 col-form-label">Role</label>
+												<div class="col-sm-10">
+													<select id="role" name="role" value="<?= set_value('role'); ?>"
+														class="form-control custom-select">
+														<option value="Admin" <?php if ($user['role'] == 'Admin') {
                                                                                             echo 'selected="selected"';
                                                                                         } ?>>Admin</option>
-                                                        <option value="Eksekutif" <?php if ($user['role'] == 'Eksekutif') {
+														<option value="Eksekutif" <?php if ($user['role'] == 'Eksekutif') {
                                                                                                 echo 'selected="selected"';
                                                                                             } ?>>Eksekutif</option>
-                                                        <option value="Insfrastruktur" <?php if ($user['role'] == 'Insfrastruktur') {
+														<option value="Insfrastruktur" <?php if ($user['role'] == 'Insfrastruktur') {
                                                                                                     echo 'selected="selected"';
-                                                                                                } ?>>Insfrastruktur</option>
-                                                        <option value="Aptika" <?php if ($user['role'] == 'Aptika') {
+                                                                                                } ?>>Insfrastruktur
+														</option>
+														<option value="Aptika" <?php if ($user['role'] == 'Aptika') {
                                                                                             echo 'selected="selected"';
                                                                                         } ?>>Aptika</option>
-                                                    </select>
-                                                </div>
-                                                <?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
-                                                <div class="col-sm-10">
-                                                    <select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>"
-                                                        class="form-control custom-select">
-                                                        <?php foreach ($bidang as $udt) : ?>
-                                                        <option <?php if ($udt['id_bidang'] == $user['id_bidang']) {
+													</select>
+												</div>
+												<?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="form-group row">
+												<label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
+												<div class="col-sm-10">
+													<select id="bidang" name="bidang"
+														value="<?= set_value('id_bidang'); ?>"
+														class="form-control custom-select">
+														<?php foreach ($bidang as $udt) : ?>
+														<option <?php if ($udt['id_bidang'] == $user['id_bidang']) {
                                                                                 echo 'selected="selected"';
                                                                             } ?> value="<?= $udt['id_bidang']; ?>">
-                                                            <?= $udt['nama_bidang']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="offset-sm-2 col-sm-10">
-                                                    <!-- Trigger -->
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#modal-default">
-                                                        Update
-                                                    </button>
-                                                    <button type="reset" class="btn btn-default">
-                                                        Cancel
-                                                    </button>
-                                                </div>
+															<?= $udt['nama_bidang']; ?></option>
+														<?php endforeach; ?>
+													</select>
+												</div>
+												<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="form-group row">
+												<div class="offset-sm-2 col-sm-10">
+													<!-- Trigger -->
+													<button type="button" class="btn btn-primary" data-toggle="modal"
+														data-target="#modal-default">
+														Update
+													</button>
+													<button type="reset" class="btn btn-default">
+														Cancel
+													</button>
+												</div>
 
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="modal-default">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Konfirmasi</h4>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Apakah anda yakin ingin mengubah data&hellip; ?</p>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-between">
-                                                                <button type="button" class="btn btn-default"
-                                                                    data-dismiss="modal">Tutup</button>
-                                                                <button type="submit" name="simpan"
-                                                                    class="btn btn-primary">Simpan Perubahan</button>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /.modal-content -->
-                                                    </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
-                                                <!-- /.modal -->
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <!-- /.tab-pane -->
-                                </div>
-                                <!-- /.tab-content -->
-                            </div><!-- /.card-body -->
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                    <!-- /.col -->
-                 </div>
+												<!-- Modal -->
+												<div class="modal fade" id="modal-default">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h4 class="modal-title">Konfirmasi</h4>
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																<p>Apakah anda yakin ingin mengubah data&hellip; ?</p>
+															</div>
+															<div class="modal-footer justify-content-between">
+																<button type="button" class="btn btn-default"
+																	data-dismiss="modal">Tutup</button>
+																<button type="submit" name="simpan"
+																	class="btn btn-primary">Simpan Perubahan</button>
+															</div>
+														</div>
+														<!-- /.modal-content -->
+													</div>
+													<!-- /.modal-dialog -->
+												</div>
+												<!-- /.modal -->
+											</div>
+										</form>
+									</div>
+									<!-- /.tab-pane -->
+								</div>
+								<!-- /.tab-content -->
+							</div><!-- /.card-body -->
+						</div>
+						<!-- /.card -->
+					</div>
+					<!-- /.col -->
+				</div>
