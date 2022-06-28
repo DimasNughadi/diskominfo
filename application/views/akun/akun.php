@@ -284,8 +284,18 @@
 				</div>
 			</div>
 			<script>
-				function refreshmodal()
-				{
-					$('#modal-default<?php echo $us['id_user'] ?>').load(location.href + "#modal-default<?php echo $us['id_user'] ?>");	
-				}
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo base_url(); ?>akun/update_hak_tambah",
+					success: function(<?= $this->session->flashdata('msg'); ?>){
+						if(<?= $this->session->flashdata('msg'); ?> == "Success"){
+							$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
+						}else{
+							alert("Something just went wrong, Please try again later...");
+						}
+					},
+					error: function(){ 
+						alert("Something just went wrong, Please try again later...");
+					}
+				});
 			</script>
