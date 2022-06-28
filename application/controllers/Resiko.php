@@ -18,7 +18,15 @@ class Resiko extends CI_Controller
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Identifikasi Risiko";
-        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        if($this->session->userdata('role') == "Aptika")
+        {
+            $data['resiko'] = $this->Resiko_model->showRisikoSoftware()->result();
+        }elseif($this->session->userdata('role') == "Infrastruktur")
+        {
+            $data['resiko'] = $this->Resiko_model->showRisikoPhysical()->result();
+        }else{
+            $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        }
         $data['aset'] = $this->Aset_model->get();
         $data['userdata'] = $this->User_model->get();
         $data['hak'] = $this->HakAkses_model->get();
@@ -31,7 +39,15 @@ class Resiko extends CI_Controller
     {
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $data['judul'] = "Daftar Risiko";
-        $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        if($this->session->userdata('role') == "Aptika")
+        {
+            $data['resiko'] = $this->Resiko_model->showRisikoSoftware()->result();
+        }elseif($this->session->userdata('role') == "Infrastruktur")
+        {
+            $data['resiko'] = $this->Resiko_model->showRisikoPhysical()->result();
+        }else{
+            $data['resiko'] = $this->Resiko_model->showRisiko()->result();
+        }
         $data['aset'] = $this->Aset_model->get();
         $data['userdata'] = $this->User_model->get();
         $this->load->view('layout/header', $data);
@@ -43,7 +59,17 @@ class Resiko extends CI_Controller
     {
         $data['judul'] = "Tambah Risiko";
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        $data['aset'] = $this->Aset_model->get();
+        
+        if($this->session->userdata('role') == "Aptika")
+        {
+            $data['aset'] = $this->Aset_model->getAsetSoftware();
+        }elseif($this->session->userdata('role') == "Infrastruktur")
+        {
+            $data['aset'] = $this->Aset_model->getAsetPhysical();
+
+        }else{
+            $data['aset'] = $this->Aset_model->get();
+        }
 
         $this->form_validation->set_rules('nama_risiko', 'Nama Risiko', 'required', [
             'required' => 'Nama Risiko Wajib di isi'
@@ -105,7 +131,16 @@ class Resiko extends CI_Controller
     function edit($id)
     {
         $data['judul'] = "Ubah Data Risiko";
-        $data['aset'] = $this->Aset_model->get();
+        if($this->session->userdata('role') == "Aptika")
+        {
+            $data['aset'] = $this->Aset_model->getAsetSoftware();
+        }elseif($this->session->userdata('role') == "Infrastruktur")
+        {
+            $data['aset'] = $this->Aset_model->getAsetPhysical();
+
+        }else{
+            $data['aset'] = $this->Aset_model->get();
+        }
         $data['resiko'] = $this->Resiko_model->getById($id);
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 

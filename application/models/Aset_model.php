@@ -17,6 +17,21 @@ class Aset_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getAsetPhysical()
+    {
+        $this->db->from($this->table);
+        $this->db->where('aset.id_jenis_aset','1');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function getAsetSoftware()
+    {
+        $this->db->from($this->table);
+        $this->db->where('aset.id_jenis_aset','2');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function getCount()
     {
         $this->db->select('*');
