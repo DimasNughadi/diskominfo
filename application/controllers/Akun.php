@@ -128,11 +128,18 @@ class Akun extends CI_Controller
 
         $this->load->model('HakAkses_model', 'userdata');
 
+<<<<<<< HEAD
         $result = $this->userdata->update_hak_model_tambah($id_menu, $tambah);
         if ($result) {
             $response = [
                 'status' => 'success'
             ];
+=======
+        //send id and status to the model to update the status
+        if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
+            $this->session->set_flashdata('msg', 'Success');
+            $this->session->set_flashdata('msg_class', 'alert-success');
+>>>>>>> 57192d8ce5dc1b07fc562647bfbaf5da8968103c
         } else {
             $response = [
                 'status' => 'error'
