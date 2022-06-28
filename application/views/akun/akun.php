@@ -283,18 +283,10 @@
 					<!-- /# row -->
 				</div>
 			</div>
-			<script>
-				$.ajax({
-					type: 'POST',
-					url: "<?php echo base_url(); ?>akun/update_hak_tambah",
-					// response = JSON.parse(response);
-					success: function(response){
-						if(response == "Success"){
-							alert("2");
-							$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
-						}else{
-							alert("2");
-						}
-					}
+			<?php if($this->session->flashdata('response')){ ?>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
 				});
-			</script>
+				</script>
+			<?php } ?>

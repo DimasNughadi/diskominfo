@@ -130,16 +130,14 @@ class Akun extends CI_Controller
 
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
-            $data = 'Success';
-            $this->session->set_flashdata('msg', 'Success');
-            $this->session->set_flashdata('msg_class', 'alert-success');
+            $this->session->set_flashdata('response', 'Success');
         } else {
-            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
-            $this->session->set_flashdata('msg_class', 'alert-danger');
+            $this->session->set_flashdata('response', 'Error');
         }
-        // echo json_encode($data);
+        // echo "data berhasil diubah";
         return redirect('Akun');
         // return $data;
+        
     }
 
     public function update_hak_edit($id_menu, $edit)
