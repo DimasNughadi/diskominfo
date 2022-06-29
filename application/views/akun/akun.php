@@ -160,40 +160,40 @@
 																										<td>
 																											<?php if ($hk['tambah'] == 1 ) { ?>
 																											<?php if ($_SESSION['username'] == $us['username']) { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																											<?php } else { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
 																										<?php } elseif ($hk['tambah'] == 2 ) { ?>
 																											<a></a>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
 																										</td>
 																										<td>
 																											<?php if ($hk['edit'] == 1 ) { ?>
 																											<?php if ($_SESSION['username'] == $us['username']) { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																											<?php } else { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
 																										<?php } elseif ($hk['edit'] == 2 ) { ?>
 																											<a></a>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
 																										</td>
 																										<td style="text-align: center;" >
 																											<?php if ($hk['hapus'] == 1 ) { ?>
 																											<?php if ($_SESSION['username'] == $us['username']) { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm disabled">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																											<?php } else { ?>
-																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm">Active</a>
+																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
 																										<?php } elseif ($hk['hapus'] == 2 ) { ?>
 																											<a></a>
 																										<?php } else { ?>
-																											<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-warning btn-sm">Inactive</a>
+																											<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>/<?php echo $us['id_user']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
 																										</td>
 																									</tr>
@@ -292,7 +292,7 @@
 			<?php if($this->session->flashdata('response')){ ?>
 				<script type="text/javascript">
 				$(document).ready(function(){
-					$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
+					$('#modal-default<?php echo $this->session->flashdata('id'); ?>').modal('show');
 				});
 				</script>
 			<?php } ?>

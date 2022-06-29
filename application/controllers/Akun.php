@@ -144,7 +144,7 @@ class Akun extends CI_Controller
         }
     }
 
-    public function update_hak_tambah($id_menu, $tambah)
+    public function update_hak_tambah($id_menu, $tambah, $id_user)
     {
 
         $this->load->model('HakAkses_model', 'userdata');
@@ -152,13 +152,14 @@ class Akun extends CI_Controller
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
             $this->session->set_flashdata('response', 'Success');
+            $this->session->set_flashdata('id', $id_user);
         } else {
             $this->session->set_flashdata('response', 'Error');
         }
         return redirect('Akun');
     }
 
-    public function update_hak_edit($id_menu, $edit)
+    public function update_hak_edit($id_menu, $edit, $id_user)
     {
 
         $this->load->model('HakAkses_model', 'userdata');
@@ -166,13 +167,14 @@ class Akun extends CI_Controller
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_edit($id_menu, $edit)) {
             $this->session->set_flashdata('response', 'Success');
+            $this->session->set_flashdata('id', $id_user);
         } else {
             $this->session->set_flashdata('response', 'Error');
         }
         return redirect('Akun');
     }
 
-    public function update_hak_hapus($id_menu, $hapus)
+    public function update_hak_hapus($id_menu, $hapus, $id_user)
     {
 
         $this->load->model('HakAkses_model', 'userdata');
@@ -180,6 +182,7 @@ class Akun extends CI_Controller
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_hapus($id_menu, $hapus)) {
             $this->session->set_flashdata('response', 'Success');
+            $this->session->set_flashdata('id', $id_user);
         } else {
             $this->session->set_flashdata('response', 'Error');
         }
