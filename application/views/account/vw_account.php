@@ -22,7 +22,7 @@
 					</div>
 					<div class="col-md-3">
 						<!-- Profile Image -->
-						<div class="card card-primary card-outline">
+						<div class="card card-	 card-outline">
 							<div class="card-body box-profile">
 								<div class="text-center">
 									<img class="profile-user-img img-fluid img-circle" src="<?= base_url() . 'assets/images/profile.png' ?>" alt="User profile picture" style="width:200px;height:200px;">
@@ -87,7 +87,7 @@
 																					<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																				<?php } ?>
 																			<?php } elseif ($hk['tambah'] == 2) { ?>
-																				<ae< /a>
+																				<a></a>
 																				<?php } else { ?>
 																					<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
 																				<?php } ?>
@@ -136,7 +136,7 @@
 					<div class="col-md-9">
 						<div class="card card-primary">
 							<?= $this->session->flashdata('message'); ?>
-							<div class="card bg-primary text-white">
+							<div class="card bg-success text-white">
 								<h3 class="card-title text-white">Setting</h3>
 							</div>
 							<div class="card-body">
@@ -171,35 +171,27 @@
 												</div>
 												<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
-											<div class="input-group mb-3">
-												<label for="inputName" class="col-sm-2 col-form-label">Password Sekarang</label>
-												<input type="password" class="form-control" name="password1" value="<?= $user['password']; ?>" placeholder="Masukkan Password">
-												<div class="input-group-append">
-													<div class="input-group-text">
-														<span class="fas fa-lock"></span>
-													</div>
-												</div>
-												<?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+											<div class="card bg-primary text-white">
+												<h3 class="card-title text-white">Ubah Password</h3>
 											</div>
-											<div class="input-group mb-3">
-												<label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
-												<input type="password" class="form-control" name="password2" placeholder="Masukkan Ulang Password">
-												<div class="input-group-append">
-													<div class="input-group-text">
-														<span class="fas fa-lock"></span>
-													</div>
+											<div class="form-group row">
+												<label for="inputName" class="col-sm-2 col-form-label">Password Sekarang</label>
+												<div class="col-sm-3">
+													<input type="password" class="form-control" name="password1" value="">
 												</div>
-												<?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="form-group row">
+												<label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
+												<div class="col-sm-3">
+													<input type="password" class="form-control" name="password2" value="">
+												</div>
 											</div>
 											<div class="form-group row">
 												<div class="offset-sm-2 col-sm-10">
 													<!-- Trigger -->
 													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
 														Update
-													</button>
-													<!-- <button type="reset" class="btn btn-default">
-														Cancel
-													</button> -->
+													</button>	
 												</div>
 
 												<!-- Modal -->
