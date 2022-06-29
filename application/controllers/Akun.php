@@ -62,14 +62,35 @@ class Akun extends CI_Controller
                 'status' => $this->input->post('status')
             ];
             $this->User_model->insert($data);
-            $i = [2, 3, 5, 6, 7, 8, 9];
+            $i = [2, 3, 5, 6, 8, 9];
             $maxuid = $this->User_model->getMaxUID();
-            foreach ($i as $j) {
-                $data2 = [
+            foreach ($i as $j){
+                if ($j == 3){
+                    $data2 = [
                     'id_user' => $maxuid,
                     'id_menu' => $j,
-                ];
-                $this->HakAkses_model->insert($data2);
+                    'hapus' => 2,
+                    ];
+                }elseif ($j == 8){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    'hapus' => 2,
+                    ];
+                }elseif ($j == 9){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    'tambah' => 2,
+                    'hapus' => 2,
+                    ];
+                }else{
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    ];
+                }
+            $this->HakAkses_model->insert($data2);
             }
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User Baru Berhasil Ditambah!</div>');
             redirect('Akun');
@@ -128,35 +149,14 @@ class Akun extends CI_Controller
 
         $this->load->model('HakAkses_model', 'userdata');
 
-        $result = $this->userdata->update_hak_model_tambah($id_menu, $tambah);
-        if ($result) {
-            $response = [
-                'status' => 'success'
-            ];
+        //send id and status to the model to update the status
+        if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
+            $this->session->set_flashdata('response', 'Success');
         } else {
-            $response = [
-                'status' => 'error'
-            ];
+            $this->session->set_flashdata('response', 'Error');
         }
-
-        return $response;
+        return redirect('Akun');
     }
-
-    // public function update_hak_tambah($id_menu, $tambah)
-    // {
-
-    //     $this->load->model('HakAkses_model', 'userdata');
-
-    //     //send id and status to the model to update the status
-    //     if ($this->userdata->update_hak_model_tambah($id_menu, $tambah)) {
-    //         $this->session->set_flashdata('msg', 'User status has been updated successfully!');
-    //         $this->session->set_flashdata('msg_class', 'alert-success');
-    //     } else {
-    //         $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
-    //         $this->session->set_flashdata('msg_class', 'alert-danger');
-    //     }
-    //     return redirect('Akun');
-    // }
 
     public function update_hak_edit($id_menu, $edit)
     {
@@ -165,11 +165,9 @@ class Akun extends CI_Controller
 
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_edit($id_menu, $edit)) {
-            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
-            $this->session->set_flashdata('msg_class', 'alert-success');
+            $this->session->set_flashdata('response', 'Success');
         } else {
-            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
-            $this->session->set_flashdata('msg_class', 'alert-danger');
+            $this->session->set_flashdata('response', 'Error');
         }
         return redirect('Akun');
     }
@@ -181,11 +179,9 @@ class Akun extends CI_Controller
 
         //send id and status to the model to update the status
         if ($this->userdata->update_hak_model_hapus($id_menu, $hapus)) {
-            $this->session->set_flashdata('msg', 'User status has been updated successfully!');
-            $this->session->set_flashdata('msg_class', 'alert-success');
+            $this->session->set_flashdata('response', 'Success');
         } else {
-            $this->session->set_flashdata('msg', 'User status has not been updated successfully!');
-            $this->session->set_flashdata('msg_class', 'alert-danger');
+            $this->session->set_flashdata('response', 'Error');
         }
         return redirect('Akun');
     }
