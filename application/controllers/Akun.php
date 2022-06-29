@@ -65,10 +65,33 @@ class Akun extends CI_Controller
             $i = [2, 3, 5, 6, 7, 8, 9];
             $maxuid = $this->User_model->getMaxUID();
             foreach ($i as $j){
-                $data2 = [
-                'id_user' => $maxuid,
-                'id_menu' => $j,
-            ];
+                if ($j == 3){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    'hapus' => 2,
+                    ];
+                }elseif ($j == 7){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    'tambah' => 2,
+                    'edit' => 2,
+                    ];
+                }elseif ($j == 8){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    'tambah' => 2,
+                    'edit' => 2,
+                    'hapus' => 2,
+                    ];
+                }else{
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
+                    ];
+                }
             $this->HakAkses_model->insert($data2);
             }
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User Baru Berhasil Ditambah!</div>');
