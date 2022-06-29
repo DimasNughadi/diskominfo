@@ -86,9 +86,11 @@
 																				<?php } else { ?>
 																					<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																				<?php } ?>
-																			<?php } else { ?>
-																				<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
-																			<?php } ?>
+																			<?php } elseif ($hk['tambah'] == 2) { ?>
+																				<ae< /a>
+																				<?php } else { ?>
+																					<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
+																				<?php } ?>
 																		</td>
 																		<td>
 																			<?php if ($hk['edit'] == 1) { ?>
@@ -97,6 +99,8 @@
 																				<?php } else { ?>
 																					<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																				<?php } ?>
+																			<?php } elseif ($hk['edit'] == 2) { ?>
+																				<a></a>
 																			<?php } else { ?>
 																				<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
 																			<?php } ?>
@@ -108,6 +112,8 @@
 																				<?php } else { ?>
 																					<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm disabled">Active</a>
 																				<?php } ?>
+																			<?php } elseif ($hk['hapus'] == 2) { ?>
+																				<a></a>
 																			<?php } else { ?>
 																				<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
 																			<?php } ?>
@@ -146,47 +152,44 @@
 												<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
-												<label for="inputName" class="col-sm-2 col-form-label">Password</label>
-												<div class="col-sm-10">
-													<input type="text" name="password" value="<?= $user['password']; ?>"
-														class="form-control" id="inputName" placeholder="Password">
-												</div>
-												<?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
-											</div>
-											<!-- <div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Role</label>
 												<div class="col-sm-10">
-													<select id="role" name="role" value="<?= set_value('role'); ?>" class="form-control custom-select">
-														<option value="Admin" <?php if ($user['role'] == 'Admin') {
-																					echo 'selected="selected"';
-																				} ?>>Admin</option>
-														<option value="Eksekutif" <?php if ($user['role'] == 'Eksekutif') {
-																						echo 'selected="selected"';
-																					} ?>>Eksekutif</option>
-														<option value="Insfrastruktur" <?php if ($user['role'] == 'Insfrastruktur') {
-																							echo 'selected="selected"';
-																						} ?>>Insfrastruktur
-														</option>
-														<option value="Aptika" <?php if ($user['role'] == 'Aptika') {
-																					echo 'selected="selected"';
-																				} ?>>Aptika</option>
-													</select>
+													<input type="text" readonly name="role" value="<?= $user['role']; ?>" class="form-control" id="inputName" placeholder="Name">
 												</div>
 												<?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
-											</div> -->
+											</div>
 											<div class="form-group row">
 												<label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
 												<div class="col-sm-10">
-													<select id="bidang" name="bidang" value="<?= set_value('id_bidang'); ?>" class="form-control custom-select">
-														<?php foreach ($bidang as $udt) : ?>
-															<option <?php if ($udt['id_bidang'] == $user['id_bidang']) {
-																		echo 'selected="selected"';
-																	} ?> value="<?= $udt['id_bidang']; ?>">
-																<?= $udt['nama_bidang']; ?></option>
-														<?php endforeach; ?>
-													</select>
+													<?php foreach ($bidang as $bdg) : ?>
+														<?php if ($user['id_bidang'] == $bdg['id_bidang']) { ?>
+															<input type="text" readonly name="bidang" value="<?= $bdg['nama_bidang']; ?>" class="form-control" id="inputName" placeholder="Name">
+
+														<?php } ?>
+													<?php endforeach; ?>
+
 												</div>
 												<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="input-group mb-3">
+												<label for="inputName" class="col-sm-2 col-form-label">Password Sekarang</label>
+												<input type="password" class="form-control" name="password1" value="<?= $user['password']; ?>" placeholder="Masukkan Password">
+												<div class="input-group-append">
+													<div class="input-group-text">
+														<span class="fas fa-lock"></span>
+													</div>
+												</div>
+												<?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="input-group mb-3">
+												<label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
+												<input type="password" class="form-control" name="password2" placeholder="Masukkan Ulang Password">
+												<div class="input-group-append">
+													<div class="input-group-text">
+														<span class="fas fa-lock"></span>
+													</div>
+												</div>
+												<?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
 												<div class="offset-sm-2 col-sm-10">
