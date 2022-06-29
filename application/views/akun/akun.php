@@ -164,6 +164,8 @@
 																											<?php } else { ?>
 																												<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
+																										<?php } elseif ($hk['tambah'] == 2 ) { ?>
+																											<a></a>
 																										<?php } else { ?>
 																											<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
@@ -175,6 +177,8 @@
 																											<?php } else { ?>
 																												<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
+																										<?php } elseif ($hk['edit'] == 2 ) { ?>
+																											<a></a>
 																										<?php } else { ?>
 																											<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
@@ -186,6 +190,8 @@
 																											<?php } else { ?>
 																												<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-success btn-sm">Active</a>
 																											<?php } ?>
+																										<?php } elseif ($hk['hapus'] == 2 ) { ?>
+																											<a></a>
 																										<?php } else { ?>
 																											<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>" class="btn btn-warning btn-sm">Inactive</a>
 																										<?php } ?>
@@ -283,19 +289,10 @@
 					<!-- /# row -->
 				</div>
 			</div>
-			<script>
-				$.ajax({
-					type: 'POST',
-					url: "<?php echo base_url(); ?>akun/update_hak_tambah",
-					success: function(<?= $this->session->flashdata('msg'); ?>){
-						if(<?= $this->session->flashdata('msg'); ?> == "Success"){
-							$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
-						}else{
-							alert("Something just went wrong, Please try again later...");
-						}
-					},
-					error: function(){ 
-						alert("Something just went wrong, Please try again later...");
-					}
+			<?php if($this->session->flashdata('response')){ ?>
+				<script type="text/javascript">
+				$(document).ready(function(){
+					$('#modal-default<?php echo $us['id_user'] ?>').modal('show');
 				});
-			</script>
+				</script>
+			<?php } ?>
