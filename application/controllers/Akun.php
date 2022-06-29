@@ -77,13 +77,19 @@ class Akun extends CI_Controller
                     'id_menu' => $j,
                     'tambah' => 2,
                     'edit' => 2,
+                    'hapus' => 2,
                     ];
                 }elseif ($j == 8){
                     $data2 = [
                     'id_user' => $maxuid,
                     'id_menu' => $j,
+                    'hapus' => 2,
+                    ];
+                }elseif ($j == 9){
+                    $data2 = [
+                    'id_user' => $maxuid,
+                    'id_menu' => $j,
                     'tambah' => 2,
-                    'edit' => 2,
                     'hapus' => 2,
                     ];
                 }else{
