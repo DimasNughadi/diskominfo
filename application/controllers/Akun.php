@@ -62,7 +62,7 @@ class Akun extends CI_Controller
                 'status' => $this->input->post('status')
             ];
             $this->User_model->insert($data);
-            $i = [2, 3, 5, 6, 7, 8, 9];
+            $i = [2, 3, 5, 6, 8, 9];
             $maxuid = $this->User_model->getMaxUID();
             foreach ($i as $j){
                 if ($j == 3){
