@@ -76,6 +76,8 @@
 																		<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>"
 																			class="btn btn-success btn-sm disabled">Active</a>
 																		<?php } ?>
+																		<?php } elseif ($hk['tambah'] == 2 )  { ?>
+																		<a></a>
 																		<?php } else { ?>
 																		<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>"
 																			class="btn btn-warning btn-sm disabled">Inactive</a>
@@ -90,6 +92,8 @@
 																		<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>"
 																			class="btn btn-success btn-sm disabled">Active</a>
 																		<?php } ?>
+																		<?php } elseif ($hk['edit'] == 2 ) { ?>
+																		<a></a>
 																		<?php } else { ?>
 																		<a href="<?php echo base_url(); ?>akun/update_hak_edit/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['edit']; ?>"
 																			class="btn btn-warning btn-sm disabled">Inactive</a>
@@ -104,6 +108,8 @@
 																		<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>"
 																			class="btn btn-success btn-sm disabled">Active</a>
 																		<?php } ?>
+																		<?php } elseif ($hk['hapus'] == 2 ) { ?>
+																		<a></a>
 																		<?php } else { ?>
 																		<a href="<?php echo base_url(); ?>akun/update_hak_hapus/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['hapus']; ?>"
 																			class="btn btn-warning btn-sm disabled">Inactive</a>
