@@ -88,9 +88,9 @@
 																				<?php } ?>
 																			<?php } elseif ($hk['tambah'] == 2) { ?>
 																				<a></a>
-																				<?php } else { ?>
-																					<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
-																				<?php } ?>
+																			<?php } else { ?>
+																				<a href="<?php echo base_url(); ?>akun/update_hak_tambah/<?php echo $hk['id_hak_akses']; ?>/<?php echo $hk['tambah']; ?>" class="btn btn-warning btn-sm disabled">Inactive</a>
+																			<?php } ?>
 																		</td>
 																		<td>
 																			<?php if ($hk['edit'] == 1) { ?>
@@ -142,7 +142,7 @@
 							<div class="card-body">
 								<div class="tab-content">
 									<div class="active tab-pane" id="settings">
-										<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+										<form class="form-horizontal" action="<?= base_url('account/ubahpassword'); ?>" method="post">
 											<input type="hidden" name="id" value="<?= $user['id_user']; ?>">
 											<div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Nama</label>
@@ -177,21 +177,30 @@
 											<div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Password Sekarang</label>
 												<div class="col-sm-3">
-													<input type="password" class="form-control" name="password1" value="">
+													<input type="password" class="form-control" name="current_password" value="">
 												</div>
+												<?= form_error('current_password', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
 												<div class="col-sm-3">
-													<input type="password" class="form-control" name="password2" value="">
+													<input type="password" class="form-control" name="new_password1" value="">
 												</div>
+												<?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
+											</div>
+											<div class="form-group row">
+												<label for="inputName" class="col-sm-2 col-form-label">Ulang Password Baru</label>
+												<div class="col-sm-3">
+													<input type="password" class="form-control" name="new_password2" value="">
+												</div>
+												<?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
 												<div class="offset-sm-2 col-sm-10">
 													<!-- Trigger -->
 													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default">
 														Update
-													</button>	
+													</button>
 												</div>
 
 												<!-- Modal -->
