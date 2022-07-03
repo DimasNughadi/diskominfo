@@ -34,7 +34,7 @@
 							<?php } ?>
 						<?php endforeach; ?>
 						<!-- <div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-info mb-2">Tambah Data Aset</a></div> -->
-						<div class="card">
+						<!-- <div class="card">
 							<?php if ($this->session->userdata('role') == "Admin") : ?>
 								<div class="jsgrid-table-panel">
 									<div class="col-md-2">
@@ -49,7 +49,7 @@
 									</div>
 								</div>
 							<?php else : ?>
-							<?php endif; ?>
+							<?php endif; ?> -->
 
 							<div class="card">
 								<div class="jsgrid-table-panel">
@@ -269,7 +269,7 @@
 								<!-- /# card -->
 							</div>
 							<!-- /# column -->
-						</div>
+						<!-- </div> -->
 						<!-- /# row -->
 					</div>
 				</div>

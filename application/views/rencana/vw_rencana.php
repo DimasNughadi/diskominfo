@@ -34,9 +34,9 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="jsgrid-table-panel">
-                            </div>
+                            </div> -->
                             <div class="card">
                                 <div class="jsgrid-table-panel">
                                     <?= $this->session->flashdata('message'); ?>
@@ -114,7 +114,7 @@
                                 <!-- /# card -->
                             </div>
                             <!-- /# column -->
-                        </div>
+                        <!-- </div> -->
                         <!-- /# row -->
                     </div>
                 </div>
