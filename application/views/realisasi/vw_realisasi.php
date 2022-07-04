@@ -109,7 +109,7 @@
                                                         } ?>
                                                     </td>
                                                     <td>
-                                                        <?php if (isset($us->real_mulai)) { ?>
+                                                        <?php if ($us->status == "Open") { ?>
                                                             <?php foreach ($hak as $hk) : ?>
                                                                 <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
                                                                     <?php if ($hk['edit'] == 1) { ?>
