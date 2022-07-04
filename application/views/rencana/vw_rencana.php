@@ -106,7 +106,7 @@
 
                                                             <!-- Trigger Hapus -->
                                                             <?php foreach ($hak as $hk) : ?>
-                                                                <?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                <?php if ($hk['id_menu'] == 8 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
                                                                     <?php if ($hk['hapus'] == 1) { ?>
                                                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">
                                                                             <i class="ti-trash"></i>
