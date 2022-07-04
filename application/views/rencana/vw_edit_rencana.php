@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="card-footer bg-white">
                                         <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">Simpan Data</button>
-                                        <a href="<?= base_url('Resiko') ?>" class="btn btn-danger">Tutup</a>
+                                        <a href="<?= base_url('rencana') ?>" class="btn btn-danger">Tutup</a>
                                     </div>
 
                                 </div>
