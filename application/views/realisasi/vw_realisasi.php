@@ -112,7 +112,7 @@
                                                         <?php if (isset($us->real_mulai)) { ?>
                                                             <?php foreach ($hak as $hk) : ?>
                                                                 <?php if ($hk['id_menu'] == 9 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-                                                                    <?php if ($hk['tambah'] == 1) { ?>
+                                                                    <?php if ($hk['edit'] == 1) { ?>
                                                                         <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Realisasi</a>
                                                                     <?php } else { ?>
                                                                         <a href="<?= base_url('realisasi/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Realisasi</a>
