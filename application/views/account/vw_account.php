@@ -147,7 +147,7 @@
 											<div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Nama</label>
 												<div class="col-sm-10">
-													<input type="text" name="username" value="<?= $user['username']; ?>" class="form-control" id="username" placeholder="Name">
+													<input type="text" readonly name="username" value="<?= $user['username']; ?>" class="form-control" id="username" placeholder="Name">
 												</div>
 												<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
