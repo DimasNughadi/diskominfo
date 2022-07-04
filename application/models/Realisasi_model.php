@@ -40,7 +40,7 @@ class Realisasi_model extends CI_Model
         $this->db->having('monitor_rtp.id_risiko > 0');
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
-        $this->db->where('monitor_rtp.deskripsi !=','');
+        $this->db->where('monitor_rtp.deskripsi !=', '');
         $this->db->order_by('monitor_rtp.real_mulai ASC');
         // if($query->num_rows() != 0)
         // {
@@ -58,10 +58,9 @@ class Realisasi_model extends CI_Model
         $this->db->having('monitor_rtp.id_risiko > 0');
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
-        
+
         $this->db->order_by('monitor_rtp.real_mulai ASC');
         return $this->db->get();
-
     }
 
     function showRealisasiById($id)
@@ -106,10 +105,11 @@ class Realisasi_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function delete($id)
+    public function reset($id)
     {
-        $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
+        $this->db->query("UPDATE monitor_rtp
+        SET keterangan = null, hambatan = null, real_mulai = null, real_selesai = null, status = 'Open'
+        WHERE monitor_rtp.id_risiko = $id");
         return $this->db->affected_rows();
     }
     function upload()
