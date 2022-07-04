@@ -99,7 +99,7 @@
                                                     <td>
                                                         <?php if ($us->status == "Close") {
                                                             if ($us->berkas == "") { ?>
-                                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">Upload <span class="fa fa-upload"></span> </button>
+                                                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-default<?php echo $us->id_risiko; ?>">Upload <span class="fa fa-upload"></span> </button>
 
                                                             <?php       } else { ?>
                                                                 <a class="btn btn-danger btn-sm" href="<?= base_url('uploadzip/' . $us->berkas) ?>">Download<span class="fa fa-download"></span></a>
@@ -187,7 +187,7 @@
                 <?php if ($realisasi != null) : ?>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-default<?php echo $us->id_risiko; ?>" tabindex=" -1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -205,7 +205,7 @@
                                         <div class="form-group">
                                             <div class="custom-file">
                                                 <input type="file" name="berkas" class="custom-file-input" id="berkas">
-                                                <label for="berkas" class="custom-file-label">Choose File</label>
+                                                <label for="berkas" class="custom-file-label">Choose File (JPG, ZIP, RAR, PDF) Max 3MB</label>
                                             </div>
                                         </div>
                                     </div>
