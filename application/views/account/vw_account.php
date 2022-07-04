@@ -147,16 +147,15 @@
 											<div class="form-group row">
 												<label for="inputName" class="col-sm-2 col-form-label">Nama</label>
 												<div class="col-sm-10">
-													<input type="text" name="nama" value="<?= $user['username']; ?>" class="form-control" id="inputName" placeholder="Name">
+													<input type="text" name="username" value="<?= $user['username']; ?>" class="form-control" id="username" placeholder="Name">
 												</div>
-												<?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
+												<?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
-												<label for="inputName" class="col-sm-2 col-form-label">Role</label>
+												<label for="inputRole" class="col-sm-2 col-form-label">Role</label>
 												<div class="col-sm-10">
 													<input type="text" readonly name="role" value="<?= $user['role']; ?>" class="form-control" id="inputName" placeholder="Name">
 												</div>
-												<?= form_error('role', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="form-group row">
 												<label for="inputBidang" class="col-sm-2 col-form-label">Bidang</label>
@@ -167,9 +166,7 @@
 
 														<?php } ?>
 													<?php endforeach; ?>
-
 												</div>
-												<?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
 											</div>
 											<div class="card bg-primary text-white">
 												<h3 class="card-title text-white">Ubah Password</h3>

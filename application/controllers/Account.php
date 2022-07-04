@@ -29,7 +29,7 @@ class Account extends CI_Controller
     public function ubahpassword()
     {
         $data['judul'] = 'Change Password';
-        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['id_user' => $this->session->userdata('id_user')])->row_array();
         $data['bidang'] = $this->Bidang_model->get();
         $data['hak'] = $this->HakAkses_model->get();
         $data['menu'] = $this->Menu_model->get();
@@ -44,6 +44,7 @@ class Account extends CI_Controller
         } else {
             $current_password = $this->input->post('current_password');
             $new_password = $this->input->post('new_password1');
+            $username = $this->input->post('username');
 
             if (!password_verify($current_password, $data['user']['password'])) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
@@ -59,11 +60,21 @@ class Account extends CI_Controller
                 } else {
                     $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
                     $this->db->set('password', $password_hash);
-                    $this->db->where('username', $data['user']['username']);
+                    $this->db->set('username', $username);
+                    $this->db->where('id_user', $data['user']['id_user']);
                     $this->db->update('user');
                     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
                     Password Berhasil Diubah!
                    </div>');
+                   $user = $this->db->get_where('user', ['username' => $username])->row_array();
+                   $data = [
+                    'username' => $user['username'],
+                    'role' => $user['role'],
+                    'id_bidang' => $user['id_bidang'],
+                    'status' => $user['status'],
+                    'id_user' => $user['id_user'],
+                    ];
+                    $this->session->set_userdata($data);
                     redirect('account');
                 }
             }
