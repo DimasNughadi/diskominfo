@@ -85,7 +85,7 @@
                                                             <?php if (!isset($us->deskripsi)) { ?>
                                                                 <?php foreach ($hak as $hk) : ?>
                                                                     <?php if ($hk['id_menu'] == 8 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-                                                                        <?php if ($hk['tambah'] == 1){ ?>
+                                                                        <?php if ($hk['tambah'] == 1) { ?>
                                                                             <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info">Buat Rencana</a>
                                                                         <?php } else { ?>
                                                                             <a href="<?= base_url('rencana/tambah/') . $us->id_risiko; ?>" class="btn btn-sm btn-info disabled">Buat Rencana</a>
@@ -95,7 +95,7 @@
                                                             <?php } else { ?>
                                                                 <?php foreach ($hak as $hk) : ?>
                                                                     <?php if ($hk['id_menu'] == 8 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-                                                                        <?php if ($hk['edit'] == 1){ ?>
+                                                                        <?php if ($hk['edit'] == 1) { ?>
                                                                             <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success">Edit Rencana</a>
                                                                         <?php } else { ?>
                                                                             <a href="<?= base_url('rencana/edit/') . $us->id_risiko; ?>" class="btn btn-sm btn-success disabled">Edit Rencana</a>
@@ -103,6 +103,44 @@
                                                                     <?php } ?>
                                                                 <?php endforeach; ?>
                                                             <?php } ?>
+
+                                                            <!-- Trigger Hapus -->
+                                                            <?php foreach ($hak as $hk) : ?>
+                                                                <?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
+                                                                    <?php if ($hk['edit'] == 1) { ?>
+                                                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">
+                                                                            <i class="ti-trash"></i>
+                                                                        </button>
+                                                                    <?php } else { ?>
+                                                                        <button type="button" class="btn btn-danger btn-sm" disabled data-toggle="modal" data-target="#modal-danger<?php echo $us->id_risiko; ?>">
+                                                                            <i class="ti-trash"></i>
+                                                                        </button>
+                                                                    <?php } ?>
+                                                                <?php } ?>
+                                                            <?php endforeach; ?>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="modal-danger<?php echo $us->id_risiko; ?>">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content bg-danger">
+                                                                        <div class="modal-header">
+                                                                            <h4 class="text-light">Hapus Data Risiko</h4>
+                                                                            <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                                                                                <i class="fa fa-close"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p class="card-title text-light">Anda yakin akan menghapus data ini&hellip; ?</p>
+                                                                        </div>
+                                                                        <div class="modal-footer justify-content-between">
+                                                                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Tutup</button>
+                                                                            <a href="<?= base_url('rencana/hapus/') . $us->id_risiko; ?>" class="btn btn-outline-light">Simpan Perubahan</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
+                                                            </div>
+                                                            <!-- /.modal -->
                                                         </td>
                                                     </tr>
                                                     <?php $i++; ?>

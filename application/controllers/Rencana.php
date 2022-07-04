@@ -90,7 +90,7 @@ class Rencana extends CI_Controller
         $this->form_validation->set_rules('deskripsi', 'Deskripsi RTP', 'required', [
             'required' => 'Deskripsi RTP Wajib di isi'
         ]);
-        
+
         $this->form_validation->set_rules('plan_mulai', 'Plan Mulai', 'required', [
             'required' => 'Plan Mulai Wajib di isi'
         ]);
@@ -127,5 +127,17 @@ class Rencana extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Rencana Penanganan Risiko Berhasil Diubah!</div>');
             redirect('rencana');
         }
+    }
+
+    public function hapus($id)
+    {
+        $this->Rencana_model->delete($id);
+        $error = $this->db->error();
+        if ($error['code'] != 0) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="icon  fas fa-info-circle"></i>Data Risiko tidak dapat dihapus (sudah berelasi)!</div>');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><i  class="icon fas fa-check-circle"></i>Data Risiko Berhasil Dihapus!</div>');
+        }
+        redirect('rencana');
     }
 }
