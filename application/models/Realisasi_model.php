@@ -108,7 +108,7 @@ class Realisasi_model extends CI_Model
     public function reset($id)
     {
         $this->db->query("UPDATE monitor_rtp
-        SET keterangan = null, hambatan = null, real_mulai = null, real_selesai = null, status = 'Open'
+        SET keterangan = null, hambatan = null, real_mulai = null, real_selesai = null, status = 'Open', berkas = null
         WHERE monitor_rtp.id_risiko = $id");
         return $this->db->affected_rows();
     }
