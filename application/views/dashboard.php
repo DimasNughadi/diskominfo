@@ -159,12 +159,13 @@
 									<div class="ct-pie-chart">
 										<canvas id="myChart3" style="width:100%;max-width:600px"></canvas>
 											<script>
-											var xValues = ["Physical", "Software", "Lisensi"];
-											var yValues = [<?php echo $asetP ?>, <?php echo $asetS ?>, <?php echo $asetL ?>];
+											var xValues = ["Persandian", "Statistik", "Infrastruktur", "Aptika"];
+											var yValues = [<?php echo $asetPersandian['total']; ?>, <?php echo $asetStatistika['totalS']; ?>, <?php echo $asetInfrastruktur['totalI']; ?>, <?php echo $asetAptika['totalA']; ?>];
 											var barColors = [
 											"#17a2b8",
 											"#28a745",
-											"#dc3545"
+											"#dc3545",
+											"#ff8800"
 											];
 
 											new Chart("myChart3", {
@@ -179,7 +180,7 @@
 											options: {
 												title: {
 												display: true,
-												text: "Perbandingan Jenis Aset"
+												text: "Jumlah Aset per Bidang"
 												}
 											}
 											});

@@ -38,56 +38,28 @@ class Aset_model extends CI_Model
         FROM aset")->row_array();
     }
 
-    public function getPhysical()
+    public function getCountP()
     {
-        $where = 'Physical';
-        $this->db->select('*');
-        $this->db->from('aset');
-        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where('jenis_aset.nama_jenis_aset', $where);
-        $query = $this->db->get();
-        return $query->result_array();
+        return $this->db->query("SELECT SUM(qty) as total
+        FROM aset where id_bidang = 1 ")->row_array();
     }
 
-    public function getSoftware()
+    public function getCountS()
     {
-        $where = 'Software';
-        $this->db->select('*');
-        $this->db->from('aset');
-        $this->db->join('jenis_aset', 'jenis_aset.id_jenis_aset = aset.id_jenis_aset', 'right');
-        $this->db->join('user', 'user.id_user = aset.id_user', 'left');
-        $this->db->where('jenis_aset.nama_jenis_aset', $where);
-        $query = $this->db->get();
-        return $query->result_array();
+        return $this->db->query("SELECT SUM(qty) as totalS
+        FROM aset where id_bidang = 5 ")->row_array();
     }
 
-    public function getCountPhy()
+    public function getCountI()
     {
-        $this->db->select('*');
-        $this->db->from('aset');
-        $this->db->where('id_jenis_aset = 1');
-        // return $this->db->get();
-        return $this->db->count_all_results();
+        return $this->db->query("SELECT SUM(qty) as totalI
+        FROM aset where id_bidang = 3 ")->row_array();
     }
 
-    public function getCountSoft()
+    public function getCountA()
     {
-        $where = 'Software';
-        $this->db->select('*');
-        $this->db->from('aset');
-        $this->db->where('id_jenis_aset = 2');
-        // return $this->db->get();
-        return $this->db->count_all_results();
-    }
-
-    public function getCountLic()
-    {
-        $this->db->select('*');
-        $this->db->from('aset');
-        $this->db->where('id_jenis_aset = 3');
-        // return $this->db->get();
-        return $this->db->count_all_results();
+        return $this->db->query("SELECT SUM(qty) as totalA
+        FROM aset where id_bidang = 2 ")->row_array();
     }
 
     public function getById($id)

@@ -21,9 +21,10 @@ class Dashboard extends CI_Controller {
         $data['open'] = $this->Realisasi_model->getOpen();
         $data['close'] = $this->Realisasi_model->getClose();
         $data['aset'] = $this->Aset_model->getCount();
-        $data['asetP'] = $this->Aset_model->getCountPhy();
-        $data['asetS'] = $this->Aset_model->getCountSoft();
-        $data['asetL'] = $this->Aset_model->getCountLic();
+        $data['asetPersandian'] = $this->Aset_model->getCountP();
+        $data['asetStatistika'] = $this->Aset_model->getCountS();
+        $data['asetInfrastruktur'] = $this->Aset_model->getCountI();
+        $data['asetAptika'] = $this->Aset_model->getCountA();
         $data['usercount'] = $this->User_model->getCount();
         $data['sangatrendah'] = $this->Resiko_model->getCountSR();
         $data['rendah'] = $this->Resiko_model->getCountR();
