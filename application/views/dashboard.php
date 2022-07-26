@@ -34,7 +34,7 @@
 									</div>
 									<div class="stat-content dib">
 										<div class="stat-text">Total Aset</div>
-										<div class="stat-digit"><?php echo $aset ?></div>
+										<div class="stat-digit"><?php echo $aset['total'] ?></div>
 									</div>
 								</div>
 							</div>
@@ -200,7 +200,7 @@
                                     <?= $this->session->flashdata('message'); ?>
                                     <!-- /.card-header -->
                                     <div class="card-body">
-
+										<h4 style="text-align: center;">Progres Penanganan Risiko</h4>
                                         <table id="example1" class="table table-bordered table-striped">
                                             <thead>
                                                 <tr>

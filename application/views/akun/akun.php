@@ -55,7 +55,6 @@
 										<thead>
 											<tr>
 												<th>No</th>
-												<th>ID User</th>
 												<th>Username</th>
 												<th>Role</th>
 												<th>Bidang</th>
@@ -68,7 +67,6 @@
 											<?php foreach ($akun as $us) : ?>
 												<tr>
 													<td><?= $i; ?></td>
-													<td><?= $us['id_user']; ?></td>
 													<td><?= $us['username']; ?></td>
 													<td><?= $us['role']; ?></td>
 													<td>

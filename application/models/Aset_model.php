@@ -20,24 +20,22 @@ class Aset_model extends CI_Model
     public function getAsetPhysical()
     {
         $this->db->from($this->table);
-        $this->db->where('aset.id_jenis_aset','1');
+        $this->db->where('aset.id_jenis_aset', '1');
         $query = $this->db->get();
         return $query->result_array();
     }
     public function getAsetSoftware()
     {
         $this->db->from($this->table);
-        $this->db->where('aset.id_jenis_aset','2');
+        $this->db->where('aset.id_jenis_aset', '2');
         $query = $this->db->get();
         return $query->result_array();
     }
 
     public function getCount()
     {
-        $this->db->select('*');
-        $this->db->from('aset');
-        return $this->db->count_all_results();
-        
+        return $this->db->query("SELECT SUM(qty) as total
+        FROM aset")->row_array();
     }
 
     public function getPhysical()
@@ -64,7 +62,8 @@ class Aset_model extends CI_Model
         return $query->result_array();
     }
 
-    public function getCountPhy(){
+    public function getCountPhy()
+    {
         $this->db->select('*');
         $this->db->from('aset');
         $this->db->where('id_jenis_aset = 1');
@@ -72,7 +71,8 @@ class Aset_model extends CI_Model
         return $this->db->count_all_results();
     }
 
-    public function getCountSoft(){
+    public function getCountSoft()
+    {
         $where = 'Software';
         $this->db->select('*');
         $this->db->from('aset');
@@ -81,7 +81,8 @@ class Aset_model extends CI_Model
         return $this->db->count_all_results();
     }
 
-    public function getCountLic(){
+    public function getCountLic()
+    {
         $this->db->select('*');
         $this->db->from('aset');
         $this->db->where('id_jenis_aset = 3');
@@ -123,6 +124,4 @@ class Aset_model extends CI_Model
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-
-
 }
