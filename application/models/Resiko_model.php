@@ -20,33 +20,44 @@ class Resiko_model extends CI_Model
 
     function showRisiko()
     {
+        // $this->db->select('*');
+        // $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
+        // $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+        // $this->db->from('risiko');
+        // $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+
+        // $this->db->select('*');
+        // $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+        // $this->db->from('aset');
+        // $this->db->join('risiko', 'risiko.id_aset = aset.id_aset', 'left');
+
         $this->db->select('*');
-        $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
-        $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+        $this->db->select('(select count(id_aset) from risiko where aset.id_aset = risiko.id_aset) as rowpk');
         $this->db->from('risiko');
         $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+        $this->db->order_by('risiko.id_aset','asc');
         return $this->db->get();
     }
-    function showRisikoPhysical()
-    {
-        $this->db->select('*');
-        $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
-        $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        $this->db->from('risiko');
-        $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
-        $this->db->where('aset.id_jenis_aset','1');
-        return $this->db->get();
-    }
-    function showRisikoSoftware()
-    {
-        $this->db->select('*');
-        $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
-        $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
-        $this->db->from('risiko');
-        $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
-        $this->db->where('aset.id_jenis_aset','2');
-        return $this->db->get();
-    }
+    // function showRisikoPhysical()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
+    //     $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+    //     $this->db->from('risiko');
+    //     $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+    //     $this->db->where('aset.id_jenis_aset','1');
+    //     return $this->db->get();
+    // }
+    // function showRisikoSoftware()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->select('(select count(nama_aset) from aset LEFT JOIN risiko ON risiko.id_aset = aset.id_aset where aset.id_aset = risiko.id_aset ) as rowas');
+    //     $this->db->select('(select count(nama_risiko) from risiko where risiko.id_aset = aset.id_aset) as rowpk');
+    //     $this->db->from('risiko');
+    //     $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'left');
+    //     $this->db->where('aset.id_jenis_aset','2');
+    //     return $this->db->get();
+    // }
 
     function getCountSR()
     {

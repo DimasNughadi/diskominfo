@@ -26,15 +26,7 @@
 			<div id="main-content">
 				<div class="row">
 					<div class="col-lg-12">
-						<?php foreach ($hak as $hk) : ?>
-							<?php if ($hk['id_menu'] == 6 && $hk['id_user'] == ucwords($this->session->userdata('id_user'))) { ?>
-								<?php if ($hk['tambah'] == 1) { ?>
-									<div class="col-md-6"><a href="<?= base_url(); ?>resiko/tambah" class="btn btn-info mb-2">Tambah</a></div>
-								<?php } else { ?>
-									<div class="col-md-6"><a href="<?= base_url(); ?>aset/tambah" class="btn btn-secondary mb-2 disabled">Tambah</a></div>
-								<?php } ?>
-							<?php } ?>
-						<?php endforeach; ?>
+						
 						<div class="card">
 							<div class="jsgrid-table-panel">
 								<?= $this->session->flashdata('message'); ?>
@@ -74,7 +66,7 @@
 														}
 													?>
 														<td rowspan="<?= $jmlrow ?>"><?= $noskp ?></td>
-														<td rowspan="<?= $jmlrow ?>"><?= $skp->nama_aset ?></td>
+														<td rowspan="<?= $jmlrow ?>"><?= $skp->nama_aset ?> ( <?= $skp->lokasi_aset ?>)</td>
 													<?php
 														$jum = $skp->rowpk;
 														$noskp++;
@@ -82,6 +74,7 @@
 														$jum = $jum - 1;
 													}
 													?>
+
 													<td><?= $skp->nama_risiko ?></td>
 													<td><?= $skp->penyebab ?></td>
 													<td><?= $skp->dampak ?></td>
@@ -90,7 +83,6 @@
 													<td><?= $skp->tingkat_risiko ?></td>
 													<td><?= $skp->pengendalian ?></td>
 													<td><?= $skp->keputusan ?></td>
-
 													<td>
 														<!-- Trigger Edit -->
 														<?php foreach ($hak as $hk) : ?>
@@ -170,8 +162,9 @@
 													</td>
 
 												</tr>
-
 											<?php  } ?>
+
+
 
 										</tbody>
 									</table>

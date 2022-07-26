@@ -42,6 +42,23 @@
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="inputStatus">Nama Aset</label>
+                                                <input type="hidden" class="form-control" name="id_aset" value="<?= $id; ?>" id="nama_aset" readonly>
+                                                <?php foreach ($aset as $ja) : ?>
+                                                    <?php if ($ja['id_aset'] == $id) { ?>
+                                                        <input type="text" class="form-control" name="nama_user" value="<?= $ja['nama_aset']; ?>" readonly>
+                                            </div>
+                                            <div class="col">
+                                                <label for="inputStatus">Lokasi Aset</label>
+                                                <input type="text" class="form-control" value="<?= $ja['lokasi_aset']; ?>" readonly>
+                                            <?php } ?>
+                                        <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputName">Nama Risiko</label>
                                         <input type="text" class="form-control" name="nama_risiko" value="<?= set_value('nama_risiko'); ?>" id="nama_risiko" placeholder="Masukkan Nama Risiko">
                                         <?= form_error('nama_risiko', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -52,22 +69,11 @@
                                         <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputStatus">Nama Aset</label>
-                                        <select id="inputStatus" name="id_aset" value="<?= set_value('id_aset'); ?>" class="form-control custom-select">
-                                            <option selected disabled>Pilih Aset</option>
-                                            <?php foreach ($aset as $udt) : ?>
-                                                <?php if ($udt['nama_aset'] != null) { ?>
-                                                    <option value="<?= $udt['id_aset']; ?>"><?= $udt['nama_aset']; ?></option>
-                                                <?php } ?>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="exampleInputName">Penyebab</label>
                                         <textarea class="form-control" rows="6" name="penyebab" value="<?= set_value('penyebab'); ?>" id="penyebab" placeholder="Masukkan Penyebab Risiko"></textarea>
                                         <?= form_error('penyebab', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="exampleInputName">Dampak</label>
                                         <textarea class="form-control" rows="6" name="dampak" value="<?= set_value('dampak'); ?>" id="dampak" placeholder="Masukkan Dampak Risiko"></textarea>
@@ -118,7 +124,7 @@
                                         <option value="5">Sangat Sering</option>
                                     </select>
                                 </div>
-                                <br/>
+                                <br />
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer bg-white">

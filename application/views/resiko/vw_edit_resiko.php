@@ -43,6 +43,23 @@
                                         <?= form_error('id_user', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label for="inputStatus">Nama Aset</label>
+                                                <input type="hidden" class="form-control" name="id_aset" value="<?= $resiko['id_aset']; ?>" id="nama_aset" readonly>
+                                                <?php foreach ($aset as $ja) : ?>
+                                                    <?php if ($ja['id_aset'] == $resiko['id_aset']) { ?>
+                                                        <input type="text" class="form-control" name="nama_user" value="<?= $ja['nama_aset']; ?>" readonly>
+                                            </div>
+                                            <div class="col">
+                                                <label for="inputStatus">Lokasi Aset</label>
+                                                <input type="text" class="form-control" value="<?= $ja['lokasi_aset']; ?>" readonly>
+                                            <?php } ?>
+                                        <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputName">Nama Risiko</label>
                                         <input type="text" class="form-control" name="nama_risiko" value="<?= $resiko['nama_risiko']; ?>" id="nama_risiko" placeholder="Masukkan Nama Risiko">
                                         <?= form_error('nama_risiko', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -52,30 +69,20 @@
                                         <input type="number" class="form-control" name="tahun" value="<?= $resiko['tahun']; ?>" id="tahun" placeholder="Masukkan Tahun Risiko">
                                         <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputStatus">Nama Aset</label>
-                                        <select id="inputStatus" name="id_aset" class="form-control custom-select">
-                                            <option selected disabled>Pilih Aset</option>
-                                            <?php foreach ($aset as $udt) { ?>
-                                                <option <?php if ($udt['id_aset'] == $resiko['id_aset']) {
-                                                            echo 'selected="selected"';
-                                                        } ?> value="<?= $udt['id_aset']; ?>"><?= $udt['nama_aset']; ?></option>
-                                            <?php } ?>
-                                        </select>
-                                    </div>
+
                                     <div class="form-group">
                                         <label for="exampleInputName">Penyebab</label>
-                                        <textarea class="form-control" rows="6" name="penyebab"  id="penyebab" placeholder="Masukkan Penyebab Risiko"><?= $resiko['penyebab']; ?></textarea>
+                                        <textarea class="form-control" rows="6" name="penyebab" id="penyebab" placeholder="Masukkan Penyebab Risiko"><?= $resiko['penyebab']; ?></textarea>
                                         <?= form_error('penyebab', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Dampak</label>
-                                        <textarea class="form-control" rows="6" name="dampak"  id="dampak" placeholder="Masukkan Dampak Risiko"><?= $resiko['dampak']; ?></textarea>
+                                        <textarea class="form-control" rows="6" name="dampak" id="dampak" placeholder="Masukkan Dampak Risiko"><?= $resiko['dampak']; ?></textarea>
                                         <?= form_error('dampak', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName">Pengendalian</label>
-                                        <textarea class="form-control" rows="6" name="pengendalian"  id="pengendalian" placeholder="Masukkan Pengendalian Risiko"><?= $resiko['pengendalian']; ?></textarea>
+                                        <textarea class="form-control" rows="6" name="pengendalian" id="pengendalian" placeholder="Masukkan Pengendalian Risiko"><?= $resiko['pengendalian']; ?></textarea>
                                         <?= form_error('pengendalian', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
