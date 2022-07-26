@@ -25,6 +25,7 @@ class Rencana_model extends CI_Model
 
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'right');
+        $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'right');
         $this->db->where($where);
         return $this->db->get();
 

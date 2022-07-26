@@ -93,6 +93,8 @@ class Aset extends CI_Controller
                 'lokasi_aset' => $this->input->post('lokasi_aset'),
                 'subclass_aset' => $this->input->post('subclass_aset'),
                 'used_by' => $this->input->post('used_by'),
+                'added_by' => $this->input->post('added_by'),
+                'updated_by' => "",
                 'created_on' => time()
             ];
             $this->Aset_model->insert($data);
@@ -166,6 +168,7 @@ class Aset extends CI_Controller
                 'lokasi_aset' => $this->input->post('lokasi_aset'),
                 'subclass_aset' => $this->input->post('subclass_aset'),
                 'used_by' => $this->input->post('used_by'),
+                'updated_by' => $this->input->post('id_user'),
                 'created_on' => time(),
                 'id_aset' => $this->input->post('id_aset'),
             ];

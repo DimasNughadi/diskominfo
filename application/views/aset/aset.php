@@ -68,6 +68,7 @@
 												<th>Qty</th>
 												<th>Bidang</th>
 												<th>Added by</th>
+												<th>Updated by</th>
 												<th>Tanggal</th>
 												<th>Aksi</th>
 											</tr>
@@ -97,7 +98,14 @@
 													</td>
 													<td>
 														<?php foreach ($userdata as $user) : ?>
-															<?php if ($us['id_user'] == $user['id_user']) { ?>
+															<?php if ($us['added_by'] == $user['id_user']) { ?>
+																<?= $user['username']; ?>
+															<?php } ?>
+														<?php endforeach; ?>
+													</td>
+													<td>
+														<?php foreach ($userdata as $user) : ?>
+															<?php if ($us['updated_by'] == $user['id_user']) { ?>
 																<?= $user['username']; ?>
 															<?php } ?>
 														<?php endforeach; ?>

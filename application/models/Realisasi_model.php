@@ -40,6 +40,7 @@ class Realisasi_model extends CI_Model
         $this->db->having('monitor_rtp.id_risiko > 0');
         $this->db->from('monitor_rtp');
         $this->db->join('risiko', 'risiko.id_risiko = monitor_rtp.id_risiko', 'left');
+        $this->db->join('aset', 'aset.id_aset = risiko.id_aset', 'right');
         $this->db->where('monitor_rtp.deskripsi !=', '');
         $this->db->order_by('monitor_rtp.real_mulai ASC');
         // if($query->num_rows() != 0)

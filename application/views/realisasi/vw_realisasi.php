@@ -47,13 +47,12 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Nama Aset</th>
                                                 <th>Risiko</th>
                                                 <th>Penyebab</th>
                                                 <th>Tingkat Risiko</th>
                                                 <th>Penanganan Yang Sudah Ada</th>
                                                 <th>Rencana Penanganan</th>
-                                                <th>Mulai</th>
-                                                <th>Selesai</th>
                                                 <th>Indikator Output</th>
                                                 <th>PIC</th>
                                                 <th>Anggaran</th>
@@ -70,18 +69,12 @@
                                             <?php foreach ($realisasi as $us) : ?>
                                                 <tr>
                                                     <td><?= $i; ?></td>
+                                                    <td><?= $us->nama_aset ?> ( <?= $us->lokasi_aset ?>)</td>
                                                     <td><?= $us->nama_risiko ?></td>
                                                     <td><?= $us->penyebab ?></td>
                                                     <td><?= $us->tingkat_risiko ?></td>
                                                     <td><?= $us->pengendalian ?></td>
                                                     <td><?= $us->deskripsi ?></td>
-
-                                                    <td><?php if (!empty((int)$us->plan_mulai)) {
-                                                            echo date('d-m-Y', strtotime($us->plan_mulai));
-                                                        } else echo " "; ?></td>
-                                                    <td><?php if (!empty((int)$us->plan_selesai)) {
-                                                            echo date('d-m-Y', strtotime($us->plan_selesai));
-                                                        } else echo " "; ?></td>
 
                                                     <td><?= $us->indikator_output ?></td>
                                                     <td><?= $us->pic ?></td>

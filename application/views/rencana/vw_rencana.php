@@ -47,6 +47,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Nama Aset</th>
                                                     <th>Risiko</th>
                                                     <th>Penyebab</th>
                                                     <th>Tingkat Risiko</th>
@@ -65,6 +66,7 @@
                                                 <?php foreach ($rencana as $us) : ?>
                                                     <tr>
                                                         <td><?= $i; ?></td>
+                                                        <td><?= $us->nama_aset ?> ( <?= $us->lokasi_aset ?>)</td>
                                                         <td><?= $us->nama_risiko ?></td>
                                                         <td><?= $us->penyebab ?></td>
                                                         <td><?= $us->tingkat_risiko ?></td>
